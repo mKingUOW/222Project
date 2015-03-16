@@ -1,0 +1,80 @@
+CSCI222/MCS9222 Spring 2014 System Development
+Assignment One (Worth 15%)
+
+Group: 2
+Tutor: Daniel Avery
+
+Report coverage:
+1.Business case 
+Missing
+
+2.Planning
+Missing
+
+3.Risks and counter measures
+A broader coverage of risks is needed
+
+Risk need to be ranked
+
+You need to also cover team risks e.g. a team member withdraws from the subject in the middle of the project, etc. 
+
+4.Software Requirements Specification
+Many requirements are vague and ambiguous (r1 what is meant by “manage the access”, r2 CFP needs to be defined as call for papers somewhere, r21)
+
+Many requirements lack details and specifics (r16, r17 what kind of communications)  
+
+Some requirements are not consistent with specification (r1 who are referees)
+
+Some requirements are too inclusive (r3 has two functionalities, extend deadline and reallocate papers)
+
+Many requirements are incorrect (r4; all paper authors should receive their reviews regardless of acceptance, r6/r12/r13/r14 are not essential)
+
+Section 2.3 is clearly copied from somewhere else
+
+Some requirements are missing such as the bidding process, event logging, review discussion etc.
+
+This section requires a lot more work and effort, more so in requirement elicitation
+
+The SRS is one of the most important aspects of system development as it serves as not only as a comprehensive and detailed roadmap to system functionality but also as a contract between the developers and the client as to what has been agreed on and thus expected to be delivered
+
+5.Use cases
+Many actors such as steering committee are not actors of the system
+
+Use cases diagrams need to be large and read-able
+
+Some use cases are incorrect (u6)
+
+
+Flow of events should focus on interactions between Actor and System only, e.g. in the order of “Actor does something”, “System does something”, etc. 
+
+Many flows are too high level 
+
+This section needs more work and effort
+
+6.Domain model
+ Aggregation could have been used in some cases (Author Paper relationship is an aggregation)
+
+Inheritance should be use to inherit base functionality
+
+Many aspects of the system are missing such as review discussions, events, conference, proceedings etc.
+
+Data dictionary needs to include a description for each class as well as the data type of attributes
+
+This section needs more work and effort
+
+7.Meta-report (group structure, sample group meetings, diaries, etc., use of version control system)
+A work diary should cover: planned work schedule, actual work times, summary of work completed, report on "defects" in own work. The purpose of a work diary is really to provide data that identify ineffective work practices so that remedial action can be taken. Often you will find planned and actual work times differ significantly; such differences may point to poor work management practices. Every developer has his/her own blind spots that lead to defects in code.  Analysis of defect patterns can help identify weaknesses and thus lead to a pre-emptive approach where the developer checks for their typical errors prior to running code.
+
+Meeting minutes are to brief and lacking detail such as urgent action items identification and reporting, manger review of current state, more detail agenda and individual member reports.
+
+Work should be committed more frequently not only to allow for smoother collaboration but to also back up work, 5 commits is not enough for 6 weeks of work
+Marks
+Presentation[ Factors contributing to this portion of the mark will include: clarity, the overall structure of the report document, appropriate use of embedded images (modelling diagrams), layout of sections, indexing of the report, clear sectioning, English grammar and spelling, and general appearance.] (2 marks): .5
+
+Requirement elicitation and analysis efforts as evidenced by your report (9 marks): 2.5
+
+Project management[ These marks are based on evidence for the use of an effective software development process. Factors contributing to this part of the assessment will include: evidence for an effective group structure and adoption of roles; effective group collaboration as evidenced by meaningful group meetings; well-planned and disciplined work processes of individuals; and effective use of a versioning system.] (4 marks): 2
+
+Total (15 marks): 5      
+
+WARNING: You must put a lot more effort in the assignment to avoid failures. 
