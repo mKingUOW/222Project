@@ -1,3 +1,0 @@
-Michael Kong 21/03/2015
-
-On Wednesday we discussed the requirements with the client. My tasks for this week include looking at a couple of existing airline booking systems to understand how they work and how some features can be copied into our own project. Also another task is the reviewing of the Use-Case Diagrams done by Steven and creating more use-case scenarios to present to the client in order to elicit more detailed requirements.

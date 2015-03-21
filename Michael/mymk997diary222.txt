@@ -1,0 +1,7 @@
+Michael Kong 16/03/2015
+
+Today I met with my group members for first time to discuss our plans for the project. I know the programming capabilities of two of my other members, but I am unsure of the capability of another member as he said he is not good in programming and has failed two programming subjects last semester. We delegated roles where I became the main programmer for the group. we agreed on using Java as our programming language since all four of us have completed a subject pertraining to Java last semester. However most of the programming will be done by me and secondary programmer Jason. For our version management system, we chose GitHub because of a recommendation from a friend who has used it in the past. It has good features that allow the programmers in a group to be able to branch of a main code repository, allow another member to check and test new code, and allow merging with existing code without creating conflicts or outdated versions. Tasks for this week include formulating questions to ask the client to elicit requirements for the Flight Management System and getting familiar with GitHub.
+
+Michael Kong 21/03/2015
+
+On Wednesday we discussed the requirements with the client. My tasks for this week include looking at a couple of existing airline booking systems to understand how they work and how some features can be copied into our own project. Also another task is the reviewing of the Use-Case Diagrams done by Steven and creating more use-case scenarios to present to the client in order to elicit more detailed requirements.
