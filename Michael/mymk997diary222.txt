@@ -5,3 +5,6 @@ Today I met with my group members for first time to discuss our plans for the pr
 Michael Kong 21/03/2015
 
 On Wednesday we discussed the requirements with the client. My tasks for this week include looking at a couple of existing airline booking systems to understand how they work and how some features can be copied into our own project. Also another task is the reviewing of the Use-Case Diagrams done by Steven and creating more use-case scenarios to present to the client in order to elicit more detailed requirements.
+
+Michael Kong 23/03/2015
+Weekly meeting. We identified the potential users of the system that will be directly involved in handling the system. Once we identified the users, we discussed the possible scenarios that each user might go through as he uses the system. We have completed that and we will ask the client more about the system through these user scenarios. Tasks for this week include getting further requirements from the client, drawing the use case diagrams and drawing the class diagrams. Once we have these diagrams, we can commence coding.
