@@ -9,3 +9,6 @@ Weekly meeting. We identified the potential users of the system that will be dir
 
 25/03/2015
 We elicited a few more requirements from the client. This week, we will work on the Use-Case diagrams, class diagrams and the SRS.
+
+30/03/2015
+Weekly meeting. We discussed a few more requirements among ourselves and resolved some pending issues. Tomorrow and the day after we will show the client the completed use case diagram and class diagram to confirm whether we have the correct idea of the system or not.
