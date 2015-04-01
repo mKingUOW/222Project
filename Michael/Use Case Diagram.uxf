@@ -1,35 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <diagram program="umlet" version="13.2">
-  <zoom_level>8</zoom_level>
+  <zoom_level>7</zoom_level>
   <element>
-    <id>UMLClass</id>
+    <id>UMLActor</id>
     <coordinates>
-      <x>272</x>
-      <y>56</y>
-      <w>512</w>
-      <h>672</h>
+      <x>259</x>
+      <y>777</y>
+      <w>42</w>
+      <h>84</h>
     </coordinates>
-    <panel_attributes>Flight Management System</panel_attributes>
+    <panel_attributes>Normal
+Staff</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>784</x>
-      <y>176</y>
-      <w>96</w>
-      <h>80</h>
+      <x>805</x>
+      <y>287</y>
+      <w>42</w>
+      <h>84</h>
     </coordinates>
-    <panel_attributes>Travel Agency</panel_attributes>
+    <panel_attributes>Travel
+Agency</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>168</x>
-      <y>352</y>
-      <w>96</w>
-      <h>96</h>
+      <x>238</x>
+      <y>938</y>
+      <w>84</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>Service System
 Manager</panel_attributes>
@@ -38,10 +40,10 @@ Manager</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>480</x>
-      <y>88</y>
-      <w>96</w>
-      <h>32</h>
+      <x>511</x>
+      <y>28</y>
+      <w>77</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Signup</panel_attributes>
     <additional_attributes/>
@@ -49,32 +51,32 @@ Manager</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>96</y>
-      <w>256</w>
-      <h>120</h>
+      <x>581</x>
+      <y>35</y>
+      <w>245</w>
+      <h>287</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;300.0;130.0</additional_attributes>
+    <additional_attributes>10.0;10.0;330.0;390.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>96</y>
-      <w>264</w>
-      <h>120</h>
+      <x>301</x>
+      <y>35</y>
+      <w>224</w>
+      <h>294</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;130.0;310.0;10.0</additional_attributes>
+    <additional_attributes>10.0;400.0;300.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>480</x>
-      <y>128</y>
-      <w>96</w>
-      <h>32</h>
+      <x>504</x>
+      <y>266</y>
+      <w>84</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Login</panel_attributes>
     <additional_attributes/>
@@ -82,10 +84,10 @@ Manager</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>480</x>
-      <y>168</y>
-      <w>96</w>
-      <h>32</h>
+      <x>504</x>
+      <y>742</y>
+      <w>84</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Make Booking</panel_attributes>
     <additional_attributes/>
@@ -93,10 +95,10 @@ Manager</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>480</x>
-      <y>208</y>
-      <w>96</w>
-      <h>32</h>
+      <x>504</x>
+      <y>301</y>
+      <w>91</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Cancel Booking</panel_attributes>
     <additional_attributes/>
@@ -104,10 +106,10 @@ Manager</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>472</x>
-      <y>248</y>
-      <w>112</w>
-      <h>32</h>
+      <x>497</x>
+      <y>455</y>
+      <w>105</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>View Flight History</panel_attributes>
     <additional_attributes/>
@@ -115,10 +117,10 @@ Manager</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>472</x>
-      <y>288</y>
-      <w>112</w>
-      <h>48</h>
+      <x>497</x>
+      <y>490</y>
+      <w>98</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>Modify Account
 Details</panel_attributes>
@@ -127,120 +129,109 @@ Details</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>136</y>
-      <w>264</w>
-      <h>80</h>
+      <x>301</x>
+      <y>273</y>
+      <w>217</w>
+      <h>56</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;80.0;310.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;290.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>136</y>
-      <w>256</w>
-      <h>80</h>
+      <x>581</x>
+      <y>273</y>
+      <w>245</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>300.0;80.0;10.0;10.0</additional_attributes>
+    <additional_attributes>330.0;50.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>192</y>
-      <w>256</w>
-      <h>88</h>
+      <x>301</x>
+      <y>308</y>
+      <w>210</w>
+      <h>175</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;300.0;90.0</additional_attributes>
+    <additional_attributes>10.0;10.0;280.0;230.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>176</y>
-      <w>256</w>
-      <h>40</h>
+      <x>581</x>
+      <y>301</y>
+      <w>245</w>
+      <h>469</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;300.0;30.0</additional_attributes>
+    <additional_attributes>10.0;650.0;160.0;510.0;330.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>192</y>
-      <w>264</w>
-      <h>48</h>
+      <x>301</x>
+      <y>301</y>
+      <w>217</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;310.0;40.0</additional_attributes>
+    <additional_attributes>10.0;20.0;290.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
-      <y>192</y>
-      <w>256</w>
-      <h>48</h>
+      <x>301</x>
+      <y>308</y>
+      <w>217</w>
+      <h>462</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;40.0;300.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;120.0;620.0;290.0;640.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>176</y>
-      <w>264</w>
-      <h>40</h>
+      <x>595</x>
+      <y>301</y>
+      <w>231</w>
+      <h>182</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;30.0;310.0;10.0</additional_attributes>
+    <additional_attributes>10.0;240.0;310.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>192</y>
-      <w>248</w>
-      <h>88</h>
+      <x>588</x>
+      <y>301</y>
+      <w>238</w>
+      <h>224</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;90.0;290.0;10.0</additional_attributes>
+    <additional_attributes>10.0;300.0;320.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>576</x>
-      <y>192</y>
-      <w>248</w>
-      <h>136</h>
+      <x>301</x>
+      <y>308</y>
+      <w>210</w>
+      <h>217</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;150.0;290.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>232</x>
-      <y>192</y>
-      <w>256</w>
-      <h>136</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;300.0;150.0</additional_attributes>
+    <additional_attributes>10.0;10.0;280.0;290.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>304</x>
-      <y>288</y>
-      <w>96</w>
-      <h>32</h>
+      <x>357</x>
+      <y>896</y>
+      <w>77</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Add Services</panel_attributes>
     <additional_attributes/>
@@ -248,10 +239,10 @@ Details</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>176</x>
-      <y>184</y>
-      <w>72</w>
-      <h>80</h>
+      <x>259</x>
+      <y>287</y>
+      <w>56</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Passenger</panel_attributes>
     <additional_attributes/>
@@ -259,10 +250,10 @@ Details</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>296</x>
-      <y>328</y>
-      <w>104</w>
-      <h>32</h>
+      <x>350</x>
+      <y>931</y>
+      <w>98</w>
+      <h>21</h>
     </coordinates>
     <panel_attributes>Remove Services</panel_attributes>
     <additional_attributes/>
@@ -270,10 +261,10 @@ Details</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>296</x>
-      <y>368</y>
-      <w>104</w>
-      <h>40</h>
+      <x>350</x>
+      <y>959</y>
+      <w>84</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>Adjust Prices
 of Services</panel_attributes>
@@ -282,10 +273,10 @@ of Services</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>296</x>
-      <y>416</y>
-      <w>104</w>
-      <h>48</h>
+      <x>350</x>
+      <y>1008</y>
+      <w>98</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>Adjust Service
 Availability</panel_attributes>
@@ -294,54 +285,54 @@ Availability</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>296</y>
-      <w>88</w>
-      <h>88</h>
+      <x>294</x>
+      <y>903</y>
+      <w>77</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;90.0;90.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;90.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>336</y>
-      <w>80</w>
-      <h>48</h>
+      <x>294</x>
+      <y>938</y>
+      <w>70</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;40.0;80.0;10.0</additional_attributes>
+    <additional_attributes>10.0;30.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>360</y>
-      <w>80</w>
-      <h>40</h>
+      <x>294</x>
+      <y>952</y>
+      <w>70</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;80.0;30.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>360</y>
-      <w>80</w>
-      <h>96</h>
+      <x>294</x>
+      <y>952</y>
+      <w>70</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;80.0;100.0</additional_attributes>
+    <additional_attributes>10.0;10.0;80.0;110.0</additional_attributes>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>784</x>
-      <y>328</y>
-      <w>112</w>
-      <h>96</h>
+      <x>812</x>
+      <y>917</y>
+      <w>105</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>Reservation System
 Manager</panel_attributes>
@@ -350,10 +341,10 @@ Manager</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>648</x>
-      <y>288</y>
-      <w>112</w>
-      <h>32</h>
+      <x>672</x>
+      <y>882</y>
+      <w>98</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Set Ticket Prices</panel_attributes>
     <additional_attributes/>
@@ -361,10 +352,10 @@ Manager</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>640</x>
-      <y>328</y>
-      <w>128</w>
-      <h>64</h>
+      <x>651</x>
+      <y>924</y>
+      <w>119</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Reassign Passengers
 Within a Flight</panel_attributes>
@@ -373,10 +364,10 @@ Within a Flight</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>648</x>
-      <y>400</y>
-      <w>112</w>
-      <h>40</h>
+      <x>651</x>
+      <y>980</y>
+      <w>119</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes>Edit Watch
 or No Fly List</panel_attributes>
@@ -385,55 +376,43 @@ or No Fly List</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>752</x>
-      <y>296</y>
-      <w>80</w>
-      <h>72</h>
+      <x>763</x>
+      <y>889</y>
+      <w>98</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;80.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;120.0;80.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
-      <y>336</y>
-      <w>72</w>
-      <h>40</h>
+      <x>763</x>
+      <y>931</y>
+      <w>98</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;30.0;70.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>752</x>
-      <y>344</y>
-      <w>80</w>
-      <h>88</h>
+      <x>763</x>
+      <y>938</y>
+      <w>98</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;90.0;80.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>792</x>
-      <y>448</y>
-      <w>88</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>Profile System
-Manager</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>10.0;90.0;120.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>632</x>
-      <y>448</y>
-      <w>136</w>
-      <h>64</h>
+      <x>644</x>
+      <y>1029</y>
+      <w>112</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes>Edit Travel Agency
 and Customer
@@ -443,10 +422,10 @@ Profiles</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>656</x>
-      <y>520</y>
-      <w>96</w>
-      <h>32</h>
+      <x>672</x>
+      <y>1085</y>
+      <w>84</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Close Account</panel_attributes>
     <additional_attributes/>
@@ -454,43 +433,43 @@ Profiles</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>752</x>
-      <y>416</y>
-      <w>80</w>
-      <h>72</h>
+      <x>763</x>
+      <y>994</y>
+      <w>84</w>
+      <h>91</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;80.0;70.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;110.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
-      <y>456</y>
-      <w>72</w>
-      <h>40</h>
+      <x>749</x>
+      <y>1043</y>
+      <w>98</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;30.0;70.0;20.0</additional_attributes>
+    <additional_attributes>10.0;10.0;120.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>736</x>
-      <y>464</y>
-      <w>96</w>
-      <h>80</h>
+      <x>749</x>
+      <y>1064</y>
+      <w>98</w>
+      <h>49</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;80.0;100.0;10.0</additional_attributes>
+    <additional_attributes>10.0;50.0;120.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>160</x>
-      <y>544</y>
-      <w>104</w>
-      <h>80</h>
+      <x>238</x>
+      <y>1113</y>
+      <w>84</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes>Flight Manager</panel_attributes>
     <additional_attributes/>
@@ -498,10 +477,10 @@ Profiles</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>296</x>
-      <y>480</y>
-      <w>96</w>
-      <h>32</h>
+      <x>357</x>
+      <y>1064</y>
+      <w>77</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Edit Routes</panel_attributes>
     <additional_attributes/>
@@ -509,10 +488,10 @@ Profiles</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>296</x>
-      <y>520</y>
-      <w>96</w>
-      <h>32</h>
+      <x>357</x>
+      <y>1099</y>
+      <w>77</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Edit Planes</panel_attributes>
     <additional_attributes/>
@@ -520,10 +499,10 @@ Profiles</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>296</x>
-      <y>560</y>
-      <w>96</w>
-      <h>32</h>
+      <x>357</x>
+      <y>1134</y>
+      <w>77</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Edit Airport</panel_attributes>
     <additional_attributes/>
@@ -531,10 +510,10 @@ Profiles</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>296</x>
-      <y>600</y>
-      <w>96</w>
-      <h>40</h>
+      <x>357</x>
+      <y>1169</y>
+      <w>84</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Edit Flight
 Schedule</panel_attributes>
@@ -543,66 +522,248 @@ Schedule</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>488</y>
-      <w>80</w>
-      <h>88</h>
+      <x>294</x>
+      <y>1071</y>
+      <w>77</w>
+      <h>77</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;90.0;80.0;10.0</additional_attributes>
+    <additional_attributes>10.0;90.0;90.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>528</y>
-      <w>80</w>
-      <h>48</h>
+      <x>294</x>
+      <y>1106</y>
+      <w>77</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;40.0;80.0;10.0</additional_attributes>
+    <additional_attributes>10.0;40.0;90.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>552</y>
-      <w>80</w>
-      <h>40</h>
+      <x>294</x>
+      <y>1127</y>
+      <w>77</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;80.0;30.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>232</x>
-      <y>552</y>
-      <w>80</w>
-      <h>80</h>
+      <x>294</x>
+      <y>1127</y>
+      <w>77</w>
+      <h>70</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;80.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;90.0;80.0</additional_attributes>
   </element>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>784</x>
-      <y>560</y>
-      <w>112</w>
-      <h>96</h>
+      <x>231</x>
+      <y>1218</y>
+      <w>84</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>System
+Administrator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>350</x>
+      <y>1225</y>
+      <w>119</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Manage System
+and Users</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>763</x>
+      <y>1176</y>
+      <w>70</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;50.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>665</x>
+      <y>819</y>
+      <w>105</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>Move passengers
+between flights
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>658</x>
+      <y>1127</y>
+      <w>98</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>Reopen
+Account
+&lt;optional&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>392</x>
+      <y>798</y>
+      <w>77</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Cancel
+Booking</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>378</x>
+      <y>847</y>
+      <w>126</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Modify Services
+of Customer Booking
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>791</x>
+      <y>1162</y>
+      <w>91</w>
+      <h>84</h>
     </coordinates>
     <panel_attributes>Reporting System
 Manager</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>791</y>
+      <w>112</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;140.0;30.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>756</y>
+      <w>224</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;70.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLHierarchy</id>
+    <coordinates>
+      <x>0</x>
+      <y>7</y>
+      <w>210</w>
+      <h>308</h>
+    </coordinates>
+    <panel_attributes>type=Actor
+Normal Staff
+	Service System Manager
+	Flight Manager
+	Reservation System Manager
+	Reporting System Manager
+	Profile System Manager
+	System Administrator</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>294</y>
+      <w>238</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;30.0;320.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLActor</id>
+    <coordinates>
+      <x>812</x>
+      <y>1043</y>
+      <w>84</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>Profile System
+Manager</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>294</x>
+      <y>798</y>
+      <w>98</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;120.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>763</x>
+      <y>840</y>
+      <w>98</w>
+      <h>119</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;120.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>749</x>
+      <y>1064</y>
+      <w>98</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;120.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>656</x>
-      <y>568</y>
-      <w>104</w>
-      <h>48</h>
+      <x>651</x>
+      <y>1197</y>
+      <w>119</w>
+      <h>35</h>
     </coordinates>
     <panel_attributes>Print Summary
 Reports</panel_attributes>
@@ -611,47 +772,381 @@ Reports</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>752</x>
-      <y>568</y>
-      <w>72</w>
-      <h>40</h>
+      <x>287</x>
+      <y>1225</y>
+      <w>77</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;30.0;70.0;20.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLActor</id>
-    <coordinates>
-      <x>816</x>
-      <y>664</y>
-      <w>48</w>
-      <h>96</h>
-    </coordinates>
-    <panel_attributes>Inflight
-Staff</panel_attributes>
-    <additional_attributes/>
+    <additional_attributes>90.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>624</x>
-      <y>648</y>
-      <w>144</w>
-      <h>56</h>
+      <x>511</x>
+      <y>84</y>
+      <w>84</w>
+      <h>28</h>
     </coordinates>
-    <panel_attributes>Check Customers
-who Ordered Services</panel_attributes>
+    <panel_attributes>Validate Input</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>760</x>
-      <y>664</y>
-      <w>72</w>
-      <h>40</h>
+      <x>539</x>
+      <y>231</y>
+      <w>63</w>
+      <h>49</h>
     </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;10.0;70.0;30.0</additional_attributes>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>49</y>
+      <w>63</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>504</x>
+      <y>203</y>
+      <w>91</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>Validate
+Credentials</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>441</x>
+      <y>140</y>
+      <w>84</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Display Error
+Message</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>476</x>
+      <y>175</y>
+      <w>77</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>469</x>
+      <y>98</y>
+      <w>63</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;60.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>574</x>
+      <y>140</y>
+      <w>84</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Display
+Dashboard</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>574</x>
+      <y>98</y>
+      <w>84</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>60.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>175</y>
+      <w>84</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>567</x>
+      <y>364</y>
+      <w>112</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Impose Cancellation
+Fee</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>574</x>
+      <y>315</y>
+      <w>63</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+ &lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>441</x>
+      <y>378</y>
+      <w>105</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>Display Flights</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>399</y>
+      <w>91</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>623</x>
+      <y>525</y>
+      <w>98</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Validate Input</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>574</x>
+      <y>518</y>
+      <w>63</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+   &lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>70.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>588</x>
+      <y>630</y>
+      <w>98</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Commit Changes
+in Database</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>637</x>
+      <y>560</y>
+      <w>77</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;100.0;40.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>525</x>
+      <y>595</y>
+      <w>84</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Display Error
+Message</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>553</y>
+      <w>91</w>
+      <h>63</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;70.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>385</x>
+      <y>693</y>
+      <w>84</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Display All
+Flights Menu</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>448</x>
+      <y>721</y>
+      <w>77</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+   &lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>441</x>
+      <y>665</y>
+      <w>98</w>
+      <h>91</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+   &lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>399</x>
+      <y>630</y>
+      <w>84</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Display
+Services Menu</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>490</x>
+      <y>644</y>
+      <w>91</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Display
+Payment Menu</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>532</x>
+      <y>679</y>
+      <w>63</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+   &lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>651</x>
+      <y>749</y>
+      <w>112</w>
+      <h>49</h>
+    </coordinates>
+    <panel_attributes>Send Flight
+Information
+to Customer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>567</x>
+      <y>756</y>
+      <w>98</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+   &lt;&lt;include&gt;&gt;</panel_attributes>
+    <additional_attributes>120.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>329</x>
+      <y>0</y>
+      <w>455</w>
+      <h>1281</h>
+    </coordinates>
+    <panel_attributes>Flight Management System</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>483</x>
+      <y>980</y>
+      <w>112</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Change Customer
+Flight Status</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>987</y>
+      <w>77</w>
+      <h>28</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;includes&gt;&gt;</panel_attributes>
+    <additional_attributes>90.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>
