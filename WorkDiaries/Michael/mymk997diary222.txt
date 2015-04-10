@@ -12,3 +12,6 @@ We elicited a few more requirements from the client. This week, we will work on 
 
 30/03/2015
 Weekly meeting. We discussed a few more requirements among ourselves and resolved some pending issues. Tomorrow and the day after we will show the client the completed use case diagram and class diagram to confirm whether we have the correct idea of the system or not.
+
+10/04/2015
+Meeting during the study break. So the upcoming work to complete includes finishing the requirements part of the Software Requirements Specification (SRS), the risk and counter measures document, use case diagrams and descriptions, and the class diagram (domain model). This week I worked a couple of hours a day. So far, the bulk of the SRS is completed, just the requirements part is unfinished. The use case diagram is about ready while the domain model still needs some major work. Some possible defect include the possibility of an inaccurate use case diagram and domain model. I am confident the SRS is in good shape and will just need proofreading and some minor tweaks.
