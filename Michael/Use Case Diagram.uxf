@@ -489,7 +489,7 @@ Profiles</panel_attributes>
     <id>UMLActor</id>
     <coordinates>
       <x>266</x>
-      <y>679</y>
+      <y>665</y>
       <w>84</w>
       <h>84</h>
     </coordinates>
@@ -551,7 +551,7 @@ Account
     <coordinates>
       <x>378</x>
       <y>308</y>
-      <w>126</w>
+      <w>133</w>
       <h>35</h>
     </coordinates>
     <panel_attributes>Modify Services
@@ -671,12 +671,12 @@ Reports</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>322</x>
-      <y>679</y>
+      <y>672</y>
       <w>63</w>
-      <h>35</h>
+      <h>28</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>70.0;10.0;10.0;30.0</additional_attributes>
+    <additional_attributes>70.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -931,20 +931,20 @@ details</panel_attributes>
       <h>42</h>
     </coordinates>
     <panel_attributes>Enter Invalid
-Usernames</panel_attributes>
+Username</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>651</x>
+      <x>644</x>
       <y>238</y>
-      <w>91</w>
+      <w>98</w>
       <h>84</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;100.0;80.0;10.0</additional_attributes>
+    <additional_attributes>10.0;100.0;90.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
