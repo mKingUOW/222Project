@@ -5,7 +5,7 @@
     <id>UMLActor</id>
     <coordinates>
       <x>210</x>
-      <y>280</y>
+      <y>170</y>
       <w>120</w>
       <h>120</h>
     </coordinates>
@@ -17,9 +17,9 @@ Administrator</panel_attributes>
     <id>UMLClass</id>
     <coordinates>
       <x>340</x>
-      <y>130</y>
-      <w>450</w>
-      <h>480</h>
+      <y>110</y>
+      <w>220</w>
+      <h>290</h>
     </coordinates>
     <panel_attributes>Flight Management System</panel_attributes>
     <additional_attributes/>
@@ -27,8 +27,8 @@ Administrator</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>380</x>
-      <y>230</y>
+      <x>390</x>
+      <y>150</y>
       <w>120</w>
       <h>50</h>
     </coordinates>
@@ -40,29 +40,30 @@ Profiles</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>290</x>
-      <y>240</y>
-      <w>110</w>
-      <h>90</h>
+      <y>160</y>
+      <w>120</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;70.0;90.0;10.0</additional_attributes>
+    <additional_attributes>10.0;40.0;100.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
       <x>390</x>
-      <y>380</y>
+      <y>320</y>
       <w>120</w>
-      <h>40</h>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>Login</panel_attributes>
+    <panel_attributes>Enter wrong
+credentials</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>440</x>
-      <y>410</y>
+      <y>250</y>
       <w>100</w>
       <h>90</h>
     </coordinates>
@@ -74,12 +75,22 @@ Profiles</panel_attributes>
     <id>UMLUseCase</id>
     <coordinates>
       <x>390</x>
-      <y>480</y>
+      <y>220</y>
       <w>120</w>
-      <h>60</h>
+      <h>40</h>
     </coordinates>
-    <panel_attributes>Enter wrong
-credentials</panel_attributes>
+    <panel_attributes>Login</panel_attributes>
     <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>290</x>
+      <y>190</y>
+      <w>120</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;100.0;50.0</additional_attributes>
   </element>
 </diagram>

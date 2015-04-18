@@ -142,49 +142,26 @@ Manager</panel_attributes>
     <additional_attributes>10.0;10.0;160.0;70.0</additional_attributes>
   </element>
   <element>
-    <id>UMLUseCase</id>
+    <id>UMLActor</id>
     <coordinates>
-      <x>510</x>
-      <y>440</y>
-      <w>120</w>
-      <h>40</h>
+      <x>770</x>
+      <y>150</y>
+      <w>60</w>
+      <h>120</h>
     </coordinates>
-    <panel_attributes>Login</panel_attributes>
+    <panel_attributes>Normal
+Staff</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>470</y>
-      <w>100</w>
-      <h>90</h>
+      <x>820</x>
+      <y>180</y>
+      <w>60</w>
+      <h>220</h>
     </coordinates>
-    <panel_attributes>lt=.&gt;
-&lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLUseCase</id>
-    <coordinates>
-      <x>510</x>
-      <y>540</y>
-      <w>120</w>
-      <h>60</h>
-    </coordinates>
-    <panel_attributes>Enter wrong
-credentials</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>610</x>
-      <y>370</y>
-      <w>180</w>
-      <h>100</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;80.0;160.0;10.0</additional_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;40.0;10.0;40.0;200.0;10.0;200.0</additional_attributes>
   </element>
 </diagram>
