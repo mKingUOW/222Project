@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>210</x>
-      <y>170</y>
+      <x>220</x>
+      <y>210</y>
       <w>120</w>
       <h>120</h>
     </coordinates>
@@ -18,8 +18,8 @@ Administrator</panel_attributes>
     <coordinates>
       <x>340</x>
       <y>110</y>
-      <w>220</w>
-      <h>290</h>
+      <w>390</w>
+      <h>260</h>
     </coordinates>
     <panel_attributes>Flight Management System</panel_attributes>
     <additional_attributes/>
@@ -27,31 +27,31 @@ Administrator</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>390</x>
+      <x>370</x>
       <y>150</y>
       <w>120</w>
       <h>50</h>
     </coordinates>
     <panel_attributes>Create Staff
-Profiles</panel_attributes>
+Profile</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>290</x>
+      <x>300</x>
       <y>160</y>
-      <w>120</w>
-      <h>60</h>
+      <w>90</w>
+      <h>100</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;40.0;100.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;70.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>390</x>
-      <y>320</y>
+      <x>580</x>
+      <y>220</y>
       <w>120</w>
       <h>60</h>
     </coordinates>
@@ -62,19 +62,19 @@ credentials</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>440</x>
-      <y>250</y>
-      <w>100</w>
-      <h>90</h>
+      <x>480</x>
+      <y>220</y>
+      <w>120</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>390</x>
+      <x>370</x>
       <y>220</y>
       <w>120</w>
       <h>40</h>
@@ -85,12 +85,83 @@ credentials</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>290</x>
-      <y>190</y>
-      <w>120</w>
-      <h>70</h>
+      <x>300</x>
+      <y>220</y>
+      <w>90</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;100.0;50.0</additional_attributes>
+    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>580</x>
+      <y>150</y>
+      <w>130</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Enter invalid
+details</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>150</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>370</x>
+      <y>290</y>
+      <w>120</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>Edit Staff
+Profile</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>300</x>
+      <y>230</y>
+      <w>90</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;70.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>580</x>
+      <y>290</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Enter Invalid
+Username</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>300</y>
+      <w>120</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
   </element>
 </diagram>

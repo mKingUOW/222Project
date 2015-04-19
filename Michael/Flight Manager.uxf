@@ -4,8 +4,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>470</x>
-      <y>280</y>
+      <x>490</x>
+      <y>270</y>
       <w>110</w>
       <h>40</h>
     </coordinates>
@@ -15,8 +15,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>240</y>
+      <x>380</x>
+      <y>230</y>
       <w>130</w>
       <h>140</h>
     </coordinates>
@@ -26,8 +26,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>290</y>
+      <x>380</x>
+      <y>280</y>
       <w>130</w>
       <h>90</h>
     </coordinates>
@@ -37,8 +37,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>330</y>
+      <x>380</x>
+      <y>320</y>
       <w>120</w>
       <h>50</h>
     </coordinates>
@@ -48,8 +48,8 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>460</x>
-      <y>330</y>
+      <x>480</x>
+      <y>320</y>
       <w>130</w>
       <h>50</h>
     </coordinates>
@@ -60,8 +60,8 @@ Schedule</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>470</x>
-      <y>230</y>
+      <x>490</x>
+      <y>220</y>
       <w>110</w>
       <h>40</h>
     </coordinates>
@@ -71,8 +71,8 @@ Schedule</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>470</x>
-      <y>390</y>
+      <x>490</x>
+      <y>380</y>
       <w>110</w>
       <h>40</h>
     </coordinates>
@@ -82,8 +82,8 @@ Schedule</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>360</x>
-      <y>350</y>
+      <x>380</x>
+      <y>340</y>
       <w>130</w>
       <h>80</h>
     </coordinates>
@@ -93,8 +93,8 @@ Schedule</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>280</x>
-      <y>330</y>
+      <x>300</x>
+      <y>320</y>
       <w>120</w>
       <h>100</h>
     </coordinates>
@@ -104,8 +104,8 @@ Schedule</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>410</x>
-      <y>190</y>
+      <x>430</x>
+      <y>180</y>
       <w>220</w>
       <h>260</h>
     </coordinates>
@@ -115,8 +115,8 @@ Schedule</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>310</x>
-      <y>140</y>
+      <x>330</x>
+      <y>130</y>
       <w>60</w>
       <h>120</h>
     </coordinates>
@@ -127,8 +127,8 @@ Staff</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>260</x>
-      <y>160</y>
+      <x>280</x>
+      <y>150</y>
       <w>70</w>
       <h>220</h>
     </coordinates>
