@@ -4,143 +4,183 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>828</x>
-      <y>30</y>
-      <w>108</w>
-      <h>48</h>
+      <x>804</x>
+      <y>90</y>
+      <w>126</w>
+      <h>60</h>
     </coordinates>
     <panel_attributes>User
---</panel_attributes>
+--
+- email: String
+- password: String
+--
++ login(): void
++ logout(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>828</x>
-      <y>180</y>
-      <w>108</w>
-      <h>48</h>
+      <x>810</x>
+      <y>192</y>
+      <w>126</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>/Abstract Customer/
 --
-</panel_attributes>
+- phone_number: String
+- address: Address
+- credit_card_type: String
+- credit_card_number: String
+--
++ editServices(): void
++ closeAccount(): void
++ cancelBooking(): void
++ editAccount(): void
++ makeBooking(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>576</x>
-      <y>186</y>
-      <w>108</w>
-      <h>48</h>
+      <x>468</x>
+      <y>252</y>
+      <w>156</w>
+      <h>96</h>
     </coordinates>
     <panel_attributes>Normal Staff
---</panel_attributes>
+--
+- name: String
+--
++ getReport(): void
++ editCustomerServices(): void
++ makeBookingForCustomer(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
+      <x>0</x>
       <y>402</y>
-      <w>126</w>
-      <h>42</h>
+      <w>138</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Service System Manager
 --
-</panel_attributes>
+
+--
++ addServices(): void
++ removeServices(): void
++ editServicePrice(): void
++ editServiceAvailability(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>174</x>
-      <y>402</y>
+      <x>156</x>
+      <y>474</y>
       <w>126</w>
       <h>42</h>
     </coordinates>
     <panel_attributes>Reporting System Manager
 --
-</panel_attributes>
+
+--
++ manageReports(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>606</x>
+      <x>588</x>
       <y>402</y>
       <w>126</w>
-      <h>42</h>
+      <h>114</h>
     </coordinates>
     <panel_attributes>Flight Manager
 --
-</panel_attributes>
+
+--
++ editRoutes(): void
++ editFleet(): void
++ editFlightSchedule(): void
++ editAirports(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>462</x>
+      <x>402</x>
       <y>402</y>
-      <w>126</w>
-      <h>42</h>
+      <w>174</w>
+      <h>114</h>
     </coordinates>
     <panel_attributes>Reservation System Manager
 --
-</panel_attributes>
+
+--
++ setTicketPrices(): void
++ editWatchAndNoFlyList(): void
++ movePassengersBetweenFlights(): void
++ changePassengerSeating(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>318</x>
+      <x>240</x>
       <y>402</y>
-      <w>126</w>
-      <h>42</h>
+      <w>144</w>
+      <h>66</h>
     </coordinates>
     <panel_attributes>Profile System Manager
 --
-</panel_attributes>
+
+--
++ manageCustomers(): void
++ editWatchAndNoFlyList(): void
++ editCustomerProfiles(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
-      <y>300</y>
-      <w>54</w>
-      <h>114</h>
+      <x>534</x>
+      <y>372</y>
+      <w>126</w>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;70.0;20.0;70.0;170.0</additional_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0;190.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>378</x>
-      <y>228</y>
-      <w>264</w>
-      <h>186</h>
+      <x>306</x>
+      <y>342</y>
+      <w>246</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>420.0;10.0;420.0;140.0;10.0;140.0;10.0;290.0</additional_attributes>
+    <additional_attributes>390.0;10.0;390.0;70.0;10.0;70.0;10.0;100.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>522</x>
-      <y>306</y>
+      <x>504</x>
+      <y>378</y>
       <w>18</w>
-      <h>108</h>
+      <h>36</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>234</x>
-      <y>300</y>
+      <x>216</x>
+      <y>372</y>
       <w>162</w>
       <h>114</h>
     </coordinates>
@@ -150,149 +190,166 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>90</x>
-      <y>300</y>
+      <x>72</x>
+      <y>372</y>
       <w>162</w>
-      <h>114</h>
+      <h>42</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>250.0;20.0;10.0;20.0;10.0;170.0</additional_attributes>
+    <additional_attributes>250.0;20.0;10.0;20.0;10.0;50.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>624</x>
-      <y>72</y>
-      <w>270</w>
-      <h>126</h>
+      <x>534</x>
+      <y>144</y>
+      <w>342</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>430.0;10.0;430.0;50.0;10.0;50.0;10.0;190.0</additional_attributes>
+    <additional_attributes>550.0;10.0;550.0;50.0;10.0;50.0;10.0;180.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>876</x>
-      <y>96</y>
+      <x>858</x>
+      <y>168</y>
       <w>18</w>
-      <h>96</h>
+      <h>36</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;140.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1002</x>
-      <y>84</y>
-      <w>108</w>
+      <x>204</x>
+      <y>258</y>
+      <w>120</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>System Administrator
---</panel_attributes>
+--
+
+--
++ createStaffProfile(): void
++ editStaffProfile(): void</panel_attributes>
     <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>876</x>
-      <y>90</y>
-      <w>138</w>
-      <h>24</h>
-    </coordinates>
-    <panel_attributes/>
-    <additional_attributes>10.0;20.0;210.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>762</x>
-      <y>324</y>
-      <w>108</w>
-      <h>48</h>
+      <x>726</x>
+      <y>390</y>
+      <w>126</w>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Customer
+--
+- title: String
+- first_name: String
+- last_name: String
+- date_of_birth: Date
+- gender: char
+- frequent_flier_points: int
+- passport_status: boolean
+- no_fly_status: String
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
-    <coordinates>
-      <x>894</x>
-      <y>324</y>
-      <w>108</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>Travel Agency
---</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>810</x>
-      <y>222</y>
-      <w>84</w>
-      <h>114</h>
-    </coordinates>
-    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
-    <additional_attributes>120.0;10.0;120.0;120.0;10.0;120.0;10.0;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
     <coordinates>
       <x>876</x>
-      <y>282</y>
+      <y>390</y>
+      <w>108</w>
+      <h>42</h>
+    </coordinates>
+    <panel_attributes>Travel Agency
+--
+- name: String
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>300</y>
       <w>84</w>
-      <h>54</h>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>120.0;10.0;120.0;130.0;10.0;130.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>858</x>
+      <y>366</y>
+      <w>84</w>
+      <h>36</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;120.0;20.0;120.0;70.0</additional_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0;120.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1050</x>
-      <y>180</y>
-      <w>108</w>
-      <h>48</h>
+      <x>1026</x>
+      <y>216</y>
+      <w>114</w>
+      <h>102</h>
     </coordinates>
     <panel_attributes>Booking
 --
-</panel_attributes>
+- customers: Customer[]
+- persons: Person[]
+- flight: Flight
+- services: Service[]
+--
++ addCustomer(): void
++ addPerson(): void
++ addFlight(): void
++ addService(): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>930</x>
-      <y>180</y>
-      <w>132</w>
+      <y>252</y>
+      <w>108</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>makes
 m1=1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1248</x>
-      <y>180</y>
+      <x>1230</x>
+      <y>228</y>
       <w>108</w>
-      <h>48</h>
+      <h>90</h>
     </coordinates>
     <panel_attributes>Flight
 --
-</panel_attributes>
+- id: String
+- plane: Plane
+- route: Route
+- departTime: Date
+- arriveTime: Date
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1152</x>
-      <y>198</y>
+      <x>1134</x>
+      <y>270</y>
       <w>108</w>
       <h>30</h>
     </coordinates>
@@ -305,140 +362,167 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1338</x>
-      <y>84</y>
+      <x>1320</x>
+      <y>144</y>
       <w>108</w>
       <h>48</h>
     </coordinates>
     <panel_attributes>Seat
+--
+- seat_number: String
+- class: String
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1440</x>
-      <y>102</y>
+      <x>1422</x>
+      <y>174</y>
       <w>108</w>
-      <h>90</h>
+      <h>60</h>
     </coordinates>
     <panel_attributes>contains
 lt=&lt;&lt;&lt;&lt;&lt;-
 m1= 1
 m2=1..*</panel_attributes>
-    <additional_attributes>110.0;130.0;110.0;10.0;10.0;10.0</additional_attributes>
+    <additional_attributes>110.0;80.0;110.0;10.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1170</x>
+      <x>1194</x>
       <y>84</y>
       <w>108</w>
-      <h>48</h>
+      <h>108</h>
     </coordinates>
     <panel_attributes>Person
+--
+- title: String
+- first_name: String
+- last_name: String
+- address: Address
+- date_of_birth: Date
+- gender: char
+- email: String
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1128</x>
-      <y>102</y>
-      <w>54</w>
-      <h>90</h>
+      <x>1110</x>
+      <y>156</y>
+      <w>96</w>
+      <h>72</h>
     </coordinates>
     <panel_attributes>has
 lt=&lt;&lt;&lt;&lt;-
 m1= 1..*
 m2=0..*</panel_attributes>
-    <additional_attributes>10.0;130.0;10.0;10.0;70.0;10.0</additional_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0;140.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>930</x>
-      <y>204</y>
-      <w>132</w>
+      <y>276</y>
+      <w>108</w>
       <h>30</h>
     </coordinates>
     <panel_attributes>contains
 lt=-&gt;&gt;&gt;&gt;
 m1=1..*
 m2=0..*</panel_attributes>
-    <additional_attributes>10.0;20.0;200.0;20.0</additional_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1020</x>
-      <y>546</y>
+      <x>1002</x>
+      <y>618</y>
       <w>108</w>
-      <h>48</h>
+      <h>72</h>
     </coordinates>
     <panel_attributes>Service
+--
+- name: String
+- cost: double
+- availability: String
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1068</x>
-      <y>222</y>
+      <x>1050</x>
+      <y>312</y>
       <w>60</w>
-      <h>336</h>
+      <h>318</h>
     </coordinates>
     <panel_attributes>lt=&lt;&lt;&lt;&lt;-
 has
 m1= 0..*
 m2=0..*</panel_attributes>
-    <additional_attributes>60.0;10.0;10.0;540.0</additional_attributes>
+    <additional_attributes>60.0;10.0;10.0;510.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1374</x>
-      <y>336</y>
+      <x>1356</x>
+      <y>408</y>
       <w>108</w>
-      <h>48</h>
+      <h>96</h>
     </coordinates>
     <panel_attributes>Route
 --
-</panel_attributes>
+- source: Airport
+- destination: Airport
+- codeshare: boolean
+- stops: int
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1296</x>
-      <y>222</y>
+      <x>1278</x>
+      <y>312</y>
       <w>90</w>
-      <h>144</h>
+      <h>126</h>
     </coordinates>
     <panel_attributes>has
 lt=&lt;&lt;&lt;&lt;-
 m1= 0..*
 m2=1</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;210.0;130.0;210.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0;130.0;180.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1452</x>
-      <y>180</y>
-      <w>108</w>
-      <h>48</h>
+      <x>1434</x>
+      <y>222</y>
+      <w>156</w>
+      <h>138</h>
     </coordinates>
     <panel_attributes>Plane
 --
-</panel_attributes>
+- name: String
+- total_in_service: int
+- first_class_seats: int
+- business_class_seats: int
+- premium_economy_seats: int
+- economy_seats: int
+- total_seats: int
+- seats: Seat[]
+--</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1350</x>
-      <y>192</y>
+      <x>1332</x>
+      <y>264</y>
       <w>114</w>
       <h>30</h>
     </coordinates>
@@ -451,20 +535,32 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>1176</x>
-      <y>336</y>
-      <w>108</w>
-      <h>48</h>
+      <x>1122</x>
+      <y>354</y>
+      <w>144</w>
+      <h>156</h>
     </coordinates>
     <panel_attributes>Airport
+--
+- airport_id: String
+- airport_name: String
+- city: String
+- Country: String
+- IATA_code: String
+- latitude: double
+- longitude: double
+- altitude: double
+- time_zone: int
+- dst: char
+- tz_database_time_zone: String
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1278</x>
-      <y>360</y>
+      <x>1260</x>
+      <y>432</y>
       <w>108</w>
       <h>30</h>
     </coordinates>
@@ -477,114 +573,123 @@ m2=2</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>666</x>
-      <y>222</y>
-      <w>888</w>
-      <h>270</h>
+      <x>618</x>
+      <y>354</y>
+      <w>918</w>
+      <h>234</h>
     </coordinates>
     <panel_attributes>edits
 m1=1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;370.0;10.0;430.0;1440.0;430.0;1440.0;10.0</additional_attributes>
+    <additional_attributes>10.0;270.0;10.0;370.0;1490.0;370.0;1490.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>1224</x>
-      <y>378</y>
-      <w>30</w>
-      <h>114</h>
+      <x>696</x>
+      <y>504</y>
+      <w>522</w>
+      <h>42</h>
     </coordinates>
-    <panel_attributes>m1=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1428</x>
-      <y>378</y>
-      <w>30</w>
-      <h>114</h>
-    </coordinates>
-    <panel_attributes>m1=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
-  </element>
-  <element>
-    <id>Relation</id>
-    <coordinates>
-      <x>1332</x>
-      <y>222</y>
-      <w>210</w>
-      <h>102</h>
-    </coordinates>
-    <panel_attributes>m1=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;150.0;330.0;150.0</additional_attributes>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>702</x>
-      <y>258</y>
-      <w>108</w>
-      <h>48</h>
-    </coordinates>
-    <panel_attributes>Report Builder
---</panel_attributes>
-    <additional_attributes/>
+    <panel_attributes>m1=1..*
+m2= 1
+edits</panel_attributes>
+    <additional_attributes>830.0;10.0;830.0;50.0;10.0;50.0;10.0;20.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>678</x>
-      <y>198</y>
-      <w>72</w>
-      <h>72</h>
+      <y>498</y>
+      <w>762</w>
+      <h>60</h>
     </coordinates>
-    <panel_attributes>uses</panel_attributes>
-    <additional_attributes>10.0;20.0;100.0;20.0;100.0;100.0</additional_attributes>
+    <panel_attributes>m1=1..*
+m2=1
+edits</panel_attributes>
+    <additional_attributes>1230.0;10.0;1230.0;80.0;10.0;80.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>768</x>
-      <y>198</y>
-      <w>72</w>
-      <h>72</h>
+      <x>648</x>
+      <y>312</y>
+      <w>870</w>
+      <h>258</h>
     </coordinates>
-    <panel_attributes>uses</panel_attributes>
-    <additional_attributes>100.0;20.0;10.0;20.0;10.0;100.0</additional_attributes>
+    <panel_attributes>edits
+m1=1..*
+m2=1</panel_attributes>
+    <additional_attributes>1120.0;10.0;1120.0;120.0;1400.0;120.0;1400.0;410.0;10.0;410.0;10.0;340.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>642</x>
+      <y>318</y>
+      <w>150</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>Report Builder
+--
+
+--
++ generateReport(type: int): void</panel_attributes>
+    <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>84</x>
-      <y>438</y>
+      <x>618</x>
+      <y>270</y>
+      <w>114</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>uses</panel_attributes>
+    <additional_attributes>10.0;20.0;170.0;20.0;170.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>750</x>
+      <y>270</y>
+      <w>72</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>uses</panel_attributes>
+    <additional_attributes>100.0;20.0;10.0;20.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>66</x>
+      <y>468</y>
       <w>948</w>
-      <h>162</h>
+      <h>204</h>
     </coordinates>
     <panel_attributes>edits
 m1=1
 m2=1..*</panel_attributes>
-    <additional_attributes>10.0;10.0;10.0;240.0;1560.0;240.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;310.0;1560.0;310.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
-      <y>102</y>
-      <w>462</w>
-      <h>312</h>
+      <x>336</x>
+      <y>198</y>
+      <w>486</w>
+      <h>216</h>
     </coordinates>
-    <panel_attributes>          manages
+    <panel_attributes>                             manages
 m1=1..*
 m2=1</panel_attributes>
-    <additional_attributes>730.0;130.0;730.0;60.0;10.0;10.0;10.0;500.0</additional_attributes>
+    <additional_attributes>790.0;20.0;100.0;20.0;10.0;340.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>534</x>
-      <y>438</y>
+      <x>516</x>
+      <y>510</y>
       <w>342</w>
       <h>108</h>
     </coordinates>
@@ -596,26 +701,111 @@ m2=1..*</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>864</x>
-      <y>510</y>
+      <x>846</x>
+      <y>582</y>
       <w>108</w>
       <h>48</h>
     </coordinates>
-    <panel_attributes>Ticket Price
+    <panel_attributes>Flight Price
+--
+- flight: Flight
+- price: double
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>966</x>
-      <y>222</y>
+      <x>948</x>
+      <y>312</y>
       <w>294</w>
-      <h>324</h>
+      <h>306</h>
     </coordinates>
     <panel_attributes> has
 m1=   *
 m2=    1</panel_attributes>
-    <additional_attributes>10.0;520.0;150.0;230.0;470.0;10.0</additional_attributes>
+    <additional_attributes>10.0;490.0;120.0;90.0;470.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>996</x>
+      <y>96</y>
+      <w>108</w>
+      <h>78</h>
+    </coordinates>
+    <panel_attributes>Address
+--
+- street: String
+- state: String
+- city: String
+- country: String
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>930</x>
+      <y>168</y>
+      <w>108</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=1
+m2=  1..*
+has</panel_attributes>
+    <additional_attributes>140.0;10.0;140.0;80.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>264</x>
+      <y>168</y>
+      <w>288</w>
+      <h>102</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;150.0;10.0;10.0;460.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>222</y>
+      <w>402</w>
+      <h>192</h>
+    </coordinates>
+    <panel_attributes>                             manages
+m1=1..*
+m2=1</panel_attributes>
+    <additional_attributes>650.0;20.0;10.0;20.0;10.0;300.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>318</x>
+      <y>276</y>
+      <w>162</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>manages
+m1=1
+m2=1..*</panel_attributes>
+    <additional_attributes>10.0;20.0;250.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1098</x>
+      <y>120</y>
+      <w>108</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+m1=1
+m2=  1..*
+has</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
   </element>
 </diagram>
