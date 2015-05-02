@@ -15,3 +15,6 @@ Weekly meeting. We discussed a few more requirements among ourselves and resolve
 
 10/04/2015
 Meeting during the study break. So the upcoming work to complete includes finishing the requirements part of the Software Requirements Specification (SRS), the risk and counter measures document, use case diagrams and descriptions, and the class diagram (domain model). This week I worked a couple of hours a day. So far, the bulk of the SRS is completed, just the requirements part is unfinished. The use case diagram is about ready while the domain model still needs some major work. Some possible defect include the possibility of an inaccurate use case diagram and domain model. I am confident the SRS is in good shape and will just need proofreading and some minor tweaks.
+
+27/04/2015
+Work to do includes redesigning the domain model so that the program will function as per the SRS. Work also includes minor programming. Estimated time in total to finish tasks is about 24 hours and should finish by Saturday, late afternoon.

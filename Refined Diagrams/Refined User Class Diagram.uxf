@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>616</x>
+      <y>40</y>
+      <w>168</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+User
+--
+- email: String
+- password: String
+- is_logged_in: boolean
+- 
+--
++ login(): bool
++ logout(): bool
+- checkDetails(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>16</x>
+      <y>64</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
+UserUI
+--
+
+--
+- changeUI(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>64</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+UserController
+--
+
+--
++ login(): bool
++ logout(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>176</x>
+      <y>104</y>
+      <w>160</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>104</y>
+      <w>152</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>472</x>
+      <y>400</y>
+      <w>160</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+System Administrator
+--
+- Injectable
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
