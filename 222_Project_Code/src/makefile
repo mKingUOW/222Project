@@ -1,8 +1,8 @@
 run: FlightManagementSystem.class
 	java FlightManagementSystem
 
-FlightManagementSystem.class: MyCollectionServer.java
-	javac MyCollectionServer.java
+FlightManagementSystem.class: FlightManagementSystem.java
+	javac FlightManagementSystem.java
 
 .PHONY: doc
 

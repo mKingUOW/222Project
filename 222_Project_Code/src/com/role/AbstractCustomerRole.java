@@ -29,7 +29,7 @@ public abstract class AbstractCustomerRole implements Role{
 
 	@Override
 	public void displayChoices(String additionalChoices){
-		List<String> allChoices = new ArrayList<String>();
+		List<String> allChoices = new ArrayList<>();
 		int userChoice;
 
 		boolean isInputValid;

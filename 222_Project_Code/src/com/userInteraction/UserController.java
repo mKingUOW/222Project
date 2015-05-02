@@ -25,7 +25,9 @@ public class UserController{
 	}
 
 	public void start(){
-		role.start();
+		if (role != null) {
+			role.start();
+		}
 	}
 
 	private void setRole(String roleName){
