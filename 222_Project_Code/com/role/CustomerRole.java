@@ -1,8 +1,8 @@
-package role;
+package com.role;
 
 import java.util.*;
 
-protected class CustomerRole extends AbstractCustomerRole{
+public class CustomerRole extends AbstractCustomerRole{
 
 	private Scanner in = new Scanner(System.in);
 

@@ -1,4 +1,4 @@
-package role;
+package com.role;
 
 public class RoleFactory{
 
@@ -17,6 +17,7 @@ public class RoleFactory{
 			case "TA":
 				role = new TravelAgencyRole();
 				break;
+			/*
 			case "FM":
 				role = new FlightManagerRole();
 				break;
@@ -34,6 +35,8 @@ public class RoleFactory{
 				break;
 			case "ADMIN":
 				break;
+				
+			*/
 		}
 		return role;
 	}

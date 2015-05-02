@@ -1,7 +1,8 @@
-package userInteraction;
+package com.userInteraction;
 
 import java.util.*;
-import role.*;
+import java.io.*;
+import com.role.*;
 
 public class UserController{
 	private Role role;

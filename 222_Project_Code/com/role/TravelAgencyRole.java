@@ -1,6 +1,6 @@
-package role;
+package com.role;
 
-protected class TravelAgencyRole extends AbstractCustomerRole{
+public class TravelAgencyRole extends AbstractCustomerRole{
 
 
 

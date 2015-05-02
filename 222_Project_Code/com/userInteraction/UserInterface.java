@@ -1,4 +1,4 @@
-package userInteraction;
+package com.userInteraction;
 
 import java.util.*;
 import java.io.*;

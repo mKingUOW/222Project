@@ -1,4 +1,4 @@
-package userInteraction;
+package com.userInteraction;
 
 import java.util.*;
 import java.io.*;
@@ -8,9 +8,13 @@ public class UserEntity{
 	private BufferedReader reader;	
 	private PrintWriter writer;
 	private File file;
-	private String dbfile = "userAccount.csv";
+	private String dbfile = new String(System.getProperty("user.dir") + File.separator + "database" + File.separator + "userAccount.csv");
 	private String passwdInDB;
 	private String role;
+	
+	public UserEntity(){
+		
+	}
 	
 	public String login(String username, char[] password){
 		String passwd = new String(password);
@@ -28,7 +32,7 @@ public class UserEntity{
 					passwdInDB = words[1];
 					
 					if(passwd.equals(passwdInDB)){
-						role = word[2];	//If username and password are correct,return role;	
+						role = words[2];	//If username and password are correct,return role;	
 					}else{
 						role = "loginFail";	//If username exists, but password is wrong,login fails;
 					}	
@@ -44,7 +48,6 @@ public class UserEntity{
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
 		return role;
 	}
 

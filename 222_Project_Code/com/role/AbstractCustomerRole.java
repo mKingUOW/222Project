@@ -1,10 +1,11 @@
-package role;
+package com.role;
 
 import java.util.*;
 
-protected abstract class AbstractCustomerRole implements Role{
+public abstract class AbstractCustomerRole implements Role{
 
 	private String[] choices = {"Make Booking", "Edit Services", "Close Account", "Cancel Booking", "Edit Account"};
+	private Scanner in = new Scanner(System.in);
 
 	public void editServices(){
 
@@ -43,7 +44,7 @@ protected abstract class AbstractCustomerRole implements Role{
 			isInputValid = true;
 
 			for (int i = 0; i < allChoices.size(); i++) {
-				System.out.println((i + 1) + ": " + choices.get(i));
+				System.out.println((i + 1) + ": " + allChoices.get(i));
 			}
 			System.out.print("Your Choice: ");
 			try{
