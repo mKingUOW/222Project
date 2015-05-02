@@ -7,7 +7,9 @@ public class UserController{
 	private Role role;
 	private UserEntity ue = new UserEntity();
 
-	public UserController(){} //default constructor
+	public UserController(){ //default constructor
+		
+	}
 
 	public boolean login(String username, char[] password){
 		String roleName = ue.login(username, password);
@@ -21,9 +23,9 @@ public class UserController{
 		return true;
 	}
 
-	public displayChoices
-
-
+	public void start(){
+		role.start();
+	}
 
 	private void setRole(String roleName){
 		role = RoleFactory.getRole(roleName);
