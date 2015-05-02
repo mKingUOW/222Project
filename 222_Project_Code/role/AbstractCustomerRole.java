@@ -1,6 +1,7 @@
 package role;
 
-protected abstract class AbstractCustomerRole{
+protected abstract class AbstractCustomerRole
+									implements Role{
 
 	public void editServices(){
 

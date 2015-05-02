@@ -1,9 +1,13 @@
 package role;
 
-public class TravelAgencyRole
+protected class TravelAgencyRole
 	extends AbstractCustomerRole{
 
-	public addCustomers(){
+	public TravelAgencyRole(){
+
+	}
+
+	public void addCustomers(){
 		
 	}
 }

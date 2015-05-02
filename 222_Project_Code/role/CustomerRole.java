@@ -1,7 +1,9 @@
 package role;
 
-public class CustomerRole
+protected class CustomerRole
 	extends AbstractCustomerRole{
 
+	public CustomerRole(){
 
+	}
 }
