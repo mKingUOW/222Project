@@ -1,4 +1,4 @@
-package UserInterface;
+package userInteraction;
 
 import java.util.*;
 
@@ -86,4 +86,4 @@ public class UserInterface{
 			}
 		}
 	}
-}
+};

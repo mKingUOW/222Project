@@ -1,4 +1,4 @@
-import UserInterface.*;
+import userInteraction.*;
 
 import java.util.*;
 
