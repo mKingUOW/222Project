@@ -38,7 +38,7 @@ public abstract class AbstractCustomerRole implements Role{
 			allChoices.addAll(Arrays.asList(additionalChoices));
 		}
 		allChoices.addAll(Arrays.asList(choices));
-		allChoices.addAll(Arrays.asList(standardChoices));
+		allChoices.addAll(Arrays.asList(STANDARD_CHOICES));
 
 		do{	
 			isInputValid = true;
@@ -50,6 +50,7 @@ public abstract class AbstractCustomerRole implements Role{
 			try{
 				userChoice = in.nextInt();
 			} catch(InputMismatchException ex){
+				// error message
 				isInputValid = false;
 			}
 

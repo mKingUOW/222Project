@@ -1,7 +1,7 @@
 package com.role;
 
 public interface Role{
-	public String[] standardChoices = {"Change Password", "Logout"};
+	public String[] STANDARD_CHOICES = {"Change Password", "Logout"};
 
 	public abstract void start();
 

@@ -34,8 +34,11 @@ public class RoleFactory{
 				role = new ReportingSystemManagerRole();
 				break;
 			case "ADMIN":
+				role = new SystemAdministratorRole();
 				break;
-				
+			default:
+				role = null;
+				break;
 			*/
 		}
 		return role;
