@@ -37,16 +37,16 @@ public class UserInterface{
 			do{
 				isLoginOkay = true;
 
-				System.out.println("\nUsername: ");
+				System.out.print("\nUsername: ");
 				myUserName = consl.readLine();					//Read in the username;
 
-				System.out.println("Password: ");
+				System.out.print("Password: ");
 				myPasswd = consl.readPassword();				//Read in the password using the console.readPassword();
 				
 				isLoginOkay = uc.login(myUserName, myPasswd);
 
 				if (!isLoginOkay) {
-					System.out.println("Invalid credentials! Please input your username and password again!\n");
+					System.out.println("Invalid credentials! Please input your username and password again!");
 				}
 			} while(!isLoginOkay);
 			
@@ -55,7 +55,6 @@ public class UserInterface{
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		
 	}
 	
 	public void signUp(){

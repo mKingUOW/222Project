@@ -2,10 +2,15 @@ package com.role;
 
 import java.util.*;
 
-public abstract class AbstractCustomerRole implements Role{
+public abstract class AbstractCustomerRole extends Role{
 
 	private String[] choices = {"Make Booking", "Edit Services", "Close Account", "Cancel Booking", "Edit Account"};
 	private Scanner in = new Scanner(System.in);
+	
+	public AbstractCustomerRole(){
+		super();
+		addChoices(choices);
+	}
 
 	public void editServices(){
 
@@ -26,38 +31,25 @@ public abstract class AbstractCustomerRole implements Role{
 	public void makeBooking(){
 
 	}
-
+	
 	@Override
-	public void displayChoices(String additionalChoices){
-		List<String> allChoices = new ArrayList<>();
-		int userChoice;
-
-		boolean isInputValid;
+	public void executeChoice(){
+		String choice = allChoices.get(userChoice);
 		
-		if (additionalChoices != null) {
-			allChoices.addAll(Arrays.asList(additionalChoices));
+		switch(choice){
+			case "Make Booking":
+				break;
+			case "Edit Services":
+				break;
+			case "Close Account":
+				break;
+			case "Cancel Booking":
+				break;
+			case "Edit Account":
+				break;
+			default:
+				super.executeChoice();
+				break;
 		}
-		allChoices.addAll(Arrays.asList(choices));
-		allChoices.addAll(Arrays.asList(STANDARD_CHOICES));
-
-		do{	
-			isInputValid = true;
-
-			for (int i = 0; i < allChoices.size(); i++) {
-				System.out.println((i + 1) + ": " + allChoices.get(i));
-			}
-			System.out.print("Your Choice: ");
-			try{
-				userChoice = in.nextInt();
-			} catch(InputMismatchException ex){
-				// error message
-				isInputValid = false;
-			}
-
-		} while(!isInputValid);
-	}
-
-	public String[] getChoices(){
-		return choices;
 	}
 }

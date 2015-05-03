@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>800</x>
+      <y>0</y>
+      <w>168</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+User
+--
+- email: String
+- password: String
+- is_logged_in: boolean
+- 
+--
++ login(): bool
++ logout(): bool
+- checkDetails(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>200</x>
+      <y>24</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
+UserUI
+--
+
+--
+- changeUI(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>24</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+UserController
+--
+
+--
++ login(): bool
++ logout(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>360</x>
+      <y>64</y>
+      <w>160</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;180.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>664</x>
+      <y>64</y>
+      <w>152</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;170.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>344</x>
+      <y>256</y>
+      <w>280</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+Role
+--
+_+ STANDARD_CHOICES: String[]_
+--
+/+ start(): void/
+/+ displayChoices(additionalChoices: String): void/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>480</y>
+      <w>168</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+/AbstractCustomerRole/
+--
+- choices: String[]
+--
++ editServices(): void
++ closeAccount(): void
++ cancelBooking(): void
++ editAccount(): void
++ makeBooking(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>352</y>
+      <w>24</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>272</x>
+      <y>728</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+CustomerRole
+--
+
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>344</x>
+      <y>600</y>
+      <w>144</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>160.0;10.0;160.0;80.0;10.0;80.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>512</x>
+      <y>728</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+TravelAgencyRole
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>464</x>
+      <y>648</y>
+      <w>152</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;170.0;20.0;170.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>688</x>
+      <y>512</y>
+      <w>208</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>RoleFactory
+--
+
+--
+- RoleFactory()
+_+ getRole(roleName: String): Role_</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

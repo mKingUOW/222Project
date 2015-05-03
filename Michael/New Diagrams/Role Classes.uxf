@@ -5,17 +5,16 @@
     <id>UMLClass</id>
     <coordinates>
       <x>304</x>
-      <y>72</y>
+      <y>104</y>
       <w>280</w>
-      <h>104</h>
+      <h>72</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;interface&gt;&gt;
-Role
+    <panel_attributes>/Role/
 --
-_+ STANDARD_CHOICES: String[]_
+- choices: String[]
 --
-/+ start(): void/
-/+ displayChoices(additionalChoices: String): void/</panel_attributes>
++ displayChoices(): int
++ addChoices(additionalChoices: String[]): void</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -85,6 +84,129 @@ CustomerRole
     </coordinates>
     <panel_attributes>&lt;&lt;controller&gt;&gt;
 TravelAgencyRole
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>752</x>
+      <y>256</y>
+      <w>208</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>RoleFactory
+--
+
+--
+- RoleFactory()
+_+ getRole(roleName: String): Role_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>424</x>
+      <y>464</y>
+      <w>152</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;20.0;170.0;20.0;170.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>528</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+FlightManagerRole
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>728</x>
+      <y>416</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+ProfileSystemManagerRole
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>584</x>
+      <y>336</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+ServiceSystemManagerRole
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>712</x>
+      <y>664</y>
+      <w>208</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+ReservationSystemManagerRole
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>472</x>
+      <y>648</y>
+      <w>176</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+ReportingSystemManagerRole
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>640</x>
+      <y>152</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+SystemAdministratorRole
 --
 
 --

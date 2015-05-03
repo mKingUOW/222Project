@@ -25,13 +25,14 @@ public class UserController{
 	}
 
 	public void start(){
-		if (role != null) {
-			role.start();
-		}
+		do {			
+			role.displayChoices();
+			role.executeChoice();
+		} while (role.isUserLoggedIn());
 	}
 
 	private void setRole(String roleName){
 		role = RoleFactory.getRole(roleName);
 	}
-
+	
 }

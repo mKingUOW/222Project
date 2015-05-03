@@ -8,7 +8,7 @@ public class UserEntity{
 	private BufferedReader reader;	
 	private PrintWriter writer;
 	private File file;
-	private String dbfile = new String(System.getProperty("user.dir") + File.separator + "database" + File.separator + "userAccount.csv");
+	private String dbfile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "userAccount.csv";
 	private String passwdInDB;
 	private String role;
 	
@@ -86,4 +86,4 @@ public class UserEntity{
 		return true;
 	}
 	
-};
+}
