@@ -23,6 +23,18 @@ public class UserController{
 
 		return true;
 	}
+	
+	public boolean signUp(){
+		
+		Arrays.equals(myPasswd,checkPasswd)
+		
+		if(){
+
+		}else{	
+			isSignUpOkay = false;		
+			System.out.println("The passwords you entered are not the same! Please enter again.\n");
+		}
+	}
 
 	public void start(){
 		do {			

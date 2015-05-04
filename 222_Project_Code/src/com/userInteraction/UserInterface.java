@@ -13,7 +13,7 @@ public class UserInterface{
 		System.out.println("Please select your choice: ");
 		System.out.println("1: Login");
 		System.out.println("2: SignUp");
-		System.out.println("q: Quit.");
+		System.out.println("q: Quit");
 		System.out.print("Your Choice: ");
 	}
 	
@@ -28,15 +28,12 @@ public class UserInterface{
 	}
 */	
 	public void login(){
-		String myUserName = "";
-		char [] myPasswd = null;
-		char [] checkPasswd = null;
+		String myUserName;
+		char [] myPasswd;
 		boolean isLoginOkay;
 		
 		try{
 			do{
-				isLoginOkay = true;
-
 				System.out.print("\nUsername: ");
 				myUserName = consl.readLine();					//Read in the username;
 
@@ -58,15 +55,17 @@ public class UserInterface{
 	}
 	
 	public void signUp(){
-		String myUserName = "";
-		char [] myPasswd = null;
-		char [] checkPasswd = null;
+		String myUserName;
+		char [] myPasswd;
+		char [] checkPasswd;
 		boolean isSignUpOkay;
 		
 		try{
 			do{
-				isSignUpOkay = true;
-
+				//title, first name, last name, gender, date of birth, phone number, email, street address, state, city, country, credit card type, credit card number, and whether they hold a passport.
+				 
+				
+				
 				System.out.println("\nUsername: ");
 				myUserName = consl.readLine();					//Read in the username;
 
@@ -76,12 +75,14 @@ public class UserInterface{
 				System.out.println("Password again: ");
 				checkPasswd = consl.readPassword();				//Read in the password again and check whether they are the same; If not the same, then invalid;
 				
-				if(Arrays.equals(myPasswd,checkPasswd)){
-	//				uc.signUp(myUserName,myPasswd);
-				}else{	
-					isSignUpOkay = false;		
+				isSignUpOkay = uc.signUp();
+				
+				if(isSignUpOkay){
+					
+				}else{		
 					System.out.println("The passwords you entered are not the same! Please enter again.\n");
 				}
+				
 			} while(!isSignUpOkay);
 
 			

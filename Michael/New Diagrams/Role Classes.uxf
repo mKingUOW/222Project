@@ -25,8 +25,7 @@
       <w>168</w>
       <h>128</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
-/AbstractCustomerRole/
+    <panel_attributes>/AbstractCustomerRole/
 --
 - choices: String[]
 --
@@ -45,7 +44,7 @@
       <w>24</w>
       <h>144</h>
     </coordinates>
-    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
     <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
   </element>
   <element>
