@@ -27,18 +27,17 @@ public class UserController{
 	
 	public boolean signUp(UserLoginDetails uld, char[] confirmPassword){
 		
-		boolean isSignUpOkay;
+		boolean isLoginOkay = true;
+		boolean isPasswordOkay = Arrays.equals(uld.getPassword(), confirmPassword);
 		
-		isSignUpOkay = Arrays.equals(uld.getPassword(), confirmPassword);
-		
-		if(isSignUpOkay){
-			
+		if(isPasswordOkay){
+			isLoginOkay = true;
 		}else{	
-			isSignUpOkay = false;		
+			isPasswordOkay = false;		
 			System.out.println("The passwords you entered are not the same! Please enter again.\n");
 		}
 		
-		return isSignUpOkay;
+		return isPasswordOkay && isLoginOkay;
 	}
 
 	public void start(){

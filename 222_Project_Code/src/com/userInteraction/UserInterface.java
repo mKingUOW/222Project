@@ -96,7 +96,37 @@ public class UserInterface{
 				checkPasswd = consl.readPassword();				//Read in the password again and check whether they are the same; If not the same, then invalid;
 				
 				System.out.print("\nGender: ");
-				title = consl.readLine();
+				gender = consl.readLine();
+				
+				System.out.print("\nDate of Birth: ");
+				DOB = consl.readLine();
+				
+				System.out.print("\nPhone Number: ");
+				phoneNumber = consl.readLine();
+				
+				System.out.print("\nEmail: ");
+				email = consl.readLine();
+				
+				System.out.print("\nStreet: ");
+				street = consl.readLine();
+				
+				System.out.print("\nState: ");
+				state = consl.readLine();
+				
+				System.out.print("\nCity: ");
+				city = consl.readLine();
+				
+				System.out.print("\nCountry: ");
+				country = consl.readLine();
+				
+				System.out.print("\nCredit Card Type: ");
+				creditCardType = consl.readLine();
+				
+				System.out.print("\nCredit Card Number: ");
+				creditCardNumber = consl.readLine();
+				
+				System.out.print("\nDo you have a passport? (Yes/No): ");
+				hasPassport = consl.readLine();
 				
 				UserLoginDetails uld = new UserLoginDetails(title, firstName, lastName, username, password,
 						gender, DOB, phoneNumber, email,
