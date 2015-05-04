@@ -3,6 +3,7 @@ package com.userInteraction;
 import java.util.*;
 import java.io.*;
 import com.role.*;
+import helpers.UserLoginDetails;
 
 public class UserController{
 	private Role role;
@@ -24,16 +25,20 @@ public class UserController{
 		return true;
 	}
 	
-	public boolean signUp(){
+	public boolean signUp(UserLoginDetails uld, char[] confirmPassword){
 		
-		Arrays.equals(myPasswd,checkPasswd)
+		boolean isSignUpOkay;
 		
-		if(){
-
+		isSignUpOkay = Arrays.equals(uld.getPassword(), confirmPassword);
+		
+		if(isSignUpOkay){
+			
 		}else{	
 			isSignUpOkay = false;		
 			System.out.println("The passwords you entered are not the same! Please enter again.\n");
 		}
+		
+		return isSignUpOkay;
 	}
 
 	public void start(){

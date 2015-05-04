@@ -2,6 +2,7 @@ package com.userInteraction;
 
 import java.util.*;
 import java.io.*;
+import helpers.UserLoginDetails;
 
 public class UserInterface{
 
@@ -55,27 +56,54 @@ public class UserInterface{
 	}
 	
 	public void signUp(){
-		String myUserName;
-		char [] myPasswd;
-		char [] checkPasswd;
 		boolean isSignUpOkay;
+		String title;
+		String firstName;
+		String lastName;
+		String username;
+		char[] password;
+		char [] checkPasswd;
+		String gender;
+		String DOB;
+		String phoneNumber;
+		String email;
+		String street;
+		String state;
+		String city;
+		String country;
+		String creditCardType;
+		String creditCardNumber;
+		String hasPassport;
 		
 		try{
 			do{
-				//title, first name, last name, gender, date of birth, phone number, email, street address, state, city, country, credit card type, credit card number, and whether they hold a passport.
-				 
+				System.out.print("\nTitle: ");
+				title = consl.readLine();
 				
+				System.out.print("\nFirst Name: ");
+				firstName = consl.readLine();
 				
-				System.out.println("\nUsername: ");
-				myUserName = consl.readLine();					//Read in the username;
+				System.out.print("\nLast Name: ");
+				lastName = consl.readLine();
+				
+				System.out.print("Username: ");
+				username = consl.readLine();					//Read in the username;
 
-				System.out.println("Password: ");
-				myPasswd = consl.readPassword();				//Read in the password using the console.readPassword();
+				System.out.print("Password: ");
+				password = consl.readPassword();				//Read in the password using the console.readPassword();
 
-				System.out.println("Password again: ");
+				System.out.print("Confirm your password: ");
 				checkPasswd = consl.readPassword();				//Read in the password again and check whether they are the same; If not the same, then invalid;
 				
-				isSignUpOkay = uc.signUp();
+				System.out.print("\nGender: ");
+				title = consl.readLine();
+				
+				UserLoginDetails uld = new UserLoginDetails(title, firstName, lastName, username, password,
+						gender, DOB, phoneNumber, email,
+						street, state, city, country,
+						creditCardType, creditCardNumber, hasPassport);
+				
+				isSignUpOkay = uc.signUp(uld, checkPasswd);
 				
 				if(isSignUpOkay){
 					

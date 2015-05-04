@@ -21,12 +21,12 @@ public class UserLoginDetails {
 	private String country;
 	private String creditCardType;
 	private String creditCardNumber;
-	private boolean hasPassport;
+	private String hasPassport;
 	
 	public UserLoginDetails(String title, String firstName, String lastName, String username, char[] password,
 			String gender, String DOB, String phoneNumber, String email,
 			String street, String state, String city, String country,
-			String creditCardType, String creditCardNumber, boolean hasPassport){
+			String creditCardType, String creditCardNumber, String hasPassport){
 		this.title = title;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -119,7 +119,7 @@ public class UserLoginDetails {
 		return creditCardNumber;
 	}
 	
-	public boolean hasPassport(){
+	public String hasPassport(){
 		return hasPassport;
 	}
 }
