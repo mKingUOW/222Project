@@ -18,3 +18,12 @@ Meeting during the study break. So the upcoming work to complete includes finish
 
 27/04/2015
 Work to do includes redesigning the domain model so that the program will function as per the SRS. Work also includes minor programming. Estimated time in total to finish tasks is about 24 hours and should finish by Saturday, late afternoon.
+
+02/05/2015
+Worked from 10:30am to around 4:30pm with Jason on the system. Managed to finish the overall structure of the system and the login functionality. Also solidified certain constants in the system such as the abbreviations of the different roles in the system and how the Role class and its subclasses work with the UserController class. Partially completed the logout and register functionality. Finishing these functionality should take about two more hours.
+
+04/05/2015
+Usual Monday meeting. Finished the logout and register functionality. Also finished the skeleton of the classes for the different roles in the system. Just need to fill those skeleton classes with actual methods that will give the class its particular functionality. Including all the entity classes to talk to the database files, we would need about 2 weeks to finish it. Still having trouble implementing the System Administrator’s role class. Not sure how the delegation pattern would help me in this area, but some more research might prove helpful in solving this problem.
+
+05/05/2015
+Managed the solve the System Administrator’s role class using the delegation pattern. So the System Administrator can now use the system as an anonymous user under a different role. Best part is that there is no duplication of code, which will be useful should the need arise to update functionalities particular to a role. Now that all the skeleton classes for the roles are complete, we will start on the actual functionality of the system starting with the Customer and Travel Agency actors since they are key users of the system. Implementing the functionalities of these two actors should take us another Saturday.
