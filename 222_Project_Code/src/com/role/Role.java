@@ -68,7 +68,6 @@ public abstract class Role{
 			case "Change Password":
 				break;
 			case "Logout":
-				System.out.println("Goodbye!\n");
 				isLoggedIn = false;
 				break;
 		}

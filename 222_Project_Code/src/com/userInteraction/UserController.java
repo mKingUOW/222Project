@@ -1,7 +1,6 @@
 package com.userInteraction;
 
 import java.util.*;
-import java.io.*;
 import com.role.*;
 import com.helpers.UserLoginDetails;
 
@@ -31,13 +30,22 @@ public class UserController{
 		boolean isPasswordOkay = Arrays.equals(uld.getPassword(), confirmPassword);
 		
 		if(isPasswordOkay){
+			switch (uld.getRole()) {
+				case "Travel Agency":
+					uld.setRole("TA");
+					break;
+				case "Customer": 
+				default: //if user enters something unexpected, system will default them to customer
+					uld.setRole("CUS");
+					break;
+			}
+			
 			isLoginOkay = ue.signUp(uld);
 			
 			if (!isLoginOkay) {
 				System.out.println("The username already exists! Please try another username.\n");
 			}
 		}else{	
-			isPasswordOkay = false;		
 			System.out.println("The passwords you entered are not the same! Please try again.\n");
 		}
 		
@@ -49,6 +57,7 @@ public class UserController{
 			role.displayChoices();
 			role.executeChoice();
 		} while (role.isUserLoggedIn());
+		System.out.println("Goodbye!\n");
 	}
 
 	private void setRole(String roleName){

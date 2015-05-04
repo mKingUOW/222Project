@@ -1,10 +1,11 @@
 package com.role;
 
 public class TravelAgencyRole extends AbstractCustomerRole{
-
+	private String[] choices = null;
+	
 	public TravelAgencyRole(){
 		super();
-		addChoices(null);
+		addChoices(choices);
 	}
 
 	public void addCustomers(){

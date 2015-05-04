@@ -1,14 +1,11 @@
 package com.role;
 
-import java.util.*;
-
 public class CustomerRole extends AbstractCustomerRole{
-
-	private Scanner in = new Scanner(System.in);
-
+	private String[] choices = null;
+			
 	public CustomerRole(){
 		super();
-		addChoices(null);
+		addChoices(choices);
 	}
 
 	@Override
@@ -16,10 +13,6 @@ public class CustomerRole extends AbstractCustomerRole{
 		String choice = allChoices.get(userChoice);
 		
 		switch(choice){
-			/*
-			case "Make Booking":
-				break;
-			*/
 			default:
 				super.executeChoice();
 				break;

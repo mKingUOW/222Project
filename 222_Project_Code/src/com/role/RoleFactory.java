@@ -8,7 +8,7 @@ public class RoleFactory{
 
 	public static Role getRole(String roleName){
 
-		Role role = null;
+		Role role;
 
 		switch(roleName){
 			case "CUS": 

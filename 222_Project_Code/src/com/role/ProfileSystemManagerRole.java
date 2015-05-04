@@ -5,12 +5,15 @@
 
 package com.role;
 
+import com.entities.WatchAndNoFlyList;
+
 /**
  *
  * @author Michael Y.M. Kong
  */
 public class ProfileSystemManagerRole extends Role{
 	private String[] choices = {"Edit Watch and No Fly List", "Edit Travel Agency and Customer Profile", "Close Account"};
+	private WatchAndNoFlyList wanfl = new WatchAndNoFlyList();
 	
 	public ProfileSystemManagerRole(){
 		super();
@@ -23,6 +26,7 @@ public class ProfileSystemManagerRole extends Role{
 		
 		switch(choice){
 			case "Edit Watch and No Fly List":
+				wanfl.edit();
 				break;
 			case "Edit Travel Agency and Customer Profile":
 				break;

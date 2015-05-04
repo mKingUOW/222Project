@@ -61,6 +61,10 @@ public class UserLoginDetails {
 	}
 	*/
 	
+	public void setRole(String role){
+		this.role = role;
+	}
+	
 	public String getTitle(){
 		return title;
 	}

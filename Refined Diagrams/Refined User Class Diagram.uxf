@@ -4,7 +4,7 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>704</x>
+      <x>816</x>
       <y>0</y>
       <w>168</w>
       <h>160</h>
@@ -25,7 +25,7 @@ User
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>104</x>
+      <x>216</x>
       <y>24</y>
       <w>168</w>
       <h>112</h>
@@ -41,7 +41,7 @@ UserUI
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>408</x>
+      <x>520</x>
       <y>24</y>
       <w>168</w>
       <h>112</h>
@@ -58,7 +58,7 @@ UserController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>264</x>
+      <x>376</x>
       <y>64</y>
       <w>160</w>
       <h>32</h>
@@ -69,7 +69,7 @@ UserController
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>568</x>
+      <x>680</x>
       <y>64</y>
       <w>152</w>
       <h>32</h>
@@ -80,7 +80,7 @@ UserController
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>248</x>
+      <x>360</x>
       <y>256</y>
       <w>280</w>
       <h>104</h>
@@ -97,7 +97,7 @@ _+ STANDARD_CHOICES: String[]_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>296</x>
+      <x>408</x>
       <y>480</y>
       <w>168</w>
       <h>128</h>
@@ -117,7 +117,7 @@ _+ STANDARD_CHOICES: String[]_
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>376</x>
+      <x>488</x>
       <y>352</y>
       <w>24</w>
       <h>144</h>
@@ -128,7 +128,7 @@ _+ STANDARD_CHOICES: String[]_
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>176</x>
+      <x>288</x>
       <y>728</y>
       <w>168</w>
       <h>72</h>
@@ -143,7 +143,7 @@ CustomerRole
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>248</x>
+      <x>360</x>
       <y>600</y>
       <w>144</w>
       <h>144</h>
@@ -154,7 +154,7 @@ CustomerRole
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>416</x>
+      <x>528</x>
       <y>728</y>
       <w>168</w>
       <h>72</h>
@@ -170,7 +170,7 @@ TravelAgencyRole
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>368</x>
+      <x>480</x>
       <y>648</y>
       <w>152</w>
       <h>96</h>
@@ -181,7 +181,7 @@ TravelAgencyRole
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>592</x>
+      <x>704</x>
       <y>512</y>
       <w>208</w>
       <h>72</h>

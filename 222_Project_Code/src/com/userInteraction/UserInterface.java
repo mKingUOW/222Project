@@ -11,6 +11,7 @@ public class UserInterface{
 	private Scanner in = new Scanner(System.in);
 	
 	private void displayLoginChoices(){		//Display all the choices for the user;
+		System.out.println("\nFLIGHT MANAGEMENT SYSTEM");
 		System.out.println("Please select your choice: ");
 		System.out.println("1: Login");
 		System.out.println("2: SignUp");
