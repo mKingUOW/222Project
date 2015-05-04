@@ -1,14 +1,19 @@
 package com.userInteraction;
 
+import com.helpers.*;
+
 import java.util.*;
 import java.io.*;
 
 public class UserEntity{
 	
 	private BufferedReader reader;	
-	private PrintWriter writer;
-	private File file;
-	private String dbfile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "userAccount.csv";
+	private PrintWriter accWriter;
+	private PrintWriter usrWriter;
+	private File accfile;
+	private File usrfile;
+	private String accountFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "userAccount.csv";
+	private String detailsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "userDetail.csv";
 	private String passwdInDB;
 	private String role;
 	
@@ -22,7 +27,7 @@ public class UserEntity{
 		boolean existed = false;
 		
 		try{
-			reader = new BufferedReader(new FileReader(dbfile));
+			reader = new BufferedReader(new FileReader(accountFile));
 			while(!existed && ((oneLine = reader.readLine()) != null)){
 			// oneLine represents one line in the DB; Recursively check the DB;	
                 String[] words = oneLine.split(",");
@@ -51,14 +56,14 @@ public class UserEntity{
 		return role;
 	}
 
-	public boolean signUp(String username, char[] password,String role){
-		String passwd = new String(password);
+	public boolean signUp(UserLoginDetails user){
+		String passwd = new String(user.getPassword());
 		String oneLine = "";
 		boolean existed = false;
 		
 		//At first, check whether the account exists already in the DB;
 		try{
-			reader = new BufferedReader(new FileReader(dbfile));
+			reader = new BufferedReader(new FileReader(accountFile));
 			while(!existed && ((oneLine = reader.readLine()) != null)){
                 String[] words = oneLine.split(",");
 				
@@ -76,9 +81,20 @@ public class UserEntity{
 		
 		//If the account doesn't exist in the DB, then insert the username/password/role into the DB;
 		try{
-			writer = new PrintWriter(file);
-			writer.println(username + "," + passwd + "," + role);
-            writer.close();		
+			accfile = new File(accountFile);
+			usrfile = new File(detailsFile);
+			accWriter = new PrintWriter(new FileOutputStream(accfile,true));		//To append to the file using "true";
+			accWriter.println(user.getUsername() + "," + passwd + "," + user.getRole());
+            accWriter.close();	
+
+			usrWriter = new PrintWriter(new FileOutputStream(usrfile,true));		//To append to the file using "true";
+			usrWriter.println(user.getUsername() + "," + user.getTitle() + "," + user.getFirstName() + "," 
+							  + user.getLastName() + "," + user.getGender() + "," + user.getDOB() + "," 
+							  + user.getPhoneNumber() + "," + user.getEmail() + "," + user.getStreet() + "," 
+							  + user.getState() + "," + user.getCity() + "," + user.getCountry() + ","
+							  + user.getCreditCardType() + "," + user.getCreditCardNumber() 
+							  + "," + user.hasPassport() );
+			usrWriter.close();
 		}catch(Exception e){
 			e.printStackTrace();
 		}
