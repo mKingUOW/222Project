@@ -67,7 +67,7 @@ public class UserEntity{
 			while(!existed && ((oneLine = reader.readLine()) != null)){
                 String[] words = oneLine.split(",");
 				
-				if(username.equals(words[0])){
+				if(user.getUsername().equals(words[0])){
 					existed = true;
 					return false;	
 				}
@@ -84,11 +84,11 @@ public class UserEntity{
 			accfile = new File(accountFile);
 			usrfile = new File(detailsFile);
 			accWriter = new PrintWriter(new FileOutputStream(accfile,true));		//To append to the file using "true";
-			accWriter.println(user.getUsername() + "," + passwd + "," + user.getRole());
+			accWriter.println("\n" + user.getUsername() + "," + passwd + "," + user.getRole());
             accWriter.close();	
 
 			usrWriter = new PrintWriter(new FileOutputStream(usrfile,true));		//To append to the file using "true";
-			usrWriter.println(user.getUsername() + "," + user.getTitle() + "," + user.getFirstName() + "," 
+			usrWriter.println("\n" + user.getUsername() + "," + user.getTitle() + "," + user.getFirstName() + "," 
 							  + user.getLastName() + "," + user.getGender() + "," + user.getDOB() + "," 
 							  + user.getPhoneNumber() + "," + user.getEmail() + "," + user.getStreet() + "," 
 							  + user.getState() + "," + user.getCity() + "," + user.getCountry() + ","

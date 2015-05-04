@@ -71,10 +71,10 @@ public class UserInterface{
 				System.out.print("\nTitle: ");
 				title = consl.readLine();
 				
-				System.out.print("\nFirst Name: ");
+				System.out.print("First Name: ");
 				firstName = consl.readLine();
 				
-				System.out.print("\nLast Name: ");
+				System.out.print("Last Name: ");
 				lastName = consl.readLine();
 				
 				System.out.print("Username: ");
@@ -86,40 +86,40 @@ public class UserInterface{
 				System.out.print("Confirm your password: ");
 				checkPasswd = consl.readPassword();				//Read in the password again and check whether they are the same; If not the same, then invalid;
 				
-				System.out.print("\nGender: ");
+				System.out.print("Gender: ");
 				gender = consl.readLine();
 				
-				System.out.print("\nDate of Birth: ");
+				System.out.print("Date of Birth: ");
 				DOB = consl.readLine();
 				
-				System.out.print("\nPhone Number: ");
+				System.out.print("Phone Number: ");
 				phoneNumber = consl.readLine();
 				
-				System.out.print("\nEmail: ");
+				System.out.print("Email: ");
 				email = consl.readLine();
 				
-				System.out.print("\nStreet: ");
+				System.out.print("Street: ");
 				street = consl.readLine();
 				
-				System.out.print("\nState: ");
+				System.out.print("State: ");
 				state = consl.readLine();
 				
-				System.out.print("\nCity: ");
+				System.out.print("City: ");
 				city = consl.readLine();
 				
-				System.out.print("\nCountry: ");
+				System.out.print("Country: ");
 				country = consl.readLine();
 				
-				System.out.print("\nCredit Card Type: ");
+				System.out.print("Credit Card Type: ");
 				creditCardType = consl.readLine();
 				
-				System.out.print("\nCredit Card Number: ");
+				System.out.print("Credit Card Number: ");
 				creditCardNumber = consl.readLine();
 				
-				System.out.print("\nDo you have a passport? (Yes/No): ");
+				System.out.print("Do you have a passport? (Yes/No): ");
 				hasPassport = consl.readLine();
 				
-				System.out.print("\nRole: ");
+				System.out.print("Role (Customer/Travel Agency): ");
 				role = consl.readLine();
 				
 				UserLoginDetails uld = new UserLoginDetails(title, firstName, lastName, username, password,
@@ -131,7 +131,9 @@ public class UserInterface{
 				
 			} while(!isSignUpOkay);
 
+			System.out.println("Signup is successful!\n");
 			
+			//go back to main menu
 		}catch(Exception e){
 			e.printStackTrace();
 		}
@@ -140,10 +142,10 @@ public class UserInterface{
 	public void start(){	
 		char signChoice = '0';			//Used for storing the choice of a user;
 		String signChoiceString = "";
-		boolean isInputValid;
+		boolean shouldContinue;
 		
-		do{	
-			isInputValid = true;
+		do{
+			shouldContinue = true;
 			displayLoginChoices();							//Display the choices;
 		
 			try{
@@ -156,20 +158,20 @@ public class UserInterface{
 			switch(signChoice){
 				case '1':
 					login();
+					shouldContinue = false;
 					break;
 				case '2':
 					signUp();
 					break;
 				case 'q': //If entering 'q', the system terminates;
 					System.out.println("\nThe system's been shut down... ");
-					System.exit(0);	
+					shouldContinue = false;
 					break;
 				default:
-					isInputValid = false;
 					System.out.println("\nInvalid choice! Please input your choice again or enter 'q' to quit!\n");
 					break;
 			}
-		} while(!isInputValid);
+		} while(shouldContinue);
 		
 	}
 }

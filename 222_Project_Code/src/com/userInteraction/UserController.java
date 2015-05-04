@@ -31,7 +31,7 @@ public class UserController{
 		boolean isPasswordOkay = Arrays.equals(uld.getPassword(), confirmPassword);
 		
 		if(isPasswordOkay){
-			isLoginOkay = true;
+			isLoginOkay = ue.signUp(uld);
 			
 			if (!isLoginOkay) {
 				System.out.println("The username already exists! Please try another username.\n");
