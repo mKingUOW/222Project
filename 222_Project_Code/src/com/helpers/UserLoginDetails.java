@@ -1,4 +1,4 @@
-package helpers;
+package com.helpers;
 
 /**
  *
@@ -22,11 +22,12 @@ public class UserLoginDetails {
 	private String creditCardType;
 	private String creditCardNumber;
 	private String hasPassport;
+	private String role;
 	
 	public UserLoginDetails(String title, String firstName, String lastName, String username, char[] password,
 			String gender, String DOB, String phoneNumber, String email,
 			String street, String state, String city, String country,
-			String creditCardType, String creditCardNumber, String hasPassport){
+			String creditCardType, String creditCardNumber, String hasPassport, String role){
 		this.title = title;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -43,6 +44,7 @@ public class UserLoginDetails {
 		this.creditCardType = creditCardType;
 		this.creditCardNumber = creditCardNumber;
 		this.hasPassport = hasPassport;
+		this.role = role;
 	}
 	/*
 	public void setTitle(String title){
@@ -121,5 +123,9 @@ public class UserLoginDetails {
 	
 	public String hasPassport(){
 		return hasPassport;
+	}
+	
+	public String getRole(){
+		return role;
 	}
 }

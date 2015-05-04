@@ -17,7 +17,6 @@ public class RoleFactory{
 			case "TA":
 				role = new TravelAgencyRole();
 				break;
-			/*
 			case "FM":
 				role = new FlightManagerRole();
 				break;
@@ -39,7 +38,6 @@ public class RoleFactory{
 			default:
 				role = null;
 				break;
-			*/
 		}
 		return role;
 	}

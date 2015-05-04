@@ -2,7 +2,7 @@ package com.userInteraction;
 
 import java.util.*;
 import java.io.*;
-import helpers.UserLoginDetails;
+import com.helpers.UserLoginDetails;
 
 public class UserInterface{
 
@@ -18,16 +18,6 @@ public class UserInterface{
 		System.out.print("Your Choice: ");
 	}
 	
-/*	private void displayBookingChoices(){		//Display all the choices for the user;
-		System.out.println("\nPlease select your Service: ");
-		System.out.println("1: Book a flight");
-		System.out.println("2: Search for a flight");
-		System.out.println("3: Cancel a flight");
-		System.out.println("4: Logout");
-		System.out.println("q: Quit.");
-		System.out.print("Your Choice: ");
-	}
-*/	
 	public void login(){
 		String myUserName;
 		char [] myPasswd;
@@ -74,6 +64,7 @@ public class UserInterface{
 		String creditCardType;
 		String creditCardNumber;
 		String hasPassport;
+		String role;
 		
 		try{
 			do{
@@ -128,18 +119,15 @@ public class UserInterface{
 				System.out.print("\nDo you have a passport? (Yes/No): ");
 				hasPassport = consl.readLine();
 				
+				System.out.print("\nRole: ");
+				role = consl.readLine();
+				
 				UserLoginDetails uld = new UserLoginDetails(title, firstName, lastName, username, password,
 						gender, DOB, phoneNumber, email,
 						street, state, city, country,
-						creditCardType, creditCardNumber, hasPassport);
+						creditCardType, creditCardNumber, hasPassport, role);
 				
 				isSignUpOkay = uc.signUp(uld, checkPasswd);
-				
-				if(isSignUpOkay){
-					
-				}else{		
-					System.out.println("The passwords you entered are not the same! Please enter again.\n");
-				}
 				
 			} while(!isSignUpOkay);
 
