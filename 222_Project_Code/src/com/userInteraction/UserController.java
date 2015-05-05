@@ -9,7 +9,6 @@ public class UserController{
 	private UserEntity ue = new UserEntity();
 
 	public UserController(){ //default constructor
-		
 	}
 
 	public boolean login(String username, char[] password){
