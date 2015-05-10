@@ -14,7 +14,7 @@ public class AirportEntity{
 		
 	}
 	
-	public int getAirport(String city){
+	public String getAirportCode(String city){
 		
 		String oneLine = "";
 		boolean existed = false;

@@ -49,8 +49,12 @@ public class BookingController {
 			}
 		} while (!isOkay);
 		
-		int i = 1;
+		System.out.print("Flight ID     ");
+		System.out.print("Arrival Time                     ");
+		System.out.print("Departure Time                ");
+		System.out.println();
 		
+		int i = 1;
 		for (Flight flight: flights) {
 			System.out.print(i + ". ");
 			System.out.println(flight.toString());
@@ -79,13 +83,13 @@ public class BookingController {
 	public void addCustomers(Booking booking){
 		UserEntity ue = new UserEntity();
 		String[] customer_usernames;
-		boolean areUsernamesOkay;
+		boolean areUsernamesOkay = true;
 		
 		do {
 			System.out.print("Please enter the usernames of existing customers separated by spaces: ");
 			customer_usernames = in.nextLine().split(" ");
 
-			areUsernamesOkay = ue.checkUsernames(customer_usernames);
+			areUsernamesOkay = ue.checkUsernames(customer_usernames); //!!!!!!
 
 			if (!areUsernamesOkay) {
 				System.out.println("A username that was entered is not valid!\nPlease try again!\n");

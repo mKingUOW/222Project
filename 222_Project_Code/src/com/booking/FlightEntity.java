@@ -12,7 +12,7 @@ public class FlightEntity{
 	private List<Flight> flights;
 	
 	public FlightEntity(){
-		flights = new ArrayList<Flight>();
+		flights = new ArrayList<>();
 	}
 	
 	public List<Flight> getFlights(int routeNumber){
@@ -31,7 +31,7 @@ public class FlightEntity{
 				int tmpRouteNum = Integer.parseInt(words[3]);
 				
 				if(routeNumber == tmpRouteNum){
-					Flight aflight = new Flight(tmpFlightID,tmpPlaneID,tmpRouteID,words[4],words[5]);
+					Flight aflight = new Flight(tmpFlightID,tmpPlaneID,tmpRouteNum,words[4],words[5]);
 					flights.add(aflight);
 				}
 			}
