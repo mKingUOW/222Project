@@ -85,6 +85,8 @@ public class BookingController {
 		String[] customer_usernames;
 		boolean areUsernamesOkay = true;
 		
+		System.out.println();
+		
 		do {
 			System.out.print("Please enter the usernames of existing customers separated by spaces: ");
 			customer_usernames = in.nextLine().split(" ");
@@ -173,10 +175,10 @@ public class BookingController {
 						street, state, city, country,
 						creditCardType, creditCardNumber, hasPassport);
 				
-				pe.addPerson(person);
+				int person_id = pe.addPerson(person);
 				
 				System.out.print("Do you want to add another person? (Y/N): ");
-				choice = in.next().charAt(0);
+				choice = in.nextLine().charAt(0);
 				
 				if (choice == 'Y') {
 					isDone = false;

@@ -16,7 +16,12 @@ public class PersonEntity {
 		
 	}
 	
-	public void addPerson(Person person){
-		
+	/**
+	 * 
+	 * @param person
+	 * @return the ID of this person
+	 */
+	public int addPerson(Person person){
+		return 0; 
 	}
 }
