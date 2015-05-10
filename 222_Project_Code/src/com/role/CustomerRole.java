@@ -1,7 +1,10 @@
 package com.role;
 
+import com.booking.BookingController;
+
 public class CustomerRole extends AbstractCustomerRole{
-	private String[] choices = null;
+	private String[] choices = {"Make Booking"};
+	private BookingController bc = new BookingController();
 			
 	public CustomerRole(){
 		super();
@@ -13,6 +16,9 @@ public class CustomerRole extends AbstractCustomerRole{
 		String choice = allChoices.get(userChoice);
 		
 		switch(choice){
+			case "Make Booking":
+				bc.makeBooking("CUS");
+				break;
 			default:
 				super.executeChoice();
 				break;

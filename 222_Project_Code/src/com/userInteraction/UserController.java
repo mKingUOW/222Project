@@ -6,12 +6,12 @@ import com.helpers.UserLoginDetails;
 
 public class UserController{
 	private Role role;
-	private UserEntity ue = new UserEntity();
 
 	public UserController(){ //default constructor
 	}
 
 	public boolean login(String username, char[] password){
+		UserEntity ue = new UserEntity();
 		String roleName = ue.login(username, password);
 		
 		if ("loginFail".equals(roleName)) {
@@ -25,6 +25,7 @@ public class UserController{
 	
 	public boolean signUp(UserLoginDetails uld, char[] confirmPassword){
 		
+		UserEntity ue = new UserEntity();
 		boolean isLoginOkay = true;
 		boolean isPasswordOkay = Arrays.equals(uld.getPassword(), confirmPassword);
 		

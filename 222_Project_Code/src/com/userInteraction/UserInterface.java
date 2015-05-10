@@ -117,7 +117,7 @@ public class UserInterface{
 				System.out.print("Credit Card Number: ");
 				creditCardNumber = consl.readLine();
 				
-				System.out.print("Do you have a passport? (Yes/No): ");
+				System.out.print("Do you have a passport? (Y/N): ");
 				hasPassport = consl.readLine();
 				
 				System.out.print("Role (Customer/Travel Agency): ");

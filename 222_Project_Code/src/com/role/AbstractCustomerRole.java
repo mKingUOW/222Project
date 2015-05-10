@@ -5,7 +5,7 @@ import com.booking.BookingController;
 
 public abstract class AbstractCustomerRole extends Role{
 
-	private String[] choices = {"Make Booking", "Edit Services", "Close Account", "Cancel Booking", "Edit Account"};
+	private String[] choices = {"Edit Services", "Close Account", "Cancel Booking", "Edit Account"};
 	private Scanner in = new Scanner(System.in);
 	private BookingController bc = new BookingController();
 	
@@ -30,9 +30,6 @@ public abstract class AbstractCustomerRole extends Role{
 		String choice = allChoices.get(userChoice);
 		
 		switch(choice){
-			case "Make Booking":
-				bc.makeBooking();
-				break;
 			case "Edit Services":
 				break;
 			case "Close Account":
