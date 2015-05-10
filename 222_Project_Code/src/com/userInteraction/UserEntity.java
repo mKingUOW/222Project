@@ -104,6 +104,7 @@ public class UserEntity{
 	public boolean checkUsernames(String usernames[]){
 		int len = usernames.length;
 		boolean allExisted = true;
+		String oneLine="";
 		
 		try{
 			for(int i=0;i<len && allExisted;i++){

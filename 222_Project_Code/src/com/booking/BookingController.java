@@ -85,9 +85,8 @@ public class BookingController {
 		String[] customer_usernames;
 		boolean areUsernamesOkay = true;
 		
-		System.out.println();
-		
 		do {
+			in.nextLine();
 			System.out.print("Please enter the usernames of existing customers separated by spaces: ");
 			customer_usernames = in.nextLine().split(" ");
 
