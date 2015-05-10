@@ -4,24 +4,26 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>728</x>
-      <y>238</y>
+      <x>679</x>
+      <y>294</y>
       <w>259</w>
-      <h>98</h>
+      <h>84</h>
     </coordinates>
-    <panel_attributes>UserEntity
+    <panel_attributes>&lt;&lt;entity&gt;&gt;
+UserEntity
 --
 
 --
 + login(username: String, password: char[]): String
-+ signUp(user: UserLoginDetails): boolean</panel_attributes>
++ signUp(user: UserLoginDetails): boolean
++ checkUsernames(usernames: String[]): boolean</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>56</x>
-      <y>238</y>
+      <x>7</x>
+      <y>294</y>
       <w>147</w>
       <h>98</h>
     </coordinates>
@@ -39,12 +41,13 @@ UserUI
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>308</x>
-      <y>238</y>
+      <x>259</x>
+      <y>294</y>
       <w>329</w>
       <h>98</h>
     </coordinates>
-    <panel_attributes>UserController
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+UserController
 --
 
 --
@@ -57,8 +60,8 @@ UserUI
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>196</x>
-      <y>273</y>
+      <x>147</x>
+      <y>329</y>
       <w>126</w>
       <h>35</h>
     </coordinates>
@@ -70,8 +73,8 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>630</x>
-      <y>273</y>
+      <x>581</x>
+      <y>329</y>
       <w>112</w>
       <h>35</h>
     </coordinates>
@@ -83,20 +86,21 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>224</x>
-      <y>441</y>
+      <x>175</x>
+      <y>497</y>
       <w>98</w>
       <h>49</h>
     </coordinates>
-    <panel_attributes>/Role/
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+/Role/
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>392</x>
-      <y>434</y>
+      <x>343</x>
+      <y>490</y>
       <w>182</w>
       <h>63</h>
     </coordinates>
@@ -111,8 +115,8 @@ _+ getRole(roleName: String): Role_</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>266</x>
-      <y>315</y>
+      <x>217</x>
+      <y>371</y>
       <w>56</w>
       <h>140</h>
     </coordinates>
@@ -125,25 +129,77 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>469</x>
-      <y>329</y>
+      <x>420</x>
+      <y>385</y>
       <w>84</w>
       <h>119</h>
     </coordinates>
     <panel_attributes>requests role
-lt=-</panel_attributes>
+lt=-
+m1=1
+m2=1</panel_attributes>
     <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>315</x>
-      <y>455</y>
+      <x>266</x>
+      <y>511</y>
       <w>91</w>
       <h>28</h>
     </coordinates>
     <panel_attributes>creates
 lt=-</panel_attributes>
     <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>378</x>
+      <y>210</y>
+      <w>105</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>UserLoginDetails</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>84</x>
+      <y>203</y>
+      <w>308</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>uses
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>420.0;20.0;10.0;20.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>476</x>
+      <y>203</y>
+      <w>343</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>uses
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;20.0;470.0;20.0;470.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>224</y>
+      <w>42</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>uses
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>

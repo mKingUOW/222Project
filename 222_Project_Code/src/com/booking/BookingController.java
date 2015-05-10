@@ -9,6 +9,7 @@ import com.helpers.Booking;
 import com.helpers.Flight;
 import com.helpers.Person;
 import com.userInteraction.UserEntity;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -34,7 +35,7 @@ public class BookingController {
 		
 		do {	
 			isOkay = true;
-			System.out.print("Please enter the flight origin of choice (city name): ");
+			System.out.print("\nPlease enter the flight origin of choice (city name): ");
 			origin = in.nextLine();
 
 			System.out.print("Please enter the flight destination of choice (city name): ");
@@ -49,7 +50,8 @@ public class BookingController {
 			}
 		} while (!isOkay);
 		
-		System.out.print("Flight ID     ");
+		System.out.print("\n#  ");
+		System.out.print("Flight ID  ");
 		System.out.print("Arrival Time                     ");
 		System.out.print("Departure Time                ");
 		System.out.println();
@@ -106,8 +108,9 @@ public class BookingController {
 		System.out.print("Do you want to add persons to the booking? (Y/N): ");
 		char choice = in.next().charAt(0);
 		
-		if (choice == 'Y') {
+		if (choice == 'Y' || choice == 'y') {
 			PersonEntity pe = new PersonEntity();
+			ArrayList<Integer> person_ids = new ArrayList<>();
 			
 			boolean isDone;
 			
@@ -174,22 +177,26 @@ public class BookingController {
 						street, state, city, country,
 						creditCardType, creditCardNumber, hasPassport);
 				
-				int person_id = pe.addPerson(person);
+				person_ids.add(pe.addPerson(person));
 				
 				System.out.print("Do you want to add another person? (Y/N): ");
 				choice = in.nextLine().charAt(0);
 				
-				if (choice == 'Y') {
+				if (choice == 'Y' || choice == 'y') {
 					isDone = false;
 				} else{
 					isDone = true;
 				}
 				
 			} while(!isDone);
+			
+			booking.addPersons(person_ids);
+			
 		} //end if
 	}
 	
 	public void cancelBooking(){
 		
 	}
+	
 }

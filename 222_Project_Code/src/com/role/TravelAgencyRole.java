@@ -11,10 +11,6 @@ public class TravelAgencyRole extends AbstractCustomerRole{
 		addChoices(choices);
 	}
 
-	public void addCustomers(){
-		
-	}
-	
 	@Override
 	public void executeChoice(){
 		String choice = allChoices.get(userChoice);

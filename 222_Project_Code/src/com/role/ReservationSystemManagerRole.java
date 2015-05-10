@@ -5,7 +5,7 @@
 
 package com.role;
 
-import com.entities.WatchAndNoFlyList;
+import com.userInteraction.UserEntity;
 
 /**
  *
@@ -13,7 +13,7 @@ import com.entities.WatchAndNoFlyList;
  */
 public class ReservationSystemManagerRole extends Role{
 	private String[] choices = {"Set Ticket Prices", "Move Passengers Between Flights", "Change Passenger Seating", "Edit Watch and No Fly List"};
-	private WatchAndNoFlyList wanfl = new WatchAndNoFlyList();
+	private UserEntity ue = new UserEntity();
 	
 	public ReservationSystemManagerRole(){
 		super();
@@ -32,7 +32,7 @@ public class ReservationSystemManagerRole extends Role{
 			case "Change Passenger Seating":
 				break;	
 			case "Edit Watch and No Fly List":
-				wanfl.edit();
+				//ue.editWatchAndNoFlyList();
 				break;
 			default:
 				super.executeChoice();

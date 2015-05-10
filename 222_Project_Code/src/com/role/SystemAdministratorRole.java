@@ -63,8 +63,10 @@ public class SystemAdministratorRole extends Role{
 		}
 		
 		if (role != null) {
-			role.displayChoices();
-			role.executeChoice();
+			while(role.isUserLoggedIn()){
+				role.displayChoices();
+				role.executeChoice();
+			}
 		}
 		
 	}
