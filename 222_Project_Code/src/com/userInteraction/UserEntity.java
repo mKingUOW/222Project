@@ -100,5 +100,32 @@ public class UserEntity{
 		
 		return true;
 	}
+	
+	public boolean checkUsernames(String usernames[]){
+		int len = usernames.length;
+		boolean allExisted = true;
 		
+		try{
+			for(int i=0;i<len && allExisted;i++){
+				String username = usernames[i];
+				reader = new BufferedReader(new FileReader(accountFile));
+				boolean existed = false;
+				while(!existed && ((oneLine = reader.readLine()) != null)){
+					String[] words = oneLine.split(",");
+					
+					if(username.equals(words[0])){
+						existed = true;		
+					}
+				}
+				
+				if(!existed){
+					allExisted = false;
+				}
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return allExisted;
+	}
 }
