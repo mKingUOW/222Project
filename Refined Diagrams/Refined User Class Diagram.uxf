@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>819</x>
-      <y>217</y>
+      <x>728</x>
+      <y>238</y>
       <w>259</w>
       <h>98</h>
     </coordinates>
@@ -20,12 +20,13 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>147</x>
-      <y>217</y>
+      <x>56</x>
+      <y>238</y>
       <w>147</w>
       <h>98</h>
     </coordinates>
-    <panel_attributes>UserUI
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
+UserUI
 --
 
 --
@@ -38,8 +39,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>399</x>
-      <y>217</y>
+      <x>308</x>
+      <y>238</y>
       <w>329</w>
       <h>98</h>
     </coordinates>
@@ -56,8 +57,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>287</x>
-      <y>252</y>
+      <x>196</x>
+      <y>273</y>
       <w>126</w>
       <h>35</h>
     </coordinates>
@@ -69,8 +70,8 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>721</x>
-      <y>252</y>
+      <x>630</x>
+      <y>273</y>
       <w>112</w>
       <h>35</h>
     </coordinates>
@@ -82,22 +83,20 @@ m2=1</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>315</x>
-      <y>420</y>
+      <x>224</x>
+      <y>441</y>
       <w>98</w>
       <h>49</h>
     </coordinates>
     <panel_attributes>/Role/
---
-
 --</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>483</x>
-      <y>413</y>
+      <x>392</x>
+      <y>434</y>
       <w>182</w>
       <h>63</h>
     </coordinates>
@@ -112,12 +111,12 @@ _+ getRole(roleName: String): Role_</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>357</x>
-      <y>294</y>
+      <x>266</x>
+      <y>315</y>
       <w>56</w>
       <h>140</h>
     </coordinates>
-    <panel_attributes>lt=-&gt;&gt;&gt;&gt;&gt;
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
 uses
 m1=1
 m2=1</panel_attributes>
@@ -126,25 +125,25 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>560</x>
-      <y>308</y>
+      <x>469</x>
+      <y>329</y>
       <w>84</w>
       <h>119</h>
     </coordinates>
     <panel_attributes>requests role
-lt=&lt;-</panel_attributes>
+lt=-</panel_attributes>
     <additional_attributes>10.0;150.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>406</x>
-      <y>434</y>
+      <x>315</x>
+      <y>455</y>
       <w>91</w>
       <h>28</h>
     </coordinates>
     <panel_attributes>creates
-lt=&lt;-</panel_attributes>
+lt=-</panel_attributes>
     <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
   </element>
 </diagram>

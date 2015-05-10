@@ -87,7 +87,7 @@ public class UserInterface{
 				System.out.print("Confirm your password: ");
 				checkPasswd = consl.readPassword();				//Read in the password again and check whether they are the same; If not the same, then invalid;
 				
-				System.out.print("Gender: ");
+				System.out.print("Gender (Male/Female): ");
 				gender = consl.readLine();
 				
 				System.out.print("Date of Birth: ");

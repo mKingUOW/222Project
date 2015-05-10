@@ -1,11 +1,13 @@
 package com.role;
 
 import java.util.*;
+import com.booking.BookingController;
 
 public abstract class AbstractCustomerRole extends Role{
 
 	private String[] choices = {"Make Booking", "Edit Services", "Close Account", "Cancel Booking", "Edit Account"};
 	private Scanner in = new Scanner(System.in);
+	private BookingController bc = new BookingController();
 	
 	public AbstractCustomerRole(){
 		super();
@@ -19,31 +21,24 @@ public abstract class AbstractCustomerRole extends Role{
 	public void closeAccount(){
 
 	}
-
-	public void cancelBooking(){
-
-	}
-
 	public void editAccount(){
 
 	}
 
-	public void makeBooking(){
-
-	}
-	
 	@Override
 	public void executeChoice(){
 		String choice = allChoices.get(userChoice);
 		
 		switch(choice){
 			case "Make Booking":
+				bc.makeBooking();
 				break;
 			case "Edit Services":
 				break;
 			case "Close Account":
 				break;
 			case "Cancel Booking":
+				bc.cancelBooking();
 				break;
 			case "Edit Account":
 				break;

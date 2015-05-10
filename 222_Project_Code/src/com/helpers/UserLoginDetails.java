@@ -74,7 +74,7 @@ public class UserLoginDetails {
 	}
 	
 	public String getLastName(){
-		return firstName;
+		return lastName;
 	}
 	
 	public String getUsername(){
