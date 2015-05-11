@@ -16,12 +16,16 @@ public class Flight {
 	private int premiumEconomyClassSeats;
 	private int economyClassSeats;
 	
-	public Flight(String fid,int pid,int rnum,String depTime,String arrTime){
+	public Flight(String fid,int pid,int rnum,String depTime,String arrTime,int fc,int bc,int pec,int ec){
 		this.flightID = fid;
 		this.planeID = pid;
 		this.routeNumber = rnum;
 		this.departureTime = depTime;
 		this.arriveTime = arrTime;
+		this.firstClassSeats = fc;
+		this.businessClassSeats = bc;
+		this.premiumEconomyClassSeats = pec;
+		this.economyClassSeats = ec;
 	}
 	
 	public Flight(){					//Default Constructor without arguments;
@@ -48,20 +52,20 @@ public class Flight {
 		this.arriveTime = arrTime;
 	}
 	
-	public void setFirstClassSeats(int fcs){
-		firstClassSeats = fcs;
+	public void setFirstClassSeats(int fc){
+		this.firstClassSeats = fc;
 	}
 	
-	public void setBusinessClassSeats(int bcs){
-		businessClassSeats = bcs;
+	public void setBusinessClassSeats(int bc){
+		this.businessClassSeats = bc;
 	}
 	
-	public void setPremiumEconomyClassSeats(int pecs){
-		premiumEconomyClassSeats = pecs;
+	public void setPremiumEconomyClassSeats(int pec){
+		this.premiumEconomyClassSeats = pec;
 	}
 	
-	public void setEconomyClassSeats(int ecs){
-		economyClassSeats = ecs;
+	public void setEconomyClassSeats(int ec){
+		this.economyClassSeats = ec;
 	}
 	
 	public String getFlightID(){
@@ -85,19 +89,19 @@ public class Flight {
 	}
 	
 	public int getFirstClassSeats(){
-		return firstClassSeats;
+		return this.firstClassSeats;
 	}
 	
 	public int getBusinessClassSeats(){
-		return businessClassSeats;
+		return this.businessClassSeats;
 	}
 	
 	public int getPremiumEconomyClassSeats(){
-		return premiumEconomyClassSeats;
+		return this.premiumEconomyClassSeats;
 	}
 	
 	public int getEconomyClassSeats(){
-		return economyClassSeats;
+		return this.economyClassSeats;
 	}
 	
 	public int[] getAvailableSeats(){
