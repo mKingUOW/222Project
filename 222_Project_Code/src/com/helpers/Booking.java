@@ -5,26 +5,36 @@
 
 package com.helpers;
 
-import java.util.List;
-
 /**
  *
  * @author Michael Y.M. Kong
  */
 public class Booking {
-	private String[] customer_usernames;
-	private List<Integer> person_ids;
+	private int booking_id;
 	private String flight_id;
 	
 	public Booking(){
 		
 	}
 	
-	public void addCustomers(String[] usernames){
-		customer_usernames = usernames;
+	public Booking(int bid, String fid){
+		booking_id = bid;
+		flight_id = fid;
 	}
 	
-	public void addPersons(List<Integer> person_ids){
-		this.person_ids = person_ids;
+	public void setBookingId(int bid){
+		booking_id = bid;
+	}
+	
+	public void setFlightId(String fid){
+		flight_id = fid;
+	}
+	
+	public int getBookingId(){
+		return booking_id;
+	}
+	
+	public String getFlightId(){
+		return flight_id;
 	}
 }

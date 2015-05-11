@@ -9,14 +9,14 @@ public class ServiceEntity{
 	
 	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "servicesInventory.csv";
 	private BufferedReader reader;
-	private List<Service> services;
+	
 	
 	public ServiceEntity(){
-		services = new ArrayList<Service>();
+		
 	}
 	
 	public List<Service> getServices(boolean isInternational){
-		
+		List<Service> services = new ArrayList<>();
 		String oneLine = "";
 		boolean existed = false;
 		
@@ -50,4 +50,4 @@ public class ServiceEntity{
 		return services;
 	}
 	
-};
+}

@@ -18,34 +18,29 @@ public class UserLoginDetails extends Person{
 		this.password = password;
 		this.role = role;
 	}
-	/*
-	public void setTitle(String title){
-		this.title = title;
+
+	public String getUsername() {
+		return username;
 	}
-	
-	
-	public void setFirstName(String firstName){
-		this.firstName = firstName;
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	
-	public void setLastName(String firstName){
-		this.firstName = firstName;
+
+	public char[] getPassword() {
+		return password;
 	}
-	*/
-	
-	public void setRole(String role){
+
+	public void setPassword(char[] password) {
+		this.password = password;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
 		this.role = role;
 	}
 	
-	public String getUsername(){
-		return username;
-	}
-	
-	public char[] getPassword(){
-		return password;
-	}
-	
-	public String getRole(){
-		return role;
-	}
 }

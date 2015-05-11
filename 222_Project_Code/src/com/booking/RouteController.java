@@ -32,4 +32,11 @@ public class RouteController {
 		
 		return route_number;
 	}
+	
+	public boolean isInternationalRoute(String origin, String destination){
+		String origin_country = ac.getAirportCountry(origin);
+		String destination_country = ac.getAirportCountry(destination);
+		
+		return (!origin_country.equals(destination_country)); //countries are not the same; therefore international
+	}
 }

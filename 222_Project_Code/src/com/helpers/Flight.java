@@ -115,9 +115,9 @@ public class Flight {
 		StringBuilder builder = new StringBuilder();
 		builder.append(this.flightID);
 		builder.append("     ");
-		builder.append(this.arriveTime);
-		builder.append("     ");
 		builder.append(this.departureTime);
+		builder.append("     ");
+		builder.append(this.arriveTime);
 		
 		return builder.toString();
 	}

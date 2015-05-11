@@ -21,6 +21,7 @@ public class FlightController {
 	
 	public List<Flight> getFlights(String origin, String destination){
 		int route_number = rc.getRoute(origin, destination);
+		
 		List<Flight> flights = null;
 		
 		if (route_number != -1) { //the route exists
@@ -30,6 +31,10 @@ public class FlightController {
 		}
 		
 		return flights;
+	}
+	
+	public boolean isInternationalFlight(String origin, String destination){
+		return rc.isInternationalRoute(origin, destination);
 	}
 	
 }

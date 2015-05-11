@@ -9,14 +9,13 @@ public class FlightEntity{
 	
 	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "flight-route-schedule.csv";
 	private BufferedReader reader;
-	private List<Flight> flights;
 	
 	public FlightEntity(){
-		flights = new ArrayList<>();
+		
 	}
 	
 	public List<Flight> getFlights(int routeNumber){
-		
+		List<Flight> flights = new ArrayList<>();
 		String oneLine = "";
 		String abbreviation = "";
 		
@@ -47,6 +46,5 @@ public class FlightEntity{
 		
 		return flights;
 	}
-	
-	
-};
+		
+}

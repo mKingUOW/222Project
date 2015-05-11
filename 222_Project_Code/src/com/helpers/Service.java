@@ -3,13 +3,13 @@ package com.helpers;
 public class Service {
 	
 	private int serviceID;
-	private String item;
+	private String name;
 	private int cost;
 	private String availability;	
 
 	public Service(int sid,String itm,int co,String avail){
 		this.serviceID = sid;
-		this.item = itm;
+		this.name = itm;
 		this.cost = co;
 		this.availability = avail;
 	}
@@ -18,8 +18,8 @@ public class Service {
 		this.serviceID = sid;
 	}
 	
-	public void setItem(String itm){
-		this.item = itm;
+	public void setName(String itm){
+		this.name = itm;
 	}
 	
 	public void setCost(int co){
@@ -34,8 +34,8 @@ public class Service {
 		return this.serviceID;
 	}
 	
-	public String getItem(){
-		return this.item;
+	public String getName(){
+		return this.name;
 	}
 	
 	public int getCost(){
