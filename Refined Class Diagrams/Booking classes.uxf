@@ -9,7 +9,7 @@
       <w>126</w>
       <h>42</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 /AbstractCustomerRole/</panel_attributes>
     <additional_attributes/>
   </element>
@@ -52,7 +52,7 @@ m2=1</panel_attributes>
       <w>98</w>
       <h>35</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 CustomerRole
 </panel_attributes>
     <additional_attributes/>
@@ -65,7 +65,7 @@ CustomerRole
       <w>98</w>
       <h>35</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 TravelAgencyRole</panel_attributes>
     <additional_attributes/>
   </element>

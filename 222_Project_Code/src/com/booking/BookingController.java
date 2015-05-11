@@ -30,9 +30,11 @@ public class BookingController {
 		String destination;
 		boolean isOkay;
 		List<Flight> flights = null;
-		int choice;
-		Booking booking;
+		Flight flight_choice;
+		int numberOfPeople = 0;
+		Booking booking = new Booking();
 		
+		/* Start Enter Origin and Destination choice */
 		do {	
 			isOkay = true;
 			System.out.print("\nPlease enter the flight origin of choice (city name): ");
@@ -49,7 +51,9 @@ public class BookingController {
 				isOkay = false;
 			}
 		} while (!isOkay);
+		/* End Enter Origin and Destination choice */
 		
+		/* Start Display Flights Available */
 		System.out.print("\n#  ");
 		System.out.print("Flight ID  ");
 		System.out.print("Arrival Time                     ");
@@ -62,37 +66,58 @@ public class BookingController {
 			System.out.println(flight.toString());
 			i++;
 		}
+		/* End Display Flights Available */
 		
-		System.out.print("Please select your flight: ");
-		choice = in.nextInt();
+		/* Start Select Flight */
+		System.out.print("Please select your flight: "); //should do checking for range, but ignore for now
+		flight_choice = flights.get(in.nextInt());
+		/* End Select Flight */
 		
-		//should do checking for range, but ignore for now
-		
-		booking = new Booking();
-		
+		/* Start Add Customers and Persons */
 		switch (role){
 			case "TA":
-				addCustomers(booking);
-				//no break because travel agencies should be able to add persons after customers
+				numberOfPeople = 0;
+				numberOfPeople += addCustomers(booking);
+				numberOfPeople += addPersons(booking);
+				break;
 			case "CUS":
-				addPersons(booking);
+				numberOfPeople = 1;
+				numberOfPeople += addPersons(booking);
 				break;
 			default:
 				break;
 		}
+		/* End Add Customers and Persons */
+		
+		/* Start Display Available Seats */
+		int[] available_seats = flight_choice.getAvailableSeats();
+		
+		System.out.println("1. First class seats available: " + available_seats[0] + " seats");
+		System.out.println("2. Business class seats available: " + available_seats[1] + " seats");
+		System.out.println("3. Premium economy class seats available: " + available_seats[2] + " seats");
+		System.out.println("4. Economy class seats available: " + available_seats[3] + " seats");
+		/* End Display Available Seats */
+		
+		for (int j = 0; j < numberOfPeople; j++) {
+			System.out.println("\nCustomers left to book for: " + (numberOfPeople - j));
+			System.out.
+		}
 	}
 	
-	public void addCustomers(Booking booking){
+	public int addCustomers(Booking booking){
 		UserEntity ue = new UserEntity();
 		String[] customer_usernames;
-		boolean areUsernamesOkay = true;
+		boolean areUsernamesOkay;
+		int numberOfCustomers = 0;
 		
 		do {
 			in.nextLine();
 			System.out.print("Please enter the usernames of existing customers separated by spaces: ");
 			customer_usernames = in.nextLine().split(" ");
+			
+			numberOfCustomers = customer_usernames.length;
 
-			areUsernamesOkay = ue.checkUsernames(customer_usernames); //!!!!!!
+			areUsernamesOkay = ue.checkUsernames(customer_usernames);
 
 			if (!areUsernamesOkay) {
 				System.out.println("A username that was entered is not valid!\nPlease try again!\n");
@@ -102,11 +127,14 @@ public class BookingController {
 		booking.addCustomers(customer_usernames);
 		
 		System.out.println("Users have been added to the booking!\n");
+		
+		return numberOfCustomers;
 	}
 	
-	public void addPersons(Booking booking){
+	public int addPersons(Booking booking){
 		System.out.print("Do you want to add persons to the booking? (Y/N): ");
 		char choice = in.next().charAt(0);
+		int numberOfPersons = 0;
 		
 		if (choice == 'Y' || choice == 'y') {
 			PersonEntity pe = new PersonEntity();
@@ -188,11 +216,14 @@ public class BookingController {
 					isDone = true;
 				}
 				
+				numberOfPersons++;
 			} while(!isDone);
 			
 			booking.addPersons(person_ids);
 			
 		} //end if
+		
+		return numberOfPersons;
 	}
 	
 	public void cancelBooking(){

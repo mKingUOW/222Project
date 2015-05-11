@@ -9,7 +9,7 @@
       <w>245</w>
       <h>112</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 /Role/
 --
 - choices: String[]
@@ -29,7 +29,7 @@
       <w>147</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 /AbstractCustomerRole/
 --
 - choices: String[]
@@ -56,7 +56,7 @@
       <w>147</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 CustomerRole
 --
 - choices: String[]
@@ -83,7 +83,7 @@ CustomerRole
       <w>147</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 TravelAgencyRole
 --
 - choices: String[]
@@ -110,7 +110,7 @@ TravelAgencyRole
       <w>147</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 SystemAdministratorRole
 --
 - choices: String[]
@@ -137,7 +137,7 @@ SystemAdministratorRole
       <w>147</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 FlightManagerRole
 --
 - choices: String[]
@@ -164,7 +164,7 @@ FlightManagerRole
       <w>147</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 ProfileSystemManagerRole
 --
 - choices: String[]
@@ -191,7 +191,7 @@ ProfileSystemManagerRole
       <w>168</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 ReservationSystemManagerRole
 --
 - choices: String[]
@@ -218,7 +218,7 @@ ReservationSystemManagerRole
       <w>147</w>
       <h>63</h>
     </coordinates>
-    <panel_attributes>&lt;&lt;controller&gt;&gt;
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
 ServiceSystemManagerRole
 --
 - choices: String[]

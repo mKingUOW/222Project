@@ -1,7 +1,4 @@
-
 package com.helpers;
-
-import java.util.*;
 
 /**
  *
@@ -14,6 +11,10 @@ public class Flight {
 	private int routeNumber;
 	private String departureTime;
 	private String arriveTime;
+	private int firstClassSeats;
+	private int businessClassSeats;
+	private int premiumEconomyClassSeats;
+	private int economyClassSeats;
 	
 	public Flight(String fid,int pid,int rnum,String depTime,String arrTime){
 		this.flightID = fid;
@@ -47,6 +48,22 @@ public class Flight {
 		this.arriveTime = arrTime;
 	}
 	
+	public void setFirstClassSeats(int fcs){
+		firstClassSeats = fcs;
+	}
+	
+	public void setBusinessClassSeats(int bcs){
+		businessClassSeats = bcs;
+	}
+	
+	public void setPremiumEconomyClassSeats(int pecs){
+		premiumEconomyClassSeats = pecs;
+	}
+	
+	public void setEconomyClassSeats(int ecs){
+		economyClassSeats = ecs;
+	}
+	
 	public String getFlightID(){
 		return this.flightID;
 	}
@@ -65,6 +82,28 @@ public class Flight {
 	
 	public String getArriveTime(){
 		return this.arriveTime;
+	}
+	
+	public int getFirstClassSeats(){
+		return firstClassSeats;
+	}
+	
+	public int getBusinessClassSeats(){
+		return businessClassSeats;
+	}
+	
+	public int getPremiumEconomyClassSeats(){
+		return premiumEconomyClassSeats;
+	}
+	
+	public int getEconomyClassSeats(){
+		return economyClassSeats;
+	}
+	
+	public int[] getAvailableSeats(){
+		int[] seats = {firstClassSeats, businessClassSeats, premiumEconomyClassSeats, economyClassSeats};
+		
+		return seats;
 	}
 	
 	@Override
