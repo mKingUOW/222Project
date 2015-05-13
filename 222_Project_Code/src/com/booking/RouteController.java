@@ -5,6 +5,8 @@
 
 package com.booking;
 
+import java.util.AbstractMap;
+
 /**
  *
  * @author Michael Y.M. Kong
@@ -12,6 +14,7 @@ package com.booking;
 public class RouteController {
 
 	private AirportController ac = new AirportController();
+	private RouteEntity re = new RouteEntity();
 	
 	public RouteController(){
 		
@@ -25,12 +28,15 @@ public class RouteController {
 		if (origin_code == null || dest_code == null){ //if return null that means airport name doesn't exist
 			route_number = -1;
 		} else{
-			RouteEntity re = new RouteEntity();
 		
 			route_number = re.getRoute(origin_code, dest_code);
 		}
 		
 		return route_number;
+	}
+	
+	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber){
+		return re.getRoutePoints(routeNumber);
 	}
 	
 	public boolean isInternationalRoute(String origin, String destination){

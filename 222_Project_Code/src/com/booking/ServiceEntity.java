@@ -27,7 +27,7 @@ public class ServiceEntity{
 				String [] words = oneLine.split(",");
 				
 				String availability = words[3];
-				int cost = Integer.parseInt(words[2]);
+				double cost = Double.parseDouble(words[2]);
 				String item = words[1];
 				int serviceID = Integer.parseInt(words[0]);
 				
@@ -48,6 +48,10 @@ public class ServiceEntity{
 		}
 		
 		return services;
+	}
+	
+	public Service getService(int serviceId){
+		return new Service(0, "", 0, "");
 	}
 	
 }

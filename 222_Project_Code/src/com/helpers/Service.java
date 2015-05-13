@@ -4,10 +4,10 @@ public class Service {
 	
 	private int serviceID;
 	private String name;
-	private int cost;
+	private double cost;
 	private String availability;	
 
-	public Service(int sid,String itm,int co,String avail){
+	public Service(int sid,String itm,double co,String avail){
 		this.serviceID = sid;
 		this.name = itm;
 		this.cost = co;
@@ -22,7 +22,7 @@ public class Service {
 		this.name = itm;
 	}
 	
-	public void setCost(int co){
+	public void setCost(double co){
 		this.cost = co;
 	}
 	
@@ -38,7 +38,7 @@ public class Service {
 		return this.name;
 	}
 	
-	public int getCost(){
+	public double getCost(){
 		return this.cost;
 	}
 	

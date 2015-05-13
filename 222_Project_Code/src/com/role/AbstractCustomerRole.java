@@ -22,6 +22,7 @@ public abstract class AbstractCustomerRole extends Role{
 			case "Close Account":
 				break;
 			case "Cancel Booking":
+				bc.setUsername(getUsername());
 				bc.cancelBooking();
 				break;
 			case "Edit Account":

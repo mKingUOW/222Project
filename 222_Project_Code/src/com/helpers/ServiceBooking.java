@@ -10,31 +10,31 @@ package com.helpers;
  * @author Michael Y.M. Kong
  */
 public class ServiceBooking {
-	private int ticket_id;
-	private int service_id;
+	private int ticketId;
+	private int serviceId;
 	
 	public ServiceBooking(){
 		
 	}
 	
 	public ServiceBooking(int tid, int sid){
-		ticket_id = tid;
-		service_id = sid;
+		ticketId = tid;
+		serviceId = sid;
 	}
 	
 	public void setTicketId(int tid){
-		ticket_id = tid;
+		ticketId = tid;
 	}
 	
 	public void setServiceId(int sid){
-		service_id = sid;
+		serviceId = sid;
 	}
 	
 	public int getTicketId(){
-		return ticket_id;
+		return ticketId;
 	}
 	
 	public int getServiceId(){
-		return service_id;
+		return serviceId;
 	}
 }

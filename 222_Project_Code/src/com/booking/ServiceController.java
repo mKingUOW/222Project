@@ -14,13 +14,17 @@ import java.util.List;
  */
 public class ServiceController {
 	
+	private ServiceEntity se = new ServiceEntity();
+	
 	public ServiceController(){
 		
 	}
 	
 	public List<Service> getServices(boolean isInternational){
-		ServiceEntity se = new ServiceEntity();
-		
 		return se.getServices(isInternational);
+	}
+	
+	public Service getService(int serviceId){
+		return se.getService(serviceId);
 	}
 }

@@ -5,6 +5,8 @@
 
 package com.helpers;
 
+import java.util.Formatter;
+
 /**
  *
  * @author Michael Y.M. Kong
@@ -15,19 +17,13 @@ public class Ticket {
 	private String username;
 	private int person_id;
 	private String seat_number;
+	private double price;
 	
 	public Ticket(){
 		
 	}
 	
-	public Ticket(int tid, String un, int pid){
-		ticket_id = tid;
-		username = un;
-		person_id = pid;
-	}
-	
-	public Ticket(int bid, int tid, String un, int pid){
-		booking_id = bid;
+	public Ticket(int tid, String un, int pid, String sn){
 		ticket_id = tid;
 		username = un;
 		person_id = pid;
@@ -67,5 +63,28 @@ public class Ticket {
 	
 	public boolean isPerson(){
 		return (person_id != -1);
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		Formatter formatter = new Formatter(sb);
+		String format_string = "%-4s%-30s%-12s";
+		
+		if (username != null) {
+			formatter.format(format_string, ticket_id, username, seat_number);
+		} else{
+			formatter.format(format_string, ticket_id, person_id, seat_number);
+		}
+		
+		return sb.toString();
 	}
 }

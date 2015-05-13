@@ -17,6 +17,7 @@ public class CustomerRole extends AbstractCustomerRole{
 		
 		switch(choice){
 			case "Make Booking":
+				bc.setUsername(getUsername());
 				bc.makeBooking("CUS");
 				break;
 			default:

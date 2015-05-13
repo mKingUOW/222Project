@@ -4,12 +4,13 @@ package com.helpers;
  *
  * @author Michael Y.M. Kong
  */
-public class UserLoginDetails extends Person{
+public class Customer extends Person{
 	private String username;
 	private char[] password;
 	private String role;
+	private int frequentFlierPoints;
 	
-	public UserLoginDetails(String title, String firstName, String lastName, String username, char[] password,
+	public Customer(String title, String firstName, String lastName, String username, char[] password,
 			String gender, String DOB, String phoneNumber, String email,
 			String street, String state, String city, String country,
 			String creditCardType, String creditCardNumber, String hasPassport, String role){
@@ -42,5 +43,12 @@ public class UserLoginDetails extends Person{
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
+
+	public int getFrequentFlierPoints() {
+		return frequentFlierPoints;
+	}
+
+	public void setFrequentFlierPoints(int frequentFlierPoints) {
+		this.frequentFlierPoints = frequentFlierPoints;
+	}
 }

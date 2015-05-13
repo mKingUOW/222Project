@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public abstract class Role{
+	private String username = "";
 	private String[] choices = {"Change Password", "Logout"};
 	private Scanner in = new Scanner(System.in);
 	private boolean isLoggedIn;
@@ -79,5 +80,13 @@ public abstract class Role{
 	
 	public List<String> getChoices(){
 		return allChoices;
+	}
+	
+	public void setUsername(String username){
+		this.username = username;
+	}
+	
+	public String getUsername(){
+		return username;
 	}
 }

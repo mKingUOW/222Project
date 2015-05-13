@@ -2,7 +2,7 @@ package com.userInteraction;
 
 import java.util.*;
 import java.io.*;
-import com.helpers.UserLoginDetails;
+import com.helpers.Customer;
 
 public class UserInterface{
 
@@ -123,7 +123,7 @@ public class UserInterface{
 				System.out.print("Role (Customer/Travel Agency): ");
 				role = consl.readLine();
 				
-				UserLoginDetails uld = new UserLoginDetails(title, firstName, lastName, username, password,
+				Customer uld = new Customer(title, firstName, lastName, username, password,
 						gender, DOB, phoneNumber, email,
 						street, state, city, country,
 						creditCardType, creditCardNumber, hasPassport, role);

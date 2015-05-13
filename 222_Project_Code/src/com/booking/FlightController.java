@@ -6,6 +6,7 @@
 package com.booking;
 
 import com.helpers.Flight;
+import java.util.AbstractMap;
 import java.util.List;
 
 /**
@@ -37,4 +38,7 @@ public class FlightController {
 		return rc.isInternationalRoute(origin, destination);
 	}
 	
+	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber){
+		return rc.getRoutePoints(routeNumber);
+	}
 }

@@ -2,16 +2,16 @@ package com.userInteraction;
 
 import java.util.*;
 import com.role.*;
-import com.helpers.UserLoginDetails;
+import com.helpers.Customer;
 
 public class UserController{
 	private Role role;
+	private UserEntity ue = new UserEntity();
 
 	public UserController(){ //default constructor
 	}
 
 	public boolean login(String username, char[] password){
-		UserEntity ue = new UserEntity();
 		String roleName = ue.login(username, password);
 		
 		if ("loginFail".equals(roleName)) {
@@ -19,13 +19,12 @@ public class UserController{
 		}
 
 		setRole(roleName);
+		role.setUsername(username);
 
 		return true;
 	}
 	
-	public boolean signUp(UserLoginDetails uld, char[] confirmPassword){
-		
-		UserEntity ue = new UserEntity();
+	public boolean signUp(Customer uld, char[] confirmPassword){
 		boolean isLoginOkay = true;
 		boolean isPasswordOkay = Arrays.equals(uld.getPassword(), confirmPassword);
 		

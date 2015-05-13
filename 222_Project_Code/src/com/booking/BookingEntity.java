@@ -21,4 +21,12 @@ public class BookingEntity {
 	public void saveBooking(String flight_id, List<Ticket> tickets, List<ServiceBooking> services_booked){
 		
 	}
+	
+	public void setDiscountRatio(double ratio){
+		
+	}
+	
+	public double getDiscountRatio(){
+		return 0;
+	}
 }

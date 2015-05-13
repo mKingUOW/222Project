@@ -55,7 +55,7 @@ public class UserEntity{
 		return role;
 	}
 
-	public boolean signUp(UserLoginDetails user){
+	public boolean signUp(Customer user){
 		String passwd = new String(user.getPassword());
 		String oneLine = "";
 		boolean existed = false;

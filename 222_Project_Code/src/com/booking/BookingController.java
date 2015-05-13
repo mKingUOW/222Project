@@ -23,14 +23,29 @@ import java.util.Scanner;
  */
 public class BookingController {
 	private Scanner in = new Scanner(System.in);
-	private FlightController fc = new FlightController();
-	private ServiceController sc = new ServiceController();
-	private BookingEntity be = new BookingEntity();
+	private String customerUsername = null;
 	
+	private BookingEntity be = new BookingEntity();
+	private CustomerController cc = new CustomerController();
+	private FleetController fe = new FleetController();
+	private FlightController fc = new FlightController();
+	private PersonController pc = new PersonController();
+	private ServiceController sc = new ServiceController();
+	
+	private double discountRatio = 1; //default
+	
+	/**
+	 * 
+	 * @param username The username of the customer if the Customer role is booking a flight
+	 */
 	public BookingController(){
-		
+		discountRatio = be.getDiscountRatio();
 	}
 	
+	/**
+	 * 
+	 * @param role The role that is making this booking
+	 */
 	public void makeBooking(String role){
 		AbstractMap.SimpleImmutableEntry<Flight, Boolean> flight_choice;
 		String[] customer_usernames = null;
@@ -58,7 +73,9 @@ public class BookingController {
 		/* End Add Customers and Persons */
 		
 		/* Start Fill Ticket Details */
-		int[] available_seats = flight_choice.getKey().getAvailableSeats();
+		Flight chosen_flight = flight_choice.getKey();
+		int[] available_seats = chosen_flight.getAvailableSeats();
+		int[] total_seats = fe.getSeatsForPlane(chosen_flight.getPlaneID());
 		int current_ticket_id = 1;
 		
 		//System.out.println("Monkey");
@@ -66,14 +83,15 @@ public class BookingController {
 		/* Start Customer Tickets */
 		if ("TA".equals(role) && customer_usernames != null){ //extra computation for customers
 			for (String username: customer_usernames) {
+				String seat_number;
 				
 				System.out.println("\nTicket for Customer with username \"" + username + "\"");
 				
-				chooseSeat(available_seats);
+				seat_number = chooseSeat(available_seats, total_seats);
 				
 				in.nextLine(); //clear buffer
 				
-				tickets.add(new Ticket(current_ticket_id, username, -1));
+				tickets.add(new Ticket(current_ticket_id, username, -1, seat_number));
 				
 				System.out.print("Do you want to book services for this customer? (Y/N): ");
 				char char_choice = in.nextLine().charAt(0);
@@ -90,19 +108,44 @@ public class BookingController {
 		} //end if for customer computation
 		/* End Customer Tickets */
 		
-		/* IF SOLO CUSTOMER SHOULD BOOK TICKET FOR THEMSELF */
+		/* Start Solo Customer Booking */
+		if ("CUS".equals(role)){
+			String seat_number;
+			
+			System.out.println("\nYour Ticket (" + customerUsername + ")");
+				
+			seat_number = chooseSeat(available_seats, total_seats);
+
+			in.nextLine(); //clear buffer
+
+			tickets.add(new Ticket(current_ticket_id, customerUsername, -1, seat_number));
+
+			System.out.print("Do you want to book services for yourself? (Y/N): ");
+			char char_choice = in.nextLine().charAt(0);
+
+			if (char_choice == 'Y' || char_choice == 'y') {
+				List<Integer> service_ids = bookServices(flight_choice.getValue());
+
+				for (Integer service_id: service_ids) {
+					services_booked.add(new ServiceBooking(current_ticket_id, service_id));
+				}
+			}
+			current_ticket_id++; //increment to next ticket
+		}
+		/* End Solo Customer Booking */
 		
 		/* Start Person Tickets */
 		if (person_ids != null) {
 			for (Integer person_id: person_ids) {
+				String seat_number;
 				
 				System.out.println("\nTicket for Person with ID \"" + person_id + "\"");
 				
-				chooseSeat(available_seats);
+				seat_number = chooseSeat(available_seats, total_seats);
 				
 				in.nextLine(); //clear buffer
 				
-				tickets.add(new Ticket(current_ticket_id, null, person_id));
+				tickets.add(new Ticket(current_ticket_id, null, person_id, seat_number));
 				
 				System.out.print("Do you want to book services for this person? (Y/N): ");
 				char char_choice = in.nextLine().charAt(0);
@@ -118,19 +161,99 @@ public class BookingController {
 			} //end for loop
 		}
 		/* End Person Tickets */
-		/* End Fil Ticket Details */
+		/* End Fill Ticket Details */
+		
+		/* Start Display Booking Summary */
+		String origin;
+		String destination;
+		double total_price = 0.0;
+		
+		AbstractMap.SimpleImmutableEntry<String, String> route_points = fc.getRoutePoints(chosen_flight.getRouteNumber());
+		
+		origin = route_points.getKey();
+		destination = route_points.getValue();
+		
+		System.out.println("----- BOOKING SUMMARY -----");
+		System.out.println("---------------------------------------------------");
+		
+		System.out.println("FLIGHT:");
+		System.out.println("Origin: " + origin);
+		System.out.println("Destination: " + destination);
+		System.out.println(chosen_flight.toString());
+		
+		System.out.println(); 
+		
+		System.out.println("TICKETS BOOKED:");
+		System.out.printf("%-4s%-30s%-12s\n", "ID", "Username/Person ID", "Seat Number");
+		for (Ticket ticket: tickets) {
+			System.out.println(ticket.toString());
+			total_price += ticket.getPrice();
+		}
+		
+		System.out.println();
+		
+		System.out.println("SERVICES BOOKED:");
+		System.out.printf("%-12s%-12s\n", "Ticket ID", "Service Name");
+		for (ServiceBooking service_booked: services_booked) {
+			Service service = sc.getService(service_booked.getServiceId());
+			
+			System.out.printf("%12s", service_booked.getTicketId());
+			System.out.printf("%12s", service.getName());
+			total_price += service.getCost();
+		}
+		
+		System.out.println();
+		
+		System.out.println("TOTAL PRICE: " + total_price);
+		/* End Display Booking Summary */
 		
 		/* Start Payment */
+		if ("CUS".equals(role)){
+			int frequent_flier_points = cc.getFrequentFlierPoints(customerUsername);
+
+			if(frequent_flier_points != 0){
+				System.out.print("Do you want to use your frequent flier points to get a discount? (Y/N): ");
+				char choice = in.nextLine().charAt(0);
+
+				if (choice == 'Y' || choice == 'y') {
+					double discount = frequent_flier_points * discountRatio;
+					if (discount > total_price) { //if the discount is more than the total price
+						discount = discount - total_price;
+						total_price = 0;
+						frequent_flier_points = (int)Math.floor(discount / discountRatio);
+					} else{
+						total_price = total_price - discount;
+						frequent_flier_points = 0;
+					}
+					System.out.println("Points remaining: " + frequent_flier_points);
+					cc.setFrequentFlierPoints(customerUsername, frequent_flier_points);
+				}
+			}
+		}
 		
-		
+		if (total_price == 0) {
+			System.out.println("Your frequent flier points are sufficient to cover your booking. ");
+		} else{
+			System.out.print("Enter any key to proceed with payment: ");
+			in.nextLine(); //just get anything; doesn't matter
+			
+			System.out.println("Your credit card has been charged $" + total_price + "!\nThank you for making a booking with us!");
+			System.out.println();
+		}
 		/* End Payment */
 		
 		be.saveBooking(flight_choice.getKey().getFlightID(), tickets, services_booked);
 	}
 	
-	private void chooseSeat(int[] available_seats){
+	/**
+	 * 
+	 * @param available_seats Available seats on this flight
+	 * @param total_seats Total seats that this flight's plane can accommodate
+	 * @return The seat number
+	 */
+	private String chooseSeat(int[] available_seats, int[] total_seats){
 		boolean isOkay;
-		int choice;
+		int choice = 0;
 		
 		System.out.println("1. First class (" + available_seats[0] + " seats available)");
 		System.out.println("2. Business class (" + available_seats[1] + " seats available)");
@@ -151,7 +274,6 @@ public class BookingController {
 				} else{
 					if(available_seats[choice - 1] > 0){
 						available_seats[choice - 1]--;
-						System.out.println("Seat saved.\n");
 					} else{
 						isOkay = false;
 						System.out.println("There are no more seats of this class. Please try again!\n");
@@ -163,8 +285,35 @@ public class BookingController {
 			}
 
 		} while (!isOkay);
+		
+		//compute the seat number
+		int seat_number = (total_seats[choice - 1] - available_seats[choice - 1]) + 1; //check logic!!!
+		String seat_class = "";
+		
+		switch(choice){
+			case 1:
+				seat_class = "F";
+				break;
+			case 2:
+				seat_class = "B";
+				break;
+			case 3:
+				seat_class = "PE";
+				break;
+			case 4:
+				seat_class = "E";
+				break;
+		}
+		
+		System.out.println("Your seat number is " + seat_class + seat_number);
+		
+		return seat_class + seat_number;
 	}
 	
+	/**
+	 * 
+	 * @return The Flight object and a boolean whether it's an international flight
+	 */
 	private AbstractMap.SimpleImmutableEntry<Flight, Boolean> chooseFlight(){
 		boolean isOkay;
 		String origin;
@@ -227,6 +376,10 @@ public class BookingController {
 		/* End Select Flight */
 	}
 	
+	/**
+	 * 
+	 * @return String array of customer usernames
+	 */
 	private String[] addCustomers(){
 		UserEntity ue = new UserEntity();
 		String[] customer_usernames;
@@ -246,13 +399,16 @@ public class BookingController {
 		return customer_usernames;
 	}
 	
+	/**
+	 * 
+	 * @return Integer List of Person IDs
+	 */
 	private List<Integer> addPersons(){
 		System.out.print("Do you want to add persons to the booking? (Y/N): ");
 		char choice = in.nextLine().charAt(0);
 		List<Integer> person_ids = null;
 		
 		if (choice == 'Y' || choice == 'y') {
-			PersonEntity pe = new PersonEntity();
 			person_ids = new ArrayList<>();
 			
 			boolean isDone;
@@ -320,7 +476,7 @@ public class BookingController {
 						street, state, city, country,
 						creditCardType, creditCardNumber, hasPassport);
 				
-				person_ids.add(pe.addPerson(person));
+				person_ids.add(pc.addPerson(person));
 				
 				System.out.print("Do you want to add another person? (Y/N): ");
 				choice = in.nextLine().charAt(0);
@@ -337,6 +493,11 @@ public class BookingController {
 		return person_ids;
 	}
 	
+	/**
+	 * 
+	 * @param is_international_flight Services change depending on the type of flight passed in
+	 * @return Integer List of Service IDs
+	 */
 	private List<Integer> bookServices(boolean is_international_flight){
 		List<Service> services = sc.getServices(is_international_flight);
 		List<Integer> booked_services = new ArrayList<>();
@@ -353,10 +514,9 @@ public class BookingController {
 			i++;
 		}
 		
-		System.out.print("Enter the numbers of the services separated by a space: ");
-		
 		do {			
 			isOkay = true;
+			System.out.print("Enter the numbers of the services separated by a space: ");
 			choices = in.nextLine().split(" "); 
 
 			for (String str: choices) {
@@ -378,6 +538,14 @@ public class BookingController {
 	
 	public void cancelBooking(){
 		
+	}
+	
+	public void setDiscountRatio(double ratio){
+		
+	}
+	
+	public void setUsername(String username){
+		customerUsername = username;
 	}
 	
 }

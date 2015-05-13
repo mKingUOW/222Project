@@ -17,6 +17,7 @@ public class TravelAgencyRole extends AbstractCustomerRole{
 		
 		switch(choice){
 			case "Make Booking":
+				bc.setUsername(getUsername());
 				bc.makeBooking("TA");
 				break;
 			default:

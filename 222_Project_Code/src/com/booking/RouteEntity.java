@@ -39,4 +39,11 @@ public class RouteEntity{
 		return routeNumber;
 	}
 	
+	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber){
+		AbstractMap.SimpleImmutableEntry<String, String> route_points
+				= new AbstractMap.SimpleImmutableEntry<>("", "");
+		
+		return route_points;
+	}
+	
 };

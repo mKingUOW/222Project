@@ -9,16 +9,12 @@ package com.booking;
  *
  * @author Michael Y.M. Kong
  */
-public class FleetController {
-	
-	private FleetEntity fe = new FleetEntity();
-	
-	public FleetController(){
-		
+public class FleetEntity {
+
+	public FleetEntity() {
 	}
 	
 	public int[] getSeatsForPlane(int planeId){
-		return fe.getSeatsForPlane(planeId);
+		return new int[6];
 	}
-	
 }

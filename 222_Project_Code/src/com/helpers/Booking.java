@@ -10,31 +10,31 @@ package com.helpers;
  * @author Michael Y.M. Kong
  */
 public class Booking {
-	private int booking_id;
-	private String flight_id;
+	private int bookingId;
+	private String flightId;
 	
 	public Booking(){
 		
 	}
 	
 	public Booking(int bid, String fid){
-		booking_id = bid;
-		flight_id = fid;
+		bookingId = bid;
+		flightId = fid;
 	}
 	
 	public void setBookingId(int bid){
-		booking_id = bid;
+		bookingId = bid;
 	}
 	
 	public void setFlightId(String fid){
-		flight_id = fid;
+		flightId = fid;
 	}
 	
 	public int getBookingId(){
-		return booking_id;
+		return bookingId;
 	}
 	
 	public String getFlightId(){
-		return flight_id;
+		return flightId;
 	}
 }
