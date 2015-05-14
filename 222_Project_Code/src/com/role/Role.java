@@ -6,13 +6,15 @@ import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import profile.ProfileController;
 
 public abstract class Role{
 	private String username = "";
 	private String[] choices = {"Change Password", "Logout"};
 	private Scanner in = new Scanner(System.in);
 	private boolean isLoggedIn;
-
+	private ProfileController pc = new ProfileController();
+	
 	protected List<String> allChoices;
 	protected int userChoice = -1;
 	
@@ -67,15 +69,24 @@ public abstract class Role{
 		
 		switch(choice){
 			case "Change Password":
+				pc.changePassword(username);
 				break;
 			case "Logout":
-				isLoggedIn = false;
+				setUserLoggedOut();
 				break;
 		}
 	}
 	
 	public boolean isUserLoggedIn(){
 		return isLoggedIn;
+	}
+	
+	public void setUserLoggedIn(){
+		isLoggedIn = true;
+	}
+	
+	public void setUserLoggedOut(){
+		isLoggedIn = false; 
 	}
 	
 	public List<String> getChoices(){

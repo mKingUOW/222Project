@@ -4,15 +4,16 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>70</x>
+      <x>140</x>
       <y>63</y>
       <w>245</w>
-      <h>112</h>
+      <h>119</h>
     </coordinates>
     <panel_attributes>&lt;&lt;boundary&gt;&gt;
 /Role/
 --
 - choices: String[]
+- username: String
 --
 + displayChoices(): void
 + addChoices(additionalChoices: String[]): void
@@ -24,8 +25,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>112</x>
-      <y>245</y>
+      <x>182</x>
+      <y>252</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -40,8 +41,8 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>182</x>
-      <y>168</y>
+      <x>252</x>
+      <y>175</y>
       <w>21</w>
       <h>91</h>
     </coordinates>
@@ -51,8 +52,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>21</x>
-      <y>406</y>
+      <x>91</x>
+      <y>413</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -67,8 +68,8 @@ CustomerRole
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>84</x>
-      <y>301</y>
+      <x>154</x>
+      <y>308</y>
       <w>112</w>
       <h>119</h>
     </coordinates>
@@ -78,8 +79,8 @@ CustomerRole
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>196</x>
-      <y>406</y>
+      <x>266</x>
+      <y>413</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -94,8 +95,8 @@ TravelAgencyRole
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>175</x>
-      <y>364</y>
+      <x>245</x>
+      <y>371</y>
       <w>112</w>
       <h>56</h>
     </coordinates>
@@ -105,8 +106,8 @@ TravelAgencyRole
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>392</x>
-      <y>483</y>
+      <x>462</x>
+      <y>490</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -121,8 +122,8 @@ SystemAdministratorRole
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>182</x>
-      <y>196</y>
+      <x>252</x>
+      <y>203</y>
       <w>301</w>
       <h>301</h>
     </coordinates>
@@ -132,8 +133,8 @@ SystemAdministratorRole
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>280</x>
-      <y>294</y>
+      <x>350</x>
+      <y>301</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -148,8 +149,8 @@ FlightManagerRole
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>350</x>
-      <y>203</y>
+      <x>420</x>
+      <y>210</y>
       <w>21</w>
       <h>105</h>
     </coordinates>
@@ -159,8 +160,8 @@ FlightManagerRole
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>511</x>
-      <y>329</y>
+      <x>581</x>
+      <y>336</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -175,8 +176,8 @@ ProfileSystemManagerRole
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>462</x>
-      <y>196</y>
+      <x>532</x>
+      <y>203</y>
       <w>140</w>
       <h>147</h>
     </coordinates>
@@ -186,8 +187,8 @@ ProfileSystemManagerRole
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>686</x>
-      <y>329</y>
+      <x>756</x>
+      <y>336</y>
       <w>168</w>
       <h>63</h>
     </coordinates>
@@ -202,8 +203,8 @@ ReservationSystemManagerRole
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>581</x>
-      <y>196</y>
+      <x>651</x>
+      <y>203</y>
       <w>203</w>
       <h>147</h>
     </coordinates>
@@ -213,8 +214,8 @@ ReservationSystemManagerRole
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>882</x>
-      <y>329</y>
+      <x>952</x>
+      <y>336</y>
       <w>147</w>
       <h>63</h>
     </coordinates>
@@ -229,8 +230,8 @@ ServiceSystemManagerRole
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>763</x>
-      <y>196</y>
+      <x>833</x>
+      <y>203</y>
       <w>210</w>
       <h>147</h>
     </coordinates>
@@ -240,8 +241,8 @@ ServiceSystemManagerRole
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>84</x>
-      <y>462</y>
+      <x>154</x>
+      <y>469</y>
       <w>322</w>
       <h>98</h>
     </coordinates>
@@ -254,8 +255,8 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>259</x>
-      <y>462</y>
+      <x>329</x>
+      <y>469</y>
       <w>147</w>
       <h>77</h>
     </coordinates>
@@ -268,8 +269,8 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>399</x>
-      <y>350</y>
+      <x>469</x>
+      <y>357</y>
       <w>42</w>
       <h>147</h>
     </coordinates>
@@ -282,8 +283,8 @@ m2= 1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>518</x>
-      <y>385</y>
+      <x>588</x>
+      <y>392</y>
       <w>42</w>
       <h>112</h>
     </coordinates>
@@ -296,8 +297,8 @@ m2= 1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>532</x>
-      <y>385</y>
+      <x>602</x>
+      <y>392</y>
       <w>273</w>
       <h>133</h>
     </coordinates>
@@ -310,8 +311,8 @@ m2=1</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>532</x>
-      <y>385</y>
+      <x>602</x>
+      <y>392</y>
       <w>462</w>
       <h>161</h>
     </coordinates>

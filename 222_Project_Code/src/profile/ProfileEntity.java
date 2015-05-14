@@ -1,11 +1,22 @@
-package com.userInteraction;
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-import com.helpers.*;
+package profile;
 
-import java.io.*;
+import com.helpers.Customer;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.PrintWriter;
 
-public class UserEntity{
-	
+/**
+ *
+ * @author Michael Y.M. Kong
+ */
+public class ProfileEntity {
 	private BufferedReader reader;	
 	private PrintWriter accWriter;
 	private PrintWriter usrWriter;
@@ -16,7 +27,7 @@ public class UserEntity{
 	private String passwdInDB;
 	private String role;
 	
-	public UserEntity(){
+	public ProfileEntity(){
 		
 	}
 	
@@ -128,5 +139,17 @@ public class UserEntity{
 		}
 		
 		return allExisted;
+	}
+	
+	public char[] getPassword(String username){
+		return null;
+	}
+	
+	public void savePassword(String username, char[] password){
+		
+	}
+	
+	public void closeAccount(String username){
+		
 	}
 }

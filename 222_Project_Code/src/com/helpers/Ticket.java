@@ -12,11 +12,11 @@ import java.util.Formatter;
  * @author Michael Y.M. Kong
  */
 public class Ticket {
-	private int booking_id;
-	private int ticket_id;
+	private int bookingId;
+	private int ticketId;
 	private String username;
-	private int person_id;
-	private String seat_number;
+	private int personId;
+	private String seatNumber;
 	private double price;
 	
 	public Ticket(){
@@ -24,25 +24,25 @@ public class Ticket {
 	}
 	
 	public Ticket(int tid, String un, int pid, String sn){
-		ticket_id = tid;
+		ticketId = tid;
 		username = un;
-		person_id = pid;
+		personId = pid;
 	}
 	
 	public Ticket(int bid, int tid, String un, int pid, String sn){
-		booking_id = bid;
-		ticket_id = tid;
+		bookingId = bid;
+		ticketId = tid;
 		username = un;
-		person_id = pid;
-		seat_number = sn;
+		personId = pid;
+		seatNumber = sn;
 	}
 	
 	public int getBookingId(){
-		return booking_id;
+		return bookingId;
 	}
 	
 	public int getTicketId(){
-		return ticket_id;
+		return ticketId;
 	}
 	
 	public String getUsername(){
@@ -50,11 +50,11 @@ public class Ticket {
 	}
 	
 	public int getPersonId(){
-		return person_id;
+		return personId;
 	}
 	
 	public String getSeatNumber(){
-		return seat_number;
+		return seatNumber;
 	}
 	
 	public boolean isCustomer(){
@@ -62,7 +62,7 @@ public class Ticket {
 	}
 	
 	public boolean isPerson(){
-		return (person_id != -1);
+		return (personId != -1);
 	}
 
 	public double getPrice() {
@@ -80,9 +80,9 @@ public class Ticket {
 		String format_string = "%-4s%-30s%-12s";
 		
 		if (username != null) {
-			formatter.format(format_string, ticket_id, username, seat_number);
+			formatter.format(format_string, ticketId, username, seatNumber);
 		} else{
-			formatter.format(format_string, ticket_id, person_id, seat_number);
+			formatter.format(format_string, ticketId, personId, seatNumber);
 		}
 		
 		return sb.toString();

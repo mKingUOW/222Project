@@ -1,5 +1,7 @@
 package com.helpers;
 
+import java.util.Formatter;
+
 /**
  *
  * @author Michael Y.M. Kong
@@ -113,11 +115,9 @@ public class Flight {
 	@Override
 	public String toString(){
 		StringBuilder builder = new StringBuilder();
-		builder.append(this.flightID);
-		builder.append("     ");
-		builder.append(this.departureTime);
-		builder.append("     ");
-		builder.append(this.arriveTime);
+		Formatter formatter = new Formatter(builder);
+		
+		formatter.format("%-15s%-35s%-35s", this.flightID, this.departureTime, this.arriveTime);
 		
 		return builder.toString();
 	}

@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.booking;
+package profile;
 
 import com.helpers.Person;
 import java.io.*;

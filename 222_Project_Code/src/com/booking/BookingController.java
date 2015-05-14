@@ -5,12 +5,14 @@
 
 package com.booking;
 
+import profile.CustomerController;
+import profile.PersonController;
+import profile.ProfileController;
 import com.helpers.Flight;
 import com.helpers.Person;
 import com.helpers.Service;
 import com.helpers.ServiceBooking;
 import com.helpers.Ticket;
-import com.userInteraction.UserEntity;
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -27,7 +29,7 @@ public class BookingController {
 	
 	private BookingEntity be = new BookingEntity();
 	private CustomerController cc = new CustomerController();
-	private FleetController fe = new FleetController();
+	private FleetController ftc = new FleetController();
 	private FlightController fc = new FlightController();
 	private PersonController pc = new PersonController();
 	private ServiceController sc = new ServiceController();
@@ -75,7 +77,7 @@ public class BookingController {
 		/* Start Fill Ticket Details */
 		Flight chosen_flight = flight_choice.getKey();
 		int[] available_seats = chosen_flight.getAvailableSeats();
-		int[] total_seats = fe.getSeatsForPlane(chosen_flight.getPlaneID());
+		int[] total_seats = ftc.getSeatsForPlane(chosen_flight.getPlaneID());
 		int current_ticket_id = 1;
 		
 		//System.out.println("Monkey");
@@ -173,8 +175,7 @@ public class BookingController {
 		origin = route_points.getKey();
 		destination = route_points.getValue();
 		
-		System.out.println("----- BOOKING SUMMARY -----");
-		System.out.println("---------------------------------------------------");
+		System.out.println("---------- BOOKING SUMMARY ----------");
 		
 		System.out.println("FLIGHT:");
 		System.out.println("Origin: " + origin);
@@ -184,6 +185,7 @@ public class BookingController {
 		System.out.println(); 
 		
 		System.out.println("TICKETS BOOKED:");
+		System.out.println(tickets.size() + " tickets booked");
 		System.out.printf("%-4s%-30s%-12s\n", "ID", "Username/Person ID", "Seat Number");
 		for (Ticket ticket: tickets) {
 			System.out.println(ticket.toString());
@@ -197,14 +199,15 @@ public class BookingController {
 		for (ServiceBooking service_booked: services_booked) {
 			Service service = sc.getService(service_booked.getServiceId());
 			
-			System.out.printf("%12s", service_booked.getTicketId());
-			System.out.printf("%12s", service.getName());
+			System.out.printf("%-12s", service_booked.getTicketId());
+			System.out.printf("%-12s", service.getName());
+			System.out.println();
 			total_price += service.getCost();
 		}
 		
 		System.out.println();
 		
-		System.out.println("TOTAL PRICE: " + total_price);
+		System.out.printf("%-13s$%.2f\n", "TOTAL PRICE: ", total_price);
 		/* End Display Booking Summary */
 		
 		/* Start Payment */
@@ -344,9 +347,7 @@ public class BookingController {
 		
 		/* Start Display Flights Available */
 		System.out.print("\n#  ");
-		System.out.print("Flight ID  ");
-		System.out.print("Departure Time                ");
-		System.out.print("Arrival Time                     ");
+		System.out.printf("%-15s%-35s%-35s", "Flight ID", "Departure Time", "Arrival Time");
 		System.out.println();
 		
 		int i = 1;
@@ -381,7 +382,7 @@ public class BookingController {
 	 * @return String array of customer usernames
 	 */
 	private String[] addCustomers(){
-		UserEntity ue = new UserEntity();
+		ProfileController pc = new ProfileController();
 		String[] customer_usernames;
 		boolean areUsernamesOkay;
 		
@@ -389,7 +390,7 @@ public class BookingController {
 			System.out.print("Please enter the usernames of existing customers separated by spaces: ");
 			customer_usernames = in.nextLine().split(" ");
 
-			areUsernamesOkay = ue.checkUsernames(customer_usernames);
+			areUsernamesOkay = pc.checkUsernames(customer_usernames);
 
 			if (!areUsernamesOkay) {
 				System.out.println("A username that was entered is not valid!\nPlease try again!\n");
@@ -501,16 +502,15 @@ public class BookingController {
 	private List<Integer> bookServices(boolean is_international_flight){
 		List<Service> services = sc.getServices(is_international_flight);
 		List<Integer> booked_services = new ArrayList<>();
-		String format_string = "%-5s%-25s%-10s\n";
 		String[] choices;
 		boolean isOkay;
 		
 		System.out.println("Services available:");
-		System.out.printf(format_string, "#", "Service Name", "Price (AUD)");
+		System.out.printf("%-5s%-25s%-10s\n", "#", "Service Name", "Price (AUD)");
 		
 		int i = 1;
 		for (Service service : services) {
-			System.out.printf(format_string, (i + ". "), service.getName(), ("$" + service.getCost()));
+			System.out.printf("%-5s%-25s$%-10.2f\n", (i + ". "), service.getName(), service.getCost());
 			i++;
 		}
 		
@@ -540,8 +540,30 @@ public class BookingController {
 		
 	}
 	
-	public void setDiscountRatio(double ratio){
+	public void setDiscountRatio(){
+		double ratio = discountRatio;
+		boolean isOkay;
 		
+		do {
+			isOkay = true;
+			try {
+				System.out.println("The current discount ratio is " + discountRatio);
+				System.out.print("Please enter the new discount ratio: ");
+				ratio = in.nextDouble();
+				
+				if (ratio < 0) {
+					System.out.println("The input is not valid. Please try again!\n");
+					isOkay = false;
+				}
+				
+			} catch (InputMismatchException e) {
+				System.out.println("The input is not valid. Please try again!\n");
+				isOkay = false;
+			}
+		} while (!isOkay);
+		
+		discountRatio = ratio;
+		be.setDiscountRatio(ratio);
 	}
 	
 	public void setUsername(String username){

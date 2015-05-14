@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package com.booking;
+package profile;
 
 import com.helpers.Customer;
 
@@ -11,20 +11,22 @@ import com.helpers.Customer;
  *
  * @author Michael Y.M. Kong
  */
-public class CustomerEntity {
+public class CustomerController {
 
-	public CustomerEntity() {
+	private CustomerEntity ce = new CustomerEntity();
+	
+	public CustomerController() {
 	}
-
+	
 	public Customer getCustomer(String username){
-		return null;
+		return ce.getCustomer(username);
 	}
 	
 	public int getFrequentFlierPoints(String username){
-		return 0;
+		return ce.getFrequentFlierPoints(username);
 	}
 	
 	public void setFrequentFlierPoints(String username, int points){
-		
+		ce.setFrequentFlierPoints(username, points);
 	}
 }

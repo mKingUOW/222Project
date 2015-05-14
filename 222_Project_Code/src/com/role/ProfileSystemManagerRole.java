@@ -5,7 +5,7 @@
 
 package com.role;
 
-import com.userInteraction.UserEntity;
+import profile.ProfileController;
 
 /**
  *
@@ -13,7 +13,7 @@ import com.userInteraction.UserEntity;
  */
 public class ProfileSystemManagerRole extends Role{
 	private String[] choices = {"Edit Watch and No Fly List", "Edit Travel Agency and Customer Profile", "Close Account"};
-	private UserEntity ue = new UserEntity();
+	private ProfileController pc = new ProfileController();
 	
 	public ProfileSystemManagerRole(){
 		super();

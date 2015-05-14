@@ -1,9 +1,6 @@
 package com.booking;
 
-import com.helpers.*;
-
 import java.io.*;
-import java.util.*;
 
 public class AirportEntity{
 	

@@ -5,7 +5,8 @@
 
 package com.role;
 
-import com.userInteraction.UserEntity;
+import com.booking.BookingController;
+import profile.ProfileController;
 
 /**
  *
@@ -13,7 +14,8 @@ import com.userInteraction.UserEntity;
  */
 public class ReservationSystemManagerRole extends Role{
 	private String[] choices = {"Set Ticket Prices", "Move Passengers Between Flights", "Change Passenger Seating", "Edit Watch and No Fly List", "Change Frequent Flier Point Discount Ratio"};
-	private UserEntity ue = new UserEntity();
+	private ProfileController pc = new ProfileController();
+	private BookingController bc = new BookingController();
 	
 	public ReservationSystemManagerRole(){
 		super();
@@ -35,6 +37,7 @@ public class ReservationSystemManagerRole extends Role{
 				//ue.editWatchAndNoFlyList();
 				break;
 			case "Change Frequent Flier Point Discount Ratio":
+				bc.setDiscountRatio();
 				break;
 			default:
 				super.executeChoice();

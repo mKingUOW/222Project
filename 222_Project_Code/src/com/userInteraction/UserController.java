@@ -3,16 +3,17 @@ package com.userInteraction;
 import java.util.*;
 import com.role.*;
 import com.helpers.Customer;
+import profile.ProfileController;
 
 public class UserController{
 	private Role role;
-	private UserEntity ue = new UserEntity();
+	private ProfileController pc = new ProfileController();
 
 	public UserController(){ //default constructor
 	}
 
 	public boolean login(String username, char[] password){
-		String roleName = ue.login(username, password);
+		String roleName = pc.login(username, password);
 		
 		if ("loginFail".equals(roleName)) {
 			return false;
@@ -39,7 +40,7 @@ public class UserController{
 					break;
 			}
 			
-			isLoginOkay = ue.signUp(uld);
+			isLoginOkay = pc.signUp(uld);
 			
 			if (!isLoginOkay) {
 				System.out.println("The username already exists! Please try another username.\n");
