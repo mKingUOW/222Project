@@ -149,10 +149,6 @@ public class ProfileEntity {
 		
 	}
 	
-	public Customer getCustomer(String username){
-		return null;
-	}
-	
 	public int getFrequentFlierPoints(String username){
 		return 0;
 	}
@@ -162,6 +158,7 @@ public class ProfileEntity {
 	}
 	
 	public void closeAccount(String username){
-		
+		//delete the user details in userDetail.csv
+		//delete the login credentials in userAccount.csv
 	}
 }

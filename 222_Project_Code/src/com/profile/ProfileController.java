@@ -57,10 +57,6 @@ public class ProfileController {
 		pe.savePassword(username, new_password);
 	}
 	
-	public Customer getCustomer(String username){
-		return pe.getCustomer(username);
-	}
-	
 	public int getFrequentFlierPoints(String username){
 		return pe.getFrequentFlierPoints(username);
 	}
