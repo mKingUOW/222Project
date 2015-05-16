@@ -19,15 +19,13 @@ public class Person {
 	private String country;
 	private String creditCardType;
 	private String creditCardNumber;
-	private String frequentFlierPoints;
 	private String hasPassport;
-	private String watchOrNoFly;
 	
 	public Person(String title, String firstName, String lastName,
 			String gender, String DOB, String phoneNumber, String email,
 			String street, String state, String city, String country,
-			String creditCardType, String creditCardNumber, String flierPoints,
-			String hasPassport,String watchNoFlyStr){
+			String creditCardType, String creditCardNumber,
+			String hasPassport){
 		this.title = title;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -41,9 +39,7 @@ public class Person {
 		this.country = country;
 		this.creditCardType = creditCardType;
 		this.creditCardNumber = creditCardNumber;
-		this.frequentFlierPoints = flierPoints;
 		this.hasPassport = hasPassport;
-		this.watchOrNoFly = watchNoFlyStr;
 	}
 
 	public String getTitle() {
@@ -158,19 +154,4 @@ public class Person {
 		this.hasPassport = hasPassport;
 	}
 	
-	public void setFrequentFlierPoints(String fp){
-		this.frequentFlierPoints = fp;
-	}
-	
-	public String getFrequentFlierPoints(){
-		return this.frequentFlierPoints;
-	}
-	
-	public void setWatchOrNoFly(String wf){
-		this.watchOrNoFly = wf;
-	}
-	
-	public String getWatchOrNoFly(){
-		return this.watchOrNoFly;
-	}
 }

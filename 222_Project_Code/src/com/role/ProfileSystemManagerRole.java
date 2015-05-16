@@ -5,7 +5,7 @@
 
 package com.role;
 
-import profile.ProfileController;
+import com.profile.ProfileController;
 
 /**
  *

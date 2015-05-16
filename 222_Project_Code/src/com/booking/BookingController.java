@@ -5,9 +5,8 @@
 
 package com.booking;
 
-import profile.CustomerController;
-import profile.PersonController;
-import profile.ProfileController;
+import com.profile.PersonController;
+import com.profile.ProfileController;
 import com.helpers.Flight;
 import com.helpers.Person;
 import com.helpers.Service;
@@ -28,11 +27,11 @@ public class BookingController {
 	private String customerUsername = null;
 	
 	private BookingEntity be = new BookingEntity();
-	private CustomerController cc = new CustomerController();
 	private FleetController ftc = new FleetController();
 	private FlightController fc = new FlightController();
 	private PersonController pc = new PersonController();
 	private ServiceController sc = new ServiceController();
+	private ProfileController pfc = new ProfileController();
 	
 	private double discountRatio = 1; //default
 	
@@ -212,7 +211,7 @@ public class BookingController {
 		
 		/* Start Payment */
 		if ("CUS".equals(role)){
-			int frequent_flier_points = cc.getFrequentFlierPoints(customerUsername);
+			int frequent_flier_points = pfc.getFrequentFlierPoints(customerUsername);
 
 			if(frequent_flier_points != 0){
 				System.out.print("Do you want to use your frequent flier points to get a discount? (Y/N): ");
@@ -229,7 +228,7 @@ public class BookingController {
 						frequent_flier_points = 0;
 					}
 					System.out.println("Points remaining: " + frequent_flier_points);
-					cc.setFrequentFlierPoints(customerUsername, frequent_flier_points);
+					pfc.setFrequentFlierPoints(customerUsername, frequent_flier_points);
 				}
 			}
 		}

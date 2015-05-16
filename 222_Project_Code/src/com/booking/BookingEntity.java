@@ -7,6 +7,11 @@ package com.booking;
 
 import com.helpers.ServiceBooking;
 import com.helpers.Ticket;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -32,7 +37,7 @@ public class BookingEntity {
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(discountFile)));		
 			writer.println(ratio);
-			usrWriter.close();
+			writer.close();
 		}catch(Exception e){
 			e.printStackTrace();
 		}

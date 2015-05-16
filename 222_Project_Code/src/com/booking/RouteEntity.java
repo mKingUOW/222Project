@@ -41,7 +41,7 @@ public class RouteEntity{
 	
 	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber){
 
-				
+		String oneLine = "";
 		boolean found = false;
 		String origin = "";
 		String destination = "";
@@ -50,7 +50,7 @@ public class RouteEntity{
 			reader = new BufferedReader(new FileReader(filepath));
 			while(!found && ((oneLine = reader.readLine()) != null)){
 				String [] words = oneLine.split(",");
-				rnum = Integer.parseInt(words[0]);
+				int rnum = Integer.parseInt(words[0]);
 				
 				if(routeNumber == rnum){
 					found = true;

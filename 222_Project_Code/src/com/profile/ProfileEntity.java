@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package profile;
+package com.profile;
 
 import com.helpers.Customer;
 import java.io.BufferedReader;
@@ -146,6 +146,18 @@ public class ProfileEntity {
 	}
 	
 	public void savePassword(String username, char[] password){
+		
+	}
+	
+	public Customer getCustomer(String username){
+		return null;
+	}
+	
+	public int getFrequentFlierPoints(String username){
+		return 0;
+	}
+	
+	public void setFrequentFlierPoints(String username, int points){
 		
 	}
 	

@@ -9,6 +9,7 @@ public class Customer extends Person{
 	private char[] password;
 	private String role;
 	private int frequentFlierPoints;
+	private String watchOrNoFly;
 	
 	public Customer(String title, String firstName, String lastName, String username, char[] password,
 			String gender, String DOB, String phoneNumber, String email,
@@ -50,5 +51,13 @@ public class Customer extends Person{
 
 	public void setFrequentFlierPoints(int frequentFlierPoints) {
 		this.frequentFlierPoints = frequentFlierPoints;
+	}
+	
+	public void setWatchOrNoFly(String wf){
+		this.watchOrNoFly = wf;
+	}
+	
+	public String getWatchOrNoFly(){
+		return this.watchOrNoFly;
 	}
 }

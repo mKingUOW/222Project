@@ -1,7 +1,7 @@
 package com.role;
 
 import com.booking.BookingController;
-import profile.ProfileController;
+import com.profile.ProfileController;
 
 public abstract class AbstractCustomerRole extends Role{
 

@@ -6,7 +6,7 @@
 package com.role;
 
 import com.booking.BookingController;
-import profile.ProfileController;
+import com.profile.ProfileController;
 
 /**
  *

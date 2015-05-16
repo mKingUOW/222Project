@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package profile;
+package com.profile;
 
 import com.helpers.Person;
 import java.io.*;

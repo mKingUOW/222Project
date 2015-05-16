@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import profile.ProfileController;
+import com.profile.ProfileController;
 
 public abstract class Role{
 	private String username = "";

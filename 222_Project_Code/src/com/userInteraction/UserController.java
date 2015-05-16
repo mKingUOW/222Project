@@ -3,7 +3,7 @@ package com.userInteraction;
 import java.util.*;
 import com.role.*;
 import com.helpers.Customer;
-import profile.ProfileController;
+import com.profile.ProfileController;
 
 public class UserController{
 	private Role role;
@@ -39,7 +39,8 @@ public class UserController{
 					uld.setRole("CUS");
 					break;
 			}
-			
+			uld.setFrequentFlierPoints(0);
+			uld.setWatchOrNoFly("");
 			isLoginOkay = pc.signUp(uld);
 			
 			if (!isLoginOkay) {

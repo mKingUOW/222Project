@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package profile;
+package com.profile;
 
 import com.helpers.Customer;
 import java.io.Console;
@@ -55,6 +55,17 @@ public class ProfileController {
 		new_password = console.readPassword();
 		
 		pe.savePassword(username, new_password);
+	}
+	
+	public Customer getCustomer(String username){
+		return pe.getCustomer(username);
+	}
+	
+	public int getFrequentFlierPoints(String username){
+		return pe.getFrequentFlierPoints(username);
+	}
+	
+	public void setFrequentFlierPoints(String username, int points){
 	}
 	
 	public void closeAccount(String username){
