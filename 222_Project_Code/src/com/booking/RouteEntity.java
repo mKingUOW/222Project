@@ -40,8 +40,32 @@ public class RouteEntity{
 	}
 	
 	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber){
-		AbstractMap.SimpleImmutableEntry<String, String> route_points
-				= new AbstractMap.SimpleImmutableEntry<>("", "");
+
+				
+		boolean found = false;
+		String origin = "";
+		String destination = "";
+		
+		try{
+			reader = new BufferedReader(new FileReader(filepath));
+			while(!found && ((oneLine = reader.readLine()) != null)){
+				String [] words = oneLine.split(",");
+				rnum = Integer.parseInt(words[0]);
+				
+				if(routeNumber == rnum){
+					found = true;
+				}
+				origin = words[1];
+				destination = words[2];
+			}	
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		AbstractMap.SimpleImmutableEntry<String, String> route_points 
+		= new AbstractMap.SimpleImmutableEntry<>(origin, destination);
 		
 		return route_points;
 	}

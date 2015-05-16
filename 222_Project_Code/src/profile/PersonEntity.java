@@ -53,8 +53,7 @@ public class PersonEntity {
 						   + person.getGender() + "," + person.getDOB() + "," + person.getPhoneNumber() + ","
 						   + person.getEmail() + "," + person.getStreet() + "," + person.getState() + ","
 						   + person.getCity() + "," + person.getCountry() + "," + person.getCreditCardType() + ","
-						   + person.getCreditCardNumber() + "," + person.getFrequentFlierPoints()+ "," 
-						   + person.hasPassport() "," + person.getWatchOrNoFly()
+						   + person.getCreditCardNumber() + "," + person.hasPassport() 
 						  );						   
 			writer.close();
 		}catch(Exception e){

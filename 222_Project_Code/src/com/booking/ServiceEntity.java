@@ -51,7 +51,59 @@ public class ServiceEntity{
 	}
 	
 	public Service getService(int serviceId){
-		return new Service(0, "", 0, "");
+		Service aservice = null;
+		String oneLine = "";
+		boolean found = false;
+		int sid = 0;
+		double cost = 0;
+		
+		try{
+			reader = new BufferedReader(new FileReader(filepath));
+			while(!found && ((oneLine = reader.readLine()) != null)){				
+				String [] words = oneLine.split(",");
+				
+				sid = Integer.parseInt(words[0]);
+				cost = Double.parseDouble(words[2]);
+				if(sid == serviceId){
+					found = true;
+					aservice = new Service(sid,words[1],cost,words[3]);
+				}
+			}	
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return aservice;
+	}
+	
+	public double getPrice(int serviceId){
+		String oneLine = "";
+		boolean found = false;
+		int sid = 0;
+		double price = 0;
+		double cost = 0;
+		
+		try{
+			reader = new BufferedReader(new FileReader(filepath));
+			while(!found && ((oneLine = reader.readLine()) != null)){				
+				String [] words = oneLine.split(",");
+				
+				sid = Integer.parseInt(words[0]);
+				cost = Double.parseDouble(words[2]);
+				if(sid == serviceId){
+					found = true;
+					price = cost;
+				}
+			}	
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return price;
 	}
 	
 }
