@@ -38,7 +38,7 @@ public class FlightController {
 		return rc.isInternationalRoute(origin, destination);
 	}
 	
-	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber){
-		return rc.getRoutePoints(routeNumber);
+	public AbstractMap.SimpleImmutableEntry<String, String> getRouteLocations(int routeNumber){
+		return rc.getRouteLocations(routeNumber);
 	}
 }

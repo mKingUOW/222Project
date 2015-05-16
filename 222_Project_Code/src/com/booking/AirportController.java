@@ -23,4 +23,8 @@ public class AirportController {
 	public String getAirportCountry(String city_name){
 		return ae.getAirportCountry(city_name); //if return null that means airport name doesn't exist
 	}
+	
+	public String getAirportCity(String airport_code){
+		return ae.getAirportCity(airport_code);
+	}
 }

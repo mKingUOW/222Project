@@ -35,6 +35,16 @@ public class RouteController {
 		return route_number;
 	}
 	
+	public AbstractMap.SimpleImmutableEntry<String, String> getRouteLocations(int routeNumber){
+		AbstractMap.SimpleImmutableEntry<String, String> route_points
+				= getRoutePoints(routeNumber);
+		
+		String origin = ac.getAirportCity(route_points.getKey());
+		String destination = ac.getAirportCity(route_points.getValue());
+		
+		return new AbstractMap.SimpleImmutableEntry<>(origin, destination);
+	}
+	
 	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber){
 		return re.getRoutePoints(routeNumber);
 	}

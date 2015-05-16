@@ -64,10 +64,7 @@ public class RouteEntity{
 			e.printStackTrace();
 		}
 		
-		AbstractMap.SimpleImmutableEntry<String, String> route_points 
-		= new AbstractMap.SimpleImmutableEntry<>(origin, destination);
-		
-		return route_points;
+		return new AbstractMap.SimpleImmutableEntry<>(origin, destination);
 	}
 	
-};
+}

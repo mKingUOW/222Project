@@ -59,4 +59,8 @@ public class AirportEntity{
 		
 		return country;
 	}
+	
+	public String getAirportCity(String airport_code){
+		return "";
+	}
 }

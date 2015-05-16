@@ -51,7 +51,7 @@ public class BookingEntity {
 			reader = new BufferedReader(new FileReader(discountFile));
 			while((oneLine = reader.readLine()) != null){				
 				String [] words = oneLine.split(",");
-				discount = Integer.parseInt(words[0]);
+				discount = Double.parseDouble(words[0]);
 			}
 
 			reader.close();

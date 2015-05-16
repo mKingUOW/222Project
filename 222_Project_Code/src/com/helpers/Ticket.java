@@ -27,6 +27,7 @@ public class Ticket {
 		ticketId = tid;
 		username = un;
 		personId = pid;
+		seatNumber = sn;
 	}
 	
 	public Ticket(int bid, int tid, String un, int pid, String sn){
@@ -36,33 +37,45 @@ public class Ticket {
 		personId = pid;
 		seatNumber = sn;
 	}
-	
-	public int getBookingId(){
+
+	public int getBookingId() {
 		return bookingId;
 	}
-	
-	public int getTicketId(){
+
+	public void setBookingId(int bookingId) {
+		this.bookingId = bookingId;
+	}
+
+	public int getTicketId() {
 		return ticketId;
 	}
-	
-	public String getUsername(){
+
+	public void setTicketId(int ticketId) {
+		this.ticketId = ticketId;
+	}
+
+	public String getUsername() {
 		return username;
 	}
-	
-	public int getPersonId(){
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public int getPersonId() {
 		return personId;
 	}
-	
-	public String getSeatNumber(){
+
+	public void setPersonId(int personId) {
+		this.personId = personId;
+	}
+
+	public String getSeatNumber() {
 		return seatNumber;
 	}
-	
-	public boolean isCustomer(){
-		return (username != null);
-	}
-	
-	public boolean isPerson(){
-		return (personId != -1);
+
+	public void setSeatNumber(String seatNumber) {
+		this.seatNumber = seatNumber;
 	}
 
 	public double getPrice() {

@@ -79,8 +79,6 @@ public class BookingController {
 		int[] total_seats = ftc.getSeatsForPlane(chosen_flight.getPlaneID());
 		int current_ticket_id = 1;
 		
-		//System.out.println("Monkey");
-		
 		/* Start Customer Tickets */
 		if ("TA".equals(role) && customer_usernames != null){ //extra computation for customers
 			for (String username: customer_usernames) {
@@ -169,10 +167,11 @@ public class BookingController {
 		String destination;
 		double total_price = 0.0;
 		
-		AbstractMap.SimpleImmutableEntry<String, String> route_points = fc.getRoutePoints(chosen_flight.getRouteNumber());
+		AbstractMap.SimpleImmutableEntry<String, String> route_locations
+				= fc.getRouteLocations(chosen_flight.getRouteNumber());
 		
-		origin = route_points.getKey();
-		destination = route_points.getValue();
+		origin = route_locations.getKey();
+		destination = route_locations.getValue();
 		
 		System.out.println("---------- BOOKING SUMMARY ----------");
 		
@@ -239,7 +238,7 @@ public class BookingController {
 			System.out.print("Enter any key to proceed with payment: ");
 			in.nextLine(); //just get anything; doesn't matter
 			
-			System.out.println("Your credit card has been charged $" + total_price + "!\nThank you for making a booking with us!");
+			System.out.printf("Your credit card has been charged $%.2f!\nThank you for making a booking with us!\n", total_price);
 			System.out.println();
 		}
 		/* End Payment */
@@ -289,7 +288,7 @@ public class BookingController {
 		} while (!isOkay);
 		
 		//compute the seat number
-		int seat_number = (total_seats[choice - 1] - available_seats[choice - 1]) + 1; //check logic!!!
+		int seat_number = total_seats[choice - 1] - available_seats[choice - 1]; //check logic!!!
 		String seat_class = "";
 		
 		switch(choice){
