@@ -102,8 +102,8 @@ public class ProfileEntity {
 							  + user.getLastName() + "," + user.getGender() + "," + user.getDOB() + "," 
 							  + user.getPhoneNumber() + "," + user.getEmail() + "," + user.getStreet() + "," 
 							  + user.getState() + "," + user.getCity() + "," + user.getCountry() + ","
-							  + user.getCreditCardType() + "," + user.getCreditCardNumber() 
-							  + "," + user.hasPassport() );
+							  + user.getCreditCardType() + "," + user.getCreditCardNumber() + "," + user.getFrequentFlierPoints()
+							  + "," + user.hasPassport() + "," + user.getWatchOrNoFly() );
 			usrWriter.close();
 		}catch(Exception e){
 			e.printStackTrace();
