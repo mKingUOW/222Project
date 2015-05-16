@@ -142,23 +142,200 @@ public class ProfileEntity {
 	}
 	
 	public char[] getPassword(String username){
-		return null;
+		String passwdStr = "";
+		char [] passwd = null;
+		
+		String oneLine = "";
+		boolean existed = false;
+		
+		try{
+			reader = new BufferedReader(new FileReader(accountFile));
+			while(!existed && ((oneLine = reader.readLine()) != null)){
+			// oneLine represents one line in the DB; Recursively check the DB;	
+                String[] words = oneLine.split(",");
+				
+				if(username.equals(words[0])){
+					existed = true;
+					passwdStr = words[1];
+				}
+				
+            }
+			
+			passwd = passwdStr.toCharArray();
+			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return passwd;
 	}
 	
 	public void savePassword(String username, char[] password){
+		String passwd = new String(password);
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
+		
+		//Read in the records, save them in one String, modify the corresponding information;
+		//Then write the String(which contains all the updated information of database) back into the Database;
+		try{
+			reader = new BufferedReader(new FileReader(accountFile));
+			while((oneLine = reader.readLine()) != null){
+			// oneLine represents one line in the DB; Recursively check the DB;	
+                String[] words = oneLine.split(",");
+				
+				if(username.equals(words[0])){
+					updatedLine +=  words[0];
+					updatedLine += ",";
+					updatedLine +=  passwd;
+					updatedLine += ",";
+					updatedLine +=  words[2];
+					data += updatedLine + "\n";
+				}else{
+					data += oneLine + "\n";
+				}	
+            }
+		     reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			accfile = new File(accountFile);
+			accWriter = new PrintWriter(new FileOutputStream(accfile));	
+			accWriter.print(data);
+            accWriter.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		
 	}
 	
 	public int getFrequentFlierPoints(String username){
-		return 0;
+		String oneLine = "";
+		boolean isFound = false;
+		int ffp = 0;
+		
+		try{
+			reader = new BufferedReader(new FileReader(detailsFile));
+			while(!isFound && ((oneLine = reader.readLine()) != null)){
+                String[] words = oneLine.split(",");
+				
+				if(user.getUsername().equals(words[0])){
+					isFound = true;
+					ffp = Integer.parseInt(words[14]);	
+				}
+				
+            }
+			
+            reader.close();		
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return ffp;
 	}
 	
 	public void setFrequentFlierPoints(String username, int points){
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
 		
+		String ffp = new Integer(points).toString();
+		
+		//Read in the records, save them in one String, modify the corresponding information;
+		//Then write the String(which contains all the updated information of database) back into the Database;
+		try{
+			reader = new BufferedReader(new FileReader(detailsFile));
+			while((oneLine = reader.readLine()) != null){
+			// oneLine represents one line in the DB; Recursively check the DB;	
+                String[] words = oneLine.split(",");
+				
+				if(username.equals(words[0])){
+					for(int i=0;i<14;i++){
+						updatedLine += words[i];
+						updatedLine += ",";
+					}
+					updatedLine +=  ffp;
+					updatedLine += ",";
+					updatedLine +=  words[15];
+					updatedLine += ",";
+					updatedLine +=  words[16];
+					data += updatedLine + "\n";
+				}else{
+					data += oneLine + "\n";
+				}	
+            }
+		     reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			usrfile = new File(detailsFile);
+			usrWriter = new PrintWriter(new FileOutputStream(usrfile));	
+			usrWriter.print(data);
+            usrWriter.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	public void closeAccount(String username){
-		//delete the user details in userDetail.csv
+		
+		String oneLine = "";
+		String accData = "";
+		String usrData = "";
+		
 		//delete the login credentials in userAccount.csv
+		try{
+			reader = new BufferedReader(new FileReader(accountFile));
+			while((oneLine = reader.readLine()) != null){
+			// oneLine represents one line in the DB; Recursively check the DB;	
+                String[] words = oneLine.split(",");
+				
+				if(!username.equals(words[0])){
+					accData += oneLine + "\n";
+				}	
+            }
+		     reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			accfile = new File(accountFile);
+			accWriter = new PrintWriter(new FileOutputStream(accfile));	
+			accWriter.print(accData);
+            accWriter.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		//delete the user details in userDetail.csv
+		try{
+			reader = new BufferedReader(new FileReader(detailsFile));
+			while((oneLine = reader.readLine()) != null){
+			// oneLine represents one line in the DB; Recursively check the DB;	
+                String[] words = oneLine.split(",");
+				
+				if(!username.equals(words[0])){
+					usrData += oneLine + "\n";
+				}	
+            }
+		     reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			usrfile = new File(detailsFile);
+			usrWriter = new PrintWriter(new FileOutputStream(usrfile));	
+			usrWriter.print(usrData);
+            usrWriter.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

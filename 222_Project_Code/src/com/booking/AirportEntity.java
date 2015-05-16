@@ -39,7 +39,7 @@ public class AirportEntity{
 	public String getAirportCountry(String city){
 		String oneLine = "";
 		boolean existed = false;
-		String country = null;
+		String country = "";
 		
 		try{
 			reader = new BufferedReader(new FileReader(filepath));
@@ -61,6 +61,26 @@ public class AirportEntity{
 	}
 	
 	public String getAirportCity(String airport_code){
-		return "";
+		String oneLine = "";
+		boolean isFound = false;
+		String city = "";
+		
+		try{
+			reader = new BufferedReader(new FileReader(filepath));
+			while(!isFound && ((oneLine = reader.readLine()) != null)){
+				String [] words = oneLine.split(",");
+				
+				if(airport_code.equals(words[4])){
+					isFound = true;
+					city = words[2];
+				}
+			}
+			
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return city;
 	}
 }
