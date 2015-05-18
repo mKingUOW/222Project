@@ -23,19 +23,21 @@ public class Ticket {
 		
 	}
 	
-	public Ticket(int tid, String un, int pid, String sn){
+	public Ticket(int tid, String un, int pid, String sn, double prc){
 		ticketId = tid;
 		username = un;
 		personId = pid;
 		seatNumber = sn;
+		price = prc;
 	}
 	
-	public Ticket(int bid, int tid, String un, int pid, String sn){
+	public Ticket(int bid, int tid, String un, int pid, String sn, double prc){
 		bookingId = bid;
 		ticketId = tid;
 		username = un;
 		personId = pid;
 		seatNumber = sn;
+		price = prc;
 	}
 
 	public int getBookingId() {
@@ -90,12 +92,12 @@ public class Ticket {
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		Formatter formatter = new Formatter(sb);
-		String format_string = "%-4s%-30s%-12s";
+		String format_string = "%-4s$%-14.2f%-25s%-12s";
 		
 		if (username != null) {
-			formatter.format(format_string, ticketId, username, seatNumber);
+			formatter.format(format_string, ticketId, price, username, seatNumber);
 		} else{
-			formatter.format(format_string, ticketId, personId, seatNumber);
+			formatter.format(format_string, ticketId, price, personId, seatNumber);
 		}
 		
 		return sb.toString();

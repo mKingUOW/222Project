@@ -5,7 +5,7 @@ import com.profile.ProfileController;
 
 public abstract class AbstractCustomerRole extends Role{
 
-	private String[] choices = {"Edit Services", "Close Account", "Cancel Booking", "Edit Account"};
+	private String[] choices = {"Edit Services", "Close Account", "Cancel Booking", "Edit Account", "View My Bookings"};
 	private BookingController bc = new BookingController();
 	private ProfileController pc = new ProfileController();
 	
@@ -17,6 +17,7 @@ public abstract class AbstractCustomerRole extends Role{
 	@Override
 	public void executeChoice(){
 		String choice = allChoices.get(userChoice);
+		bc.setUsername(getUsername());
 		
 		switch(choice){
 			case "Edit Services":
@@ -26,11 +27,13 @@ public abstract class AbstractCustomerRole extends Role{
 				setUserLoggedOut();
 				break;
 			case "Cancel Booking":
-				bc.setUsername(getUsername());
 				bc.cancelBooking();
 				break;
 			case "Edit Account":
 				pc.editAccount(getUsername());
+				break;
+			case "View My Bookings":
+				bc.viewBookings();
 				break;
 			default:
 				super.executeChoice();

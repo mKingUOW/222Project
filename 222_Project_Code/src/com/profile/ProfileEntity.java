@@ -6,6 +6,7 @@
 package com.profile;
 
 import com.helpers.Customer;
+import com.helpers.Person;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -337,5 +338,23 @@ public class ProfileEntity {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * 
+	 * @param username
+	 * @return A Person object because we only need to modify the
+	 * basic details of this user
+	 */
+	public Person getAccountDetails(String username){
+		return null;
+	}
+	
+	public void setAccountDetails(Person account){
+		
+	}
+	
+	public String canUserFly(String username){
+		return "";
 	}
 }

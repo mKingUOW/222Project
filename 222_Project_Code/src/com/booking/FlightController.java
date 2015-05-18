@@ -15,6 +15,7 @@ import java.util.List;
  */
 public class FlightController {
 	private RouteController rc = new RouteController();
+	private FlightEntity fe = new FlightEntity();
 	
 	public FlightController(){
 		
@@ -26,12 +27,14 @@ public class FlightController {
 		List<Flight> flights = null;
 		
 		if (route_number != -1) { //the route exists
-			FlightEntity fe = new FlightEntity();
-			
 			flights = fe.getFlights(route_number);
 		}
 		
 		return flights;
+	}
+	
+	public void updateAvailableSeats(String flight_id, int[] available_seats){
+		fe.updateAvailableSeats(flight_id, available_seats);
 	}
 	
 	public boolean isInternationalFlight(String origin, String destination){
@@ -40,5 +43,9 @@ public class FlightController {
 	
 	public AbstractMap.SimpleImmutableEntry<String, String> getRouteLocations(int routeNumber){
 		return rc.getRouteLocations(routeNumber);
+	}
+	
+	public double[] getSeatPrices(String flight_id){
+		return new double[]{20, 15, 10, 5};
 	}
 }

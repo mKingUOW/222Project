@@ -6,8 +6,10 @@
 package com.profile;
 
 import com.helpers.Customer;
+import com.helpers.Person;
 import java.io.Console;
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -65,6 +67,7 @@ public class ProfileController {
 	}
 	
 	public void setFrequentFlierPoints(String username, int points){
+		pe.setFrequentFlierPoints(username, points);
 	}
 	
 	public void closeAccount(String username){
@@ -80,6 +83,95 @@ public class ProfileController {
 	}
 	
 	public void editAccount(String username){
+		String[] options = {"Title", "First Name", "Last Name", "Gender",
+			"Date of birth", "Phone number", "Email", "Street",
+			"State", "City", "Country", "Credit Card", "Passport Availability"};
+		Person customer = pe.getAccountDetails(username);
+		String[] customer_details = customer.toArray();
 		
+		boolean is_okay;
+		int choice = 0;
+		
+		do {
+			is_okay = true;
+			for (int i = 0; i < options.length; i++) {
+				System.out.print((i + 1) + ". ");
+				System.out.print(options[i]);
+				System.out.print("(" + customer_details[i] + ")");
+			}
+			
+			System.out.print("Please select an option from above: ");
+			
+			try {
+				choice = in.nextInt();
+				if (choice < 1 || choice > options.length) {
+					System.out.println("That option is out of range. Please try again!\n");
+					is_okay = false;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Invalid input. Please try again!\n");
+				is_okay = false;
+			}
+			
+		} while (!is_okay);
+		
+		if (choice != 12) { //special case for credit card, so we consider it in the switch
+			System.out.print("Please enter the new value for " + options[choice - 1].toLowerCase() + ": ");
+		} 
+		
+		switch (choice){
+			case 1:
+				customer.setTitle(in.nextLine());
+				break;
+			case 2:
+				customer.setFirstName(in.nextLine());
+				break;
+			case 3:
+				customer.setLastName(in.nextLine());
+				break;
+			case 4:
+				customer.setGender(in.nextLine());
+				break;
+			case 5:
+				customer.setDOB(in.nextLine());
+				break;
+			case 6:
+				customer.setPhoneNumber(in.nextLine());
+				break;
+			case 7:
+				customer.setEmail(in.nextLine());
+				break;
+			case 8:
+				customer.setStreet(in.nextLine());
+				break;
+			case 9:
+				customer.setState(in.nextLine());
+				break;
+			case 10:
+				customer.setCity(in.nextLine());
+				break;
+			case 11:
+				customer.setCountry(in.nextLine());
+				break;
+			case 12:
+				System.out.print("Please enter the new value for credit card type: ");
+				customer.setCreditCardType(in.nextLine());
+				
+				System.out.print("Please enter the new value for credit card number: ");
+				customer.setCreditCardNumber(in.nextLine());
+				break;
+			case 13:
+				customer.setHasPassport(in.nextLine());
+				break;
+		}
+		
+		pe.setAccountDetails(customer);
+		
+		System.out.println("Your details have been updated!\n");
 	}
+	
+	public String canUserFly(String username){
+		return pe.canUserFly(username);
+	}
+	
 }

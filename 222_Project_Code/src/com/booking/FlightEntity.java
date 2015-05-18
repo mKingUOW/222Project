@@ -47,6 +47,10 @@ public class FlightEntity{
 		return flights;
 	}
 	
+	public void updateAvailableSeats(String flight_id, int[] available_seats){
+		
+	}
+	
 	/**
 	 * 
 	 * @param flight_id Flight ID

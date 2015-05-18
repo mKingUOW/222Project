@@ -5,6 +5,7 @@
 
 package com.booking;
 
+import com.helpers.Booking;
 import com.helpers.ServiceBooking;
 import com.helpers.Ticket;
 import java.io.BufferedReader;
@@ -59,5 +60,13 @@ public class BookingEntity {
 			e.printStackTrace();
 		}
 		return discount;
+	}
+	
+	public List<Booking> getBookings(String username){
+		return null;
+	}
+	
+	public void cancelBooking(int booking_id){
+		
 	}
 }

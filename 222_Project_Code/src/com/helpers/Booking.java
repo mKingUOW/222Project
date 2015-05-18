@@ -5,6 +5,8 @@
 
 package com.helpers;
 
+import java.util.Formatter;
+
 /**
  *
  * @author Michael Y.M. Kong
@@ -36,5 +38,15 @@ public class Booking {
 	
 	public String getFlightId(){
 		return flightId;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		Formatter formatter = new Formatter(sb);
+		
+		formatter.format("%-15s%-10s", bookingId, flightId);
+		
+		return sb.toString();
 	}
 }

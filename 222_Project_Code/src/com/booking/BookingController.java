@@ -5,6 +5,7 @@
 
 package com.booking;
 
+import com.helpers.Booking;
 import com.profile.PersonController;
 import com.profile.ProfileController;
 import com.helpers.Flight;
@@ -54,6 +55,22 @@ public class BookingController {
 		List<Ticket> tickets = new ArrayList<>();
 		List<ServiceBooking> services_booked = new ArrayList<>();
 		
+		//check if this user can fly
+		if("CUS".equals(role)){
+			String fly_status = pfc.canUserFly(customerUsername);
+			switch (fly_status) {
+				case "watch":
+					System.out.println("\nWARNING: Your profile is currently marked as \"WATCH\".");
+					System.out.println("You may have limited access in booking flights.");
+					break;
+				case "no fly":
+					System.out.println("\nWARNING: Your profile is currently marked as \"NO FLY\".");
+					System.out.println("You may not book a flight.");
+					return;
+					//break; don't need break because we are returning
+			}
+		}
+		
 		flight_choice = chooseFlight();
 		
 		in.nextLine(); //clear buffer
@@ -77,20 +94,21 @@ public class BookingController {
 		Flight chosen_flight = flight_choice.getKey();
 		int[] available_seats = chosen_flight.getAvailableSeats();
 		int[] total_seats = ftc.getSeatsForPlane(chosen_flight.getPlaneID());
+		double[] seat_prices = fc.getSeatPrices(chosen_flight.getFlightID());
 		int current_ticket_id = 1;
 		
 		/* Start Customer Tickets */
 		if ("TA".equals(role) && customer_usernames != null){ //extra computation for customers
 			for (String username: customer_usernames) {
-				String seat_number;
+				AbstractMap.SimpleImmutableEntry<String, Double> seat;
 				
 				System.out.println("\nTicket for Customer with username \"" + username + "\"");
 				
-				seat_number = chooseSeat(available_seats, total_seats);
+				seat = chooseSeat(available_seats, total_seats, seat_prices);
 				
 				in.nextLine(); //clear buffer
 				
-				tickets.add(new Ticket(current_ticket_id, username, -1, seat_number));
+				tickets.add(new Ticket(current_ticket_id, username, -1, seat.getKey(), seat.getValue()));
 				
 				System.out.print("Do you want to book services for this customer? (Y/N): ");
 				char char_choice = in.nextLine().charAt(0);
@@ -109,15 +127,15 @@ public class BookingController {
 		
 		/* Start Solo Customer Booking */
 		if ("CUS".equals(role)){
-			String seat_number;
+			AbstractMap.SimpleImmutableEntry<String, Double> seat;
 			
 			System.out.println("\nYour Ticket (" + customerUsername + ")");
 				
-			seat_number = chooseSeat(available_seats, total_seats);
+			seat = chooseSeat(available_seats, total_seats, seat_prices);
 
 			in.nextLine(); //clear buffer
 
-			tickets.add(new Ticket(current_ticket_id, customerUsername, -1, seat_number));
+			tickets.add(new Ticket(current_ticket_id, customerUsername, -1, seat.getKey(), seat.getValue()));
 
 			System.out.print("Do you want to book services for yourself? (Y/N): ");
 			char char_choice = in.nextLine().charAt(0);
@@ -136,15 +154,15 @@ public class BookingController {
 		/* Start Person Tickets */
 		if (person_ids != null) {
 			for (Integer person_id: person_ids) {
-				String seat_number;
+				AbstractMap.SimpleImmutableEntry<String, Double> seat;
 				
 				System.out.println("\nTicket for Person with ID \"" + person_id + "\"");
 				
-				seat_number = chooseSeat(available_seats, total_seats);
+				seat = chooseSeat(available_seats, total_seats, seat_prices);
 				
 				in.nextLine(); //clear buffer
 				
-				tickets.add(new Ticket(current_ticket_id, null, person_id, seat_number));
+				tickets.add(new Ticket(current_ticket_id, null, person_id, seat.getKey(), seat.getValue()));
 				
 				System.out.print("Do you want to book services for this person? (Y/N): ");
 				char char_choice = in.nextLine().charAt(0);
@@ -184,7 +202,7 @@ public class BookingController {
 		
 		System.out.println("TICKETS BOOKED:");
 		System.out.println(tickets.size() + " tickets booked");
-		System.out.printf("%-4s%-30s%-12s\n", "ID", "Username/Person ID", "Seat Number");
+		System.out.printf("%-4s%-15s%-25s%-12s\n", "ID", "Price (AUD)", "Username/Person ID", "Seat Number");
 		for (Ticket ticket: tickets) {
 			System.out.println(ticket.toString());
 			total_price += ticket.getPrice();
@@ -243,6 +261,10 @@ public class BookingController {
 		}
 		/* End Payment */
 		
+		//update the available seats on the flight
+		fc.updateAvailableSeats(flight_choice.getKey().getFlightID(), available_seats);
+		
+		//save booking
 		be.saveBooking(flight_choice.getKey().getFlightID(), tickets, services_booked);
 	}
 	
@@ -252,14 +274,15 @@ public class BookingController {
 	 * @param total_seats Total seats that this flight's plane can accommodate
 	 * @return The seat number
 	 */
-	private String chooseSeat(int[] available_seats, int[] total_seats){
+	private AbstractMap.SimpleImmutableEntry<String, Double>
+			chooseSeat(int[] available_seats, int[] total_seats, double[] seat_prices){
 		boolean isOkay;
 		int choice = 0;
 		
-		System.out.println("1. First class (" + available_seats[0] + " seats available)");
-		System.out.println("2. Business class (" + available_seats[1] + " seats available)");
-		System.out.println("3. Premium economy class (" + available_seats[2] + " seats available)");
-		System.out.println("4. Economy class (" + available_seats[3] + " seats available)");
+		System.out.printf("1. First class (" + available_seats[0] + " seats available) $%.2f\n", seat_prices[0]);
+		System.out.printf("2. Business class (" + available_seats[1] + " seats available) $%.2f\n", seat_prices[1]);
+		System.out.printf("3. Premium economy class (" + available_seats[2] + " seats available) $%.2f\n", seat_prices[2]);
+		System.out.printf("4. Economy class (" + available_seats[3] + " seats available) $%.2f\n", seat_prices[3]);
 
 		do {
 			isOkay = true;
@@ -288,8 +311,9 @@ public class BookingController {
 		} while (!isOkay);
 		
 		//compute the seat number
-		int seat_number = total_seats[choice - 1] - available_seats[choice - 1]; //check logic!!!
+		int seat_number = total_seats[choice - 1] - available_seats[choice - 1];
 		String seat_class = "";
+		double seat_price = seat_prices[choice - 1];
 		
 		switch(choice){
 			case 1:
@@ -306,9 +330,9 @@ public class BookingController {
 				break;
 		}
 		
-		System.out.println("Your seat number is " + seat_class + seat_number);
+		System.out.println("Your seat number is " + seat_class + seat_number + "\n");
 		
-		return seat_class + seat_number;
+		return new AbstractMap.SimpleImmutableEntry<>(seat_class + seat_number, seat_price);
 	}
 	
 	/**
@@ -380,7 +404,6 @@ public class BookingController {
 	 * @return String array of customer usernames
 	 */
 	private String[] addCustomers(){
-		ProfileController pc = new ProfileController();
 		String[] customer_usernames;
 		boolean areUsernamesOkay;
 		
@@ -388,10 +411,20 @@ public class BookingController {
 			System.out.print("Please enter the usernames of existing customers separated by spaces: ");
 			customer_usernames = in.nextLine().split(" ");
 
-			areUsernamesOkay = pc.checkUsernames(customer_usernames);
+			areUsernamesOkay = pfc.checkUsernames(customer_usernames);
 
 			if (!areUsernamesOkay) {
 				System.out.println("A username that was entered is not valid!\nPlease try again!\n");
+			}
+			
+			//check if any users can't fly
+			for (String customer_username : customer_usernames) {
+				String fly_status = pfc.canUserFly(customer_username);
+				
+				if ("no fly".equals(fly_status)) {
+					System.out.println("ALERT: Customer " + customer_username + " is not allowed to fly.");
+					areUsernamesOkay = false;
+				}
 			}
 		} while (!areUsernamesOkay);
 		
@@ -535,7 +568,61 @@ public class BookingController {
 	}
 	
 	public void cancelBooking(){
+		List<Booking> bookings = be.getBookings(customerUsername);
+		int i = 1;
+		int choice = 0;
+		boolean isOkay;
 		
+		if (bookings == null) {
+			System.out.println("You have no bookings.\n");
+			return;
+		}
+		
+		viewBookings(bookings);
+
+		do {
+			isOkay = true;
+			System.out.print("Please select the booking that you want to cancel: ");
+			try {
+				choice = in.nextInt();
+				
+				if (choice < 1 || choice > bookings.size()) {
+					System.out.println("The booking selected does not exist. Please try again!\n");
+					isOkay = false;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("The input is not valid. Please try again!\n");
+				isOkay = false;
+			}
+		} while (!isOkay);
+		
+		be.cancelBooking(choice); //what do we do when we delete a booking?
+		
+		//is someone able to manipuate this?????
+		System.out.println("A cancellation fee of $10.00 has been charged to your account.\n");
+	}
+	
+	/**
+	 * For external classes to call
+	 */
+	public void viewBookings(){
+		viewBookings(be.getBookings(customerUsername));
+	}
+	
+	/**
+	 * For the cancelBooking method to call straightaway
+	 * @param customer_bookings 
+	 */
+	private void viewBookings(List<Booking> customer_bookings){
+		List<Booking> bookings = customer_bookings;
+		int i = 1;
+		
+		System.out.printf("%-4s%-15s%-10s\n", "#", "Booking ID", "Flight ID");
+		for (Booking booking : bookings) {
+			System.out.print(i + ". ");
+			System.out.println(booking.toString());
+			i++;
+		}
 	}
 	
 	public void setDiscountRatio(){

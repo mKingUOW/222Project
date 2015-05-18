@@ -154,4 +154,10 @@ public class Person {
 		this.hasPassport = hasPassport;
 	}
 	
+	public String[] toArray(){
+		String[] values = {title, firstName, lastName, gender, DOB,
+			phoneNumber, email, street, state, city, country,
+			creditCardType + ": " + creditCardNumber, hasPassport};
+		return values;
+	}
 }

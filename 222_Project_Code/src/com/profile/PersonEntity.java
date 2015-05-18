@@ -5,6 +5,7 @@
 
 package com.profile;
 
+import com.helpers.Customer;
 import com.helpers.Person;
 import java.io.*;
 
