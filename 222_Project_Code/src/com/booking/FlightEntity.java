@@ -46,5 +46,14 @@ public class FlightEntity{
 		
 		return flights;
 	}
+	
+	/**
+	 * 
+	 * @param flight_id Flight ID
+	 * @param seat_class "First", "Business", "Premium Economy", "Economy"
+	 * @param price Price
+	 */
+	public void setFlightPrice(String flight_id, String seat_class, double price){
 		
+	}
 }

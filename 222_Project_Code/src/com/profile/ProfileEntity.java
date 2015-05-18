@@ -222,7 +222,7 @@ public class ProfileEntity {
 			while(!isFound && ((oneLine = reader.readLine()) != null)){
                 String[] words = oneLine.split(",");
 				
-				if(user.getUsername().equals(words[0])){
+				if(username.equals(words[0])){
 					isFound = true;
 					ffp = Integer.parseInt(words[14]);	
 				}

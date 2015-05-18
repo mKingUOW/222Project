@@ -7,6 +7,7 @@ package com.profile;
 
 import com.helpers.Customer;
 import java.io.Console;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -44,8 +45,8 @@ public class ProfileController {
 			
 			System.out.print("Enter your current password: ");
 			entered_password = console.readPassword();
-
-			if (current_pw != entered_password) {
+			
+			if (!Arrays.equals(current_pw, entered_password)) {
 				System.out.println("Password is incorrect. Please try again!\n");
 				is_okay = false;
 			}
@@ -55,6 +56,8 @@ public class ProfileController {
 		new_password = console.readPassword();
 		
 		pe.savePassword(username, new_password);
+		
+		System.out.print("Your password had been changed!\n");
 	}
 	
 	public int getFrequentFlierPoints(String username){

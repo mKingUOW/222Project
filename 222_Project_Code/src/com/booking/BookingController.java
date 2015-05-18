@@ -238,7 +238,7 @@ public class BookingController {
 			System.out.print("Enter any key to proceed with payment: ");
 			in.nextLine(); //just get anything; doesn't matter
 			
-			System.out.printf("Your credit card has been charged $%.2f!\nThank you for making a booking with us!\n", total_price);
+			System.out.printf("\nYour credit card has been charged $%.2f!\nThank you for making a booking with us!\n", total_price);
 			System.out.println();
 		}
 		/* End Payment */

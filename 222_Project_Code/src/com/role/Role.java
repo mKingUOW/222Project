@@ -64,19 +64,6 @@ public abstract class Role{
 		}
 	}
 	
-	public void executeChoice(){
-		String choice = allChoices.get(userChoice);
-		
-		switch(choice){
-			case "Change Password":
-				pc.changePassword(username);
-				break;
-			case "Logout":
-				setUserLoggedOut();
-				break;
-		}
-	}
-	
 	public boolean isUserLoggedIn(){
 		return isLoggedIn;
 	}
@@ -99,5 +86,18 @@ public abstract class Role{
 	
 	public String getUsername(){
 		return username;
+	}
+	
+	public void executeChoice(){
+		String choice = allChoices.get(userChoice);
+		
+		switch(choice){
+			case "Change Password":
+				pc.changePassword(username);
+				break;
+			case "Logout":
+				setUserLoggedOut();
+				break;
+		}
 	}
 }
