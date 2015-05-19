@@ -572,14 +572,13 @@ public class BookingController {
 		int i = 1;
 		int choice = 0;
 		boolean isOkay;
-		
+				
+		viewBookings(bookings);
+
 		if (bookings == null) {
-			System.out.println("You have no bookings.\n");
 			return;
 		}
 		
-		viewBookings(bookings);
-
 		do {
 			isOkay = true;
 			System.out.print("Please select the booking that you want to cancel: ");
@@ -617,7 +616,12 @@ public class BookingController {
 		List<Booking> bookings = customer_bookings;
 		int i = 1;
 		
-		System.out.printf("%-4s%-15s%-10s\n", "#", "Booking ID", "Flight ID");
+		if (bookings == null) {
+			System.out.println("\nYou have no bookings.\n");
+			return;
+		}
+		
+		System.out.printf("\n%-4s%-15s%-10s\n", "#", "Booking ID", "Flight ID");
 		for (Booking booking : bookings) {
 			System.out.print(i + ". ");
 			System.out.println(booking.toString());
