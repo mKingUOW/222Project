@@ -5,9 +5,9 @@
 
 package com.booking;
 
-import com.helpers.Booking;
 import com.profile.PersonController;
 import com.profile.ProfileController;
+import com.helpers.Booking;
 import com.helpers.Flight;
 import com.helpers.Person;
 import com.helpers.Service;
@@ -621,7 +621,7 @@ public class BookingController {
 			return;
 		}
 		
-		System.out.printf("\n%-4s%-15s%-10s\n", "#", "Booking ID", "Flight ID");
+		System.out.printf("\n%-4s%-15s%-10s%-10s\n", "#", "Booking ID", "Flight ID", "Status");
 		for (Booking booking : bookings) {
 			System.out.print(i + ". ");
 			System.out.println(booking.toString());

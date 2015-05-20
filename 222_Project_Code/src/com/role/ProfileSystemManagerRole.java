@@ -12,7 +12,7 @@ import com.profile.ProfileController;
  * @author Michael Y.M. Kong
  */
 public class ProfileSystemManagerRole extends Role{
-	private String[] choices = {"Edit Watch and No Fly List", "Edit Travel Agency and Customer Profile", "Close Account"};
+	private String[] choices = {"Edit Watch and No Fly List", "Edit Travel Agency and Customer Profile", "Close User Account"};
 	private ProfileController pc = new ProfileController();
 	
 	public ProfileSystemManagerRole(){
@@ -26,11 +26,13 @@ public class ProfileSystemManagerRole extends Role{
 		
 		switch(choice){
 			case "Edit Watch and No Fly List":
-				//ue.editWatchAndNoFlyList();
+				pc.editWatchAndNoFlyList();
 				break;
 			case "Edit Travel Agency and Customer Profile":
+				pc.editAccount();
 				break;
-			case "Close Account":
+			case "Close User Account":
+				pc.closeAccount();
 				break;
 			default:
 				super.executeChoice();

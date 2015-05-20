@@ -70,10 +70,14 @@ public class ProfileController {
 		pe.setFrequentFlierPoints(username, points);
 	}
 	
+	public void closeAccount(){
+		closeAccount(selectUser());
+	}
+	
 	public void closeAccount(String username){
 		char choice;
 		
-		System.out.println("Are you sure you want to close your account?");
+		System.out.println("Are you sure you want to close this account?");
 		System.out.print("This operation cannot be undone. (Y/N): ");
 		choice = in.nextLine().charAt(0);
 		
@@ -82,6 +86,16 @@ public class ProfileController {
 		}
 	}
 	
+	public void editAccount(){
+		editAccount(selectUser());
+	}
+	
+	/**
+	 * This method is accessed directly when the user wants to edit their own
+	 * account. Otherwise the overriding editAccount() method will be called
+	 * when the profile system manager wants to edit a user's profile.
+	 * @param username 
+	 */
 	public void editAccount(String username){
 		String[] options = {"Title", "First Name", "Last Name", "Gender",
 			"Date of birth", "Phone number", "Email", "Street",
@@ -172,6 +186,59 @@ public class ProfileController {
 	
 	public String canUserFly(String username){
 		return pe.canUserFly(username);
+	}
+	
+	public void editWatchAndNoFlyList(){
+		boolean isOkay;
+		int choice = 0;
+		String username = selectUser();
+		String[][] status_constants = {
+			{"Can Fly", ""},
+			{"Watch", "watch"},
+			{"No Fly", "no fly"}
+		};
+		
+		for (int i = 0; i < status_constants.length; i++) {
+			System.out.print((i + 1) +". ");
+			System.out.println(status_constants[i][0]);
+		}
+		
+		do {
+			isOkay = true;
+			System.out.println("Please select a flying status for customer \"" + username + "\": ");
+			
+			try {
+				choice = in.nextInt();
+				if (choice < 0 || choice > status_constants.length) {
+					System.out.println("That option is out of range. Please try again!\n");
+					isOkay = false;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Invalid input. Please try again!\n");
+				isOkay = false;
+			}
+		} while (!isOkay);
+		
+		pe.editWatchAndNoFlyList(username, status_constants[choice - 1][1]);
+	}
+	
+	private String selectUser(){
+		String[] customer_username = new String[1];
+		boolean isUsernameOkay;
+		
+		do {
+			System.out.print("Please enter the username of an existing customer: ");
+			customer_username[0] = in.nextLine();
+
+			isUsernameOkay = pe.checkUsernames(customer_username);
+
+			if (!isUsernameOkay) {
+				System.out.println("The username that was entered is not valid!\nPlease try again!\n");
+			}
+			
+		} while (!isUsernameOkay);
+		
+		return customer_username[0];
 	}
 	
 }

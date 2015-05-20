@@ -17,6 +17,10 @@ public class FleetController {
 		
 	}
 	
+	public void editFleetOption(){
+		
+	}
+	
 	public int[] getSeatsForPlane(int planeId){
 		return fe.getSeatsForPlane(planeId);
 	}

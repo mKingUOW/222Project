@@ -21,6 +21,10 @@ public class FlightController {
 		
 	}
 	
+	public void editFlightsOption(){
+		
+	}
+	
 	public List<Flight> getFlights(String origin, String destination){
 		int route_number = rc.getRoute(origin, destination);
 		

@@ -14,6 +14,7 @@ import java.util.Formatter;
 public class Booking {
 	private int bookingId;
 	private String flightId;
+	private String booking_status;
 	
 	public Booking(){
 		
@@ -40,12 +41,20 @@ public class Booking {
 		return flightId;
 	}
 
+	public String getStatus() {
+		return booking_status;
+	}
+
+	public void setStatus(String booking_status) {
+		this.booking_status = booking_status;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		Formatter formatter = new Formatter(sb);
 		
-		formatter.format("%-15s%-10s", bookingId, flightId);
+		formatter.format("%-15s%-10s%-10s", bookingId, flightId, booking_status);
 		
 		return sb.toString();
 	}

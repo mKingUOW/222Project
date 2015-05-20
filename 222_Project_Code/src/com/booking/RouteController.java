@@ -6,6 +6,8 @@
 package com.booking;
 
 import java.util.AbstractMap;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 /**
  *
@@ -15,8 +17,60 @@ public class RouteController {
 
 	private AirportController ac = new AirportController();
 	private RouteEntity re = new RouteEntity();
+	private Scanner in = new Scanner(System.in);
 	
 	public RouteController(){
+		
+	}
+	
+	public void editRouteOption(){
+		boolean isOkay;
+		int choice = 0;
+		String[] choices = {"Add Route", "Edit Route", "Delete Route"};
+		
+		for (int i = 0; i < choices.length; i++) {
+			System.out.print((i + 1) + ". ");
+			System.out.println(choices[i]);
+		}
+		
+		do {
+			isOkay = true;
+			System.out.println("Please select an option: ");
+			
+			try {
+				choice = in.nextInt();
+				if (choice < 0 || choice > choices.length) {
+					System.out.println("That option is out of range. Please try again!\n");
+					isOkay = false;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Invalid input. Please try again!\n");
+				isOkay = false;
+			}
+		} while (!isOkay);
+		
+		switch (choice){
+			case 1:
+				addRoute();
+				break;
+			case 2:
+				editRoute();
+				break;
+			case 3:
+				deleteRoute();
+				break;
+		}
+	}
+	
+	private void addRoute(){
+		
+	}
+	
+	private void editRoute(){
+		
+	}
+	
+	private void deleteRoute(){
 		
 	}
 	

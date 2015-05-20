@@ -357,4 +357,8 @@ public class ProfileEntity {
 	public String canUserFly(String username){
 		return "";
 	}
+	
+	public void editWatchAndNoFlyList(String username, String status){
+		
+	}
 }

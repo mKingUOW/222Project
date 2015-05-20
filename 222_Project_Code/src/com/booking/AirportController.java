@@ -16,6 +16,10 @@ public class AirportController {
 		
 	}
 	
+	public void editAirportsOption(){
+		
+	}
+	
 	public String getAirportCode(String city_name){
 		return ae.getAirportCode(city_name); //if return null that means airport name doesn't exist
 	}

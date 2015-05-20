@@ -34,7 +34,7 @@ public class ReservationSystemManagerRole extends Role{
 			case "Change Passenger Seating":
 				break;	
 			case "Edit Watch and No Fly List":
-				//ue.editWatchAndNoFlyList();
+				pc.editWatchAndNoFlyList();
 				break;
 			case "Change Frequent Flier Point Discount Ratio":
 				bc.setDiscountRatio();

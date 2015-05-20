@@ -1,0 +1,50 @@
+** ProfileEntity.java **
+-> public Person getAccountDetails(String username)
+	-> give me the details of the customer having the username in a Person object
+
+-> public void setAccountDetails(Person account)
+	-> update the userDetail.csv with the details in the Person object
+
+-> public String canUserFly(String username)
+	-> return the watch or no fly status for this username. If the value is empty, return "" (empty string, not null please!)
+
+
+-> public void editWatchAndNoFlyList(String username, String status)
+	-> edit the watch and no fly status of this username
+
+** FlightEntity.java **
+-> public double[] getSeatPrices(String flight_id)
+	-> return the prices of the seats for this flight ID
+
+-> public void updateAvailableSeats(String flight_id, int[] available_seats)
+	-> update the available seats for the given flight
+
+
+** BookingEntity.java **
+-> public void saveBooking(String flight_id, List<Ticket> tickets, List<ServiceBooking> services_booked)
+	-> save the booking in booking.csv
+	-> save the tickets in ticket.csv
+	-> save the services booked in services_booked.csv
+
+-> public List<Booking> getBookings(String username)
+	-> search the tickets table to find the flight id associated with the found ticket
+	-> if no bookings found, return null
+
+-> public void cancelBooking(int booking_id)
+	-> change the booking status from ‘active’ to ‘cancelled’ for this booking
+
+** booking.csv **
+-> bookingID
+-> flightNo
+-> status (active | cancelled | flown)
+
+** ticket.csv **
+-> ticketID
+-> username [0..1]
+-> personID [0..1]
+-> bookID 
+-> seatNo
+
+** services_booked.csv **
+-> ticketID
+-> serviceID
