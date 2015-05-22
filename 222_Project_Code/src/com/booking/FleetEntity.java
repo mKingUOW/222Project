@@ -50,4 +50,20 @@ public class FleetEntity {
 		}
 		return seats;
 	}
+	
+	public Plane getPlane(String model){
+		return null;
+	}
+	
+	public void addPlane(Plane plane) {
+		
+	}
+
+	public void editPlane(Plane plane) {
+		
+	}
+
+	public void deletePlane(String model) {
+		
+	}
 }

@@ -23,8 +23,9 @@ public abstract class AbstractCustomerRole extends Role{
 			case "Edit Services":
 				break;
 			case "Close Account":
-				pc.closeAccount(getUsername());
-				setUserLoggedOut();
+				if (pc.closeAccount(getUsername())) {
+					setUserLoggedOut();
+				}
 				break;
 			case "Cancel Booking":
 				bc.cancelBooking();

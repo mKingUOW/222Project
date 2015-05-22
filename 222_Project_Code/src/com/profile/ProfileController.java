@@ -74,16 +74,20 @@ public class ProfileController {
 		closeAccount(selectUser());
 	}
 	
-	public void closeAccount(String username){
+	public boolean closeAccount(String username){
 		char choice;
 		
 		System.out.println("Are you sure you want to close this account?");
+		System.out.println("You will be logged out of the system if you close your account.");
 		System.out.print("This operation cannot be undone. (Y/N): ");
 		choice = in.nextLine().charAt(0);
 		
 		if (choice == 'Y' || choice == 'y') {
 			pe.closeAccount(username);
+			return true;
 		}
+		
+		return false;
 	}
 	
 	public void editAccount(){

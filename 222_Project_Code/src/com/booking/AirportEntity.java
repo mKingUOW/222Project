@@ -1,5 +1,6 @@
 package com.booking;
 
+import com.helpers.Airport;
 import java.io.*;
 
 public class AirportEntity{
@@ -11,7 +12,7 @@ public class AirportEntity{
 		
 	}
 	
-	public String getAirportCode(String city){
+	public String getAirportCode(String airport_name){
 		
 		String oneLine = "";
 		boolean existed = false;
@@ -22,7 +23,7 @@ public class AirportEntity{
 			while(!existed && ((oneLine = reader.readLine()) != null)){
 				String [] words = oneLine.split(",");
 				
-				if(city.equals(words[2])){
+				if(airport_name.equals(words[1])){
 					existed = true;
 					abbreviation = words[4];
 				}
@@ -36,7 +37,7 @@ public class AirportEntity{
 		return abbreviation;
 	}
 
-	public String getAirportCountry(String city){
+	public String getAirportCountry(String airport_name){
 		String oneLine = "";
 		boolean existed = false;
 		String country = "";
@@ -46,7 +47,7 @@ public class AirportEntity{
 			while(!existed && ((oneLine = reader.readLine()) != null)){
 				String [] words = oneLine.split(",");
 				
-				if(city.equals(words[2])){
+				if(airport_name.equals(words[1])){
 					existed = true;
 					country = words[3];
 				}
@@ -60,7 +61,7 @@ public class AirportEntity{
 		return country;
 	}
 	
-	public String getAirportCity(String airport_code){
+	public String getAirportCity(String IATA){
 		String oneLine = "";
 		boolean isFound = false;
 		String city = "";
@@ -70,7 +71,7 @@ public class AirportEntity{
 			while(!isFound && ((oneLine = reader.readLine()) != null)){
 				String [] words = oneLine.split(",");
 				
-				if(airport_code.equals(words[4])){
+				if(IATA.equals(words[4])){
 					isFound = true;
 					city = words[2];
 				}
@@ -83,4 +84,13 @@ public class AirportEntity{
 		
 		return city;
 	}
+	
+	public void addAirport(Airport airport){
+		
+	}
+	
+	public void deleteAirport(String IATA){
+		
+	}
+	
 }

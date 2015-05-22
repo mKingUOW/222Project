@@ -7,7 +7,9 @@ package com.booking;
 
 import com.helpers.Flight;
 import java.util.AbstractMap;
+import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -16,12 +18,64 @@ import java.util.List;
 public class FlightController {
 	private RouteController rc = new RouteController();
 	private FlightEntity fe = new FlightEntity();
+	private Scanner in = new Scanner(System.in);
 	
 	public FlightController(){
 		
 	}
 	
 	public void editFlightsOption(){
+		boolean isOkay;
+		int choice = 0;
+		String[] choices = {"Add Flight", "Edit Flight", "Delete Flight"};
+		
+		for (int i = 0; i < choices.length; i++) {
+			System.out.print((i + 1) + ". ");
+			System.out.println(choices[i]);
+		}
+		
+		System.out.println();
+		
+		do {
+			isOkay = true;
+			System.out.print("Please select an option: ");
+			
+			try {
+				choice = in.nextInt();
+				if (choice < 0 || choice > choices.length) {
+					System.out.println("That option is out of range. Please try again!\n");
+					isOkay = false;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Invalid input. Please try again!\n");
+				isOkay = false;
+			}
+		} while (!isOkay);
+		
+		in.nextLine();
+		
+		switch (choice){
+			case 1:
+				addFlight();
+				break;
+			case 2:
+				editFlight();
+				break;
+			case 3:
+				deleteFlight();
+				break;
+		}
+	}
+	
+	private void addFlight() {
+		
+	}
+
+	private void editFlight() {
+		
+	}
+
+	private void deleteFlight() {
 		
 	}
 	
@@ -30,7 +84,7 @@ public class FlightController {
 		
 		List<Flight> flights = null;
 		
-		if (route_number != -1) { //the route exists
+		if (route_number > 0) { //the route exists
 			flights = fe.getFlights(route_number);
 		}
 		
