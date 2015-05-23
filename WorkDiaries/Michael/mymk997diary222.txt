@@ -27,3 +27,11 @@ Usual Monday meeting. Finished the logout and register functionality. Also finis
 
 05/05/2015
 Managed the solve the System Administrator’s role class using the delegation pattern. So the System Administrator can now use the system as an anonymous user under a different role. Best part is that there is no duplication of code, which will be useful should the need arise to update functionalities particular to a role. Now that all the skeleton classes for the roles are complete, we will start on the actual functionality of the system starting with the Customer and Travel Agency actors since they are key users of the system. Implementing the functionalities of these two actors should take us another Saturday.
+
+12/05/2015
+Work is not going as expected. We are clearly behind schedule. But with other assignments in hand, we have to go for the features that will have the highest returns. So far we have have implemented the delegation design pattern and it works well, considering it is the first time that we have ever used it in our programming lives. So far, we have the booking system underway, but I am struggling to implement the Boundary-Controller-Entity framework because it is the first time I am using such a framework. However, I see the framework as a useful tool in separating concerns in the system; hence, finding and isolating buggy code can be quicker and more convenient. We will try to finish up as much as we can of the actual booking functionality this week.
+
+19/05/2015
+We are still behind schedule, but we have made some good progress. We have implemented, almost completely, the booking procedure. All that is left is the actual saving of the booking to the database files, the displaying of the booking summary and the payment section. We will look into finishing the rest of the booking procedure by next week.
+
+26/05/2015
