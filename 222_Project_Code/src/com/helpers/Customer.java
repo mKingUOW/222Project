@@ -1,5 +1,7 @@
 package com.helpers;
 
+import java.util.Formatter;
+
 /**
  *
  * @author Michael Y.M. Kong
@@ -59,5 +61,15 @@ public class Customer extends Person{
 	
 	public String getWatchOrNoFly(){
 		return this.watchOrNoFly;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		Formatter fmt = new Formatter(sb);
+		
+		fmt.format("%-24s%-15s%-15s", username, super.getFirstName(), super.getLastName());
+		
+		return sb.toString();
 	}
 }

@@ -146,7 +146,7 @@ public class FlightController {
 		System.out.println("Flight " + flightId + " has been deleted.\n");
 	}
 	
-	private String enterFlightId(boolean check_exists){
+	public String enterFlightId(boolean check_exists){
 		boolean isOkay;
 		String flightId = "";
 		
@@ -208,6 +208,10 @@ public class FlightController {
 	
 	private boolean doesFlightExist(String flight_id){
 		return (fe.getFlight(flight_id) != null);
+	}
+	
+	public Flight getFlight(String flight_id){
+		return fe.getFlight(flight_id);
 	}
 	
 	public List<Flight> getFlights(String origin, String destination){

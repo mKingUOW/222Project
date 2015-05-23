@@ -1,11 +1,14 @@
 package com.helpers;
 
+import java.util.Formatter;
+
 /**
  *
  * @author Michael Y.M. Kong
  */
 public class Person {
-
+	
+	private int personId;
 	private String title;
 	private String firstName;
 	private String lastName;
@@ -42,6 +45,17 @@ public class Person {
 		this.hasPassport = hasPassport;
 	}
 
+	/*
+	 * This method is ignored in the subclass
+	 */
+	public int getPersonId() {
+		return personId;
+	}
+
+	public void setPersonId(int personId) {
+		this.personId = personId;
+	}
+	
 	public String getTitle() {
 		return title;
 	}
@@ -159,5 +173,15 @@ public class Person {
 			phoneNumber, email, street, state, city, country,
 			creditCardType + ": " + creditCardNumber, hasPassport};
 		return values;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		Formatter fmt = new Formatter(sb);
+		
+		fmt.format("%-24s%-15s%-15s", personId, firstName, lastName);
+		
+		return sb.toString();
 	}
 }

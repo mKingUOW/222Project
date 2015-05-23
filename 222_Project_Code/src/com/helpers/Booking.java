@@ -70,7 +70,7 @@ public class Booking {
 		StringBuilder sb = new StringBuilder();
 		Formatter formatter = new Formatter(sb);
 		
-		formatter.format("%-15s%-10s%-10s", bookingId, flightId, booking_status);
+		formatter.format("%-15s%-15s%-15s$%-15.2f", bookingId, flightId, booking_status, total_price);
 		
 		return sb.toString();
 	}

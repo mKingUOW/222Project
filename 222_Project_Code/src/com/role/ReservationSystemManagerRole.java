@@ -33,8 +33,10 @@ public class ReservationSystemManagerRole extends Role{
 				fc.setSeatPrices(null);
 				break;
 			case "Move Passengers Between Flights":
+				bc.movePassengers();
 				break;
 			case "Change Passenger Seating":
+				bc.changePassengerSeating();
 				break;	
 			case "Edit Watch and No Fly List":
 				pc.editWatchAndNoFlyList();
