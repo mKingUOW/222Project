@@ -33,7 +33,7 @@ public class BookingEntity {
 		
 	}
 	
-	public static void saveBooking(String flight_id, List<Ticket> tickets, List<ServiceBooking> services_booked){	
+	public void saveBooking(String flight_id, List<Ticket> tickets, List<ServiceBooking> services_booked){	
 		//First step, save the booking info into booking.csv.
 		int bk_id = 0;	//If no record in the file, default value is 0; It will be incremented by 1 if a record is inserted;
 		String booking_status = "active";
