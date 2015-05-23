@@ -130,10 +130,91 @@ public class BookingEntity {
 	}
 	
 	public List<Booking> getBookings(String username){
-		return null;
+		List<Booking> bookings = new ArrayList<Booking>();
+		List<int> booking_id = new ArrayList<int>();
+		int booking_count = 0;
+		
+		try{
+			reader = new BufferedReader(new FileReader(ticketsFile));			
+			while(((oneLine = reader.readLine()) != null)){
+                String[] words = oneLine.split(",");
+				
+				if(username.compare(words[1]) == 0){
+					int bk_id = Integer.parseInt(words[3]);
+					booking_id.add(bk_id);
+					booking_count++;
+				}	
+            }			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+				
+		if(booking_count == 0){			//If no booking id is found in tickets.csv, return NULL;
+			return null;
+		}else{							//Else get the bookings using the booking_ids;
+			for(int i=0;i < booking_count;i++){
+				int b_id = booking_id.get(i);
+				boolean found = false;
+				//Read each line of the file to find the booking id.If found,finish this searching,continue to find the next booking id;
+				try{
+					reader = new BufferedReader(new FileReader(bookingFile));			
+					while(!found && ((oneLine = reader.readLine()) != null)){
+						String[] words = oneLine.split(",");
+						int tmp_booking_id = Integer.parseInt(words[0]);
+						if(b_id == tmp_booking_id){		
+							String flight_id = words[1];
+							String status = words[2];
+							double total_price = Double.parseDouble(words[3]);
+							
+							Booking bk = new Booking(b_id,flight_id,status,total_price);
+							bookings.add(bk);
+							
+							found = true;	
+						}
+					}				
+					reader.close();
+				}catch(Exception e){
+					e.printStackTrace();
+				}
+			}
+
+			return bookings;
+		}	
 	}
 	
 	public void cancelBooking(int booking_id){
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
 		
+		try{
+			reader = new BufferedReader(new FileReader(bookingFile));
+			while((oneLine = reader.readLine()) != null){
+                String[] words = oneLine.split(",");
+				int tmp_booking_id = Integer.parseInt(words[0]);
+				if(booking_id == tmp_booking_id){
+					updatedLine += words[0];		//bk_id;
+					updatedLine += ",";
+					updatedLine += words[1];		//flight_id;
+					updatedLine += ",";
+					updatedLine +=  "cancelled";	//status;
+					updatedLine += ",";
+					updatedLine +=  words[3];		//total_price;
+					data += updatedLine + "\n";
+				}
+            }
+		     reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			writer = new PrintWriter(new FileOutputStream(new File(bookingFile)));	
+			writer.print(data);
+            writer.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

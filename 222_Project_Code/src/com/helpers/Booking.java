@@ -15,6 +15,7 @@ public class Booking {
 	private int bookingId;
 	private String flightId;
 	private String booking_status;
+	private double total_price;
 	
 	public Booking(){
 		
@@ -25,12 +26,23 @@ public class Booking {
 		flightId = fid;
 	}
 	
+	public Booking(int bid,String fid,String b_status,double total){
+		bookingId = bid;
+		flightId = fid;
+		booking_status = b_status;
+		total_price = total;
+	}
+	
 	public void setBookingId(int bid){
 		bookingId = bid;
 	}
 	
 	public void setFlightId(String fid){
 		flightId = fid;
+	}
+	
+	public void setTotalPrice(double total){
+		total_price = total;
 	}
 	
 	public int getBookingId(){
@@ -43,6 +55,10 @@ public class Booking {
 
 	public String getStatus() {
 		return booking_status;
+	}
+	
+	public double getTotalPrice(){
+		return total_price;
 	}
 
 	public void setStatus(String booking_status) {
