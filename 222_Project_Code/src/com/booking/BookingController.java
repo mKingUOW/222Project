@@ -101,14 +101,13 @@ public class BookingController {
 		if ("TA".equals(role) && customer_usernames != null){ //extra computation for customers
 			for (String username: customer_usernames) {
 				AbstractMap.SimpleImmutableEntry<String, Double> seat;
+				double total_services_price = 0.0;
 				
 				System.out.println("\nTicket for Customer with username \"" + username + "\"");
 				
 				seat = chooseSeat(available_seats, total_seats, seat_prices);
 				
 				in.nextLine(); //clear buffer
-				
-				tickets.add(new Ticket(current_ticket_id, username, -1, seat.getKey(), seat.getValue()));
 				
 				System.out.print("Do you want to book services for this customer? (Y/N): ");
 				char char_choice = in.nextLine().charAt(0);
@@ -118,8 +117,10 @@ public class BookingController {
 					
 					for (Integer service_id: service_ids) {
 						services_booked.add(new ServiceBooking(current_ticket_id, service_id));
+						total_services_price += sc.getService(service_id).getCost();
 					}
 				}
+				tickets.add(new Ticket(current_ticket_id, username, -1, seat.getKey(), seat.getValue() + total_services_price));
 				current_ticket_id++; //increment to next ticket
 			} //end for loop
 		} //end if for customer computation
@@ -128,6 +129,7 @@ public class BookingController {
 		/* Start Solo Customer Booking */
 		if ("CUS".equals(role)){
 			AbstractMap.SimpleImmutableEntry<String, Double> seat;
+			double total_services_price = 0.0;
 			
 			System.out.println("\nYour Ticket (" + customerUsername + ")");
 				
@@ -135,18 +137,21 @@ public class BookingController {
 
 			in.nextLine(); //clear buffer
 
-			tickets.add(new Ticket(current_ticket_id, customerUsername, -1, seat.getKey(), seat.getValue()));
-
 			System.out.print("Do you want to book services for yourself? (Y/N): ");
 			char char_choice = in.nextLine().charAt(0);
 
 			if (char_choice == 'Y' || char_choice == 'y') {
+				
 				List<Integer> service_ids = bookServices(flight_choice.getValue());
 
 				for (Integer service_id: service_ids) {
 					services_booked.add(new ServiceBooking(current_ticket_id, service_id));
+					total_services_price += sc.getService(service_id).getCost();
 				}
 			}
+			
+			tickets.add(new Ticket(current_ticket_id, customerUsername, -1, seat.getKey(), seat.getValue() + total_services_price));
+			
 			current_ticket_id++; //increment to next ticket
 		}
 		/* End Solo Customer Booking */
@@ -155,14 +160,13 @@ public class BookingController {
 		if (person_ids != null) {
 			for (Integer person_id: person_ids) {
 				AbstractMap.SimpleImmutableEntry<String, Double> seat;
+				double total_services_price = 0.0;
 				
 				System.out.println("\nTicket for Person with ID \"" + person_id + "\"");
 				
 				seat = chooseSeat(available_seats, total_seats, seat_prices);
 				
 				in.nextLine(); //clear buffer
-				
-				tickets.add(new Ticket(current_ticket_id, null, person_id, seat.getKey(), seat.getValue()));
 				
 				System.out.print("Do you want to book services for this person? (Y/N): ");
 				char char_choice = in.nextLine().charAt(0);
@@ -172,8 +176,11 @@ public class BookingController {
 					
 					for (Integer service_id: service_ids) {
 						services_booked.add(new ServiceBooking(current_ticket_id, service_id));
+						total_services_price += sc.getService(service_id).getCost();
 					}
 				}
+				tickets.add(new Ticket(current_ticket_id, null, person_id, seat.getKey(), seat.getValue() + total_services_price));
+				
 				current_ticket_id++; //increment to next ticket
 			} //end for loop
 		}
@@ -218,7 +225,6 @@ public class BookingController {
 			System.out.printf("%-12s", service_booked.getTicketId());
 			System.out.printf("%-12s", service.getName());
 			System.out.println();
-			total_price += service.getCost();
 		}
 		
 		System.out.println();
@@ -351,10 +357,10 @@ public class BookingController {
 		/* Start Enter Origin and Destination choice */
 		do {	
 			isOkay = true;
-			System.out.print("\nPlease enter the flight origin of choice (city name): ");
+			System.out.print("\nPlease enter the origin airport of choice (airport name): ");
 			origin = in.nextLine();
 
-			System.out.print("Please enter the flight destination of choice (city name): ");
+			System.out.print("Please enter the destination airport of choice (airport name): ");
 			destination = in.nextLine();
 
 			flights = fc.getFlights(origin, destination);

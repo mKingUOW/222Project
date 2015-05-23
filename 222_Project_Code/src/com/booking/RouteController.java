@@ -319,14 +319,14 @@ public class RouteController {
 	}
 	
 	public boolean doesRouteExist(String code1, String code2){
-		if(code1 != null && code2 != null){
-			if (re.getRouteNumber(code1, code2) == -1) {
-				return false;
-			} else{
-				return true;
-			}
+		if(code1 == null || code2 == null){
+			return false;
 		}
-		return false;
+		if (re.getRouteNumber(code1, code2) == -1) {
+			return false;
+		} 
+		
+		return true;
 	}
 	
 	public int getRoute(String origin, String destination){
@@ -335,9 +335,9 @@ public class RouteController {
 		int route_number;
 		
 		if (doesRouteExist(origin_code, dest_code)){ //if return null that means airport name doesn't exist
-			route_number = -2;
-		} else{
 			route_number = re.getRouteNumber(origin_code, dest_code);
+		} else{
+			route_number = -2;
 		}
 		
 		return route_number;

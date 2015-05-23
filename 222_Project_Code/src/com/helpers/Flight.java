@@ -9,10 +9,10 @@ import java.util.Formatter;
 public class Flight {
 	
 	private String flightID;
-	private Route route;
+	private Route route = new Route();
 	private String departureTime;
 	private String arriveTime;
-	private Plane plane;
+	private Plane plane = new Plane();
 	
 	public Flight(String fid,int pid,int rnum,String depTime,String arrTime,int fc,int bc,int pec,int ec){
 		this.flightID = fid;
