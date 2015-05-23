@@ -87,7 +87,12 @@ public class Plane {
 		this.economyClassSeats = economyClassSeats;
 	}
 
-
+	public int[] getAvailableSeats(){
+		int[] seats = {firstClassSeats, businessClassSeats, premiumEconomyClassSeats, economyClassSeats};
+		
+		return seats;
+	}
+	
 	public int getTotalSeats() {
 		return businessClassSeats + firstClassSeats
 				+ premiumEconomyClassSeats + economyClassSeats;

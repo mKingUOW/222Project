@@ -85,7 +85,15 @@ public class AirportEntity{
 		return city;
 	}
 	
+	public Airport getAirport(String IATA){
+		return null;
+	}
+	
 	public void addAirport(Airport airport){
+		
+	}
+	
+	public void editAirport(Airport airport){
 		
 	}
 	

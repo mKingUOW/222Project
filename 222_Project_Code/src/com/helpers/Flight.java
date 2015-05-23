@@ -9,25 +9,21 @@ import java.util.Formatter;
 public class Flight {
 	
 	private String flightID;
-	private int planeID;
-	private int routeNumber;
+	private Route route;
 	private String departureTime;
 	private String arriveTime;
-	private int firstClassSeats;
-	private int businessClassSeats;
-	private int premiumEconomyClassSeats;
-	private int economyClassSeats;
+	private Plane plane;
 	
 	public Flight(String fid,int pid,int rnum,String depTime,String arrTime,int fc,int bc,int pec,int ec){
 		this.flightID = fid;
-		this.planeID = pid;
-		this.routeNumber = rnum;
+		this.route.setRouteNumber(rnum);
 		this.departureTime = depTime;
 		this.arriveTime = arrTime;
-		this.firstClassSeats = fc;
-		this.businessClassSeats = bc;
-		this.premiumEconomyClassSeats = pec;
-		this.economyClassSeats = ec;
+		this.plane.setPlaneID(pid);
+		this.plane.setFirstClassSeats(fc);
+		this.plane.setBusinessClassSeats(bc);
+		this.plane.setPremiumEconomyClassSeats(pec);
+		this.plane.setEconomyClassSeats(ec);
 	}
 	
 	public Flight(){					//Default Constructor without arguments;
@@ -39,11 +35,11 @@ public class Flight {
 	}
 	
 	public void setPlaneID(int pid){
-		this.planeID = pid;
+		this.plane.setPlaneID(pid);
 	}
 	
 	public void setRouteNumber(int rnum){
-		this.routeNumber = rnum;
+		this.route.setRouteNumber(rnum);
 	}
 	
 	public void setDepartureTime(String depTime){
@@ -55,19 +51,19 @@ public class Flight {
 	}
 	
 	public void setFirstClassSeats(int fc){
-		this.firstClassSeats = fc;
+		this.plane.setFirstClassSeats(fc);
 	}
 	
 	public void setBusinessClassSeats(int bc){
-		this.businessClassSeats = bc;
+		this.plane.setBusinessClassSeats(bc);
 	}
 	
 	public void setPremiumEconomyClassSeats(int pec){
-		this.premiumEconomyClassSeats = pec;
+		this.plane.setPremiumEconomyClassSeats(pec);
 	}
 	
 	public void setEconomyClassSeats(int ec){
-		this.economyClassSeats = ec;
+		this.plane.setEconomyClassSeats(ec);
 	}
 	
 	public String getFlightID(){
@@ -75,11 +71,11 @@ public class Flight {
 	}
 	
 	public int getPlaneID(){
-		return this.planeID;
+		return this.plane.getPlaneID();
 	}
 	
 	public int getRouteNumber(){
-		return this.routeNumber;
+		return this.route.getRouteNumber();
 	}
 	
 	public String getDepartureTime(){
@@ -90,24 +86,32 @@ public class Flight {
 		return this.arriveTime;
 	}
 	
+	public void setPlane(Plane plane){
+		this.plane = plane;
+	}
+	
+	public Plane getPlane(){
+		return this.plane;
+	}
+	
 	public int getFirstClassSeats(){
-		return this.firstClassSeats;
+		return this.plane.getFirstClassSeats();
 	}
 	
 	public int getBusinessClassSeats(){
-		return this.businessClassSeats;
+		return this.plane.getBusinessClassSeats();
 	}
 	
 	public int getPremiumEconomyClassSeats(){
-		return this.premiumEconomyClassSeats;
+		return this.plane.getPremiumEconomyClassSeats();
 	}
 	
 	public int getEconomyClassSeats(){
-		return this.economyClassSeats;
+		return this.plane.getEconomyClassSeats();
 	}
 	
 	public int[] getAvailableSeats(){
-		int[] seats = {firstClassSeats, businessClassSeats, premiumEconomyClassSeats, economyClassSeats};
+		int[] seats = this.plane.getAvailableSeats();
 		
 		return seats;
 	}

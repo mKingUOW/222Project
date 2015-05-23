@@ -60,4 +60,20 @@ public class FlightEntity{
 	public void setFlightPrice(String flight_id, String seat_class, double price){
 		
 	}
+	
+	public Flight getFlight(String flight_id){
+		return null;
+	}
+	
+	public void addFlight(Flight flight){
+		
+	}
+	
+	public void editFlight(Flight flight){
+		
+	}
+	
+	public void deleteFlight(String flight_id){
+		
+	}
 }

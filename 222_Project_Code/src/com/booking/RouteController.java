@@ -27,7 +27,7 @@ public class RouteController {
 	public void editRouteOption(){
 		boolean isOkay;
 		int choice = 0;
-		String[] choices = {"Add Route", "Edit Route", "Delete Route"};
+		String[] choices = {"Add Route", "Edit Route", "Delete Route", "Cancel"};
 		
 		System.out.println();
 		
@@ -134,7 +134,7 @@ public class RouteController {
 			System.out.print("Please select an option to edit: ");
 		
 			try {
-				option = in.nextLine().charAt(0);
+				option = in.nextInt();
 				
 				if (option < 1 || option > 4) {
 					isOkay = false;
@@ -213,6 +213,27 @@ public class RouteController {
 		re.deleteRoute(origin_code, destination_code);
 		
 		System.out.println("The route from " + origin + " to " + destination + " has been deleted.\n");
+	}
+	
+	public int enterRoute(){
+		boolean isOkay;
+		int route_number;
+		
+		do {	
+			isOkay = true;
+			
+			String origin = enterFlightOrigin(true);
+			String destination = enterFlightDestination(true);
+			
+			route_number = getRoute(origin, destination);
+			
+			if (route_number < 0) {
+				isOkay = false;
+				System.out.println("The route from " + origin + " to " + destination + " does not exist. Please try again!");
+			}
+		} while (!isOkay);
+		
+		return route_number;
 	}
 	
 	private String enterFlightOrigin(boolean check){

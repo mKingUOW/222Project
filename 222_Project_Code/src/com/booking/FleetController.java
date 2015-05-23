@@ -25,7 +25,7 @@ public class FleetController {
 	public void editFleetOption(){
 		boolean isOkay;
 		int choice = 0;
-		String[] choices = {"Add Plane", "Edit Plane", "Delete Plane"};
+		String[] choices = {"Add Plane", "Edit Plane", "Delete Plane", "Cancel"};
 		
 		System.out.println();
 		
@@ -120,7 +120,7 @@ public class FleetController {
 			System.out.print("Please select an option to edit: ");
 		
 			try {
-				option = in.nextLine().charAt(0);
+				option = in.nextInt(0);
 				
 				if (option < 1 || option > 4) {
 					isOkay = false;
@@ -200,7 +200,11 @@ public class FleetController {
 		return numberOfSeats;
 	}
 	
-	private boolean doesModelExist(String model){
+	public Plane getPlane(String model){
+		return fe.getPlane(model);
+	}
+	
+	public boolean doesModelExist(String model){
 		return fe.getPlane(model) != null;
 	}
 	

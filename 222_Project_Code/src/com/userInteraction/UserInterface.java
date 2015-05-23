@@ -153,7 +153,7 @@ public class UserInterface{
 				signChoiceString = in.nextLine();				//Treat the input as a string;
 				signChoice = signChoiceString.charAt(0);	//Get the first element of the string;
 			}catch(Exception e){
-				e.printStackTrace();
+				
 			}
 
 			switch(signChoice){
