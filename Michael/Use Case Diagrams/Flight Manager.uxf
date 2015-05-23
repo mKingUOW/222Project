@@ -4,7 +4,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>490</x>
+      <x>240</x>
       <y>270</y>
       <w>110</w>
       <h>40</h>
@@ -15,7 +15,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
+      <x>130</x>
       <y>230</y>
       <w>130</w>
       <h>140</h>
@@ -26,7 +26,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
+      <x>130</x>
       <y>280</y>
       <w>130</w>
       <h>90</h>
@@ -37,7 +37,7 @@
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
+      <x>130</x>
       <y>320</y>
       <w>120</w>
       <h>50</h>
@@ -48,7 +48,7 @@
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>480</x>
+      <x>230</x>
       <y>320</y>
       <w>130</w>
       <h>50</h>
@@ -60,7 +60,7 @@ Schedule</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>490</x>
+      <x>240</x>
       <y>220</y>
       <w>110</w>
       <h>40</h>
@@ -71,7 +71,7 @@ Schedule</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>490</x>
+      <x>240</x>
       <y>380</y>
       <w>110</w>
       <h>40</h>
@@ -82,7 +82,7 @@ Schedule</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>380</x>
+      <x>130</x>
       <y>340</y>
       <w>130</w>
       <h>80</h>
@@ -93,7 +93,7 @@ Schedule</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>300</x>
+      <x>50</x>
       <y>320</y>
       <w>120</w>
       <h>100</h>
@@ -104,7 +104,7 @@ Schedule</panel_attributes>
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
+      <x>180</x>
       <y>180</y>
       <w>220</w>
       <h>260</h>
@@ -115,7 +115,7 @@ Schedule</panel_attributes>
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>330</x>
+      <x>80</x>
       <y>130</y>
       <w>60</w>
       <h>120</h>
@@ -127,7 +127,7 @@ Staff</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>280</x>
+      <x>30</x>
       <y>150</y>
       <w>70</w>
       <h>220</h>

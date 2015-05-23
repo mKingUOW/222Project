@@ -54,11 +54,14 @@ public class FlightEntity{
 	/**
 	 * 
 	 * @param flight_id Flight ID
-	 * @param seat_class "First", "Business", "Premium Economy", "Economy"
-	 * @param price Price
+	 * @param prices Price
 	 */
-	public void setFlightPrice(String flight_id, String seat_class, double price){
+	public void setSeatPrice(String flight_id, double[] prices){
 		
+	}
+	
+	public double[] getSeatPrices(String flight_id){
+		return new double[]{20, 15, 10, 5};
 	}
 	
 	public Flight getFlight(String flight_id){

@@ -80,6 +80,8 @@ public class FlightController {
 		
 		fe.addFlight(flight);
 		
+		setSeatPrices(flight.getFlightID());
+		
 		System.out.println("Flight " + flight.getFlightID() + " has been saved.\n");
 	}
 	
@@ -233,6 +235,47 @@ public class FlightController {
 	}
 	
 	public double[] getSeatPrices(String flight_id){
-		return new double[]{20, 15, 10, 5};
+		return fe.getSeatPrices(flight_id);
+	}
+	
+	public void setSeatPrices(String flight_id){
+		if (flight_id == null) {
+			flight_id = enterFlightId(false);
+		}
+		double[] prices = new double[4];
+		
+		for (int i = 0; i < prices.length; i++) {
+			prices[i] = enterPrice(i);
+		}
+		
+		fe.setSeatPrice(flight_id, prices);
+	}
+	
+	private double enterPrice(int class_type){
+		boolean isOkay;
+		double price = 0.0;
+		String[] class_types = {"first", "business", "premium economy", "economy"};
+		
+		do {
+			isOkay = true;
+			
+			System.out.print("Enter the price for " + class_types[class_type] + " seats: ");
+			
+			try {
+				price = in.nextDouble();
+				
+				if (price < 0) {
+					isOkay = false;
+					System.out.println("Price must be a positive number. Please try again!\n");
+				}
+				
+			} catch (InputMismatchException e) {
+				isOkay = false;
+				System.out.println("Invalid price detected. Please try again!\n");
+			}
+			
+		} while (!isOkay);
+		
+		return price;
 	}
 }

@@ -8,7 +8,6 @@
 	-> public String canUserFly(String username)
 		-> return the watch or no fly status for this username. If the value is empty, return "" (empty string, not null please!)
 
-
 	-> public void editWatchAndNoFlyList(String username, String status)
 		-> edit the watch and no fly status of this username
 
@@ -17,12 +16,21 @@
 		-> I've already added the status column to the userAccount.csv file 
 
 ** FlightEntity.java **
+	-> public void setSeatPrice(String flight_id, double[] prices)
+
 	-> public double[] getSeatPrices(String flight_id)
 		-> return the prices of the seats for this flight ID
 
 	-> public void updateAvailableSeats(String flight_id, int[] available_seats)
 		-> update the available seats for the given flight
 
+	-> public Flight getFlight(String flight_id)
+
+	-> public void addFlight(Flight flight)
+
+	-> public void editFlight(Flight flight)
+
+	-> public void deleteFlight(String flight_id)
 
 ** BookingEntity.java **
 	-> public void saveBooking(String flight_id, List<Ticket> tickets, List<ServiceBooking> services_booked)
@@ -69,14 +77,26 @@
 		-> if the number of planes for that model == 1, then remove that row from the database
 
 ** AirportEntity.java **
+	-> public Airport getAirport(String IATA)
+
 	-> public void addAirport(Airport airport)
 	
+	-> public void editAirport(Airport airport)
+
 	-> public void deleteAirport(String IATA)
+
+** flight_price.csv **
+	-> flightID
+	-> seattype1 FC
+	-> seattype2 BC
+	-> seattype3 PEC
+	-> seattype4 EC
 
 ** booking.csv **
 	-> bookingID
 	-> flightNo
 	-> status (active | cancelled | flown)
+	-> total_price
 
 ** ticket.csv **
 	-> ticketID
