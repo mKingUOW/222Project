@@ -7,6 +7,7 @@ import java.util.*;
 
 public class FlightEntity{
 	
+	private String priceFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "flight_price.csv";
 	private String scheduleFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "flight-route-schedule.csv";
 	private BufferedReader reader;
 	private PrintWriter writer;
@@ -104,11 +105,38 @@ public class FlightEntity{
 	 * @param prices Price
 	 */
 	public void setSeatPrice(String flight_id, double[] prices){
+		String fcPrice = Double.toString(prices[0]);
+		String bcPrice = Double.toString(prices[1]);
+		String pecPrice = Double.toString(prices[2]);
+		String ecPrice = Double.toString(prices[3]);
+		
 		
 	}
 	
 	public double[] getSeatPrices(String flight_id){
-		return new double[]{20, 15, 10, 5};
+		double [] prices = {0.0,0.0,0.0,0.0};	//Initialise an empty array,default value all 0;
+		String oneLine = "";
+		
+		try{
+			reader = new BufferedReader(new FileReader(priceFile));
+			while((oneLine = reader.readLine()) != null){
+				
+				String [] words = oneLine.split(",");
+				
+				String tmpFlightId = words[0];	
+				if(tmpFlightId.equals(flight_id)){
+					for(int i=0;i < 4;i++){
+						prices[i] = Integer.parseInt(words[i+1]);
+					}
+				}
+			}
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return prices;
 	}
 	
 	public Flight getFlight(String flight_id){
