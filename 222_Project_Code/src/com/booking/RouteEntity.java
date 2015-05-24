@@ -39,10 +39,6 @@ public class RouteEntity{
 		return routeNumber;
 	}
 	
-	public Route getRoute(String origin, String destination){
-		return null;
-	}
-	
 	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber){
 
 		String oneLine = "";
@@ -69,6 +65,10 @@ public class RouteEntity{
 		}
 		
 		return new AbstractMap.SimpleImmutableEntry<>(origin, destination);
+	}
+	
+	public Route getRoute(String origin, String destination){
+		return null;
 	}
 	
 	public void addRoute(Route route){

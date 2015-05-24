@@ -13,7 +13,7 @@ import com.profile.ProfileController;
  *
  * @author Michael Y.M. Kong
  */
-public class ReservationSystemManagerRole extends Role{
+public class ReservationSystemManagerRole extends NormalStaffRole{
 	private String[] choices = {"Set Ticket Prices", "Move Passengers Between Flights", "Change Passenger Seating", "Edit Watch and No Fly List", "Change Frequent Flier Point Discount Ratio"};
 	private ProfileController pc = new ProfileController();
 	private BookingController bc = new BookingController();

@@ -9,23 +9,23 @@ package com.role;
  *
  * @author Michael Y.M. Kong
  */
-public class ReportingSystemManagerRole extends NormalStaffRole{
-	private String[] choices = null;
+public class NormalStaffRole extends Role{
+	private String[] choices = {"Cancel Customer Booking", "Make Booking for Customer"};
 	
-	public ReportingSystemManagerRole(){
+	public NormalStaffRole() {
 		super();
 		addChoices(choices);
 	}
-
+	
 	@Override
 	public void executeChoice(){
 		String choice = allChoices.get(userChoice);
 		
 		switch(choice){
-			/*
-			case "Edit Routes":
+			case "Cancel Customer Booking":
 				break;
-			*/
+			case "Make Booking for Customer":
+				break;
 			default:
 				super.executeChoice();
 				break;

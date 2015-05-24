@@ -14,7 +14,7 @@ import com.booking.RouteController;
  *
  * @author Michael Y.M. Kong
  */
-public class FlightManagerRole extends Role{
+public class FlightManagerRole extends NormalStaffRole{
 	private String[] choices = {"Edit Routes", "Edit Fleet", "Edit Flight Schedule", "Edit Airports"};
 	private RouteController rc = new RouteController();
 	private FleetController ftc = new FleetController();

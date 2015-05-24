@@ -11,12 +11,14 @@ package com.role;
  */
 public class SystemAdministratorRole extends Role{
 	private String[] choices = {"Act as Customer", "Act as Travel Agency",
+		"Act as Normal Staff",
 		"Act as Flight Manager", "Act as Profile System Manager",
 		"Act as Service System Manager", "Act as Reservation System Manager",
 		"Act as Reporting System Manager", "Edit Staff Profile"};
 	
 	private CustomerRole cr = new CustomerRole();
 	private TravelAgencyRole tar = new TravelAgencyRole();
+	private NormalStaffRole nor = new NormalStaffRole();
 	private FlightManagerRole fmr = new FlightManagerRole();
 	private ProfileSystemManagerRole psmr = new ProfileSystemManagerRole();
 	private ServiceSystemManagerRole ssmr = new ServiceSystemManagerRole();
@@ -39,6 +41,9 @@ public class SystemAdministratorRole extends Role{
 				break;
 			case "Act as Travel Agency":
 				role = tar;
+				break;
+			case "Act as Normal Staff":
+				role = nor;
 				break;
 			case "Act as Flight Manager":
 				role = fmr;

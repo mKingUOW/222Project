@@ -11,7 +11,7 @@ import com.profile.ProfileController;
  *
  * @author Michael Y.M. Kong
  */
-public class ProfileSystemManagerRole extends Role{
+public class ProfileSystemManagerRole extends NormalStaffRole{
 	private String[] choices = {"Edit Watch and No Fly List", "Edit Travel Agency and Customer Profile", "Close User Account"};
 	private ProfileController pc = new ProfileController();
 	

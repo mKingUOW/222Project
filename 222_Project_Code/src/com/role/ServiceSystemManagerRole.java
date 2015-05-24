@@ -11,7 +11,7 @@ import com.booking.ServiceController;
  *
  * @author Michael Y.M. Kong
  */
-public class ServiceSystemManagerRole extends Role{
+public class ServiceSystemManagerRole extends NormalStaffRole{
 	private String[] choices = {"Add Services", "Remove Services", "Edit Service Price", "Edit Service Availability"};
 	private ServiceController sc = new ServiceController();
 	

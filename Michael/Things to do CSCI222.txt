@@ -1,5 +1,5 @@
 ** ProfileEntity.java **
-	-> public Person getAccountDetails(String username)
+√	-> public Person getAccountDetails(String username)
 		-> give me the details of the customer having the username in a Person object
 
 	-> public void setAccountDetails(Person account)
@@ -11,39 +11,41 @@
 	-> public void editWatchAndNoFlyList(String username, String status)
 		-> edit the watch and no fly status of this username
 
-	-> public void closeAccount(String username)
-		-> change this method so it changes the profile status instead of deleting it. Profile status: {"open", "closed"}
+√	-> public void closeAccount(String username)
+		-> change this method so it changes the profile status instead of deleting it. Profile status: {"Open", "C√losed"}
 		-> I've already added the status column to the userAccount.csv file 
 
 ** FlightEntity.java **
-	-> public void setSeatPrice(String flight_id, double[] prices)
+√	-> public void setSeatPrice(String flight_id, double[] prices)
 
-	-> public double[] getSeatPrices(String flight_id)
+√	-> public double[] getSeatPrices(String flight_id)
 		-> return the prices of the seats for this flight ID
 
-	-> public void updateAvailableSeats(String flight_id, int[] available_seats)
+√	-> public void updateAvailableSeats(String flight_id, int[] available_seats)
 		-> update the available seats for the given flight
 
-	-> public Flight getFlight(String flight_id)
+√	-> public Flight getFlight(String flight_id)
 
-	-> public void addFlight(Flight flight)
+√	-> public void addFlight(Flight flight)
 
-	-> public void editFlight(Flight flight)
+√	-> public void editFlight(Flight flight)
 
-	-> public void deleteFlight(String flight_id)
+√	-> public void deleteFlight(String flight_id)
 
 ** BookingEntity.java **
-	-> public void saveBooking(String flight_id, List<Ticket> tickets, List<ServiceBooking> services_booked)
+√	-> public void saveBooking(String flight_id, List<Ticket> tickets, List<ServiceBooking> services_booked)
 		-> save the booking in booking.csv
 		-> save the tickets in ticket.csv
 		-> save the services booked in services_booked.csv
 
-	-> public List<Booking> getBookings(String username)
+√	-> public List<Booking> getBookings(String username)
 		-> search the tickets table to find the flight id associated with the found ticket
 		-> if no bookings found, return null
 
-	-> public void cancelBooking(int booking_id)
+√	-> public void cancelBooking(int booking_id)
 		-> change the booking status from ‘active’ to ‘cancelled’ for this booking
+
+	-> public List<Ticket> getTickets(int booking_id)
 
 ** RouteEntity.java **
 	-> public void addRoute(Route route)
@@ -55,7 +57,7 @@
 	-> public void deleteRoute(String origin,String destination)
 		-> delete a route with the corresponding origin and destination codes
 
-	-> public Route getRoute(String origin, String destination)
+√	-> public Route getRoute(String origin, String destination)
 		-> get a Route object with the given origin and destination
 
 ** FleetEntity.java **
@@ -103,7 +105,7 @@
 ** booking.csv **
 	-> bookingID
 	-> flightNo
-	-> status (active | cancelled | flown)
+	-> status (Active | Cancelled | Flown)
 	-> total_price
 
 ** ticket.csv **

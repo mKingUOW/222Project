@@ -598,7 +598,34 @@ public class BookingController {
 			}
 		} while (!isOkay);
 		
-		be.cancelBooking(choice); //what do we do when we delete a booking?
+		Flight flight = fc.getFlight(bookings.get(choice - 1).getFlightId());
+		int[] available_seats = flight.getAvailableSeats();
+		
+		//1. get the List of tickets associated with this flight
+		List<Ticket> tickets = be.getTickets(bookings.get(choice - 1).getBookingId());
+		
+		for (Ticket ticket: tickets) {
+			char seat_class = ticket.getSeatNumber().charAt(0); //get the first character
+			
+			switch (seat_class){
+				case 'F': //first class
+					available_seats[0]++;
+					break;
+				case 'B': //business class
+					available_seats[1]++;
+					break;
+				case 'P': //premium economy class
+					available_seats[2]++;
+					break;
+				case 'E': //economy class
+					available_seats[3]++;
+					break;
+			}
+		}
+		
+		fc.updateAvailableSeats(bookings.get(choice - 1).getFlightId(), available_seats);
+		
+		be.cancelBooking(choice); 
 		
 		//is someone able to manipuate this?????
 		System.out.println("A cancellation fee of $10.00 has been charged to your account.\n");

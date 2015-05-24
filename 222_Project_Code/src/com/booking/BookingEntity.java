@@ -186,6 +186,10 @@ public class BookingEntity {
 		}	
 	}
 	
+	public List<Ticket> getTickets(int booking_id){
+		return null;
+	}
+	
 	public void cancelBooking(int booking_id){
 		String oneLine = "";
 		String data = "";
@@ -199,11 +203,11 @@ public class BookingEntity {
 				if(booking_id == tmp_booking_id){
 					updatedLine += words[0];		//bk_id;
 					updatedLine += ",";
-					updatedLine += words[1];		//flight_id;
+					updatedLine += words[1];		//status;
 					updatedLine += ",";
-					updatedLine +=  "Cancelled";	//status;
+					updatedLine +=  words[2];	//total_price
 					updatedLine += ",";
-					updatedLine +=  words[3];		//total_price;
+					updatedLine +=  "Cancelled"; //flight_id;
 					data += updatedLine + "\n";
 				}
             }

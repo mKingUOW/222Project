@@ -2,10 +2,18 @@ package com.role;
 
 public class RoleFactory{
 
+	/**
+	 * Private default constructor disallows instantiation of an instance
+	 */
 	private RoleFactory(){
 
 	}
 
+	/**
+	 * This class is called with a role name to get a role class back
+	 * @param roleName The name of the role.
+	 * @return The Role class corresponding to the role name
+	 */
 	public static Role getRole(String roleName){
 
 		Role role;
@@ -16,6 +24,9 @@ public class RoleFactory{
 				break;
 			case "TA":
 				role = new TravelAgencyRole();
+				break;
+			case "NOR":
+				role = new NormalStaffRole();
 				break;
 			case "FM":
 				role = new FlightManagerRole();
