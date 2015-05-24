@@ -7,7 +7,6 @@ import java.util.*;
 
 public class FlightEntity{
 	
-	private String priceFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "flight_price.csv";
 	private String scheduleFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "flight-route-schedule.csv";
 	private BufferedReader reader;
 	private PrintWriter writer;
@@ -80,6 +79,17 @@ public class FlightEntity{
 					updatedLine += Integer.toString(pecSeat);		// Update Premium_Economic_Seats;
 					updatedLine += ",";
 					updatedLine += Integer.toString(ecSeat);		// Update Economic_Class_Seats;
+					updatedLine += ",";
+					
+					//The prices are in the words[10],[11],[12],[13]
+					updatedLine += words[10];
+					updatedLine += ",";
+					updatedLine += words[11];
+					updatedLine += ",";
+					updatedLine += words[12];
+					updatedLine += ",";
+					updatedLine += words[13];
+					
 					data += updatedLine + "\n";						// Add the modified record into data;
 				}else{
 					data += oneLine + "\n";							// If the flight_id doesn't match, add the original record in the database into data;
@@ -110,7 +120,47 @@ public class FlightEntity{
 		String pecPrice = Double.toString(prices[2]);
 		String ecPrice = Double.toString(prices[3]);
 		
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
 		
+		try{
+			reader = new BufferedReader(new FileReader(scheduleFile));
+			while((oneLine = reader.readLine()) != null){
+
+                String[] words = oneLine.split(",");
+				
+				if(flight_id.equals(words[1])){
+					for(int i=0;i < 10;i++){
+						updatedLine += words[i];
+						updatedLine += ",";
+					}
+					//The prices are in the words[10],[11],[12],[13]
+					updatedLine +=  fcPrice;
+					updatedLine += ",";
+					updatedLine +=  bcPrice;
+					updatedLine += ",";
+					updatedLine +=  pecPrice;
+					updatedLine += ",";
+					updatedLine +=  ecPrice;
+					
+					data += updatedLine + "\n";
+				}else{
+					data += oneLine + "\n";
+				}	
+            }
+		     reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			writer = new PrintWriter(new FileOutputStream(new File(scheduleFile)));	
+			writer.print(data);
+            writer.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	public double[] getSeatPrices(String flight_id){
@@ -118,15 +168,16 @@ public class FlightEntity{
 		String oneLine = "";
 		
 		try{
-			reader = new BufferedReader(new FileReader(priceFile));
+			reader = new BufferedReader(new FileReader(scheduleFile));
 			while((oneLine = reader.readLine()) != null){
 				
 				String [] words = oneLine.split(",");
 				
-				String tmpFlightId = words[0];	
+				String tmpFlightId = words[1];	
 				if(tmpFlightId.equals(flight_id)){
 					for(int i=0;i < 4;i++){
-						prices[i] = Integer.parseInt(words[i+1]);
+						//The prices are in the words[10],[11],[12],[13]
+						prices[i] = Integer.parseInt(words[i+10]);
 					}
 				}
 			}
@@ -140,18 +191,163 @@ public class FlightEntity{
 	}
 	
 	public Flight getFlight(String flight_id){
-		return null;
+		Flight oneFlight = null;
+		String oneLine = "";
+		
+		try{
+			reader = new BufferedReader(new FileReader(scheduleFile));
+			while((oneLine = reader.readLine()) != null){
+				
+				String [] words = oneLine.split(",");
+				
+				String tmpFlightId = words[1];	
+				if(tmpFlightId.equals(flight_id)){
+					int tmpPlaneID = Integer.parseInt(words[2]);				
+					int tmpRouteNum = Integer.parseInt(words[3]);
+					int fcSeat = Integer.parseInt(words[6]);
+					int bcSeat = Integer.parseInt(words[7]);
+					int pecSeat = Integer.parseInt(words[8]);
+					int ecSeat = Integer.parseInt(words[9]);
+					oneFlight = new Flight(flight_id,tmpPlaneID,tmpRouteNum,words[4],words[5],fcSeat,bcSeat,pecSeat,ecSeat);
+				}
+			}
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return oneFlight;
 	}
 	
 	public void addFlight(Flight flight){
+		String oneLine = "";
+		int autoID = 0;
 		
+		//Set the autoID to the id of the last line, then increment it by One;
+		try{
+			reader = new BufferedReader(new FileReader(scheduleFile));
+			while((oneLine = reader.readLine()) != null){		
+				String [] words = oneLine.split(",");
+				autoID = Integer.parseInt(words[0]);
+			}
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		autoID++;
+		//Then append the new flight into the csv file, the prices are set to default values;
+		try{
+			writer = new PrintWriter(new FileOutputStream(new File(scheduleFile),true));		//To append to the file using "true";
+			writer.print(Integer.toString(autoID) + ",");
+			writer.println(flight.getFlightID() + "," + Integer.toString(flight.getPlaneID()) + "," + Integer.toString(flight.getRouteNumber()) + "," 
+						 + flight.getDepartureTime() + "," + flight.getArriveTime() + "," 
+						 + Integer.toString(flight.getFirstClassSeats()) + "," + Integer.toString(flight.getBusinessClassSeats()) + "," 
+						 + Integer.toString(flight.getPremiumEconomyClassSeats()) + "," + Integer.toString(flight.getEconomyClassSeats()) + "," 
+						 + "500" + "," + "400" + "," + "300" + "," + "100");
+			writer.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}	
 	}
 	
 	public void editFlight(Flight flight){
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
 		
+		String flight_id = flight.getFlightID();
+		
+		try{
+			reader = new BufferedReader(new FileReader(scheduleFile));
+			while((oneLine = reader.readLine()) != null){			
+				String [] words = oneLine.split(",");
+				
+				String tmpFlightId = words[1];	
+				if(tmpFlightId.equals(flight_id)){
+					//The prices are in the words[10],[11],[12],[13] and are not modified;
+					String fcPrice = words[10];
+					String bcPrice = words[11];
+					String pecPrice = words[12];
+					String ecPrice = words[13];
+					
+					updatedLine += words[0];
+					updatedLine += ",";
+					updatedLine += flight_id;
+					updatedLine += ",";
+					updatedLine += flight.getPlaneID();
+					updatedLine += ",";
+					updatedLine += flight.getRouteNumber();
+					updatedLine += ",";
+					updatedLine += flight.getDepartureTime();
+					updatedLine += ",";
+					updatedLine += flight.getArriveTime();
+					updatedLine += ",";
+					updatedLine += flight.getFirstClassSeats();
+					updatedLine += ",";
+					updatedLine += flight.getBusinessClassSeats();
+					updatedLine += ",";
+					updatedLine += flight.getPremiumEconomyClassSeats();
+					updatedLine += ",";
+					updatedLine += flight.getEconomyClassSeats();
+					updatedLine += ",";
+					
+					updatedLine += fcPrice;
+					updatedLine += ",";
+					updatedLine += bcPrice;
+					updatedLine += ",";
+					updatedLine += pecPrice;
+					updatedLine += ",";
+					updatedLine += ecPrice;
+				
+					data += updatedLine + "\n";
+				}else{
+					data += oneLine + "\n";
+				}
+			}
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			writer = new PrintWriter(new FileOutputStream(new File(scheduleFile)));	
+			writer.print(data);
+            writer.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	public void deleteFlight(String flight_id){
+		String oneLine = "";
+		String data = "";
 		
+		try{
+			reader = new BufferedReader(new FileReader(scheduleFile));
+			while((oneLine = reader.readLine()) != null){			
+				String [] words = oneLine.split(",");
+				
+				//If the flight_id equals words[1], skip it;
+				if(!words[1].equals(flight_id)){
+					data += oneLine + "\n";
+				}
+			}
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			writer = new PrintWriter(new FileOutputStream(new File(scheduleFile)));	
+			writer.print(data);
+            writer.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }
