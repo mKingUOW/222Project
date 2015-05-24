@@ -347,7 +347,61 @@ public class ProfileEntity {
 	 * basic details of this user
 	 */
 	public Person getAccountDetails(String username){
-		return null;
+		String title = "";
+		String firstName = "";
+		String lastName = "";
+		String gender = "";
+		String DOB = "";
+		String phoneNumber = "";
+		String email = "";
+		String street = "";
+		String state = "";
+		String city = "";
+		String country = "";
+		String creditCardType = "";
+		String creditCardNumber = "";
+		String hasPassport = "";
+//		int frequentFlierPoints = 0;	
+//		String watchOrNoFly = "";
+
+		boolean found = false;
+		Person person = null;			//Used for the return;
+		
+		try{
+			reader = new BufferedReader(new FileReader(detailsFile));
+			while(!found && ((oneLine = reader.readLine()) != null)){
+                String[] words = oneLine.split(",");
+				
+				if(username.equals(words[0])){
+					title = words[1];
+					firstName = word[2];
+					lastName = word[3];
+					gender = word[4];
+					DOB = word[5];
+					phoneNumber = word[6];
+					email = word[7];
+					street = word[8];
+					state = word[9];
+					city = word[10];
+					country = word[11];
+					creditCardType = word[12];
+					creditCardNumber = word[13];
+//					frequentFlierPoints = Integer.parseInt(word[14]);
+					hasPassport = word[15];
+//					watchOrNoFly = word[16];
+					
+					found = true;
+					person = new Person(title,firstName,lastName,gender,DOB,phoneNumber,email,street,
+										state,city,country,creditCardType,creditCardNumber,hasPassport);
+				}
+				
+            }
+			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return person;
 	}
 	
 	public void setAccountDetails(Person account){

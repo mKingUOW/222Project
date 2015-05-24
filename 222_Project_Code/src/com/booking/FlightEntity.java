@@ -66,7 +66,7 @@ public class FlightEntity{
                 String[] words = oneLine.split(",");
 				
 				tmp_flight_id = words[1];
-				if(flight_id.compare(tmp_flight_id) == 0){
+				if(flight_id.equals(tmp_flight_id) == 0){
 					for(int i=0;i < 6;i++){
 						updatedLine += words[i];					// until arrive_time, which is words[5], no need to modify;
 						updatedLine += ",";
