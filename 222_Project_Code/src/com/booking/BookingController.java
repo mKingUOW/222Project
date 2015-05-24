@@ -8,7 +8,6 @@ package com.booking;
 import com.profile.PersonController;
 import com.profile.ProfileController;
 import com.helpers.Booking;
-import com.helpers.Customer;
 import com.helpers.Flight;
 import com.helpers.Person;
 import com.helpers.Service;
@@ -415,14 +414,8 @@ public class BookingController {
 		boolean areUsernamesOkay;
 		
 		do {
-			System.out.print("Please enter the usernames of existing customers separated by spaces: ");
-			customer_usernames = in.nextLine().split(" ");
-
-			areUsernamesOkay = pfc.checkUsernames(customer_usernames);
-
-			if (!areUsernamesOkay) {
-				System.out.println("A username that was entered is not valid!\nPlease try again!\n");
-			}
+			areUsernamesOkay = true;
+			customer_usernames = pfc.enterUsernames();
 			
 			//check if any users can't fly
 			for (String customer_username : customer_usernames) {
@@ -639,9 +632,9 @@ public class BookingController {
 	public void movePassengers(){
 		System.out.println();
 		
-		String flight_id = fc.enterFlightId(false);
-		Flight flight = fc.getFlight(flight_id);
-		List<Person> passengers = be.getCustomers(flight_id);
+		String current_flight_id = fc.enterFlightId(false);
+		Flight flight = fc.getFlight(current_flight_id);
+		List<Person> passengers = be.getCustomers(current_flight_id);
 		
 		System.out.printf("%-4s%-24s%-15s%-15s\n", "#", "Person ID/Username");
 		
@@ -651,6 +644,8 @@ public class BookingController {
 			System.out.printf("%-4s", (i + 1) + ". ");
 			System.out.println(passenger.toString());
 		}
+		String[] customer_usernames = pfc.enterUsernames();
+		
 	}
 	
 	public void changePassengerSeating(){

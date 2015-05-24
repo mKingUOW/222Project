@@ -32,7 +32,25 @@ public class ProfileController {
 		return pe.signUp(user);
 	}
 	
-	public boolean checkUsernames(String usernames[]){
+	public String[] enterUsernames(){
+		boolean areUsernamesOkay;
+		String[] customer_usernames;
+		
+		do {
+			System.out.print("Please enter the usernames of existing customers separated by spaces: ");
+			customer_usernames = in.nextLine().split(" ");
+
+			areUsernamesOkay = checkUsernames(customer_usernames);
+
+			if (!areUsernamesOkay) {
+				System.out.println("A username that was entered is not valid!\nPlease try again!\n");
+			}
+		} while (!areUsernamesOkay);
+		
+		return customer_usernames;
+	}
+	
+	private boolean checkUsernames(String usernames[]){
 		return pe.checkUsernames(usernames);
 	}
 	

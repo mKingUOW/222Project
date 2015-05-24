@@ -174,7 +174,7 @@ public class ProfileEntity {
 	
 	public void savePassword(String username, char[] password){
 		String passwd = new String(password);
-		String oneLine = "";
+		String oneLine;
 		String data = "";
 		String updatedLine = "";
 		
@@ -285,7 +285,7 @@ public class ProfileEntity {
 	
 	public void closeAccount(String username){
 		
-		String oneLine = "";
+		String oneLine;
 		String accData = "";
 		String usrData = "";
 		
@@ -347,22 +347,23 @@ public class ProfileEntity {
 	 * basic details of this user
 	 */
 	public Person getAccountDetails(String username){
-		String title = "";
-		String firstName = "";
-		String lastName = "";
-		String gender = "";
-		String DOB = "";
-		String phoneNumber = "";
-		String email = "";
-		String street = "";
-		String state = "";
-		String city = "";
-		String country = "";
-		String creditCardType = "";
-		String creditCardNumber = "";
-		String hasPassport = "";
+		String oneLine;
+		String title;
+		String firstName;
+		String lastName;
+		String gender;
+		String DOB;
+		String phoneNumber;
+		String email;
+		String street;
+		String state;
+		String city;
+		String country;
+		String creditCardType;
+		String creditCardNumber;
+		String hasPassport;
 //		int frequentFlierPoints = 0;	
-//		String watchOrNoFly = "";
+//		String watchOrNoFly;
 
 		boolean found = false;
 		Person person = null;			//Used for the return;
@@ -374,20 +375,20 @@ public class ProfileEntity {
 				
 				if(username.equals(words[0])){
 					title = words[1];
-					firstName = word[2];
-					lastName = word[3];
-					gender = word[4];
-					DOB = word[5];
-					phoneNumber = word[6];
-					email = word[7];
-					street = word[8];
-					state = word[9];
-					city = word[10];
-					country = word[11];
-					creditCardType = word[12];
-					creditCardNumber = word[13];
+					firstName = words[2];
+					lastName = words[3];
+					gender = words[4];
+					DOB = words[5];
+					phoneNumber = words[6];
+					email = words[7];
+					street = words[8];
+					state = words[9];
+					city = words[10];
+					country = words[11];
+					creditCardType = words[12];
+					creditCardNumber = words[13];
 //					frequentFlierPoints = Integer.parseInt(word[14]);
-					hasPassport = word[15];
+					hasPassport = words[15];
 //					watchOrNoFly = word[16];
 					
 					found = true;

@@ -9,6 +9,7 @@ public class FlightEntity{
 	
 	private String scheduleFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "flight-route-schedule.csv";
 	private BufferedReader reader;
+	private PrintWriter writer;
 	
 	public FlightEntity(){
 		
@@ -65,7 +66,7 @@ public class FlightEntity{
 			while((oneLine = reader.readLine()) != null){
                 String[] words = oneLine.split(",");
 				
-				tmp_flight_id = words[1];
+				String tmp_flight_id = words[1];
 				if(flight_id.equals(tmp_flight_id)){
 					for(int i=0;i < 6;i++){
 						updatedLine += words[i];					// until arrive_time, which is words[5], no need to modify;
