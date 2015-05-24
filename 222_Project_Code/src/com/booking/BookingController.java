@@ -37,15 +37,15 @@ public class BookingController {
 	private double discountRatio = 1; //default
 	
 	/**
-	 * 
-	 * @param username The username of the customer if the Customer role is booking a flight
+	 * Creates a BookingController.
+	 * Initializes the discount ratio for booking from file.
 	 */
 	public BookingController(){
 		discountRatio = be.getDiscountRatio();
 	}
 	
 	/**
-	 * 
+	 * The method that is called to make a booking.
 	 * @param role The role that is making this booking
 	 */
 	public void makeBooking(String role){
@@ -278,7 +278,7 @@ public class BookingController {
 	 * 
 	 * @param available_seats Available seats on this flight
 	 * @param total_seats Total seats that this flight's plane can accommodate
-	 * @return The seat number
+	 * @return The seat number and the price of that seat.
 	 */
 	private AbstractMap.SimpleImmutableEntry<String, Double>
 			chooseSeat(int[] available_seats, int[] total_seats, double[] seat_prices){
@@ -406,7 +406,7 @@ public class BookingController {
 	}
 	
 	/**
-	 * 
+	 * Called to add Customers to the booking.
 	 * @return String array of customer usernames
 	 */
 	private String[] addCustomers(){
@@ -432,7 +432,7 @@ public class BookingController {
 	}
 	
 	/**
-	 * 
+	 * Called to add Persons to the booking.
 	 * @return Integer List of Person IDs
 	 */
 	private List<Integer> addPersons(){
@@ -567,6 +567,9 @@ public class BookingController {
 		return booked_services;
 	}
 	
+	/**
+	 * Called to cancel a booking.
+	 */
 	public void cancelBooking(){
 		List<Booking> bookings = be.getBookings(customerUsername);
 		int i = 1;
@@ -602,14 +605,16 @@ public class BookingController {
 	}
 	
 	/**
-	 * For external classes to call
+	 * For external classes to call.
+	 * Displays all bookings for a customer.
 	 */
 	public void viewBookings(){
 		viewBookings(be.getBookings(customerUsername));
 	}
 	
 	/**
-	 * For the cancelBooking method to call straightaway
+	 * For the cancelBooking method to call straightaway.
+	 * Is called only within this function.
 	 * @param customer_bookings 
 	 */
 	private void viewBookings(List<Booking> customer_bookings){
@@ -629,12 +634,16 @@ public class BookingController {
 		}
 	}
 	
+	/**
+	 * Called to move passengers within flights.
+	 */
 	public void movePassengers(){
 		System.out.println();
 		
 		String current_flight_id = fc.enterFlightId(false);
 		Flight flight = fc.getFlight(current_flight_id);
 		List<Person> passengers = be.getCustomers(current_flight_id);
+		boolean isOkay;
 		
 		System.out.printf("%-4s%-24s%-15s%-15s\n", "#", "Person ID/Username");
 		
@@ -644,7 +653,25 @@ public class BookingController {
 			System.out.printf("%-4s", (i + 1) + ". ");
 			System.out.println(passenger.toString());
 		}
-		String[] customer_usernames = pfc.enterUsernames();
+		
+		do {			
+			isOkay = true;
+			System.out.print("Enter the numbers of the services separated by a space: ");
+			String[] choices = in.nextLine().split(" "); 
+
+			for (String str: choices) {
+				if (isInteger(str)) {
+					
+				}
+				
+				int choice = Integer.parseInt(str);
+					if (choice < 1 || choice > services.size()) {
+					isOkay = false;
+					System.out.println("One or more of the chosen options do not exist. Please try again!\n");
+					break;
+				} 
+			}
+		} while (!isOkay);
 		
 	}
 	
@@ -652,6 +679,9 @@ public class BookingController {
 		
 	}
 	
+	/**
+	 * Called to set the discount ratio of the frequent flier points.
+	 */
 	public void setDiscountRatio(){
 		double ratio = discountRatio;
 		boolean isOkay;
@@ -678,8 +708,42 @@ public class BookingController {
 		be.setDiscountRatio(ratio);
 	}
 	
+	/**
+	 * Set the username for the customer when a CustomerRole instance is using
+	 * this class.
+	 * @param username 
+	 */
 	public void setUsername(String username){
 		customerUsername = username;
 	}
 	
+	/**
+	 * Method taken and adapted from http://stackoverflow.com/a/237204
+	 * This method check whether the given String is an Integer.
+	 * @param str
+	 * @return 
+	 */
+	private boolean isInteger(String str) {
+		if (str == null) {
+			return false;
+		}
+		int length = str.length();
+		if (length == 0) {
+			return false;
+		}
+		int i = 0;
+		if (str.charAt(0) == '-') {
+			if (length == 1) {
+				return false;
+			}
+			i = 1;
+		}
+		for (; i < length; i++) {
+			char c = str.charAt(i);
+			if (c <= '/' || c >= ':') {
+				return false;
+			}
+		}
+		return true;
+	}
 }
