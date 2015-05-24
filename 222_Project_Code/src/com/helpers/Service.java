@@ -1,5 +1,7 @@
 package com.helpers;
 
+import java.util.Formatter;
+
 public class Service {
 	
 	private int serviceID;
@@ -7,6 +9,9 @@ public class Service {
 	private double cost;
 	private String availability;	
 
+	public Service() {
+	}
+	
 	public Service(int sid,String itm,double co,String avail){
 		this.serviceID = sid;
 		this.name = itm;
@@ -45,4 +50,14 @@ public class Service {
 	public String getAvailability(){
 		return this.availability;
 	}
-};
+
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		Formatter fmt = new Formatter(sb);
+		
+		fmt.format("%-20s$%-14.2f%-15s", name, cost, availability);
+		
+		return sb.toString();
+	}
+}

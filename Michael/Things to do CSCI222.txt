@@ -85,6 +85,14 @@
 
 	-> public void deleteAirport(String IATA)
 
+** ServiceEntity.java **
+	-> public void addService(Service service)
+	
+	-> public void removeService(int[] service_ids_to_remove)
+		-> change the availability of the given services to “removed”
+	
+	-> public void editService(Service updated_service)
+
 ** flight_price.csv **
 	-> flightID
 	-> seattype1 FC

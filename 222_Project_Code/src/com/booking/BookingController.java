@@ -552,7 +552,7 @@ public class BookingController {
 
 			for (String str: choices) {
 				int choice = Integer.parseInt(str);
-					if (choice < 1 || choice > services.size()) {
+				if (choice < 1 || choice > services.size()) {
 					isOkay = false;
 					System.out.println("One or more of the chosen options do not exist. Please try again!\n");
 					break;
@@ -638,34 +638,28 @@ public class BookingController {
 	 * Called to move passengers within flights.
 	 */
 	public void movePassengers(){
-		System.out.println();
 		
+		System.out.println("\nFlight to move from:");
 		String current_flight_id = fc.enterFlightId(false);
-		Flight flight = fc.getFlight(current_flight_id);
+//		Flight flight = fc.getFlight(current_flight_id);
 		List<Person> passengers = be.getCustomers(current_flight_id);
 		boolean isOkay;
 		
 		System.out.printf("%-4s%-24s%-15s%-15s\n", "#", "Person ID/Username");
 		
 		for (int i = 0; i < passengers.size(); i++) {
-			Person passenger = passengers.get(i);
-			
 			System.out.printf("%-4s", (i + 1) + ". ");
-			System.out.println(passenger.toString());
+			System.out.println(passengers.get(i).toString());
 		}
 		
 		do {			
 			isOkay = true;
-			System.out.print("Enter the numbers of the services separated by a space: ");
+			System.out.print("Enter the number corresponding to the passengers separated by a space: ");
 			String[] choices = in.nextLine().split(" "); 
 
 			for (String str: choices) {
-				if (isInteger(str)) {
-					
-				}
-				
 				int choice = Integer.parseInt(str);
-					if (choice < 1 || choice > services.size()) {
+				if (choice < 1 || choice > passengers.size()) {
 					isOkay = false;
 					System.out.println("One or more of the chosen options do not exist. Please try again!\n");
 					break;
@@ -673,6 +667,10 @@ public class BookingController {
 			}
 		} while (!isOkay);
 		
+		System.out.println("\nFlight to move to:");
+		String new_flight_id = fc.enterFlightId(false);
+		
+		//figure out logic how to move passengers from current flight to new flight
 	}
 	
 	public void changePassengerSeating(){

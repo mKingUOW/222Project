@@ -21,7 +21,7 @@ Manager</panel_attributes>
       <w>77</w>
       <h>28</h>
     </coordinates>
-    <panel_attributes>Add Services</panel_attributes>
+    <panel_attributes>Add Service</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -32,7 +32,7 @@ Manager</panel_attributes>
       <w>98</w>
       <h>28</h>
     </coordinates>
-    <panel_attributes>Remove Services</panel_attributes>
+    <panel_attributes>Remove Service</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
