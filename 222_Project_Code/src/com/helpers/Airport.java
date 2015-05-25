@@ -22,6 +22,23 @@ public class Airport {
 	private char DST;
 	private String tzDatabaseTimezone;
 
+	public Airport() {
+	}
+	
+	public Airport(int airportId, String airportName, String city, String country, String IATA, double latitude, double longitude, int altitude, int timezone, char DST, String tzDatabaseTimezone) {
+		this.airportId = airportId;
+		this.airportName = airportName;
+		this.city = city;
+		this.country = country;
+		this.IATA = IATA;
+		this.latitude = latitude;
+		this.longitude = longitude;
+		this.altitude = altitude;
+		this.timezone = timezone;
+		this.DST = DST;
+		this.tzDatabaseTimezone = tzDatabaseTimezone;
+	}
+	
 	public int getAirportId() {
 		return airportId;
 	}

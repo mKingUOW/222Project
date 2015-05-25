@@ -92,10 +92,10 @@ public class BookingEntity {
 			int ticketId = services_booked.get(k).getTicketId();
 			int serviceId = services_booked.get(k).getServiceId();
 			
-			//ticketID + serviceID -- in the services_booked.csv
+			//bookingID + ticketID + serviceID -- in the services_booked.csv
 			try{ 
 				writer = new PrintWriter(new FileOutputStream(new File(serviceFile),true));		//To append to the file using "true";
-				writer.println(ticketId + "," + serviceId);					   
+				writer.println(bk_id + "," + ticketId + "," + serviceId);					   
 				writer.close();
 			}catch(Exception e){
 				e.printStackTrace();
@@ -261,5 +261,30 @@ public class BookingEntity {
 		 */
 		
 		return null;
+	}
+	
+	/**
+	 * Gets the services booked for the ticket with the corresponding booking ID
+	 * and ticket ID.
+	 * @param booking_id The booking ID to search by.
+	 * @param ticket_id The ticket ID to search by.
+	 * @return A list of ServiceBooking objects representing the services booked.
+	 */
+	public List<ServiceBooking> getServicesBooked(int booking_id, int ticket_id){
+		
+		return null;
+	}
+	
+	/**
+	 * Updates the bookings of a particular ticket.
+	 * @param service_bookings List of service bookings
+	 */
+	public void updateServicesBooked(List<ServiceBooking> service_bookings){
+		/*
+		 * ALL the service bookings in this list have the same booking ID and ticket ID.
+		 * A ServiceBooking object already contains the booking ID and ticket ID.
+		 * SO just search the database for the bookings matching the booking ID adn ticket ID, 
+		 * delete them and replace them with the service bookings in the list.
+		 */
 	}
 }

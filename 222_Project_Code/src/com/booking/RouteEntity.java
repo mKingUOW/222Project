@@ -10,6 +10,7 @@ public class RouteEntity{
 	// routeNumber + origin_code + destination_code + codeShare + stops  --- in the routes.csv
 	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "routes.csv";
 	private BufferedReader reader;
+	private PrintWriter writer;
 	
 	public RouteEntity(){
 		
@@ -82,7 +83,7 @@ public class RouteEntity{
 					route = new Route();
 					
 					int routeNumber = Integer.parseInt(words[0]);
-					char codeShare = '';
+					char codeShare = ' ';
 					if("Y".equals(words[3])){
 						codeShare = 'Y';
 					}
@@ -128,6 +129,7 @@ public class RouteEntity{
 		String destination_code = route.getDestinationCode();
 		char codeShare = route.getCodeShare();
 		int stops = route.getStops();
+		boolean found = false;
 		
 		String oneLine = "";
 		String data = "";
@@ -174,6 +176,7 @@ public class RouteEntity{
 		String oneLine = "";
 		String data = "";
 		String updatedLine = "";
+		boolean found = false;
 		
 		// routeNumber + origin_code + destination_code + codeShare + stops  --- in the routes.csv
 		try{

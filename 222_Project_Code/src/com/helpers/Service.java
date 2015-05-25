@@ -51,6 +51,15 @@ public class Service {
 		return this.availability;
 	}
 
+	public String getString(){
+		StringBuilder sb = new StringBuilder();
+		Formatter fmt = new Formatter(sb);
+		
+		fmt.format("%-20s$%-14.2f", name, cost);
+		
+		return sb.toString();
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

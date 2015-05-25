@@ -45,6 +45,15 @@ public class BookingController {
 	}
 	
 	/**
+	 * Method for normal staff to make a booking on behalf of other customers.
+	 */
+	public void makeBooking(){
+		setUsername(pfc.enterUsername());
+		makeBooking("CUS");
+		setUsername(null);
+	}
+	
+	/**
 	 * The method that is called to make a booking.
 	 * @param role The role that is making this booking
 	 */
@@ -568,17 +577,33 @@ public class BookingController {
 	}
 	
 	/**
-	 * Called to cancel a booking.
+	 * Allows dynamic checking whether the user who is canceling a booking
+	 * is a customer role or not. If the user is not a customer, then the user
+	 * must key in a valid username before selecting a flight to cancel
+	 * for that customer.
 	 */
 	public void cancelBooking(){
-		List<Booking> bookings = be.getBookings(customerUsername);
+		if (customerUsername == null) { //if it is not a customer
+			cancelBooking(pfc.enterUsername());
+		} else{
+			cancelBooking(customerUsername);
+			
+			//is someone able to manipuate the cancellation fee?????
+			System.out.println("A cancellation fee of $10.00 has been charged to your account.\n");
+		}
+	}
+	
+	/**
+	 * Called to cancel a booking.
+	 * @param username Used to find the bookings for this user
+	 */
+	private void cancelBooking(String username){
+		List<Booking> bookings = be.getBookings(username);
 		int i = 1;
 		int choice = 0;
 		boolean isOkay;
-				
-		viewBookings(bookings);
-
-		if (bookings == null) {
+		
+		if (!viewBookings(bookings)) {
 			return;
 		}
 		
@@ -626,31 +651,30 @@ public class BookingController {
 		fc.updateAvailableSeats(bookings.get(choice - 1).getFlightId(), available_seats);
 		
 		be.cancelBooking(choice); 
-		
-		//is someone able to manipuate this?????
-		System.out.println("A cancellation fee of $10.00 has been charged to your account.\n");
 	}
 	
 	/**
 	 * For external classes to call.
 	 * Displays all bookings for a customer.
+	 * @return False if no bookings available
 	 */
-	public void viewBookings(){
-		viewBookings(be.getBookings(customerUsername));
+	public boolean viewBookings(){
+		return viewBookings(be.getBookings(customerUsername));
 	}
 	
 	/**
 	 * For the cancelBooking method to call straightaway.
 	 * Is called only within this function.
-	 * @param customer_bookings 
+	 * @param customer_bookings List of customer bookings to display
+	 * @return False if no bookings available
 	 */
-	private void viewBookings(List<Booking> customer_bookings){
+	private boolean viewBookings(List<Booking> customer_bookings){
 		List<Booking> bookings = customer_bookings;
 		int i = 1;
 		
 		if (bookings == null) {
 			System.out.println("\nYou have no bookings.\n");
-			return;
+			return false;
 		}
 		
 		System.out.printf("\n%-4s%-15s%-15s%-15s%-15s\n", "#", "Booking ID", "Flight ID", "Status", "Total Cost");
@@ -659,10 +683,214 @@ public class BookingController {
 			System.out.println(booking.toString());
 			i++;
 		}
+		return true;
+	}
+	
+	/**
+	 * Method for normal staff to edit services on behalf of other customers.
+	 */
+	public void editServices(){
+		if (customerUsername == null) {
+			setUsername(pfc.enterUsername());
+		} else{
+			setUsername(customerUsername);
+		}
+	}
+	
+	/**
+	 * The method that is called to edit services.
+	 * @param username 
+	 */
+	public void editServices(String username){
+		boolean isOkay;
+		int choice = 0;
+		int booking_id;
+		int ticket_id;
+		List<Booking> bookings = be.getBookings(username);
+		
+		if (!viewBookings(bookings)) { //if there are no bookings, return.
+			return;
+		}
+		
+		do {
+			isOkay = true;
+			System.out.print("Please select the booking that you want to modify the service of: ");
+			try {
+				choice = in.nextInt();
+				
+				if (choice < 1 || choice > bookings.size()) {
+					System.out.println("The booking selected does not exist. Please try again!\n");
+					isOkay = false;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("The input is not valid. Please try again!\n");
+				isOkay = false;
+			}
+		} while (!isOkay);
+		
+		booking_id = bookings.get(choice - 1).getBookingId();
+		List<Ticket> tickets = be.getTickets(booking_id);
+		
+		System.out.printf("%-4s%-4s%-15s%-25s%-12s\n", "#", "ID", "Price (AUD)", "Username/Person ID", "Seat Number");
+		for (int i = 0; i < tickets.size(); i++) {
+			System.out.printf("%-4s", (i + 1) + ". ");
+			System.out.println(tickets.get(i).toString());
+		}
+		
+		do {
+			isOkay = true;
+			System.out.print("Please select the ticket that you want to modify the service of: ");
+			try {
+				choice = in.nextInt();
+				
+				if (choice < 1 || choice > tickets.size()) {
+					System.out.println("The ticket selected does not exist. Please try again!\n");
+					isOkay = false;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("The input is not valid. Please try again!\n");
+				isOkay = false;
+			}
+		} while (!isOkay);
+		
+		Ticket chosen_ticket = tickets.get(choice - 1);
+		ticket_id = chosen_ticket.getTicketId();
+		List<ServiceBooking> services_booked = be.getServicesBooked(booking_id, ticket_id);
+		List<Service> services = new ArrayList<>();
+		
+		//get all the services booked
+		for (ServiceBooking service_booked: services_booked) {
+			Service service = sc.getService(service_booked.getServiceId());
+			services.add(service);
+		}
+		
+		String[] choices = {"Add Service", "Delete Service", "Cancel"};
+		
+		System.out.println();
+		
+		for (int i = 0; i < choices.length; i++) {
+			System.out.print((i + 1) + ". ");
+			System.out.println(choices[i]);
+		}
+		
+		do {
+			isOkay = true;
+			System.out.println("Please select an option: ");
+			
+			try {
+				choice = in.nextInt();
+				if (choice < 0 || choice > choices.length) {
+					System.out.println("That option is out of range. Please try again!\n");
+					isOkay = false;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("Invalid input. Please try again!\n");
+				isOkay = false;
+			}
+		} while (!isOkay);
+		
+		in.nextLine();
+		
+		System.out.println("\nCurrent Services");
+		System.out.printf("%-4s%-20s%-14s\n", "#", "Name", "Price (AUD)");
+		for (int i = 0; i < services.size(); i++) {
+			System.out.printf("%-4s", (i + 1) + ". ");
+			System.out.println(services.get(i).getString());
+		}
+		
+		switch (choice){
+			case 1:
+				addService(services_booked);
+				break;
+			case 2:
+				deleteService(services_booked);
+				break;
+		}
+		be.updateServicesBooked(services_booked);
+	}
+	
+	/**
+	 * Allows the user to add a service to a ticket
+	 * @param services_booked List of services booked
+	 */
+	private void addService(List<ServiceBooking> services_booked){
+		List<Service> services = sc.getServices(true);
+		List<Integer> added_services = new ArrayList<>();
+		String[] choices;
+		boolean isOkay;
+		int booking_id = services_booked.get(0).getBookingId();
+		int ticket_id = services_booked.get(0).getServiceId();
+		
+		System.out.println("Services available:");
+		System.out.printf("%-5s%-25s%-10s\n", "#", "Service Name", "Price (AUD)");
+		
+		int i = 1;
+		for (Service service: services) {
+			System.out.printf("%-5s%-25s$%-10.2f\n", (i + ". "), service.getName(), service.getCost());
+			i++;
+		}
+		
+		do {			
+			isOkay = true;
+			System.out.print("Enter the numbers of the services separated by a space: ");
+			choices = in.nextLine().split(" "); 
+
+			for (String str: choices) {
+				int choice = Integer.parseInt(str);
+				if (choice < 1 || choice > services.size()) {
+					isOkay = false;
+					System.out.println("One or more of the chosen options do not exist. Please try again!\n");
+					break;
+				} 
+			}
+		} while (!isOkay);
+		
+		double total_price = 0;
+		
+		for (String choice: choices) {
+			services_booked.add(new ServiceBooking(booking_id, ticket_id, Integer.parseInt(choice)));
+			total_price += services.get(Integer.parseInt(choice) - 1).getCost();
+		}
+		
+		System.out.printf("Extra services have been added to this ticket. $%.2f has been charged.\n", total_price);
+	}
+	
+	/**
+	 * Allows the user to delete a service from a ticket
+	 */
+	private void deleteService(List<ServiceBooking> services_booked){
+		List<Service> services = sc.getServices(true);
+		String[] choices;
+		boolean isOkay;
+		
+		do {			
+			isOkay = true;
+			System.out.print("Enter the numbers of the services separated by a space: ");
+			choices = in.nextLine().split(" "); 
+
+			for (String str: choices) {
+				int choice = Integer.parseInt(str);
+				if (choice < 1 || choice > services_booked.size()) {
+					isOkay = false;
+					System.out.println("One or more of the chosen options do not exist. Please try again!\n");
+					break;
+				} 
+			}
+		} while (!isOkay);
+		
+		double total_price = 0;
+		
+		for (String choice: choices) {
+			services_booked.remove(Integer.parseInt(choice) - 1);
+			total_price += services.get(Integer.parseInt(choice) - 1).getCost();
+		}
+		
+		System.out.printf("The services have been deleted from this ticket. $%.2f has been credited.\n", total_price);
 	}
 	
 	/**
 	 * Called to move passengers within flights.
+	 * @param services_booked List of services booked
 	 */
 	public void movePassengers(){
 		
@@ -740,35 +968,5 @@ public class BookingController {
 	 */
 	public void setUsername(String username){
 		customerUsername = username;
-	}
-	
-	/**
-	 * Method taken and adapted from http://stackoverflow.com/a/237204
-	 * This method check whether the given String is an Integer.
-	 * @param str
-	 * @return 
-	 */
-	private boolean isInteger(String str) {
-		if (str == null) {
-			return false;
-		}
-		int length = str.length();
-		if (length == 0) {
-			return false;
-		}
-		int i = 0;
-		if (str.charAt(0) == '-') {
-			if (length == 1) {
-				return false;
-			}
-			i = 1;
-		}
-		for (; i < length; i++) {
-			char c = str.charAt(i);
-			if (c <= '/' || c >= ':') {
-				return false;
-			}
-		}
-		return true;
 	}
 }

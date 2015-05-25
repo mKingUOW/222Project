@@ -21,7 +21,7 @@ public abstract class AbstractCustomerRole extends Role{
 		
 		switch(choice){
 			case "Edit Services":
-				
+				bc.editServices(getUsername());
 				break;
 			case "Close Account":
 				if (pc.closeAccount(getUsername())) {

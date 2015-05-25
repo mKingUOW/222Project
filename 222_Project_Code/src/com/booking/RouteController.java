@@ -357,9 +357,9 @@ public class RouteController {
 		return re.getRoutePoints(routeNumber);
 	}
 	
-	public boolean isInternationalRoute(String origin, String destination){
-		String origin_country = ac.getAirportCountry(origin);
-		String destination_country = ac.getAirportCountry(destination);
+	public boolean isInternationalRoute(String origin_airport, String destination_airport){
+		String origin_country = ac.getAirportCountry(origin_airport);
+		String destination_country = ac.getAirportCountry(destination_airport);
 		
 		return (!origin_country.equals(destination_country)); //countries are not the same; therefore international
 	}

@@ -16,8 +16,8 @@ Staff</panel_attributes>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>320</x>
-      <y>96</y>
+      <x>160</x>
+      <y>312</y>
       <w>96</w>
       <h>32</h>
     </coordinates>
@@ -28,17 +28,17 @@ Staff</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>72</x>
-      <y>104</y>
-      <w>264</w>
-      <h>216</h>
+      <y>296</y>
+      <w>104</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;250.0;310.0;10.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;40.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>320</x>
+      <x>232</x>
       <y>144</y>
       <w>96</w>
       <h>32</h>
@@ -51,11 +51,11 @@ Staff</panel_attributes>
     <coordinates>
       <x>72</x>
       <y>152</y>
-      <w>264</w>
+      <w>176</w>
       <h>168</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;190.0;310.0;10.0</additional_attributes>
+    <additional_attributes>10.0;190.0;200.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -72,31 +72,31 @@ credentials</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>400</x>
+      <x>312</x>
       <y>128</y>
-      <w>104</w>
+      <w>192</w>
       <h>40</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>110.0;10.0;10.0;30.0</additional_attributes>
+    <additional_attributes>220.0;10.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
     <coordinates>
       <x>72</x>
-      <y>288</y>
-      <w>80</w>
-      <h>32</h>
+      <y>256</y>
+      <w>96</w>
+      <h>64</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;80.0;20.0</additional_attributes>
+    <additional_attributes>10.0;60.0;100.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>136</x>
-      <y>280</y>
+      <x>152</x>
+      <y>240</y>
       <w>128</w>
       <h>48</h>
     </coordinates>
@@ -108,19 +108,19 @@ Booking
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>200</x>
-      <y>200</y>
+      <x>216</x>
+      <y>176</y>
       <w>128</w>
-      <h>96</h>
+      <h>80</h>
     </coordinates>
     <panel_attributes>lt=-&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;100.0;140.0;10.0</additional_attributes>
+    <additional_attributes>10.0;80.0;140.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>312</x>
-      <y>192</y>
+      <x>328</x>
+      <y>168</y>
       <w>104</w>
       <h>32</h>
     </coordinates>
@@ -130,20 +130,20 @@ Booking
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>256</x>
-      <y>256</y>
-      <w>80</w>
-      <h>64</h>
+      <x>272</x>
+      <y>240</y>
+      <w>88</w>
+      <h>40</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>80.0;10.0;10.0;60.0</additional_attributes>
+    <additional_attributes>90.0;20.0;10.0;30.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>320</x>
-      <y>248</y>
+      <x>344</x>
+      <y>240</y>
       <w>96</w>
       <h>48</h>
     </coordinates>
@@ -154,14 +154,14 @@ Username</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>408</x>
+      <x>432</x>
       <y>224</y>
-      <w>104</w>
-      <h>56</h>
+      <w>80</w>
+      <h>48</h>
     </coordinates>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
-    <additional_attributes>10.0;50.0;110.0;10.0</additional_attributes>
+    <additional_attributes>10.0;40.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -404,5 +404,29 @@ Password</panel_attributes>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
     <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>264</y>
+      <w>120</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>192</x>
+      <y>280</y>
+      <w>216</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=.&gt;
+&lt;&lt;extends&gt;&gt;</panel_attributes>
+    <additional_attributes>250.0;10.0;10.0;130.0</additional_attributes>
   </element>
 </diagram>

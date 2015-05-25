@@ -493,6 +493,7 @@ public class ProfileEntity {
 	public String canUserFly(String username){		
 		boolean found = false;
 		String watchOrNoFly = "";
+		String oneLine;
 		
 		try{
 			reader = new BufferedReader(new FileReader(detailsFile));

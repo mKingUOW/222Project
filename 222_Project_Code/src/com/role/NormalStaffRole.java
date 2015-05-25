@@ -5,12 +5,15 @@
 
 package com.role;
 
+import com.booking.BookingController;
+
 /**
  *
  * @author Michael Y.M. Kong
  */
 public class NormalStaffRole extends Role{
-	private String[] choices = {"Cancel Customer Booking", "Make Booking for Customer"};
+	private String[] choices = {"Cancel Customer Booking", "Make Booking for Customer", "Edit Services fo Customer"};
+	private BookingController bc = new BookingController();
 	
 	public NormalStaffRole() {
 		super();
@@ -23,8 +26,13 @@ public class NormalStaffRole extends Role{
 		
 		switch(choice){
 			case "Cancel Customer Booking":
+				bc.cancelBooking();
 				break;
 			case "Make Booking for Customer":
+				bc.makeBooking();
+				break;
+			case "Edit Services fo Customer":
+				bc.editServices();
 				break;
 			default:
 				super.executeChoice();

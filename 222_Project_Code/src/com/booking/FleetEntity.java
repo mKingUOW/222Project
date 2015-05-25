@@ -122,10 +122,12 @@ public class FleetEntity {
 		int bclass = plane.getBusinessClassSeats();
 		int peclass = plane.getPremiumEconomyClassSeats();
 		int eclass = plane.getEconomyClassSeats();
+		boolean found = false;
 		
 		String oneLine = "";
 		String data = "";
 		String updatedLine = "";
+		
 		
 		// In the fleet.csv:
 		// planeId + planeModel + numberAvailable 
@@ -175,6 +177,7 @@ public class FleetEntity {
 		String oneLine = "";
 		String data = "";
 		String updatedLine = "";
+		boolean found = false;
 		
 		try{
 			reader = new BufferedReader(new FileReader(filepath));

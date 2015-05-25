@@ -20,9 +20,9 @@ public class AirportEntity{
 */	
 	String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "airports.csv";
 	BufferedReader reader;
+	private PrintWriter writer;
 	
 	public AirportEntity(){
-		
 	}
 	
 	public String getAirportCode(String airport_name){
@@ -118,7 +118,7 @@ public class AirportEntity{
 					double longitude = Double.parseDouble(words[6]);
 					int altitude = Integer.parseInt(words[7]);
 					int timezone = Integer.parseInt(words[8]);
-					char DST = words[9].get(0);
+					char DST = words[9].charAt(0);
 					String tzDatabaseTimezone = words[10];
 					
 					airport = new Airport(airportId,airportName,city,country,IATA,latitude,longitude,altitude,timezone,DST,tzDatabaseTimezone);
@@ -172,6 +172,7 @@ public class AirportEntity{
 		char DST = airport.getDST();
 		String tzDatabaseTimezone = airport.getTzDatabaseTimezone();
 		
+		boolean found = false;
 		String oneLine = "";
 		String data = "";
 		String updatedLine = "";
@@ -229,6 +230,7 @@ public class AirportEntity{
 		String oneLine = "";
 		String data = "";
 		String updatedLine = "";
+		boolean found = false;
 		
 		try{
 			reader = new BufferedReader(new FileReader(filepath));
