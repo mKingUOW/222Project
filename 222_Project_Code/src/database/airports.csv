@@ -1,123 +1,123 @@
-5,Port Moresby Jacksons Intl,Port Moresby,Papua New Guinea,POM,-9.443383,147.22005,146,10,U," ""Pacific/Port_Moresby"""
-340,Frankfurt Main,Frankfurt,Germany,FRA,50.026421,8.543125,364,1,E," ""Europe/Berlin"""
-342,Hamburg,Hamburg,Germany,HAM,53.630389,9.988228,53,1,E," ""Europe/Berlin"""
-345,Dusseldorf,Duesseldorf,Germany,DUS,51.289453,6.766775,147,1,E," ""Europe/Berlin"""
-346,Franz Josef Strauss,Munich,Germany,MUC,48.353783,11.786086,1487,1,E," ""Europe/Berlin"""
-469,Birmingham,Birmingham,United Kingdom,BHX,52.453856,-1.748028,327,0,E," ""Europe/London"""
-478,Manchester,Manchester,United Kingdom,MAN,53.353744,-2.27495,257,0,E," ""Europe/London"""
-502,Gatwick,London,United Kingdom,LGW,51.148056,-0.190278,202,0,E," ""Europe/London"""
-507,Heathrow,London,United Kingdom,LHR,51.4775,-0.461389,83,0,E," ""Europe/London"""
-521,Newcastle,Newcastle,United Kingdom,NCL,55.0375,-1.691667,266,0,E," ""Europe/London"""
-534,Glasgow,Glasgow,United Kingdom,GLA,55.871944,-4.433056,26,0,E," ""Europe/London"""
-599,Dublin,Dublin,Ireland,DUB,53.421333,-6.270075,242,0,E," ""Europe/Dublin"""
-609,Kastrup,Copenhagen,Denmark,CPH,55.617917,12.655972,17,1,E," ""Europe/Copenhagen"""
-679,Okecie,Warsaw,Poland,WAW,52.16575,20.967122,362,1,E," ""Europe/Warsaw"""
-737,Arlanda,Stockholm,Sweden,ARN,59.651944,17.918611,137,1,E," ""Europe/Stockholm"""
-813,Johannesburg Intl,Johannesburg,South Africa,JNB,-26.139166,28.246,5558,2,U," ""Africa/Johannesburg"""
-1587,Ruzyne,Prague,Czech Republic,PRG,50.100833,14.26,1247,1,E," ""Europe/Prague"""
-1665,Geneve Cointrin,Geneva,Switzerland,GVA,46.238064,6.10895,1411,1,E," ""Europe/Paris"""
-1678,Zurich,Zurich,Switzerland,ZRH,47.464722,8.549167,1416,1,E," ""Europe/Zurich"""
-1701,Ataturk,Istanbul,Turkey,IST,40.976922,28.814606,163,2,E," ""Europe/Istanbul"""
-1960,Nadi Intl,Nandi,Fiji,NAN,-17.755392,177.443378,59,12,U," ""Pacific/Fiji"""
-1997,Port Vila Bauerfield,Port-vila,Vanuatu,VLI,-17.699325,168.319794,70,11,U," ""Pacific/Efate"""
-2005,La Tontouta,Noumea,New Caledonia,NOU,-22.014553,166.212972,52,11,U," ""Pacific/Noumea"""
-2006,Auckland Intl,Auckland,New Zealand,AKL,-37.008056,174.791667,23,12,Z," ""Pacific/Auckland"""
-2009,Christchurch Intl,Christchurch,New Zealand,CHC,-43.489358,172.532225,123,12,Z," ""Pacific/Auckland"""
-2030,Queenstown,Queenstown International,New Zealand,ZQN,-45.021111,168.739167,1171,12,Z," ""Pacific/Auckland"""
-2042,Wellington Intl,Wellington,New Zealand,WLG,-41.327221,174.805278,41,12,Z," ""Pacific/Auckland"""
-2057,Bahrain Intl,Bahrain,Bahrain,BAH,26.270834,50.63361,6,3,U," ""Asia/Bahrain"""
-2064,King Fahd Intl,Dammam,Saudi Arabia,DMM,26.471161,49.79789,72,3,U," ""Asia/Riyadh"""
-2072,King Abdulaziz Intl,Jeddah,Saudi Arabia,JED,21.679564,39.156536,48,3,U," ""Asia/Riyadh"""
-2082,King Khaled Intl,Riyadh,Saudi Arabia,RUH,24.95764,46.698776,2049,3,U," ""Asia/Riyadh"""
-2170,Queen Alia Intl,Amman,Jordan,AMM,31.722556,35.993214,2395,2,E," ""Asia/Amman"""
-2188,Dubai Intl,Dubai,United Arab Emirates,DXB,25.252778,55.364444,62,4,U," ""Asia/Dubai"""
-2194,Seeb Intl,Muscat,Oman,MCT,23.593278,58.284444,48,4,U," ""Asia/Muscat"""
+5,Port Moresby Jacksons Intl,Port Moresby,Papua New Guinea,POM,-9.443383,147.22005,146,10,U,Pacific/Port_Moresby
+340,Frankfurt Main,Frankfurt,Germany,FRA,50.026421,8.543125,364,1,E,Europe/Berlin
+342,Hamburg,Hamburg,Germany,HAM,53.630389,9.988228,53,1,E,Europe/Berlin
+345,Dusseldorf,Duesseldorf,Germany,DUS,51.289453,6.766775,147,1,E,Europe/Berlin
+346,Franz Josef Strauss,Munich,Germany,MUC,48.353783,11.786086,1487,1,E,Europe/Berlin
+469,Birmingham,Birmingham,United Kingdom,BHX,52.453856,-1.748028,327,0,E,Europe/London
+478,Manchester,Manchester,United Kingdom,MAN,53.353744,-2.27495,257,0,E,Europe/London
+502,Gatwick,London,United Kingdom,LGW,51.148056,-0.190278,202,0,E,Europe/London
+507,Heathrow,London,United Kingdom,LHR,51.4775,-0.461389,83,0,E,Europe/London
+521,Newcastle,Newcastle,United Kingdom,NCL,55.0375,-1.691667,266,0,E,Europe/London
+534,Glasgow,Glasgow,United Kingdom,GLA,55.871944,-4.433056,26,0,E,Europe/London
+599,Dublin,Dublin,Ireland,DUB,53.421333,-6.270075,242,0,E,Europe/Dublin
+609,Kastrup,Copenhagen,Denmark,CPH,55.617917,12.655972,17,1,E,Europe/Copenhagen
+679,Okecie,Warsaw,Poland,WAW,52.16575,20.967122,362,1,E,Europe/Warsaw
+737,Arlanda,Stockholm,Sweden,ARN,59.651944,17.918611,137,1,E,Europe/Stockholm
+813,Johannesburg Intl,Johannesburg,South Africa,JNB,-26.139166,28.246,5558,2,U,Africa/Johannesburg
+1587,Ruzyne,Prague,Czech Republic,PRG,50.100833,14.26,1247,1,E,Europe/Prague
+1665,Geneve Cointrin,Geneva,Switzerland,GVA,46.238064,6.10895,1411,1,E,Europe/Paris
+1678,Zurich,Zurich,Switzerland,ZRH,47.464722,8.549167,1416,1,E,Europe/Zurich
+1701,Ataturk,Istanbul,Turkey,IST,40.976922,28.814606,163,2,E,Europe/Istanbul
+1960,Nadi Intl,Nandi,Fiji,NAN,-17.755392,177.443378,59,12,U,Pacific/Fiji
+1997,Port Vila Bauerfield,Port-vila,Vanuatu,VLI,-17.699325,168.319794,70,11,U,Pacific/Efate
+2005,La Tontouta,Noumea,New Caledonia,NOU,-22.014553,166.212972,52,11,U,Pacific/Noumea
+2006,Auckland Intl,Auckland,New Zealand,AKL,-37.008056,174.791667,23,12,Z,Pacific/Auckland
+2009,Christchurch Intl,Christchurch,New Zealand,CHC,-43.489358,172.532225,123,12,Z,Pacific/Auckland
+2030,Queenstown,Queenstown International,New Zealand,ZQN,-45.021111,168.739167,1171,12,Z,Pacific/Auckland
+2042,Wellington Intl,Wellington,New Zealand,WLG,-41.327221,174.805278,41,12,Z,Pacific/Auckland
+2057,Bahrain Intl,Bahrain,Bahrain,BAH,26.270834,50.63361,6,3,U,Asia/Bahrain
+2064,King Fahd Intl,Dammam,Saudi Arabia,DMM,26.471161,49.79789,72,3,U,Asia/Riyadh
+2072,King Abdulaziz Intl,Jeddah,Saudi Arabia,JED,21.679564,39.156536,48,3,U,Asia/Riyadh
+2082,King Khaled Intl,Riyadh,Saudi Arabia,RUH,24.95764,46.698776,2049,3,U,Asia/Riyadh
+2170,Queen Alia Intl,Amman,Jordan,AMM,31.722556,35.993214,2395,2,E,Asia/Amman
+2188,Dubai Intl,Dubai,United Arab Emirates,DXB,25.252778,55.364444,62,4,U,Asia/Dubai
+2194,Seeb Intl,Muscat,Oman,MCT,23.593278,58.284444,48,4,U,Asia/Muscat
 2252,Cassidy Intl,Kiritimati,Kiribati,CXI,1.986161,-157.349778,5,-12,U, \N
-2279,Narita Intl,Tokyo,Japan,NRT,35.764722,140.386389,141,9,U," ""Asia/Tokyo"""
-2359,Tokyo Intl,Tokyo,Japan,HND,35.552258,139.779694,35,9,U," ""Asia/Tokyo"""
-2397,Ninoy Aquino Intl,Manila,Philippines,MNL,14.508647,121.019581,75,8,N," ""Asia/Manila"""
-2650,Arturo Merino Benitez Intl,Santiago,Chile,SCL,-33.392975,-70.785803,1555,-4,S," ""America/Santiago"""
-3077,Hong Kong Intl,Hong Kong,Hong Kong,HKG,22.308919,113.914603,28,8,U," ""Asia/Hong_Kong"""
-3174,Krabi,Krabi,Thailand,KBV,8.095969,98.988764,93,7,U," ""Asia/Bangkok"""
-3177,Samui,Ko Samui,Thailand,USM,9.547794,100.062272,64,7,U," ""Asia/Bangkok"""
-3179,Phuket Intl,Phuket,Thailand,HKT,8.1132,98.316872,82,7,U," ""Asia/Bangkok"""
-3205,Tansonnhat Intl,Ho Chi Minh City,Vietnam,SGN,10.818797,106.651856,33,7,U," ""Asia/Saigon"""
-3930,Incheon Intl,Seoul,South Korea,ICN,37.469075,126.450517,23,9,U," ""Asia/Seoul"""
-3275,Soekarno Hatta Intl,Jakarta,Indonesia,CGK,-6.125567,106.655897,34,7,N," ""Asia/Jakarta"""
-3304,Kuala Lumpur Intl,Kuala Lumpur,Malaysia,KUL,2.745578,101.709917,69,8,N," ""Asia/Kuala_Lumpur"""
-3310,Presidente Nicolau Lobato Intl,Dili,East Timor,DIL,-8.546553,125.524719,25,9,U," ""Asia/Dili"""
-3316,Changi Intl,Singapore,Singapore,SIN,1.350189,103.994433,22,8,N," ""Asia/Singapore"""
-3319,Alice Springs,Alice Springs,Australia,ASP,-23.806667,133.902222,1789,9.5,N," ""Australia/Darwin"""
-3320,Brisbane Intl,Brisbane,Australia,BNE,-27.384167,153.1175,13,10,N," ""Australia/Brisbane"""
-3321,Gold Coast,Coolangatta,Australia,OOL,-28.164444,153.504722,21,10,N," ""Australia/Brisbane"""
-3322,Cairns Intl,Cairns,Australia,CNS,-16.885833,145.755278,10,10,N," ""Australia/Brisbane"""
-3323,Charleville,Charlieville,Australia,CTL,-26.413334,146.2625,1003,10,O," ""Australia/Brisbane"""
-3324,Mount Isa,Mount Isa,Australia,ISA,-20.663889,139.488611,1121,10,O," ""Australia/Brisbane"""
-3326,Mackay,Mackay,Australia,MKY,-21.171667,149.179722,19,10,O," ""Australia/Brisbane"""
-3329,Rockhampton,Rockhampton,Australia,ROK,-23.381944,150.475278,34,10,O," ""Australia/Brisbane"""
-3330,Townsville,Townsville,Australia,TSV,-19.2525,146.765278,18,10,N," ""Australia/Brisbane"""
-3331,Weipa,Weipa,Australia,WEI,-12.678611,141.925278,63,10,O," ""Australia/Brisbane"""
-3333,Albury,Albury,Australia,ABX,-36.067778,146.958056,539,10,O," ""Australia/Sydney"""
-3336,Hobart,Hobart,Australia,HBA,-42.836111,147.510278,13,10,O," ""Australia/Melbourne"""
-3337,Launceston,Launceston,Australia,LST,-41.545278,147.214167,562,10,O," ""Australia/Melbourne"""
-3339,Melbourne Intl,Melbourne,Australia,MEL,-37.673333,144.843333,434,10,O," ""Australia/Hobart"""
-3341,Adelaide Intl,Adelaide,Australia,ADL,-34.945,138.530556,20,9.5,O," ""Australia/Adelaide"""
-3345,Karratha,Karratha,Australia,KTA,-20.712222,116.773333,29,8,O," ""Australia/Perth"""
-3346,Kalgoorlie Boulder,Kalgoorlie,Australia,KGI,-30.789444,121.461667,1203,8,O," ""Australia/Perth"""
-3347,Kununurra,Kununurra,Australia,KNX,-15.778056,128.7075,145,8,O," ""Australia/Perth"""
-3348,Learmonth,Learmonth,Australia,LEA,-22.235556,114.088611,19,8,O," ""Australia/Perth"""
-3349,Port Hedland Intl,Port Hedland,Australia,PHE,-20.377778,118.626389,33,8,O," ""Australia/Perth"""
-3351,Perth Intl,Perth,Australia,PER,-31.940278,115.966944,67,8,N," ""Australia/Perth"""
-3355,Canberra,Canberra,Australia,CBR,-35.306944,149.195,1886,10,O," ""Australia/Sydney"""
-3356,Coffs Harbour,Coff's Harbour,Australia,CFS,-30.320556,153.116389,18,10,O," ""Australia/Sydney"""
-3358,Dubbo,Dubbo,Australia,DBO,-32.216667,148.574722,935,10,O," ""Australia/Sydney"""
-3361,Sydney Intl,Sydney,Australia,SYD,-33.946111,151.177222,21,10,O," ""Australia/Sydney"""
-3362,Tamworth,Tamworth,Australia,TMW,-31.083889,150.846667,1334,10,O," ""Australia/Sydney"""
-3363,Wagga Wagga,Wagga Wagga,Australia,WGA,-35.165278,147.466389,724,10,O," ""Australia/Sydney"""
-3364,Capital Intl,Beijing,China,PEK,40.080111,116.584556,116,8,U," ""Asia/Chongqing"""
-3388,Lukou,Nanjing,China,NKG,31.742042,118.862025,49,8,U," ""Asia/Chongqing"""
-3406,Pudong,Shanghai,China,PVG,31.143378,121.805214,13,8,U," ""Asia/Chongqing"""
-3484,Los Angeles Intl,Los Angeles,United States,LAX,33.942536,-118.408075,126,-8,A," ""America/Los_Angeles"""
-3670,Dallas Fort Worth Intl,Dallas-Fort Worth,United States,DFW,32.896828,-97.037997,607,-6,A," ""America/Chicago"""
-3682,Hartsfield Jackson Atlanta Intl,Atlanta,United States,ATL,33.636719,-84.428067,1026,-5,A," ""America/New_York"""
-3728,Honolulu Intl,Honolulu,United States,HNL,21.318681,-157.922428,13,-10,N," ""Pacific/Honolulu"""
-3797,John F Kennedy Intl,New York,United States,JFK,40.639751,-73.778925,13,-5,A," ""America/New_York"""
-3830,Chicago Ohare Intl,Chicago,United States,ORD,41.978603,-87.904842,668,-6,A," ""America/Chicago"""
-3861,Louis Armstrong New Orleans Intl,New Orleans,United States,MSY,29.993389,-90.258028,4,-6,A," ""America/Chicago"""
-3885,Suvarnabhumi Intl,Bangkok,Thailand,BKK,13.681108,100.747283,5,7,U," ""Asia/Bangkok"""
-3928,Juanda,Surabaya,Indonesia,SUB,-7.379831,112.786858,9,7,N," ""Asia/Jakarta"""
-3931,Chiang Mai Intl,Chiang Mai,Thailand,CNX,18.766847,98.962644,1036,7,U," ""Asia/Bangkok"""
-3932,Chiang Rai Intl,Chiang Rai,Thailand,CEI,19.952342,99.882928,1280,7,U," ""Asia/Bangkok"""
-3940,Bali Ngurah Rai,Denpasar,Indonesia,DPS,-8.748169,115.167172,14,8,N," ""Asia/Makassar"""
-3990,Emerald,Emerald,Australia,EMD,-23.5675,148.179167,624,10,O," ""Australia/Brisbane"""
-3992,Kansai,Osaka,Japan,KIX,34.4347222,135.244167,49,9,U," ""Asia/Tokyo"""
-3999,Darwin Intl,Darwin,Australia,DRW,-12.4083333,130.87266,103,9.5,N," ""Australia/Darwin"""
-4010,Ayers Rock,Uluru,Australia,AYQ,-25.186111,130.975556,1626,9.5,N," ""Australia/Darwin"""
-4052,Hervey Bay Airport,Hervey Bay,Australia,HVB,-25.318889,152.880278,60,10,O," ""Australia/Brisbane"""
-4059,Jomo Kenyatta International,Nairobi,Kenya,NBO,-1.319167,36.9275,5327,3,N," ""Africa/Nairobi"""
-4062,Armidale,Armidale,Australia,ARM,-30.528056,151.617222,3556,10,O," ""Australia/Sydney"""
-4075,Faa\\'a International,Papeete,French Polynesia,PPT,-17.556667,-149.611389,7,-10,U," ""Pacific/Tahiti"""
-4217,Blackall,Blackall,Australia,BKQ,-24.427778,145.428611,928,10,O," ""Australia/Brisbane"""
-4218,Bundaberg,Bundaberg,Australia,BDB,-24.903889,152.318611,107,10,O," ""Australia/Brisbane"""
-4319,Broome,Broome,Australia,BME,-17.8,122.2,56,8,O," ""Australia/Perth"""
-4320,Newcastle Airport,Newcastle,Australia,NTL,-32.78,151.83,31,10,O," ""Australia/Sydney"""
-5908,Santo Pekoa International Airport,Santo,Vanuatu,SON,-15.505033,167.219742,184,11,U," ""Pacific/Efate"""
-6238,Barcaldine Airport,Barcaldine,Australia,BCI,-23.5653,145.307,878,10,O," ""Australia/Brisbane"""
-6242,Hamilton Island Airport,Hamilton Island,Australia,HTI,-20.3581,148.952,15,10,O," ""Australia/Brisbane"""
-6255,Cloncurry Airport,Cloncurry,Australia,CNJ,-20.6686,140.504,616,10,O," ""Australia/Brisbane"""
-6264,Devonport Airport,Devonport,Australia,DPO,-41.1697,146.43,33,10,O," ""Australia/Melbourne"""
-6268,Geraldton Airport,Geraldton,Australia,GET,-28.7961,114.707,121,8,O," ""Australia/Perth"""
-6269,Gladstone Airport,Gladstone,Australia,GLT,-23.8697,151.223,64,10,O," ""Australia/Brisbane"""
-6272,Horn Island Airport,Horn Island,Australia,HID,-10.5864,142.29,43,10,O," ""Australia/Brisbane"""
+2279,Narita Intl,Tokyo,Japan,NRT,35.764722,140.386389,141,9,U,Asia/Tokyo
+2359,Tokyo Intl,Tokyo,Japan,HND,35.552258,139.779694,35,9,U,Asia/Tokyo
+2397,Ninoy Aquino Intl,Manila,Philippines,MNL,14.508647,121.019581,75,8,N,Asia/Manila
+2650,Arturo Merino Benitez Intl,Santiago,Chile,SCL,-33.392975,-70.785803,1555,-4,S,America/Santiago
+3077,Hong Kong Intl,Hong Kong,Hong Kong,HKG,22.308919,113.914603,28,8,U,Asia/Hong_Kong
+3174,Krabi,Krabi,Thailand,KBV,8.095969,98.988764,93,7,U,Asia/Bangkok
+3177,Samui,Ko Samui,Thailand,USM,9.547794,100.062272,64,7,U,Asia/Bangkok
+3179,Phuket Intl,Phuket,Thailand,HKT,8.1132,98.316872,82,7,U,Asia/Bangkok
+3205,Tansonnhat Intl,Ho Chi Minh City,Vietnam,SGN,10.818797,106.651856,33,7,U,Asia/Saigon
+3930,Incheon Intl,Seoul,South Korea,ICN,37.469075,126.450517,23,9,U,Asia/Seoul
+3275,Soekarno Hatta Intl,Jakarta,Indonesia,CGK,-6.125567,106.655897,34,7,N,Asia/Jakarta
+3304,Kuala Lumpur Intl,Kuala Lumpur,Malaysia,KUL,2.745578,101.709917,69,8,N,Asia/Kuala_Lumpur
+3310,Presidente Nicolau Lobato Intl,Dili,East Timor,DIL,-8.546553,125.524719,25,9,U,Asia/Dili
+3316,Changi Intl,Singapore,Singapore,SIN,1.350189,103.994433,22,8,N,Asia/Singapore
+3319,Alice Springs,Alice Springs,Australia,ASP,-23.806667,133.902222,1789,9.5,N,Australia/Darwin
+3320,Brisbane Intl,Brisbane,Australia,BNE,-27.384167,153.1175,13,10,N,Australia/Brisbane
+3321,Gold Coast,Coolangatta,Australia,OOL,-28.164444,153.504722,21,10,N,Australia/Brisbane
+3322,Cairns Intl,Cairns,Australia,CNS,-16.885833,145.755278,10,10,N,Australia/Brisbane
+3323,Charleville,Charlieville,Australia,CTL,-26.413334,146.2625,1003,10,O,Australia/Brisbane
+3324,Mount Isa,Mount Isa,Australia,ISA,-20.663889,139.488611,1121,10,O,Australia/Brisbane
+3326,Mackay,Mackay,Australia,MKY,-21.171667,149.179722,19,10,O,Australia/Brisbane
+3329,Rockhampton,Rockhampton,Australia,ROK,-23.381944,150.475278,34,10,O,Australia/Brisbane
+3330,Townsville,Townsville,Australia,TSV,-19.2525,146.765278,18,10,N,Australia/Brisbane
+3331,Weipa,Weipa,Australia,WEI,-12.678611,141.925278,63,10,O,Australia/Brisbane
+3333,Albury,Albury,Australia,ABX,-36.067778,146.958056,539,10,O,Australia/Sydney
+3336,Hobart,Hobart,Australia,HBA,-42.836111,147.510278,13,10,O,Australia/Melbourne
+3337,Launceston,Launceston,Australia,LST,-41.545278,147.214167,562,10,O,Australia/Melbourne
+3339,Melbourne Intl,Melbourne,Australia,MEL,-37.673333,144.843333,434,10,O,Australia/Hobart
+3341,Adelaide Intl,Adelaide,Australia,ADL,-34.945,138.530556,20,9.5,O,Australia/Adelaide
+3345,Karratha,Karratha,Australia,KTA,-20.712222,116.773333,29,8,O,Australia/Perth
+3346,Kalgoorlie Boulder,Kalgoorlie,Australia,KGI,-30.789444,121.461667,1203,8,O,Australia/Perth
+3347,Kununurra,Kununurra,Australia,KNX,-15.778056,128.7075,145,8,O,Australia/Perth
+3348,Learmonth,Learmonth,Australia,LEA,-22.235556,114.088611,19,8,O,Australia/Perth
+3349,Port Hedland Intl,Port Hedland,Australia,PHE,-20.377778,118.626389,33,8,O,Australia/Perth
+3351,Perth Intl,Perth,Australia,PER,-31.940278,115.966944,67,8,N,Australia/Perth
+3355,Canberra,Canberra,Australia,CBR,-35.306944,149.195,1886,10,O,Australia/Sydney
+3356,Coffs Harbour,Coff's Harbour,Australia,CFS,-30.320556,153.116389,18,10,O,Australia/Sydney
+3358,Dubbo,Dubbo,Australia,DBO,-32.216667,148.574722,935,10,O,Australia/Sydney
+3361,Sydney Intl,Sydney,Australia,SYD,-33.946111,151.177222,21,10,O,Australia/Sydney
+3362,Tamworth,Tamworth,Australia,TMW,-31.083889,150.846667,1334,10,O,Australia/Sydney
+3363,Wagga Wagga,Wagga Wagga,Australia,WGA,-35.165278,147.466389,724,10,O,Australia/Sydney
+3364,Capital Intl,Beijing,China,PEK,40.080111,116.584556,116,8,U,Asia/Chongqing
+3388,Lukou,Nanjing,China,NKG,31.742042,118.862025,49,8,U,Asia/Chongqing
+3406,Pudong,Shanghai,China,PVG,31.143378,121.805214,13,8,U,Asia/Chongqing
+3484,Los Angeles Intl,Los Angeles,United States,LAX,33.942536,-118.408075,126,-8,A,America/Los_Angeles
+3670,Dallas Fort Worth Intl,Dallas-Fort Worth,United States,DFW,32.896828,-97.037997,607,-6,A,America/Chicago
+3682,Hartsfield Jackson Atlanta Intl,Atlanta,United States,ATL,33.636719,-84.428067,1026,-5,A,America/New_York
+3728,Honolulu Intl,Honolulu,United States,HNL,21.318681,-157.922428,13,-10,N,Pacific/Honolulu
+3797,John F Kennedy Intl,New York,United States,JFK,40.639751,-73.778925,13,-5,A,America/New_York
+3830,Chicago Ohare Intl,Chicago,United States,ORD,41.978603,-87.904842,668,-6,A,America/Chicago
+3861,Louis Armstrong New Orleans Intl,New Orleans,United States,MSY,29.993389,-90.258028,4,-6,A,America/Chicago
+3885,Suvarnabhumi Intl,Bangkok,Thailand,BKK,13.681108,100.747283,5,7,U,Asia/Bangkok
+3928,Juanda,Surabaya,Indonesia,SUB,-7.379831,112.786858,9,7,N,Asia/Jakarta
+3931,Chiang Mai Intl,Chiang Mai,Thailand,CNX,18.766847,98.962644,1036,7,U,Asia/Bangkok
+3932,Chiang Rai Intl,Chiang Rai,Thailand,CEI,19.952342,99.882928,1280,7,U,Asia/Bangkok
+3940,Bali Ngurah Rai,Denpasar,Indonesia,DPS,-8.748169,115.167172,14,8,N,Asia/Makassar
+3990,Emerald,Emerald,Australia,EMD,-23.5675,148.179167,624,10,O,Australia/Brisbane
+3992,Kansai,Osaka,Japan,KIX,34.4347222,135.244167,49,9,U,Asia/Tokyo
+3999,Darwin Intl,Darwin,Australia,DRW,-12.4083333,130.87266,103,9.5,N,Australia/Darwin
+4010,Ayers Rock,Uluru,Australia,AYQ,-25.186111,130.975556,1626,9.5,N,Australia/Darwin
+4052,Hervey Bay Airport,Hervey Bay,Australia,HVB,-25.318889,152.880278,60,10,O,Australia/Brisbane
+4059,Jomo Kenyatta International,Nairobi,Kenya,NBO,-1.319167,36.9275,5327,3,N,Africa/Nairobi
+4062,Armidale,Armidale,Australia,ARM,-30.528056,151.617222,3556,10,O,Australia/Sydney
+4075,Faa\\'a International,Papeete,French Polynesia,PPT,-17.556667,-149.611389,7,-10,U,Pacific/Tahiti
+4217,Blackall,Blackall,Australia,BKQ,-24.427778,145.428611,928,10,O,Australia/Brisbane
+4218,Bundaberg,Bundaberg,Australia,BDB,-24.903889,152.318611,107,10,O,Australia/Brisbane
+4319,Broome,Broome,Australia,BME,-17.8,122.2,56,8,O,Australia/Perth
+4320,Newcastle Airport,Newcastle,Australia,NTL,-32.78,151.83,31,10,O,Australia/Sydney
+5908,Santo Pekoa International Airport,Santo,Vanuatu,SON,-15.505033,167.219742,184,11,U,Pacific/Efate
+6238,Barcaldine Airport,Barcaldine,Australia,BCI,-23.5653,145.307,878,10,O,Australia/Brisbane
+6242,Hamilton Island Airport,Hamilton Island,Australia,HTI,-20.3581,148.952,15,10,O,Australia/Brisbane
+6255,Cloncurry Airport,Cloncurry,Australia,CNJ,-20.6686,140.504,616,10,O,Australia/Brisbane
+6264,Devonport Airport,Devonport,Australia,DPO,-41.1697,146.43,33,10,O,Australia/Melbourne
+6268,Geraldton Airport,Geraldton,Australia,GET,-28.7961,114.707,121,8,O,Australia/Perth
+6269,Gladstone Airport,Gladstone,Australia,GLT,-23.8697,151.223,64,10,O,Australia/Brisbane
+6272,Horn Island Airport,Horn Island,Australia,HID,-10.5864,142.29,43,10,O,Australia/Brisbane
 6285,Lord Howe Island Airport,Lord Howe Island,Australia,LDH,-31.5383,159.077,5,10.5,O, \N
-6289,Longreach Airport,Longreach,Australia,LRE,-23.4342,144.28,627,10,O," ""Australia/Brisbane"""
-6298,Mildura Airport,Mildura,Australia,MQL,-34.2292,142.086,167,10,O," ""Australia/Hobart"""
-6300,Moree Airport,Moree,Australia,MRZ,-29.4989,149.845,701,10,O," ""Australia/Sydney"""
-6301,Moranbah Airport,Moranbah,Australia,MOV,-22.0578,148.077,770,10,O," ""Australia/Brisbane"""
-6310,Newman Airport,Newman,Australia,ZNE,-23.4178,119.803,1724,8,O," ""Australia/Perth"""
-6311,Olympic Dam Airport,Olympic Dam,Australia,OLP,-30.485,136.877,343,9.5,O," ""Australia/Adelaide"""
-6314,Paraburdoo Airport,Paraburdoo,Australia,PBO,-23.1711,117.745,1406,8,O," ""Australia/Perth"""
-6316,Gove Airport,Gove,Australia,GOV,-12.2694,136.818,192,9.5,O," ""Australia/Darwin"""
-6318,Port Lincoln Airport,Port Lincoln,Australia,PLO,-34.6053,135.88,36,9.5,O," ""Australia/Adelaide"""
-6320,Port Macquarie Airport,Port Macquarie,Australia,PQQ,-31.4358,152.863,12,10,O," ""Australia/Sydney"""
-6324,Roma Airport,Roma,Australia,RMA,-26.545,148.775,1032,10,O," ""Australia/Brisbane"""
+6289,Longreach Airport,Longreach,Australia,LRE,-23.4342,144.28,627,10,O,Australia/Brisbane
+6298,Mildura Airport,Mildura,Australia,MQL,-34.2292,142.086,167,10,O,Australia/Hobart
+6300,Moree Airport,Moree,Australia,MRZ,-29.4989,149.845,701,10,O,Australia/Sydney
+6301,Moranbah Airport,Moranbah,Australia,MOV,-22.0578,148.077,770,10,O,Australia/Brisbane
+6310,Newman Airport,Newman,Australia,ZNE,-23.4178,119.803,1724,8,O,Australia/Perth
+6311,Olympic Dam Airport,Olympic Dam,Australia,OLP,-30.485,136.877,343,9.5,O,Australia/Adelaide
+6314,Paraburdoo Airport,Paraburdoo,Australia,PBO,-23.1711,117.745,1406,8,O,Australia/Perth
+6316,Gove Airport,Gove,Australia,GOV,-12.2694,136.818,192,9.5,O,Australia/Darwin
+6318,Port Lincoln Airport,Port Lincoln,Australia,PLO,-34.6053,135.88,36,9.5,O,Australia/Adelaide
+6320,Port Macquarie Airport,Port Macquarie,Australia,PQQ,-31.4358,152.863,12,10,O,Australia/Sydney
+6324,Roma Airport,Roma,Australia,RMA,-26.545,148.775,1032,10,O,Australia/Brisbane

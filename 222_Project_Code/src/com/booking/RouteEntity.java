@@ -7,6 +7,7 @@ import java.util.*;
 
 public class RouteEntity{
 	
+	// routeNumber + origin_code + destination_code + codeShare + stops  --- in the routes.csv
 	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "routes.csv";
 	private BufferedReader reader;
 	
@@ -122,11 +123,83 @@ public class RouteEntity{
 	}
 	
 	public void editRoute(Route route){
+		int routeNumber = route.getRouteNumber();
+		String origin_code = route.getOriginCode();
+		String destination_code = route.getDestinationCode();
+		char codeShare = route.getCodeShare();
+		int stops = route.getStops();
 		
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
+		
+		// routeNumber + origin_code + destination_code + codeShare + stops  --- in the routes.csv
+		try{
+			reader = new BufferedReader(new FileReader(filepath));
+			while(!found && ((oneLine = reader.readLine()) != null)){
+				String [] words = oneLine.split(",");
+				int tmp_route_number = Integer.parseInt(words[0]);
+				if(tmp_route_number == routeNumber){
+					updatedLine += routeNumber;		
+					updatedLine += ",";
+					updatedLine += origin_code;		
+					updatedLine += ",";
+					updatedLine += destination_code;		
+					updatedLine += ",";
+					updatedLine += codeShare;		
+					updatedLine += ",";
+					updatedLine += stops;		
+
+					data += updatedLine + "\n";
+				}else{
+					data += oneLine + "\n";
+				}
+			}	
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
+			writer.print(data);
+            writer.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	public void deleteRoute(String origin_code,String destination_code){
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
 		
+		// routeNumber + origin_code + destination_code + codeShare + stops  --- in the routes.csv
+		try{
+			reader = new BufferedReader(new FileReader(filepath));
+			while(!found && ((oneLine = reader.readLine()) != null)){
+				String [] words = oneLine.split(",");
+				if(origin_code.equals(words[1]) && destination_code.equals(words[2])){
+					//If find the line to be deleted, do not add it to the data;
+					//Which means nothing to do in this block;
+				}else{
+					data += oneLine + "\n";		//Add the remaining to data;
+				}
+			}	
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
+			writer.print(data);
+            writer.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 }

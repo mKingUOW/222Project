@@ -229,6 +229,8 @@ public class BookingEntity {
 					updatedLine += ",";
 					updatedLine +=  "Cancelled"; //flight_id;
 					data += updatedLine + "\n";
+				}else{
+					data += oneLine + "\n";
 				}
             }
 		     reader.close();
