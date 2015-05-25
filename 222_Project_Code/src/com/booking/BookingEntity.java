@@ -187,7 +187,27 @@ public class BookingEntity {
 	}
 	
 	public List<Ticket> getTickets(int booking_id){
-		return null;
+		//ticketID + userName + personID + bookingID + seatNumber -- in the tickets.csv
+		String oneLine = "";
+		List<Ticket> myTickets = new ArrayList<Ticket>();
+		
+		try{
+			reader = new BufferedReader(new FileReader(ticketsFile));			
+			while(((oneLine = reader.readLine()) != null)){
+                String[] words = oneLine.split(",");
+				int bk_id = Integer.parseInt(words[3]);
+				if(bk_id == booking_id){
+					int ticket_id = Integer.parseInt(words[0]);
+					int person_id = Integer.parseInt(words[2]);
+					Ticket tmpTicket = new Ticket(ticket_id,words[1],person_id,booking_id,words[4]);
+					myTickets.add(tmpTicket);
+				}
+            }			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return myTickets;
 	}
 	
 	public void cancelBooking(int booking_id){

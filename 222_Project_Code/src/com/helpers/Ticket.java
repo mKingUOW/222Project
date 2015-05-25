@@ -40,6 +40,14 @@ public class Ticket {
 		price = prc;
 	}
 
+	public Ticket(int tid, String un, int pid, int bid, String sn){
+		bookingId = bid;
+		ticketId = tid;
+		username = un;
+		personId = pid;
+		seatNumber = sn;
+	}
+	
 	public int getBookingId() {
 		return bookingId;
 	}
