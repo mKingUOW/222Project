@@ -68,11 +68,57 @@ public class RouteEntity{
 	}
 	
 	public Route getRoute(String origin, String destination){
-		return null;
+		Route route = null;
+		String oneLine = "";
+		boolean found = false;
+		
+		try{
+			reader = new BufferedReader(new FileReader(filepath));
+			while(!found && ((oneLine = reader.readLine()) != null)){
+				String [] words = oneLine.split(",");
+				
+				if(origin.equals(words[1]) && destination.equals(words[2])){
+					route = new Route();
+					
+					int routeNumber = Integer.parseInt(words[0]);
+					char codeShare = '';
+					if("Y".equals(words[3])){
+						codeShare = 'Y';
+					}
+					int stops = Integer.parseInt(words[4]);
+					
+					route.setRouteNumber(routeNumber);
+					route.setOriginCode(words[1]);
+					route.setDestinationCode(words[2]);
+					route.setCodeShare(codeShare);
+					route.setStops(stops);
+					
+					found = true;
+				}
+			}	
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return route;
 	}
 	
 	public void addRoute(Route route){
+		int routeNumber = route.getRouteNumber();
+		String origin_code = route.getOriginCode();
+		String destination_code = route.getDestinationCode();
+		char codeShare = route.getCodeShare();
+		int stops = route.getStops();
 		
+		try{
+			writer = new PrintWriter(new FileOutputStream(new File(filepath),true));		//To append to the file using "true";
+			writer.println(routeNumber + "," + origin_code + "," + destination_code + "," + codeShare + "," + stops);					   
+			writer.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	public void editRoute(Route route){
