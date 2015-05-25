@@ -347,7 +347,8 @@ public class ProfileEntity {
 	 * basic details of this user
 	 */
 	public Person getAccountDetails(String username){
-		String oneLine;
+		String oneLine = "";
+		
 		String title;
 		String firstName;
 		String lastName;
@@ -387,9 +388,9 @@ public class ProfileEntity {
 					country = words[11];
 					creditCardType = words[12];
 					creditCardNumber = words[13];
-//					frequentFlierPoints = Integer.parseInt(word[14]);
+//					frequentFlierPoints = Integer.parseInt(words[14]);
 					hasPassport = words[15];
-//					watchOrNoFly = word[16];
+//					watchOrNoFly = words[16];
 					
 					found = true;
 					person = new Person(title,firstName,lastName,gender,DOB,phoneNumber,email,street,
@@ -405,15 +406,151 @@ public class ProfileEntity {
 		return person;
 	}
 	
-	public void setAccountDetails(Person account){
+	public void setAccountDetails(Person account){		
+		String title = account.getTitle();
+		String firstName = account.getFirstName();
+		String lastName = account.getLastName();
+		String gender = account.getGender();
+		String DOB = account.getDOB();
+		String phoneNumber = account.getPhoneNumber();
+		String email = account.getEmail();
+		String street = account.getStreet();
+		String state = account.getState();
+		String city = account.getCity();
+		String country = account.getCountry();
+		String creditCardType = account.getCreditCardType();
+		String creditCardNumber = account.getCreditCardNumber();
+		String hasPassport = account.hasPassport();
+		
+		boolean found = false;
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
+		
+		try{
+			reader = new BufferedReader(new FileReader(detailsFile));
+			while(!found && ((oneLine = reader.readLine()) != null)){
+                String[] words = oneLine.split(",");
+				
+				//If the first name , last name and DOB are all matched, then it is the person to be modified;
+				if(firstName.equals(words[2]) && lastName.equals(words[3]) && DOB.equals(words[5]) ){
+					updatedLine +=  words[0];
+					updatedLine += ",";
+					updatedLine +=  title;
+					updatedLine += ",";
+					updatedLine +=  firstName;
+					updatedLine += ",";
+					updatedLine +=  lastName;
+					updatedLine += ",";
+					updatedLine +=  gender;
+					updatedLine += ",";
+					updatedLine +=  DOB;
+					updatedLine += ",";
+					updatedLine +=  phoneNumber;
+					updatedLine += ",";
+					updatedLine +=  email;
+					updatedLine += ",";
+					updatedLine +=  street;
+					updatedLine += ",";
+					updatedLine +=  state;
+					updatedLine += ",";
+					updatedLine +=  city;
+					updatedLine += ",";
+					updatedLine +=  country;
+					updatedLine += ",";
+					updatedLine +=  creditCardType;
+					updatedLine += ",";
+					updatedLine +=  creditCardNumber;
+					updatedLine += ",";
+					updatedLine +=  words[14];
+					updatedLine += ",";
+					updatedLine +=  hasPassport;
+					updatedLine += ",";
+					updatedLine += words[16];
+	
+					data += updatedLine + "\n";
+				}else{
+					data += oneLine + "\n";
+				}	
+            }
+			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			usrfile = new File(detailsFile);
+			usrWriter = new PrintWriter(new FileOutputStream(usrfile));	
+			usrWriter.print(data);
+            usrWriter.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 		
 	}
 	
-	public String canUserFly(String username){
-		return "";
+	public String canUserFly(String username){		
+		boolean found = false;
+		String watchOrNoFly = "";
+		
+		try{
+			reader = new BufferedReader(new FileReader(detailsFile));
+			while(!found && ((oneLine = reader.readLine()) != null)){
+                String[] words = oneLine.split(",");
+				
+				if(username.equals(words[0])){
+					watchOrNoFly = words[16];					
+					found = true;
+				}
+				
+            }
+			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+		return watchOrNoFly;
 	}
 	
 	public void editWatchAndNoFlyList(String username, String status){
+		boolean found = false;
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
 		
+		try{
+			reader = new BufferedReader(new FileReader(detailsFile));
+			while(!found && ((oneLine = reader.readLine()) != null)){
+                String[] words = oneLine.split(",");
+				
+				//If the first name , last name and DOB are all matched, then it is the person to be modified;
+				if(username.equals(words[0])){
+					for(int i=0;i<16;i++){
+						updatedLine +=  words[i];
+						updatedLine += ",";
+					}
+					updatedLine += status;			//Update the status;
+	
+					data += updatedLine + "\n";
+				}else{
+					data += oneLine + "\n";
+				}	
+            }
+			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			usrfile = new File(detailsFile);
+			usrWriter = new PrintWriter(new FileOutputStream(usrfile));	
+			usrWriter.print(data);
+            usrWriter.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }
