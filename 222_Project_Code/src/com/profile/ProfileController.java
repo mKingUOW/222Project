@@ -7,6 +7,7 @@ package com.profile;
 
 import com.helpers.Customer;
 import com.helpers.Person;
+import com.helpers.Staff;
 import java.io.Console;
 import java.util.Arrays;
 import java.util.InputMismatchException;
@@ -46,6 +47,15 @@ public class ProfileController {
 	}
 	
 	/**
+	 * Charges the price to the user's account.
+	 * @param username The username to charge the price to.
+	 * @param price The price charged to the user's account
+	 */
+	public void chargeAccount(String username, double price){
+		pe.chargeAccount(username, price);
+	}
+	
+	/**
 	 * An interface method that allows users to enter a single username with validation.
 	 * @return The chosen username.
 	 */
@@ -54,7 +64,7 @@ public class ProfileController {
 		boolean isUsernameOkay;
 		
 		do {
-			System.out.print("Please enter the username of an existing customer: ");
+			System.out.print("Please enter username: ");
 			customer_username[0] = in.nextLine();
 
 			isUsernameOkay = pe.checkUsernames(customer_username);
@@ -323,5 +333,138 @@ public class ProfileController {
 		} while (!isOkay);
 		
 		pe.editWatchAndNoFlyList(username, status_constants[choice - 1][1]);
+	}
+	
+	/**
+	 * Allows the System Administrator to create a new staff profile.
+	 */
+	public void createStaffProfile(){
+		Staff new_staff = new Staff();
+		boolean isOkay;
+		
+		do {
+			//enter username
+			System.out.print("Please enter the username: ");
+			new_staff.setUsername(in.nextLine());
+
+			//enter password
+			System.out.print("Enter a password: ");
+			new_staff.setPassword(console.readPassword());
+
+			//enter role
+			new_staff.setRole(enterRole());
+
+			isOkay = pe.createStaffProfile(new_staff);
+			
+			if (!isOkay) {
+				System.out.println("The username \"" + new_staff.getUsername() + "\" already exists. Please try again!\n");
+			}
+		} while (!isOkay);
+		
+		System.out.println("New staff profile under username \"" + new_staff.getUsername() + "\" has been saved.\n");
+	}
+	
+	/**
+	 * Allows the System Administrator to edit a staff profile.
+	 */
+	public void editStaffProfile(){
+		Staff staff = pe.getStaff(enterUsername());
+		int choice = 0;
+		boolean isOkay;
+		
+		System.out.println("Editing profile of " + staff.getUsername());
+		System.out.println("1. Change password");
+		System.out.println("2. Change role");
+		
+		do {
+			isOkay = true;
+			
+			System.out.print("Enter your choice: ");
+			
+			try {
+				choice = in.nextInt();
+				
+				if (choice < 1 || choice > 2) {
+					isOkay = false;
+					System.out.println("The selected option doesn't exist. Please try again!\n");
+				}
+			} catch (InputMismatchException e) {
+				isOkay = false;
+				System.out.println("Invalid input detected. Please try again!\n");
+			}
+		} while (!isOkay);
+		
+		switch(choice){
+			case 1:
+				//enter password
+				System.out.print("Enter the new password: ");
+				staff.setPassword(console.readPassword());
+				break;
+			case 2:
+				//enter role
+				staff.setRole(enterRole());
+				break;
+		}
+		
+		pe.editStaffProfile(staff);
+		
+		System.out.println("Staff profile under username \"" + staff.getUsername() + "\" has been saved.\n");
+	}
+	
+	/**
+	 * UI method to allow the user to enter a role.
+	 * @return Returns the chosen role.
+	 */
+	private String enterRole(){
+		int choice = 0;
+		boolean isOkay;
+		String role = "";
+		
+		String[] roles = {"Normal Staff", "Flight Manager", "Profile System Manager",
+				"Service System Manager", "Reservation System Manager", "Reporting System Manager"};
+		
+		for (int i = 0; i < roles.length; i++) {
+			System.out.println((i + 1) + ". " + roles[i]);
+		}
+		do {
+			isOkay = true;
+			
+			System.out.print("Please choose a role for this profile: ");
+
+			try {
+				choice = in.nextInt();
+				
+				if (choice < 1 || choice > roles.length) {
+					isOkay = false;
+					System.out.println("The selected option does not exist. Please try again!\n");
+				}
+			} catch (InputMismatchException e) {
+				isOkay = false;
+				System.out.println("Invalid input detected. Please try again!\n");
+			}
+		} while (!isOkay);
+		
+		switch(choice){
+			case 1:
+				role = "NOR";
+				break;
+			case 2:
+				role = "FM";
+				break;
+			case 3:
+				role = "PSM";
+				break;
+			case 4:
+				role = "SSM";
+				break;
+			case 5:
+				role = "RSVM";
+				break;
+			case 6:
+				role = "RPSM";
+				break;
+		}
+		
+		return role;
 	}
 }

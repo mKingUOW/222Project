@@ -17,15 +17,39 @@ import java.util.Scanner;
  * @author Michael Y.M. Kong
  */
 public class FlightController {
+	/**
+	 * FlightController requires the RouteController class to query route
+	 * data.
+	 */
 	private RouteController rc = new RouteController();
+	
+	/**
+	 * FlightController requires the FleetController class to query plane
+	 * data.
+	 */
 	private FleetController ftc = new FleetController();
+	
+	/**
+	 * AirportController requires the FlightEntity class to write/read data
+	 * to the database.
+	 */
 	private FlightEntity fe = new FlightEntity();
+	
+	/**
+	 * Scanner allows class to use the basic input from the console.
+	 */
 	private Scanner in = new Scanner(System.in);
 	
+	/**
+	 * Default constructor.
+	 */
 	public FlightController(){
-		
 	}
 	
+	/**
+	 * Provides an interface for the Flight Manager to choose whether to
+	 * add, edit or delete flights.
+	 */
 	public void editFlightsOption(){
 		boolean isOkay;
 		int choice = 0;
@@ -69,6 +93,10 @@ public class FlightController {
 		}
 	}
 	
+	/**
+	 * Method called by the editFlightsOption() method when the Flight Manager
+	 * chooses to add a flight.
+	 */
 	private void addFlight() {
 		Flight flight = new Flight();
 		
@@ -85,6 +113,10 @@ public class FlightController {
 		System.out.println("Flight " + flight.getFlightID() + " has been saved.\n");
 	}
 	
+	/**
+	 * Method called by the editFlightsOption() method when the Flight Manager
+	 * chooses to edit a flight.
+	 */
 	private void editFlight() {
 		boolean isOkay;
 		int option = 0;
@@ -138,6 +170,10 @@ public class FlightController {
 		System.out.println("Flight " + flight.getFlightID() + " has been edited.\n");
 	}
 
+	/**
+	 * Method called by the editFlightsOption() method when the Flight Manager
+	 * chooses to delete a flight.
+	 */
 	private void deleteFlight() {
 		String flightId = enterFlightId(false);
 		
@@ -146,6 +182,13 @@ public class FlightController {
 		System.out.println("Flight " + flightId + " has been deleted.\n");
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter a flight ID. 
+	 * This method also checks whether the name of the flight ID is valid.
+	 * @param check_exists True if this method should check if this flight ID exists in the database.
+	 * False otherwise.
+	 * @return A String which is the entered flight ID. 
+	 */
 	public String enterFlightId(boolean check_exists){
 		boolean isOkay;
 		String flightId = "";
@@ -173,6 +216,11 @@ public class FlightController {
 		return flightId;
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter a Plane. 
+	 * This method also checks whether the plane model is valid.
+	 * @return The Plane object that is associated with the given plane model.
+	 */
 	private Plane enterPlane(){
 		boolean isOkay;
 		Plane plane;
@@ -196,26 +244,50 @@ public class FlightController {
 		return plane;
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter a departure time. 
+	 * @return The entered departure time.
+	 */
 	private String enterDepartureTime(){
 		System.out.print("Please enter the departure time (Eg: Fri May 01 12:00:00 EST 2015): ");
 		return in.nextLine();
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter a arrival time. 
+	 * @return The entered arrival time.
+	 */
 	private String enterArrivalTime(){
 		System.out.print("Please enter the arrival time (Eg: Fri May 01 12:00:00 EST 2015): ");
 		return in.nextLine();
 	}
 	
+	/**
+	 * Checks whether the flight exists.
+	 * @param flight_id The flight ID to check.
+	 * @return True if the flight exists, false otherwise.
+	 */
 	private boolean doesFlightExist(String flight_id){
 		return (fe.getFlight(flight_id) != null);
 	}
 	
+	/**
+	 * Gets the flight based on the given flight ID.
+	 * @param flight_id The flight ID to get the Flight of.
+	 * @return 
+	 */
 	public Flight getFlight(String flight_id){
 		return fe.getFlight(flight_id);
 	}
 	
-	public List<Flight> getFlights(String origin, String destination){
-		int route_number = rc.getRoute(origin, destination);
+	/**
+	 * Gets a List of Flight objects based on the given origin and destination.
+	 * @param origin_airport The airport of origin.
+	 * @param destination_airport The airport of destination.
+	 * @return A List of Flight objects that match the origin and destination airports.
+	 */
+	public List<Flight> getFlights(String origin_airport, String destination_airport){
+		int route_number = rc.getRoute(origin_airport, destination_airport);
 		
 		List<Flight> flights = null;
 		
@@ -226,22 +298,48 @@ public class FlightController {
 		return flights;
 	}
 	
+	/**
+	 * Updates the available seats of a particular flight.
+	 * @param flight_id The flight ID of the flight to update the seats of.
+	 * @param available_seats The current available seats for the flight.
+	 */
 	public void updateAvailableSeats(String flight_id, int[] available_seats){
 		fe.updateAvailableSeats(flight_id, available_seats);
 	}
 	
-	public boolean isInternationalFlight(String origin, String destination){
-		return rc.isInternationalRoute(origin, destination);
+	/**
+	 * Checks if the flight with the origin airport and destination airport.
+	 * @param origin_airport The origin airport.
+	 * @param destination_airport The destination airport.
+	 * @return True if both the origin and destination airport are not in the same country.
+	 * False otherwise.
+	 */
+	public boolean isInternationalFlight(String origin_airport, String destination_airport){
+		return rc.isInternationalRoute(origin_airport, destination_airport);
 	}
 	
-	public AbstractMap.SimpleImmutableEntry<String, String> getRouteLocations(int routeNumber){
+	/**
+	 * Gets the route cities for a given route number.
+	 * @param routeNumber The route number to get the route cities of.
+	 * @return A pair of Strings that are the names of the cities that this route covers.
+	 */
+	public AbstractMap.SimpleImmutableEntry<String, String> getRouteCities(int routeNumber){
 		return rc.getRouteLocations(routeNumber);
 	}
 	
+	/**
+	 * Gets the seat prices for a certain flight.
+	 * @param flight_id The flight ID to the seat prices of.
+	 * @return A double array of seat prices for the given flight.
+	 */
 	public double[] getSeatPrices(String flight_id){
 		return fe.getSeatPrices(flight_id);
 	}
 	
+	/**
+	 * Sets the seat prices for the given flight.
+	 * @param flight_id The flight ID to set the seat prices of.
+	 */
 	public void setSeatPrices(String flight_id){
 		if (flight_id == null) {
 			flight_id = enterFlightId(false);
@@ -255,6 +353,12 @@ public class FlightController {
 		fe.setSeatPrice(flight_id, prices);
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter the flight price. 
+	 * Includes validation.
+	 * @param class_type The class type to enter the price for.
+	 * @return The price that was entered.
+	 */
 	private double enterPrice(int class_type){
 		boolean isOkay;
 		double price = 0.0;

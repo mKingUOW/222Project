@@ -15,13 +15,27 @@ import java.util.Scanner;
  */
 public class FleetController {
 	
+	/**
+	 * FleetController requires the FleetEntity class to write/read data
+	 * to the database.
+	 */
 	private FleetEntity fe = new FleetEntity();
+	
+	/**
+	 * Scanner object to use the standard in from the console.
+	 */
 	private Scanner in = new Scanner(System.in);
 	
-	public FleetController(){
-		
+	/**
+	 * Default constructor.
+	 */
+	public FleetController(){	
 	}
 	
+	/**
+	 * Provides an interface for the Flight Manager to choose whether to
+	 * add, edit or delete planes.
+	 */
 	public void editFleetOption(){
 		boolean isOkay;
 		int choice = 0;
@@ -65,6 +79,10 @@ public class FleetController {
 		}
 	}
 	
+	/**
+	 * Method called by the editFleetOption() method when the Flight Manager
+	 * chooses to add a plane.
+	 */
 	private void addPlane() {
 		Plane plane = new Plane();
 		
@@ -89,6 +107,10 @@ public class FleetController {
 		fe.addPlane(plane);
 	}
 	
+	/**
+	 * Method called by the editFleetOption() method when the Flight Manager
+	 * chooses to edit a plane.
+	 */
 	private void editPlane() {
 		boolean isOkay;
 		String plane_model;
@@ -153,6 +175,10 @@ public class FleetController {
 		System.out.println("The plane model \"" + plane_model + "\" has been edited.\n");
 	}
 
+	/**
+	 * Method called by the editFleetOption() method when the Flight Manager
+	 * chooses to delete a plane.
+	 */
 	private void deletePlane() {
 		boolean isOkay;
 		String plane_model = "";
@@ -174,6 +200,11 @@ public class FleetController {
 		System.out.println("A plane of model " + plane_model + " has been deleted from the database.");
 	}
 	
+	/**
+	 * UI method for user to enter the seats for a plane. Provides validation of input.
+	 * @param seat_class The class of the seat to enter.
+	 * @return The number of seats for the given seat class.
+	 */
 	private int enterSeats(int seat_class){
 		boolean isOkay;
 		int numberOfSeats = 0;
@@ -200,14 +231,30 @@ public class FleetController {
 		return numberOfSeats;
 	}
 	
+	/**
+	 * Gets a Plane object based on the given model.
+	 * @param model The model to get the Plane object by.
+	 * @return The Plane object associated with the given model.
+	 */
 	public Plane getPlane(String model){
 		return fe.getPlane(model);
 	}
 	
+	/**
+	 * Checks whether a particular plane model exists.
+	 * @param model The model to check.
+	 * @return True if the model exists, false otherwise.
+	 */
 	public boolean doesModelExist(String model){
 		return fe.getPlane(model) != null;
 	}
 	
+	/**
+	 * Gets the number of seats in a plane based on the given plane ID.
+	 * @param planeId The plane ID to get the seats of.
+	 * @return An integer array representing the 4 classes of seats for the 
+	 * given plane ID.
+	 */
 	public int[] getSeatsForPlane(int planeId){
 		return fe.getSeatsForPlane(planeId);
 	}

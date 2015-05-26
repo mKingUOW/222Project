@@ -8,7 +8,6 @@ package com.booking;
 import com.helpers.*;
 
 import java.io.*;
-import java.util.*;
 
 /**
  *
@@ -20,14 +19,34 @@ public class FleetEntity {
 	// planeId + planeModel + numberAvailable 
 	// + firstClassSeats + businessClassSeats + premiumEconomyClassSeats + economyClassSeats
 	// of Plane.java;
+	
+	/**
+	 * A quick reference to the fleet database file.
+	 */
 	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "fleet.csv";
+	
+	/**
+	 * A BufferedReader object that allows the class to read from files.
+	 */
 	private BufferedReader reader;
+	
+	/**
+	 * A PrintWriter object that allows the class to write to files.
+	 */
 	private PrintWriter writer;
 	
+	/**
+	 * Default constructor.
+	 */
 	public FleetEntity(){
-		
 	}
 	
+	/**
+	 * Gets the number of seats in a plane based on the given plane ID.
+	 * @param planeId The plane ID to get the seats of.
+	 * @return An integer array representing the 4 classes of seats for the 
+	 * given plane ID.
+	 */
 	public int[] getSeatsForPlane(int planeId){
 		String oneLine = "";
 		int pid = 0;
@@ -56,6 +75,11 @@ public class FleetEntity {
 		return seats;
 	}
 	
+	/**
+	 * Gets a Plane object based on the given model.
+	 * @param model The model to get the Plane object by.
+	 * @return The Plane object associated with the given model.
+	 */
 	public Plane getPlane(String model){
 		Plane plane = null;
 		String oneLine = "";
@@ -87,6 +111,10 @@ public class FleetEntity {
 		return plane;
 	}
 	
+	/**
+	 * Is called to add a Plane to the database.
+	 * @param plane The Plane object to add to the database.
+	 */
 	public void addPlane(Plane plane) {
 		int pid = plane.getPlaneID();
 		String planeModel = plane.getPlaneModel();
@@ -114,6 +142,10 @@ public class FleetEntity {
 		}
 	}
 
+	/**
+	 * Is called to edit a Plane in the database.
+	 * @param plane The Plane object used to modify the database.
+	 */
 	public void editPlane(Plane plane) {
 		int planeId = plane.getPlaneID();
 		String planeModel = plane.getPlaneModel();
@@ -173,6 +205,10 @@ public class FleetEntity {
 		}
 	}
 
+	/**
+	 * Called to delete a plane with the given model.
+	 * @param model The model of the plane to delete.
+	 */
 	public void deletePlane(String model) {
 		String oneLine = "";
 		String data = "";

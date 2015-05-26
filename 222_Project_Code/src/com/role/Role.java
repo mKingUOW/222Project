@@ -10,7 +10,7 @@ import com.profile.ProfileController;
 
 public abstract class Role{
 	private String username = "";
-	private String[] choices = {"Change Password", "Logout"};
+	private String[] choices = {"Change Password", "Logout", "View Reports"};
 	private Scanner in = new Scanner(System.in);
 	private boolean isLoggedIn;
 	private ProfileController pc = new ProfileController();
@@ -92,6 +92,8 @@ public abstract class Role{
 		String choice = allChoices.get(userChoice);
 		
 		switch(choice){
+			case "View Reports":
+				break;
 			case "Change Password":
 				pc.changePassword(username);
 				break;

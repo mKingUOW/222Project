@@ -11,11 +11,14 @@ import com.helpers.ServiceBooking;
 import com.helpers.Ticket;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,18 +26,50 @@ import java.util.List;
  */
 public class BookingEntity {
 	
-	private String discountFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "discount.csv";
+	/**
+	 * A quick reference to the discount database file.
+	 */
+	private String bookingConstantsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "booking_constants.csv";
+	
+	/**
+	 * A quick reference to the bookings database file.
+	 */
 	private String bookingFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "booking.csv";
+	
+	/**
+	 * A quick reference to the tickets database file.
+	 */
 	private String ticketsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "tickets.csv";
+	
+	/**
+	 * A quick reference to the services booked database file.
+	 */
 	private String serviceFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "services_booked.csv";
 	
+	/**
+	 * A BufferedReader object that allows the class to read from files.
+	 */
 	private BufferedReader reader;
+	
+	/**
+	 * A PrintWriter object that allows the class to write to files.
+	 */
 	private PrintWriter writer;
 	
+	/**
+	 * Default constructor
+	 */
 	public BookingEntity(){
-		
 	}
 	
+	/**
+	 * Is called to save a booking to database.
+	 * @param flight_id A String representing the flight ID
+	 * @param tickets A List of Ticket objects representing the tickets booked
+	 * for the flight.
+	 * @param services_booked A List of ServiceBooking objects representing the
+	 * services booked for for each ticket.
+	 */
 	public void saveBooking(String flight_id, List<Ticket> tickets, List<ServiceBooking> services_booked){	
 		//First step, save the booking info into booking.csv.
 		int bk_id = 0;	//If no record in the file, default value is 0; It will be incremented by 1 if a record is inserted;
@@ -75,11 +110,12 @@ public class BookingEntity {
 			String uname = tickets.get(i).getUsername();
 			int person_id = tickets.get(i).getPersonId();
 			String seat_number = tickets.get(i).getSeatNumber();
+			double ticket_price = tickets.get(i).getPrice();
 			
-			//ticketID + userName + personID + bookingID + seatNumber -- in the tickets.csv
+			//ticketID + userName + personID + bookingID + seatNumber + ticketPrice -- in the tickets.csv
 			try{ 
 				writer = new PrintWriter(new FileOutputStream(new File(ticketsFile),true));		//To append to the file using "true";
-				writer.println(ticket_id + "," + uname + "," + person_id + "," + bk_id + "," + seat_number);					   
+				writer.println(ticket_id + "," + uname + "," + person_id + "," + bk_id + "," + seat_number + "," + ticket_price);					   
 				writer.close();
 			}catch(Exception e){
 				e.printStackTrace();
@@ -103,22 +139,36 @@ public class BookingEntity {
 		}
 	}
 	
+	/**
+	 * Called to set the discount ratio of the frequent flier points to database.
+	 * @param ratio The ratio to set the discount ratio to.
+	 */
 	public void setDiscountRatio(double ratio){
-		try{
-			writer = new PrintWriter(new FileOutputStream(new File(discountFile)));		
-			writer.println(ratio);
+		String oneLine = "";
+		
+		try {
+			reader = new BufferedReader(new FileReader(bookingConstantsFile));
+			oneLine = reader.readLine();
+			String [] words = oneLine.split(",");
+			reader.close();
+			
+			writer = new PrintWriter(new FileOutputStream(new File(bookingConstantsFile)));		
+			writer.println(ratio + "," + words[1]);
 			writer.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		} catch (Exception ex) {
 		}
 	}
 	
+	/**
+	 * Called to get the discount ratio of the frequent flier points.
+	 * @return The discount ratio.
+	 */
 	public double getDiscountRatio(){
 		String oneLine = "";
 		double discount = 0;
 		
 		try{
-			reader = new BufferedReader(new FileReader(discountFile));
+			reader = new BufferedReader(new FileReader(bookingConstantsFile));
 			while((oneLine = reader.readLine()) != null){				
 				String [] words = oneLine.split(",");
 				discount = Double.parseDouble(words[0]);
@@ -131,6 +181,11 @@ public class BookingEntity {
 		return discount;
 	}
 	
+	/**
+	 * Gets all bookings associated with a particular username.
+	 * @param username The username to search bookings by.
+	 * @return A List of Booking objects that are associated with the given username.
+	 */
 	public List<Booking> getBookings(String username){
 		List<Booking> bookings = new ArrayList<>();
 		List<Integer> booking_id = new ArrayList<>();
@@ -186,6 +241,11 @@ public class BookingEntity {
 		}	
 	}
 	
+	/**
+	 * Gets all bookings associated with a particular booking ID.
+	 * @param booking_id The booking ID to get tickets by.
+	 * @return A List of Ticket objects that are associated with the given booking ID.
+	 */
 	public List<Ticket> getTickets(int booking_id){
 		//ticketID + userName + personID + bookingID + seatNumber -- in the tickets.csv
 		String oneLine = "";
@@ -210,6 +270,10 @@ public class BookingEntity {
 		return myTickets;
 	}
 	
+	/**
+	 * Cancels a booking.
+	 * @param booking_id The booking ID to cancel the booking of.
+	 */
 	public void cancelBooking(int booking_id){
 		String oneLine = "";
 		String data = "";
@@ -244,6 +308,46 @@ public class BookingEntity {
             writer.close();	
 		}catch(Exception e){
 			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Gets the cancellation fee.
+	 */
+	public double getCancellationFee(){
+		String oneLine = "";
+		double cancellation_fee = 0;
+		
+		try{
+			reader = new BufferedReader(new FileReader(bookingConstantsFile));
+			while((oneLine = reader.readLine()) != null){				
+				String [] words = oneLine.split(",");
+				cancellation_fee = Double.parseDouble(words[1]);
+			}
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return cancellation_fee;
+	}
+	
+	/**
+	 * Sets the cancellation fee.
+	 */
+	public void setCancellationFee(double cancellation_fee){
+		String oneLine = "";
+		
+		try {
+			reader = new BufferedReader(new FileReader(bookingConstantsFile));
+			oneLine = reader.readLine();
+			String [] words = oneLine.split(",");
+			reader.close();
+			
+			writer = new PrintWriter(new FileOutputStream(new File(bookingConstantsFile)));		
+			writer.println(words[0] + "," + cancellation_fee);
+			writer.close();
+		} catch (Exception ex) {
 		}
 	}
 	
@@ -286,5 +390,17 @@ public class BookingEntity {
 		 * SO just search the database for the bookings matching the booking ID adn ticket ID, 
 		 * delete them and replace them with the service bookings in the list.
 		 */
+	}
+	
+	/**
+	 * Gets the bookings for a particular flight ID.
+	 * @param flight_id The flight ID to get the bookings of.
+	 * @return A List of Booking objects which correspond to the given flight ID.
+	 */
+	public List<Booking> getBookingsForFlight(String flight_id){
+		/*
+		 * Remember to only return the bookings that are not Canceled.
+		 */
+		return null;
 	}
 }

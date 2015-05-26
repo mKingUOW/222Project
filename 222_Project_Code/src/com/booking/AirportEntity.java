@@ -5,26 +5,33 @@ import java.io.*;
 
 public class AirportEntity{
 
-// Attributes in Airport.java	
-/*	int airportId;			
-	String airportName;
-	String city;
-	String country;
-	String IATA;
-	double latitude;		
-	double longitude;
-	int altitude;
-	int timezone;
-	char DST;
-	String tzDatabaseTimezone;
-*/	
-	String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "airports.csv";
-	BufferedReader reader;
+	/**
+	 * A quick reference to the airport database file.
+	 */
+	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "airports.csv";
+	
+	/**
+	 * A BufferedReader object that allows the class to read from files.
+	 */
+	private BufferedReader reader;
+	
+	/**
+	 * A PrintWriter object that allows the class to write to files.
+	 */
 	private PrintWriter writer;
 	
+	/**
+	 * Default constructor.
+	 */
 	public AirportEntity(){
 	}
 	
+	/**
+	 * Gets the airport code associated with the airport name given.
+	 * @param airport_name The airport name to get the code of.
+	 * @return The airport code of the given airport name. Returns null if the
+	 * airport name is not found.
+	 */
 	public String getAirportCode(String airport_name){
 		
 		String oneLine = "";
@@ -50,6 +57,12 @@ public class AirportEntity{
 		return abbreviation;
 	}
 
+	/**
+	 * Gets the airport country associated with the airport name given.
+	 * @param airport_name The airport name to get the code of.
+	 * @return The name of the country of the given airport name. Returns an
+	 * empty String if the airport name is not found.
+	 */
 	public String getAirportCountry(String airport_name){
 		String oneLine = "";
 		boolean existed = false;
@@ -74,6 +87,12 @@ public class AirportEntity{
 		return country;
 	}
 	
+	/**
+	 * Gets the airport city associated with the airport IATA given.
+	 * @param IATA The IATA to get the city of.
+	 * @return The name of the city of the given airport IATA. Returns an
+	 * empty string when IATA is not found.
+	 */
 	public String getAirportCity(String IATA){
 		String oneLine = "";
 		boolean isFound = false;
@@ -98,6 +117,12 @@ public class AirportEntity{
 		return city;
 	}
 	
+	/**
+	 * Gets an Airport object based on the given IATA.
+	 * @param IATA The IATA to get the corresponding airport.
+	 * @return An Airport object corresponding to the given IATA. Returns null
+	 * if the IATA is not fount.
+	 */
 	public Airport getAirport(String IATA){
 		Airport airport = null;
 		String oneLine = "";
@@ -135,6 +160,10 @@ public class AirportEntity{
 		return airport;
 	}
 	
+	/**
+	 * Adds an airport.
+	 * @param airport The Airport object to add to the database.
+	 */
 	public void addAirport(Airport airport){
 		int airportId = airport.getAirportId();
 		String airportName = airport.getAirportName();
@@ -159,6 +188,11 @@ public class AirportEntity{
 		}
 	}
 	
+	/**
+	 * Edits an airport.
+	 * @param airport The Airport object to edit. The matching airport in
+	 * the database will be replaced with this object.
+	 */
 	public void editAirport(Airport airport){
 		int airportId = airport.getAirportId();
 		String airportName = airport.getAirportName();
@@ -226,10 +260,13 @@ public class AirportEntity{
 		}
 	}
 	
+	/**
+	 * Deletes an airport.
+	 * @param IATA The IATA of the airport to delete by.
+	 */
 	public void deleteAirport(String IATA){
 		String oneLine = "";
 		String data = "";
-		String updatedLine = "";
 		boolean found = false;
 		
 		try{

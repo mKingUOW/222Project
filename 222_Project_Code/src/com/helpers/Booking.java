@@ -18,7 +18,6 @@ public class Booking {
 	private double total_price;
 	
 	public Booking(){
-		
 	}
 	
 	public Booking(int bid, String fid){
@@ -63,6 +62,15 @@ public class Booking {
 
 	public void setStatus(String booking_status) {
 		this.booking_status = booking_status;
+	}
+	
+	public String getString(){
+		StringBuilder sb = new StringBuilder();
+		Formatter formatter = new Formatter(sb);
+		
+		formatter.format("%-15s%-15s$%-15.2f", bookingId, booking_status, total_price);
+		
+		return sb.toString();
 	}
 	
 	@Override

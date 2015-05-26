@@ -24,24 +24,71 @@ import java.util.Scanner;
  * @author Michael Y.M. Kong
  */
 public class BookingController {
+	/**
+	 * Scanner object to use the standard in from the console.
+	 */
 	private Scanner in = new Scanner(System.in);
+	
+	/**
+	 * Holds the current customer username if the user is a customer or travel
+	 * agency. Else it will be null.
+	 */
 	private String customerUsername = null;
 	
+	/**
+	 * AirportController requires the BookingEntity class to write/read data
+	 * to the database.
+	 */
 	private BookingEntity be = new BookingEntity();
+	
+	/**
+	 * AirportController requires the FleetController class to query fleet
+	 * data.
+	 */
 	private FleetController ftc = new FleetController();
+	
+	/**
+	 * AirportController requires the FlightController class to query flight
+	 * data.
+	 */
 	private FlightController fc = new FlightController();
+	
+	/**
+	 * AirportController requires the PersonController class to query person
+	 * data.
+	 */
 	private PersonController pc = new PersonController();
+	
+	/**
+	 * AirportController requires the ServiceController class to query service
+	 * data.
+	 */
 	private ServiceController sc = new ServiceController();
+	
+	/**
+	 * AirportController requires the ProfileController class to query profile
+	 * and customer data.
+	 */
 	private ProfileController pfc = new ProfileController();
 	
+	/**
+	 * The default discount ratio is set to 1. So one frequent flier point
+	 * is one dollar.
+	 */
 	private double discountRatio = 1; //default
 	
 	/**
+	 * The default cancellation fee is set to $10.00.
+	 */
+	private double cancellationFee = 10; //default
+	
+	/**
 	 * Creates a BookingController.
-	 * Initializes the discount ratio for booking from file.
+	 * Initializes the discount ratio and cancellation fee from database.
 	 */
 	public BookingController(){
 		discountRatio = be.getDiscountRatio();
+		cancellationFee = be.getCancellationFee();
 	}
 	
 	/**
@@ -202,7 +249,7 @@ public class BookingController {
 		double total_price = 0.0;
 		
 		AbstractMap.SimpleImmutableEntry<String, String> route_locations
-				= fc.getRouteLocations(chosen_flight.getRouteNumber());
+				= fc.getRouteCities(chosen_flight.getRouteNumber());
 		
 		origin = route_locations.getKey();
 		destination = route_locations.getValue();
@@ -271,6 +318,8 @@ public class BookingController {
 			System.out.print("Enter any key to proceed with payment: ");
 			in.nextLine(); //just get anything; doesn't matter
 			
+			pfc.chargeAccount(customerUsername, total_price);
+			
 			System.out.printf("\nYour credit card has been charged $%.2f!\nThank you for making a booking with us!\n", total_price);
 			System.out.println();
 		}
@@ -284,7 +333,7 @@ public class BookingController {
 	}
 	
 	/**
-	 * 
+	 * The UI for users to choose seats for the booking.
 	 * @param available_seats Available seats on this flight
 	 * @param total_seats Total seats that this flight's plane can accommodate
 	 * @return The seat number and the price of that seat.
@@ -351,7 +400,7 @@ public class BookingController {
 	}
 	
 	/**
-	 * 
+	 * The UI for users to choose a flight.
 	 * @return The Flight object and a boolean whether it's an international flight
 	 */
 	private AbstractMap.SimpleImmutableEntry<Flight, Boolean> chooseFlight(){
@@ -535,7 +584,7 @@ public class BookingController {
 	}
 	
 	/**
-	 * 
+	 * The UI for users to book services for a ticket.
 	 * @param is_international_flight Services change depending on the type of flight passed in
 	 * @return Integer List of Service IDs
 	 */
@@ -588,8 +637,9 @@ public class BookingController {
 		} else{
 			cancelBooking(customerUsername);
 			
-			//is someone able to manipuate the cancellation fee?????
-			System.out.println("A cancellation fee of $10.00 has been charged to your account.\n");
+			pfc.chargeAccount(customerUsername, cancellationFee);
+			
+			System.out.printf("A cancellation fee of $%.2f has been charged to your account.\n", cancellationFee);
 		}
 	}
 	
@@ -889,47 +939,83 @@ public class BookingController {
 	}
 	
 	/**
-	 * Called to move passengers within flights.
-	 * @param services_booked List of services booked
+	 * Called to move passengers between flights by booking.
 	 */
 	public void movePassengers(){
-		
 		System.out.println("\nFlight to move from:");
 		String current_flight_id = fc.enterFlightId(false);
-//		Flight flight = fc.getFlight(current_flight_id);
-		List<Person> passengers = be.getCustomers(current_flight_id);
+		List<Booking> bookings = getBookingsForFlight(current_flight_id);
+		Booking booking;
+		int choice = 0;
 		boolean isOkay;
 		
-		System.out.printf("%-4s%-24s%-15s%-15s\n", "#", "Person ID/Username");
+		System.out.printf("%-4s%-15s%-15s%-15f\n", "#", "Booking ID", "Booking Status", "Total Price (AUD)");
 		
-		for (int i = 0; i < passengers.size(); i++) {
+		for (int i = 0; i < bookings.size(); i++) {
 			System.out.printf("%-4s", (i + 1) + ". ");
-			System.out.println(passengers.get(i).toString());
+			System.out.println(bookings.get(i).getString());
 		}
 		
 		do {			
 			isOkay = true;
-			System.out.print("Enter the number corresponding to the passengers separated by a space: ");
-			String[] choices = in.nextLine().split(" "); 
-
-			for (String str: choices) {
-				int choice = Integer.parseInt(str);
-				if (choice < 1 || choice > passengers.size()) {
+			System.out.print("Enter the number corresponding to the booking: ");
+			
+			try {
+				choice = in.nextInt();
+				
+				if (choice < 1 || choice > bookings.size()) {
 					isOkay = false;
-					System.out.println("One or more of the chosen options do not exist. Please try again!\n");
-					break;
+					System.out.println("This option does not exist. Please try again!\n");
 				} 
+			} catch (InputMismatchException e) {
+				isOkay = false;
+				System.out.println("An invalid character detected. Please try again!\n");
 			}
 		} while (!isOkay);
+		
+		booking = bookings.get(choice - 1);
 		
 		System.out.println("\nFlight to move to:");
 		String new_flight_id = fc.enterFlightId(false);
 		
+		booking.setFlightId(new_flight_id);
+		
+		
+		
 		//figure out logic how to move passengers from current flight to new flight
 	}
 	
+	/**
+	 * Called to move passengers within a flight.
+	 */
 	public void changePassengerSeating(){
 		
+	}
+	
+	/**
+	 * Gets the bookings for a particular flight ID.
+	 * @param flight_id The flight ID to get the bookings of.
+	 * @return A List of Booking objects which correspond to the given flight ID.
+	 */
+	private List<Booking> getBookingsForFlight(String flight_id){
+		return be.getBookingsForFlight(flight_id);
+	}
+	
+	/**
+	 * Gets all the services booked for a particular booking.
+	 * @param booking_id The booking ID to get the services of.
+	 * @param tickets The tickets corresponding to the booking ID.
+	 * @return A list of all the bookings for the given booking ID.
+	 */
+	private List<ServiceBooking> getServicesBookedForBooking(int booking_id, List<Ticket> tickets){
+		List<ServiceBooking> services_booked = new ArrayList<>();
+		
+		for (Ticket ticket: tickets) {
+			List<ServiceBooking> sb = be.getServicesBooked(booking_id, ticket.getTicketId());
+			services_booked.addAll(sb);
+		}
+		
+		return services_booked;
 	}
 	
 	/**
@@ -959,6 +1045,35 @@ public class BookingController {
 		
 		discountRatio = ratio;
 		be.setDiscountRatio(ratio);
+	}
+	
+	/**
+	 * Allows the reservation system manager to set a cancellation fee.
+	 */
+	public void setCancellationFee(){
+		double cancellation_fee = cancellationFee;
+		boolean isOkay;
+		
+		do {
+			isOkay = true;
+			try {
+				System.out.println("The current cancellation fee is " + cancellationFee);
+				System.out.print("Please enter the new cancellation fee: ");
+				cancellation_fee = in.nextDouble();
+				
+				if (cancellation_fee < 0) {
+					System.out.println("The input is not valid. Please try again!\n");
+					isOkay = false;
+				}
+				
+			} catch (InputMismatchException e) {
+				System.out.println("The input is not valid. Please try again!\n");
+				isOkay = false;
+			}
+		} while (!isOkay);
+		
+		cancellationFee = cancellation_fee;
+		be.setCancellationFee(cancellation_fee);
 	}
 	
 	/**

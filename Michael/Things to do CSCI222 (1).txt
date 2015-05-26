@@ -112,9 +112,10 @@
 	-> ticketID
 	-> username [0..1]
 	-> personID [0..1]
-	-> bookID 
+	-> bookingID 
 	-> seatNo
 
 ** services_booked.csv **
+	-> bookingID
 	-> ticketID
 	-> serviceID

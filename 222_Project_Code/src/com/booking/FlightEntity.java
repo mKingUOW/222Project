@@ -7,18 +7,35 @@ import java.util.*;
 
 public class FlightEntity{
 	
+	/**
+	 * A quick reference to the flight database file.
+	 */
 	private String scheduleFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "flight-route-schedule.csv";
+	
+	/**
+	 * A BufferedReader object that allows the class to read from files.
+	 */
 	private BufferedReader reader;
+	
+	/**
+	 * A PrintWriter object that allows the class to write to files.
+	 */
 	private PrintWriter writer;
 	
+	/**
+	 * Default constructor.
+	 */
 	public FlightEntity(){
-		
 	}
 	
+	/**
+	 * Gets a List of Flight objects based on the given route number.
+	 * @param routeNumber The route number to get the flights for.
+	 * @return A List of Flight objects that match the origin and destination airports.
+	 */
 	public List<Flight> getFlights(int routeNumber){
 		List<Flight> flights = new ArrayList<>();
 		String oneLine = "";
-		String abbreviation = "";
 		
 		//Attributes in the flight-route-schedule.csv:
 		//AUTO_INCREMENT_id + flight_id + plane_id + route_number + depart_time + arrive_time
@@ -51,6 +68,11 @@ public class FlightEntity{
 		return flights;
 	}
 	
+	/**
+	 * Updates the available seats of a particular flight.
+	 * @param flight_id The flight ID of the flight to update the seats of.
+	 * @param available_seats The current available seats for the flight.
+	 */
 	public void updateAvailableSeats(String flight_id, int[] available_seats){
 		int fcSeat = available_seats[0];
 		int bcSeat = available_seats[1];
@@ -110,9 +132,9 @@ public class FlightEntity{
 	}
 	
 	/**
-	 * 
-	 * @param flight_id Flight ID
-	 * @param prices Price
+	 * Sets the seat price of a flight.
+	 * @param flight_id The flight ID of the flight to set the seat price of.
+	 * @param prices A double array of the seat prices.
 	 */
 	public void setSeatPrice(String flight_id, double[] prices){
 		String fcPrice = Double.toString(prices[0]);
@@ -163,6 +185,11 @@ public class FlightEntity{
 		}
 	}
 	
+	/**
+	 * Gets the seats prices of the flight.
+	 * @param flight_id The flight ID to get the seat price of.
+	 * @return A double array of seat prices for the given flight.
+	 */
 	public double[] getSeatPrices(String flight_id){
 		double [] prices = {0.0,0.0,0.0,0.0};	//Initialise an empty array,default value all 0;
 		String oneLine = "";
@@ -190,6 +217,11 @@ public class FlightEntity{
 		return prices;
 	}
 	
+	/**
+	 * Gets a Flight object based on the given flight ID.
+	 * @param flight_id The flight ID to get the corresponding Flight.
+	 * @return The Flight object of the given flight ID.
+	 */
 	public Flight getFlight(String flight_id){
 		Flight oneFlight = null;
 		String oneLine = "";
@@ -220,6 +252,10 @@ public class FlightEntity{
 		return oneFlight;
 	}
 	
+	/**
+	 * Adds a flight to the database
+	 * @param flight A Flight object representing the flight details to add to the database.
+	 */
 	public void addFlight(Flight flight){
 		String oneLine = "";
 		int autoID = 0;
@@ -253,6 +289,10 @@ public class FlightEntity{
 		}	
 	}
 	
+	/**
+	 * Edits a flight in the database.
+	 * @param flight The Flight object that will update the database.
+	 */
 	public void editFlight(Flight flight){
 		String oneLine = "";
 		String data = "";
@@ -322,6 +362,10 @@ public class FlightEntity{
 		}
 	}
 	
+	/**
+	 * Deletes a flight from the database.
+	 * @param flight_id The flight ID of the flight to delete.
+	 */
 	public void deleteFlight(String flight_id){
 		String oneLine = "";
 		String data = "";

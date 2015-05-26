@@ -14,7 +14,9 @@ import com.profile.ProfileController;
  * @author Michael Y.M. Kong
  */
 public class ReservationSystemManagerRole extends NormalStaffRole{
-	private String[] choices = {"Set Ticket Prices", "Move Passengers Between Flights", "Change Passenger Seating", "Edit Watch and No Fly List", "Change Frequent Flier Point Discount Ratio"};
+	private String[] choices = {"Set Ticket Prices", "Move Passengers Between Flights",
+		"Change Passenger Seating", "Edit Watch and No Fly List",
+		"Set Frequent Flier Point Discount Ratio", "Set Cancellation Fee"};
 	private ProfileController pc = new ProfileController();
 	private BookingController bc = new BookingController();
 	private FlightController fc = new FlightController();
@@ -43,6 +45,9 @@ public class ReservationSystemManagerRole extends NormalStaffRole{
 				break;
 			case "Change Frequent Flier Point Discount Ratio":
 				bc.setDiscountRatio();
+				break;
+			case "Set Cancellation Fee":
+				bc.setCancellationFee();
 				break;
 			default:
 				super.executeChoice();

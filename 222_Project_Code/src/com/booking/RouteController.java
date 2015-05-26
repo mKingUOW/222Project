@@ -329,9 +329,9 @@ public class RouteController {
 		return true;
 	}
 	
-	public int getRoute(String origin, String destination){
-		String origin_code = ac.getAirportCode(origin);
-		String dest_code = ac.getAirportCode(destination);
+	public int getRoute(String origin_airport, String destination_airport){
+		String origin_code = ac.getAirportCode(origin_airport);
+		String dest_code = ac.getAirportCode(destination_airport);
 		int route_number;
 		
 		if (doesRouteExist(origin_code, dest_code)){ //if return null that means airport name doesn't exist
@@ -347,10 +347,10 @@ public class RouteController {
 		AbstractMap.SimpleImmutableEntry<String, String> route_points
 				= getRoutePoints(routeNumber);
 		
-		String origin = ac.getAirportCity(route_points.getKey());
-		String destination = ac.getAirportCity(route_points.getValue());
+		String origin_city = ac.getAirportCity(route_points.getKey());
+		String destination_city = ac.getAirportCity(route_points.getValue());
 		
-		return new AbstractMap.SimpleImmutableEntry<>(origin, destination);
+		return new AbstractMap.SimpleImmutableEntry<>(origin_city, destination_city);
 	}
 	
 	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber){

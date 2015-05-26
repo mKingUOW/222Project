@@ -5,16 +5,20 @@
 
 package com.role;
 
+import com.profile.ProfileController;
+
 /**
  *
  * @author Michael Y.M. Kong
  */
 public class SystemAdministratorRole extends Role{
 	private String[] choices = {"Act as Customer", "Act as Travel Agency",
-		"Act as Normal Staff",
-		"Act as Flight Manager", "Act as Profile System Manager",
-		"Act as Service System Manager", "Act as Reservation System Manager",
-		"Act as Reporting System Manager", "Edit Staff Profile"};
+		"Act as Normal Staff", "Act as Flight Manager",
+		"Act as Profile System Manager", "Act as Service System Manager",
+		"Act as Reservation System Manager", "Act as Reporting System Manager",
+		"Edit Staff Profile", "Create Staff Profile"};
+	
+	private ProfileController pc = new ProfileController();
 	
 	private CustomerRole cr = new CustomerRole();
 	private TravelAgencyRole tar = new TravelAgencyRole();
@@ -61,6 +65,10 @@ public class SystemAdministratorRole extends Role{
 				role = rpsmr;
 				break;
 			case "Edit Staff Profile":
+				pc.editStaffProfile();
+				break;
+			case "Create Staff Profile":
+				pc.createStaffProfile();
 				break;
 			default:
 				super.executeChoice();

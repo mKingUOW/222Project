@@ -14,13 +14,29 @@ import java.util.Scanner;
  * @author Michael Y.M. Kong
  */
 public class AirportController {
+	/**
+	 * AirportController requires the AirportEntity class to write/read data
+	 * to the database.
+	 */
 	private AirportEntity ae = new AirportEntity();
+	
+	/**
+	 * Scanner allows class to use the basic input from the console.
+	 */
 	private Scanner in = new Scanner(System.in);
 	
+	
+	/**
+	 * Default constructor. 
+	 */
 	public AirportController(){
 		
 	}
 	
+	/**
+	 * Provides an interface for the Flight Manager to choose whether to
+	 * add, edit or delete airports.
+	 */
 	public void editAirportsOption(){
 		boolean isOkay;
 		int choice = 0;
@@ -64,6 +80,10 @@ public class AirportController {
 		}
 	}
 	
+	/**
+	 * Method called by the editAirportsOption() method when the Flight Manager
+	 * chooses to add an airport.
+	 */
 	private void addAirport() {
 		Airport airport = new Airport();
 		
@@ -83,6 +103,10 @@ public class AirportController {
 		System.out.println("Airport " + airport.getAirportName() + " has been saved.\n");
 	}
 
+	/**
+	 * Method called by the editAirportsOption() method when the Flight Manager
+	 * chooses to edit an airport.
+	 */
 	private void editAirport() {
 		String IATA;
 		boolean isOkay;
@@ -170,6 +194,10 @@ public class AirportController {
 		System.out.println("Airport with IATA " + IATA + " has been deleted.\n");
 	}
 
+	/**
+	 * Method called by the editAirportsOption() method when the Flight Manager
+	 * chooses to delete an airport.
+	 */
 	private void deleteAirport() {
 		String IATA;
 		boolean isOkay;
@@ -191,6 +219,13 @@ public class AirportController {
 		System.out.println("Airport with IATA " + IATA + " has been deleted.\n");
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter an airport name. 
+	 * This method also checks whether the name of the airport is valid.
+	 * @param check A boolean value to decide whether to check for existing airports
+	 * or check for non-existing airports.
+	 * @return The entered airport name from this method.
+	 */
 	private String enterAirportName(boolean check){
 		String airport_name;
 		boolean isOkay;
@@ -218,16 +253,29 @@ public class AirportController {
 		return airport_name;
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter an city name. 
+	 * @return The entered city name from this method.
+	 */
 	private String enterCity(){
 		System.out.print("Please enter the city name: ");
 		return in.nextLine();
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter an country name. 
+	 * @return The entered country name from this method.
+	 */
 	private String enterCountry(){
 		System.out.print("Please enter the country name: ");
 		return in.nextLine();
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter an IATA for an airport.
+	 * This method also checks whether the IATA is valid.
+	 * @return The entered IATA from this method.
+	 */
 	private String enterIATA(){
 		String IATA;
 		boolean isOkay;
@@ -247,6 +295,11 @@ public class AirportController {
 		return IATA;
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter the latitude for an airport.
+	 * This method also checks whether the latitude is valid.
+	 * @return The entered latitude from this method.
+	 */
 	private double enterLatitude(){
 		boolean isOkay;
 		double latitude = 0;
@@ -267,6 +320,11 @@ public class AirportController {
 		return latitude;
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter the longitude for an airport.
+	 * This method also checks whether the longitude is valid.
+	 * @return The entered longitude from this method.
+	 */
 	private double enterLongitude(){
 		boolean isOkay;
 		double longitude = 0;
@@ -287,6 +345,11 @@ public class AirportController {
 		return longitude;
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter the altitude for an airport.
+	 * This method also checks whether the altitude is valid.
+	 * @return The entered altitude from this method.
+	 */
 	private int enterAltitude(){
 		boolean isOkay;
 		int altitude = 0;
@@ -313,6 +376,11 @@ public class AirportController {
 		return altitude;
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter the timezone for an airport.
+	 * This method also checks whether the timezone is valid.
+	 * @return The entered timezone from this method.
+	 */
 	private int enterTimezone(){
 		boolean isOkay;
 		int timezone = 0;
@@ -333,6 +401,11 @@ public class AirportController {
 		return timezone;
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter the daylight savings time for an airport.
+	 * This method also checks whether the daylight savings time is valid.
+	 * @return The entered daylight savings time from this method.
+	 */
 	private char enterDST(){
 		boolean isOkay;
 		char DST = 0;
@@ -353,27 +426,56 @@ public class AirportController {
 		return Character.toUpperCase(DST);
 	}
 	
+	/**
+	 * A UI method that allows the Flight Manager to enter the TZ database timezone for an airport.
+	 * @return The entered TZ database timezone from this method.
+	 */
 	private String enterTzDatabaseTimezone(){
 		System.out.print("Please enter the Tz database time zone of this airport: ");
 		return in.nextLine();
 	}
 	
+	/**
+	 * This method checks whether this IATA already exists in the database or not.
+	 * @param IATA The IATA to test.
+	 * @return True if the IATA already exists, false otherwise.
+	 */
 	public boolean doesIATAExist(String IATA){
 		return !"".equals(getAirportCity(IATA));
 	}
 	
+	/**
+	 * This method checks whether this airport name already exists in the database or not.
+	 * @param airport_name The airport name to test.
+	 * @return True if the IATA already exists, false otherwise.
+	 */
 	public boolean doesAirportExist(String airport_name){
 		return !"".equals(getAirportCountry(airport_name));
 	}
 	
+	/**
+	 * Gets the airport code associated with the airport name given.
+	 * @param airport_name The airport name to get the code of.
+	 * @return The airport code of the given airport name.
+	 */
 	public String getAirportCode(String airport_name){
 		return ae.getAirportCode(airport_name); //if return null that means airport name doesn't exist
 	}
 	
+	/**
+	 * Gets the airport country associated with the airport name given.
+	 * @param airport_name The airport name to get the code of.
+	 * @return The name of the country of the given airport name.
+	 */
 	public String getAirportCountry(String airport_name){
 		return ae.getAirportCountry(airport_name); //if return null that means airport name doesn't exist
 	}
 	
+	/**
+	 * Gets the airport city associated with the airport IATA given.
+	 * @param IATA The IATA to get the city of.
+	 * @return The name of the city of the given airport IATA.
+	 */
 	public String getAirportCity(String IATA){
 		return ae.getAirportCity(IATA);
 	}
