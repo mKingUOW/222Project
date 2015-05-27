@@ -7,27 +7,68 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import com.profile.ProfileController;
+import com.report.ReportController;
 
 public abstract class Role{
+	/**
+	 * The username of the current user.
+	 */
 	private String username = "";
+	
+	/**
+	 * The choices available for this role.
+	 */
 	private String[] choices = {"Change Password", "Logout", "View Reports"};
+	
+	/**
+	 * Scanner object to use the standard input console.
+	 */
 	private Scanner in = new Scanner(System.in);
+	
+	/**
+	 * Session variable to check whether the user is still logged in.
+	 */
 	private boolean isLoggedIn;
+	
+	/**
+	 * Requires the ProfileController class to access services in that class.
+	 */
 	private ProfileController pc = new ProfileController();
 	
+	/**
+	 * Requires the ReportController class to access services in that class.
+	 */
+	private ReportController rc = new ReportController();
+	
+	/**
+	 * Holds all the possible choices that will have been passed to itself from
+	 * its subclasses.
+	 */
 	protected List<String> allChoices;
+	
+	/**
+	 * The choice of the user for the main menu.
+	 */
 	protected int userChoice = -1;
 	
+	/**
+	 * Default constructor.
+	 * Puts the choices into allChoices attribute and sorts them.
+	 * Also sets the session to active.
+	 */
 	public Role() {
 		allChoices = new ArrayList<>(Arrays.asList(choices));
 		Collections.sort(allChoices);
 		isLoggedIn = true;
 	}
 
+	/**
+	 * Displays all the choices available and handles the input choice.
+	 */
 	public void displayChoices(){
 		boolean isInputValid;
 		
-		System.out.println("\nFLIGHT MANAGEMENT SYSTEM");
+		System.out.println("\nFLIGHT MANAGEMENT SYSTEM (" + getRoleString() + ")");
 		
 		do{	
 			isInputValid = true;
@@ -57,42 +98,72 @@ public abstract class Role{
 		userChoice--;
 	}
 	
-	public void addChoices(String[] additionalChoices){
+	/**
+	 * Allows subclasses to add the choices unique to that class.
+	 * @param additionalChoices The additional choices to add.
+	 */
+	protected void addChoices(String[] additionalChoices){
 		if (additionalChoices != null) {
 			allChoices.addAll(Arrays.asList(additionalChoices));
 			Collections.sort(allChoices);
 		}
 	}
 	
+	/**
+	 * Checks whether user is currently logged in.
+	 * @return True is the user is still logged in. False otherwise.
+	 */
 	public boolean isUserLoggedIn(){
 		return isLoggedIn;
 	}
 	
-	public void setUserLoggedIn(){
+	/**
+	 * Sets the session to active.
+	 */
+	protected void setUserLoggedIn(){
 		isLoggedIn = true;
 	}
 	
-	public void setUserLoggedOut(){
+	/**
+	 * Unsets the session from active.
+	 */
+	protected void setUserLoggedOut(){
 		isLoggedIn = false; 
 	}
 	
-	public List<String> getChoices(){
+	/**
+	 * Gets the List of choices available.
+	 * @return 
+	 */
+	protected List<String> getChoices(){
 		return allChoices;
 	}
 	
+	/**
+	 * Sets the username for the role.
+	 * @param username The username to set for this role.
+	 */
 	public void setUsername(String username){
 		this.username = username;
 	}
 	
+	/**
+	 * Gets the username.
+	 * @return The username set for this role.
+	 */
 	public String getUsername(){
 		return username;
 	}
 	
+	/**
+	 * Executes the choice that was selected.
+	 */
 	public void executeChoice(){
 		String choice = allChoices.get(userChoice);
 		
 		switch(choice){
 			case "View Reports":
+				rc.init(this);
 				break;
 			case "Change Password":
 				pc.changePassword(username);
@@ -102,4 +173,21 @@ public abstract class Role{
 				break;
 		}
 	}
+	
+	/**
+	 * Displays the available report options.
+	 */
+	public abstract void displayReportMenu();
+	
+	/**
+	 * Displays the chosen report.
+	 * @param choice The selected report choice.
+	 */
+	public abstract void displayReport(int choice);
+	
+	/**
+	 * Gets the name of the role that is currently active.
+	 * @return Gets the name of the role.
+	 */
+	public abstract String getRoleString();
 }

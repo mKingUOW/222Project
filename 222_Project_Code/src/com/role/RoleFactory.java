@@ -40,9 +40,6 @@ public class RoleFactory{
 			case "RVSM":
 				role = new ReservationSystemManagerRole();
 				break;
-			case "RPSM":
-				role = new ReportingSystemManagerRole();
-				break;
 			case "ADMIN":
 				role = new SystemAdministratorRole();
 				break;

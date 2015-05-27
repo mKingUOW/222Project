@@ -10,7 +10,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
+ * This class provides methods pertaining to any required 
+ * functionality and processing that is related to the planes/fleet.
  * @author Michael Y.M. Kong
  */
 public class FleetController {

@@ -11,19 +11,40 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
+ * This class provides methods pertaining to any required 
+ * functionality and processing that is related to routes.
  * @author Michael Y.M. Kong
  */
 public class RouteController {
 
+	/**
+	 * RouteController requires the AirportController class to query airport
+	 * data.
+	 */
 	private AirportController ac = new AirportController();
+	
+	/**
+	 * RouteController requires the RouteEntity class to write/read data
+	 * to the database.
+	 */
 	private RouteEntity re = new RouteEntity();
+	
+	/**
+	 * Scanner object to use the standard in from the console.
+	 */
 	private Scanner in = new Scanner(System.in);
 	
+	/**
+	 * Default constructor
+	 */
 	public RouteController(){
-		
 	}
 	
+	/**
+	 * UI method to allow the user to choose whether to add, edit or delete a
+	 * route. This method will then call the appropriate function upon user's
+	 * choice.
+	 */
 	public void editRouteOption(){
 		boolean isOkay;
 		int choice = 0;
@@ -67,6 +88,9 @@ public class RouteController {
 		}
 	}
 	
+	/**
+	 * UI function to allow the user to create a new route.
+	 */
 	private void addRoute(){
 		String origin;
 		String destination;
@@ -77,8 +101,8 @@ public class RouteController {
 		do {
 			isOkay = true;
 			
-			origin = enterFlightOrigin(false);
-			destination = enterFlightDestination(false);
+			origin = enterRouteOrigin(false);
+			destination = enterRouteDestination(false);
 			
 			origin_code = ac.getAirportCode(origin);
 			destination_code = ac.getAirportCode(destination);
@@ -98,6 +122,9 @@ public class RouteController {
 		System.out.println("A new route from " + origin + " to " + destination + " has been created.\n");
 	}
 	
+	/**
+	 * UI function to allow the user to edit an existing route.
+	 */
 	private void editRoute(){
 		String origin;
 		String destination;
@@ -109,8 +136,8 @@ public class RouteController {
 		do {
 			isOkay = true;
 			
-			origin = enterFlightOrigin(true);
-			destination = enterFlightDestination(true);
+			origin = enterRouteOrigin(true);
+			destination = enterRouteDestination(true);
 			
 			origin_code = ac.getAirportCode(origin);
 			destination_code = ac.getAirportCode(destination);
@@ -150,7 +177,7 @@ public class RouteController {
 		do {
 			switch (option){
 				case 1:
-					origin = enterFlightOrigin(true);
+					origin = enterRouteOrigin(true);
 					
 					origin_code = ac.getAirportCode(origin);
 										
@@ -162,7 +189,7 @@ public class RouteController {
 					}
 					break;
 				case 2:
-					destination = enterFlightDestination(true);
+					destination = enterRouteDestination(true);
 					
 					destination_code = ac.getAirportCode(destination);
 										
@@ -188,6 +215,9 @@ public class RouteController {
 		System.out.println("The route has been edited.\n");
 	}
 	
+	/**
+	 * UI function to allow the user to delete an existing route.
+	 */
 	private void deleteRoute(){
 		String origin;
 		String destination;
@@ -198,8 +228,8 @@ public class RouteController {
 		do {
 			isOkay = true;
 			
-			origin = enterFlightOrigin(true);
-			destination = enterFlightDestination(true);
+			origin = enterRouteOrigin(true);
+			destination = enterRouteDestination(true);
 			
 			origin_code = ac.getAirportCode(origin);
 			destination_code = ac.getAirportCode(destination);
@@ -215,6 +245,9 @@ public class RouteController {
 		System.out.println("The route from " + origin + " to " + destination + " has been deleted.\n");
 	}
 	
+	/**
+	 * UI function to allow the user to enter a new route.
+	 */
 	public int enterRoute(){
 		boolean isOkay;
 		int route_number;
@@ -222,10 +255,10 @@ public class RouteController {
 		do {	
 			isOkay = true;
 			
-			String origin = enterFlightOrigin(true);
-			String destination = enterFlightDestination(true);
+			String origin = enterRouteOrigin(true);
+			String destination = enterRouteDestination(true);
 			
-			route_number = getRoute(origin, destination);
+			route_number = getRouteNumber(origin, destination);
 			
 			if (route_number < 0) {
 				isOkay = false;
@@ -236,7 +269,13 @@ public class RouteController {
 		return route_number;
 	}
 	
-	private String enterFlightOrigin(boolean check){
+	/**
+	 * UI function to allow the user to enter the route origin.
+	 * @param check True if this method should check whether the origin airport
+	 * exists or not.
+	 * @return The entered route origin.
+	 */
+	private String enterRouteOrigin(boolean check){
 		boolean isOkay;
 		String origin;
 		
@@ -259,7 +298,13 @@ public class RouteController {
 		return origin;
 	}
 	
-	private String enterFlightDestination(boolean check){
+	/**
+	 * UI function to allow the user to enter the route destination.
+	 * @param check True if this method should check whether the destination airport
+	 * exists or not.
+	 * @return The entered route destination.
+	 */
+	private String enterRouteDestination(boolean check){
 		boolean isOkay;
 		String destination;
 		
@@ -282,6 +327,11 @@ public class RouteController {
 		return destination;
 	}
 	
+	/**
+	 * UI function to allow the user to enter whether this route is a
+	 * code share route.
+	 * @return Y or N denoting whether this is a code share flight.
+	 */
 	private char enterCodeshare(){
 		boolean isOkay;
 		char codeShare;
@@ -300,6 +350,10 @@ public class RouteController {
 		return Character.toUpperCase(codeShare);
 	}
 	
+	/**
+	 * UI function to allow the user to enter the number of stops on this route.
+	 * @return The number of stops for the route.
+	 */
 	private int enterStops(){
 		boolean isOkay;
 		int stops;
@@ -318,6 +372,12 @@ public class RouteController {
 		return stops;
 	}
 	
+	/**
+	 * Checks whether the route for the given codes exist or not.
+	 * @param code1 The first airport code
+	 * @param code2 The second airport code
+	 * @return True if the route already exists. False otherwise.
+	 */
 	public boolean doesRouteExist(String code1, String code2){
 		if(code1 == null || code2 == null){
 			return false;
@@ -329,7 +389,14 @@ public class RouteController {
 		return true;
 	}
 	
-	public int getRoute(String origin_airport, String destination_airport){
+	/**
+	 * Gets the route number based on the origin and destination airports.
+	 * @param origin_airport The origin airport.
+	 * @param destination_airport The destination airport.
+	 * @return The route number matching the origin and destination airports.
+	 * -2 if route is not found.
+	 */
+	public int getRouteNumber(String origin_airport, String destination_airport){
 		String origin_code = ac.getAirportCode(origin_airport);
 		String dest_code = ac.getAirportCode(destination_airport);
 		int route_number;
@@ -343,9 +410,15 @@ public class RouteController {
 		return route_number;
 	}
 	
-	public AbstractMap.SimpleImmutableEntry<String, String> getRouteLocations(int routeNumber){
+	/**
+	 * Gets the cities that are at either ends of the given route number.
+	 * @param routeNumber The route number to search for.
+	 * @return A pair of Strings. If the route number does not exist, a pair
+	 * of empty Strings will be returned.
+	 */
+	public AbstractMap.SimpleImmutableEntry<String, String> getRouteCities(int routeNumber){
 		AbstractMap.SimpleImmutableEntry<String, String> route_points
-				= getRoutePoints(routeNumber);
+				= getRoutePointsCodes(routeNumber);
 		
 		String origin_city = ac.getAirportCity(route_points.getKey());
 		String destination_city = ac.getAirportCity(route_points.getValue());
@@ -353,10 +426,23 @@ public class RouteController {
 		return new AbstractMap.SimpleImmutableEntry<>(origin_city, destination_city);
 	}
 	
-	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber){
+	/**
+	 * Gets the codes for either ends of the given route number.
+	 * @param routeNumber The route number to search for.
+	 * @return A pair of Strings. If the route number does not exist, a pair
+	 * of empty Strings will be returned.
+	 */
+	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePointsCodes(int routeNumber){
 		return re.getRoutePoints(routeNumber);
 	}
 	
+	/**
+	 * Checks whether the route is an international route based on the given
+	 * origin and destination airport.
+	 * @param origin_airport The origin airport
+	 * @param destination_airport The destination airport
+	 * @return True if the route is an international route. False otherwise.
+	 */
 	public boolean isInternationalRoute(String origin_airport, String destination_airport){
 		String origin_country = ac.getAirportCountry(origin_airport);
 		String destination_country = ac.getAirportCountry(destination_airport);

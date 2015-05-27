@@ -6,13 +6,14 @@
 package com.role;
 
 import com.booking.BookingController;
+import com.report.ReportBuilder;
 
 /**
  *
  * @author Michael Y.M. Kong
  */
 public class NormalStaffRole extends Role{
-	private String[] choices = {"Cancel Customer Booking", "Make Booking for Customer", "Edit Services fo Customer"};
+	private String[] choices = {"Cancel Customer Booking", "Make Booking for Customer", "Edit Services for Customer"};
 	private BookingController bc = new BookingController();
 	
 	public NormalStaffRole() {
@@ -31,12 +32,32 @@ public class NormalStaffRole extends Role{
 			case "Make Booking for Customer":
 				bc.makeBooking();
 				break;
-			case "Edit Services fo Customer":
+			case "Edit Services for Customer":
 				bc.editServices();
 				break;
 			default:
 				super.executeChoice();
 				break;
 		}
+	}
+
+	@Override
+	public void displayReportMenu() {
+		System.out.println("1. Flight Statistics Report");
+	}
+
+	@Override
+	public void displayReport(int choice) {
+		switch(choice){
+			case 1:
+				ReportBuilder.setFlightStatisticsReport();
+				ReportBuilder.displayReport(getUsername());
+				break;
+		}
+	}
+	
+	@Override
+	public String getRoleString() {
+		return "Normal Staff";
 	}
 }

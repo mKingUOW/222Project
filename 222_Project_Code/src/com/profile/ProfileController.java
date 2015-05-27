@@ -215,7 +215,7 @@ public class ProfileController {
 			for (int i = 0; i < options.length; i++) {
 				System.out.print((i + 1) + ". ");
 				System.out.print(options[i]);
-				System.out.print("(" + customer_details[i] + ")");
+				System.out.println("(" + customer_details[i] + ")");
 			}
 			
 			System.out.print("Please select an option from above: ");
@@ -318,7 +318,7 @@ public class ProfileController {
 		
 		do {
 			isOkay = true;
-			System.out.println("Please select a flying status for customer \"" + username + "\": ");
+			System.out.print("Please select a flying status for customer \"" + username + "\": ");
 			
 			try {
 				choice = in.nextInt();

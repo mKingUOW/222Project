@@ -10,7 +10,8 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
+ * This class provides methods pertaining to any required 
+ * functionality and processing that is related to airports.
  * @author Michael Y.M. Kong
  */
 public class AirportController {
@@ -30,7 +31,6 @@ public class AirportController {
 	 * Default constructor. 
 	 */
 	public AirportController(){
-		
 	}
 	
 	/**
@@ -191,7 +191,7 @@ public class AirportController {
 		
 		ae.editAirport(airport);
 		
-		System.out.println("Airport with IATA " + IATA + " has been deleted.\n");
+		System.out.println("Airport with IATA " + IATA + " has been successfully edited and saved.\n");
 	}
 
 	/**

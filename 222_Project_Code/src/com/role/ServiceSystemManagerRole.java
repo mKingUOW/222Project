@@ -42,4 +42,9 @@ public class ServiceSystemManagerRole extends NormalStaffRole{
 				break;
 		}
 	}
+	
+	@Override
+	public String getRoleString() {
+		return "Service System Manager";
+	}
 }

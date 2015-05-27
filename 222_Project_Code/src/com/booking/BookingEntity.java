@@ -11,14 +11,13 @@ import com.helpers.ServiceBooking;
 import com.helpers.Ticket;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -93,12 +92,15 @@ public class BookingEntity {
 			e.printStackTrace();
 		}
 		
-		//bookingID + flightID + Status + Total_Price -- in the booking.csv
+		Date booking_date = new Date();
+		SimpleDateFormat fmt = new SimpleDateFormat("hh:mm:ss a dd/MMM/yyyy");
+		
+		//bookingID + flightID + Status + Total_Price + bookingDate -- in the booking.csv
 		try{
 			bk_id++;		// Increment the booking id by 1, for the next booking record;
 			writer = new PrintWriter(new FileOutputStream(new File(bookingFile),true));		//To append to the file using "true";
 			writer.print(bk_id + "," + flight_id + "," + total_price + ",");
-			writer.println(booking_status);						   
+			writer.print(booking_status + "," + fmt.format(booking_date));						   
 			writer.close();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -224,8 +226,9 @@ public class BookingEntity {
 							String flight_id = words[1];
 							double total_price = Double.parseDouble(words[2]);
 							String status = words[3];
+							String date = words[4];
 							
-							Booking bk = new Booking(b_id,flight_id,status,total_price);
+							Booking bk = new Booking(b_id,flight_id,status,total_price,date);
 							bookings.add(bk);
 							
 							found = true;	

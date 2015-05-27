@@ -25,4 +25,9 @@ public class CustomerRole extends AbstractCustomerRole{
 				break;
 		}
 	}
+
+	@Override
+	public String getRoleString() {
+		return "Customer";
+	}
 }

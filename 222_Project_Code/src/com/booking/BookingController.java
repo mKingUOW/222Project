@@ -20,7 +20,8 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
+ * This class provides methods pertaining to any required 
+ * functionality and processing that is related to bookings.
  * @author Michael Y.M. Kong
  */
 public class BookingController {
@@ -568,7 +569,9 @@ public class BookingController {
 				
 				person_ids.add(pc.addPerson(person));
 				
-				System.out.print("Do you want to add another person? (Y/N): ");
+				System.out.println("\nPerson " + firstName + " " + lastName + " has been added.\n");
+				
+				System.out.print("\nDo you want to add another person? (Y/N): ");
 				choice = in.nextLine().charAt(0);
 				
 				if (choice == 'Y' || choice == 'y') {
@@ -633,28 +636,30 @@ public class BookingController {
 	 */
 	public void cancelBooking(){
 		if (customerUsername == null) { //if it is not a customer
-			cancelBooking(pfc.enterUsername());
+			if (cancelBooking(pfc.enterUsername())) {
+				System.out.println("The booking has been cancelled.\n");
+			}
 		} else{
-			cancelBooking(customerUsername);
-			
-			pfc.chargeAccount(customerUsername, cancellationFee);
-			
-			System.out.printf("A cancellation fee of $%.2f has been charged to your account.\n", cancellationFee);
+			if (cancelBooking(customerUsername)) {
+				pfc.chargeAccount(customerUsername, cancellationFee);
+				System.out.printf("A cancellation fee of $%.2f has been charged to your account.\n", cancellationFee);
+			}
 		}
 	}
 	
 	/**
 	 * Called to cancel a booking.
 	 * @param username Used to find the bookings for this user
+	 * @return True if a booking was canceled, false otherwise.
 	 */
-	private void cancelBooking(String username){
+	private boolean cancelBooking(String username){
 		List<Booking> bookings = be.getBookings(username);
 		int i = 1;
 		int choice = 0;
 		boolean isOkay;
 		
 		if (!viewBookings(bookings)) {
-			return;
+			return false;
 		}
 		
 		do {
@@ -700,7 +705,9 @@ public class BookingController {
 		
 		fc.updateAvailableSeats(bookings.get(choice - 1).getFlightId(), available_seats);
 		
-		be.cancelBooking(choice); 
+		be.cancelBooking(choice);
+		
+		return true;
 	}
 	
 	/**
@@ -727,7 +734,7 @@ public class BookingController {
 			return false;
 		}
 		
-		System.out.printf("\n%-4s%-15s%-15s%-15s%-15s\n", "#", "Booking ID", "Flight ID", "Status", "Total Cost");
+		System.out.printf("\n%-4s%-15s%-15s%-15s%-15s%-25s\n", "#", "Booking ID", "Flight ID", "Status", "Total Cost", "Booking Date");
 		for (Booking booking : bookings) {
 			System.out.printf("%-4s", i + ". ");
 			System.out.println(booking.toString());
@@ -949,7 +956,7 @@ public class BookingController {
 		int choice = 0;
 		boolean isOkay;
 		
-		System.out.printf("%-4s%-15s%-15s%-15f\n", "#", "Booking ID", "Booking Status", "Total Price (AUD)");
+		System.out.printf("%-4s%-15s%-15s%-15f%-25s\n", "#", "Booking ID", "Booking Status", "Total Price (AUD)", "Booking Date");
 		
 		for (int i = 0; i < bookings.size(); i++) {
 			System.out.printf("%-4s", (i + 1) + ". ");

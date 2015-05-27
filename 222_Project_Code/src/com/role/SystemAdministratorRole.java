@@ -6,6 +6,7 @@
 package com.role;
 
 import com.profile.ProfileController;
+import com.report.ReportBuilder;
 
 /**
  *
@@ -27,7 +28,6 @@ public class SystemAdministratorRole extends Role{
 	private ProfileSystemManagerRole psmr = new ProfileSystemManagerRole();
 	private ServiceSystemManagerRole ssmr = new ServiceSystemManagerRole();
 	private ReservationSystemManagerRole rvsmr = new ReservationSystemManagerRole();
-	private ReportingSystemManagerRole rpsmr = new ReportingSystemManagerRole();
 	
 	public SystemAdministratorRole(){
 		super();
@@ -61,9 +61,6 @@ public class SystemAdministratorRole extends Role{
 			case "Act as Reservation System Manager":
 				role = rvsmr;
 				break;
-			case "Act as Reporting System Manager":
-				role = rpsmr;
-				break;
 			case "Edit Staff Profile":
 				pc.editStaffProfile();
 				break;
@@ -81,6 +78,22 @@ public class SystemAdministratorRole extends Role{
 				role.executeChoice();
 			}
 		}
-		
+	}
+	
+	@Override
+	public void displayReportMenu() {
+		System.out.println("No reports available yet.\n");
+	}
+	
+	@Override
+	public void displayReport(int choice) {
+		switch(choice){
+			default:
+		}
+	}
+	
+	@Override
+	public String getRoleString() {
+		return "System Administrator";
 	}
 }

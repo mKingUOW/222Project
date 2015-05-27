@@ -25,4 +25,9 @@ public class TravelAgencyRole extends AbstractCustomerRole{
 				break;
 		}
 	}
+	
+	@Override
+	public String getRoleString() {
+		return "Travel Agency";
+	}
 }

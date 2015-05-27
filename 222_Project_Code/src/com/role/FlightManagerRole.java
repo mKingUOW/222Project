@@ -48,4 +48,9 @@ public class FlightManagerRole extends NormalStaffRole{
 				break;
 		}
 	}
+	
+	@Override
+	public String getRoleString() {
+		return "Flight Manager";
+	}
 }

@@ -39,4 +39,9 @@ public class ProfileSystemManagerRole extends NormalStaffRole{
 				break;
 		}
 	}
+	
+	@Override
+	public String getRoleString() {
+		return "Profile System Manager";
+	}
 }

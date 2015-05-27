@@ -54,4 +54,9 @@ public class ReservationSystemManagerRole extends NormalStaffRole{
 				break;
 		}
 	}
+	
+	@Override
+	public String getRoleString() {
+		return "Reservation System Manager";
+	}
 }

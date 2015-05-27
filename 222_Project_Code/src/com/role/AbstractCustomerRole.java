@@ -2,6 +2,7 @@ package com.role;
 
 import com.booking.BookingController;
 import com.profile.ProfileController;
+import com.report.ReportBuilder;
 
 public abstract class AbstractCustomerRole extends Role{
 
@@ -39,6 +40,21 @@ public abstract class AbstractCustomerRole extends Role{
 				break;
 			default:
 				super.executeChoice();
+				break;
+		}
+	}
+	
+	@Override
+	public void displayReportMenu() {
+		System.out.println("1. Flight History Report");
+	}
+	
+	@Override
+	public void displayReport(int choice) {
+		switch(choice){
+			case 1:
+				ReportBuilder.setFlightHistoryReport();
+				ReportBuilder.displayReport(getUsername());
 				break;
 		}
 	}

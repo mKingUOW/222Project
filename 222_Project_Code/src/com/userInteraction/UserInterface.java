@@ -4,12 +4,32 @@ import java.util.*;
 import java.io.*;
 import com.helpers.Customer;
 
+/**
+ * This class is displays the first menu of the system.
+ * Allows the user to login, signup or quit the program.
+ * @author Michael Y. M. Kong
+ */
 public class UserInterface{
-
+	/**
+	 * UserInterface requires the UserController class for the
+	 * functionality and processing.
+	 */
 	private UserController uc = new UserController();
+	
+	/**
+	 * Console object to use the standard input from the console.
+	 */
 	private Console consl = System.console();
+	
+	/**
+	 * Scanner object to use the standard input from the console.
+	 */
 	private Scanner in = new Scanner(System.in);
 	
+	/**
+	 * Displays the initial flight system interface allowing the 
+	 * user to login, signup or quit the program.
+	 */
 	private void displayLoginChoices(){		//Display all the choices for the user;
 		System.out.println("\nFLIGHT MANAGEMENT SYSTEM");
 		System.out.println("Please select your choice: ");
@@ -19,6 +39,10 @@ public class UserInterface{
 		System.out.print("Your Choice: ");
 	}
 	
+	/**
+	 * The login function that is called to enter the login credentials and
+	 * process the login.
+	 */
 	public void login(){
 		String myUserName;
 		char [] myPasswd;
@@ -46,6 +70,9 @@ public class UserInterface{
 		}
 	}
 	
+	/**
+	 * Signup function that is called to create a new profile.
+	 */
 	public void signUp(){
 		boolean isSignUpOkay;
 		String title;
@@ -140,6 +167,9 @@ public class UserInterface{
 		}
 	}
 	
+	/**
+	 * Starts the process of this class after instantiation.
+	 */
 	public void start(){	
 		char signChoice = '0';			//Used for storing the choice of a user;
 		String signChoiceString = "";

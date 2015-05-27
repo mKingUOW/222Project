@@ -13,7 +13,8 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
+ * This class provides methods pertaining to any required 
+ * functionality and processing that is related to flights.
  * @author Michael Y.M. Kong
  */
 public class FlightController {
@@ -287,7 +288,7 @@ public class FlightController {
 	 * @return A List of Flight objects that match the origin and destination airports.
 	 */
 	public List<Flight> getFlights(String origin_airport, String destination_airport){
-		int route_number = rc.getRoute(origin_airport, destination_airport);
+		int route_number = rc.getRouteNumber(origin_airport, destination_airport);
 		
 		List<Flight> flights = null;
 		
@@ -324,7 +325,7 @@ public class FlightController {
 	 * @return A pair of Strings that are the names of the cities that this route covers.
 	 */
 	public AbstractMap.SimpleImmutableEntry<String, String> getRouteCities(int routeNumber){
-		return rc.getRouteLocations(routeNumber);
+		return rc.getRouteCities(routeNumber);
 	}
 	
 	/**
@@ -367,7 +368,7 @@ public class FlightController {
 		do {
 			isOkay = true;
 			
-			System.out.print("Enter the price for " + class_types[class_type] + " seats: ");
+			System.out.print("Enter the price for " + class_types[class_type] + " class seats: $");
 			
 			try {
 				price = in.nextDouble();
