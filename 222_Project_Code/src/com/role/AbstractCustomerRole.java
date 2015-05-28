@@ -48,7 +48,7 @@ public abstract class AbstractCustomerRole extends Role{
 	}
 	
 	@Override
-	public void displayReportMenu() {
+	public void executeReportChoice() {
 		String choice = allReportsAvailable.get(userReportChoice);
 		
 		switch(choice){

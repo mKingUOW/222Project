@@ -1018,7 +1018,7 @@ public class BookingController {
 	 * @param tickets The tickets corresponding to the booking ID.
 	 * @return A list of all the bookings for the given booking ID.
 	 */
-	private List<ServiceBooking> getServicesBookedForBooking(int booking_id, List<Ticket> tickets){
+	public List<ServiceBooking> getServicesBookedForBooking(int booking_id, List<Ticket> tickets){
 		List<ServiceBooking> services_booked = new ArrayList<>();
 		
 		for (Ticket ticket: tickets) {
@@ -1027,6 +1027,15 @@ public class BookingController {
 		}
 		
 		return services_booked;
+	}
+	
+	/**
+	 * Gets the services booked for a ticket.
+	 * @param ticket The ticket to get the services for.
+	 * @return A List of ServiceBooking objects.
+	 */
+	public List<ServiceBooking> getServicesBookedForTicket(Ticket ticket){
+		return be.getServicesBooked(ticket.getBookingId(), ticket.getTicketId());
 	}
 	
 	/**
@@ -1100,12 +1109,23 @@ public class BookingController {
 	 * Allows user to get bookings for a particular month.
 	 * @param month The month of to search for.
 	 * @param year The year to search for.
-	 * @return A List of Bookings that correspond with the the given month.
+	 * @return A List of Map.Entry Objects which contain a Booking object and
+	 * a of List of Ticket objects that correspond with the the given month.
 	 */
-	public List<Booking> getBookingsForMonth(String month, int year){
-		List<Booking> bookings = be.getAllBookings();
+	public List<Map.Entry<Booking, List<Ticket>>> getBookingsForMonth(String month, int year){
+		List<Booking> all_bookings = be.getAllBookings();
+		List<Map.Entry<Booking, List<Ticket>>> bookings_and_tickets = new ArrayList<>();
 		
-		return null;
+		for (Booking booking: all_bookings) {
+			String booking_date = booking.getBookingDate();
+			String booking_month = booking_date.substring(15, 18);
+			int booking_year = Integer.parseInt(booking_date.substring(19));
+			
+			if (month.equals(booking_month) && year == booking_year) { //if this is a wanted booking
+				bookings_and_tickets.add(new AbstractMap.SimpleImmutableEntry<>(booking, be.getTickets(booking.getBookingId())));		
+			}
+		}
+		return bookings_and_tickets;
 	}
 	
 	/**

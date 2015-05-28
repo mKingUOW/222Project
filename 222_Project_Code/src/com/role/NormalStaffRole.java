@@ -45,12 +45,12 @@ public class NormalStaffRole extends Role{
 	}
 	
 	@Override
-	public void displayReportMenu() {
+	public void executeReportChoice() {
 		String choice = allReportsAvailable.get(userReportChoice);
 		
 		switch(choice){
 			case "Flight Statistics Report":
-				ReportBuilder.displayReport(ReportBuilder.ReportType.FlightStatisticsReport, getUsername());
+				ReportBuilder.displayReport(ReportBuilder.ReportType.MonthlyFlightStatisticsReport, getUsername());
 				break;
 			default:
 				super.displayReportMenu();

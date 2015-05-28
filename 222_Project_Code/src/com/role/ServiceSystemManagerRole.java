@@ -48,7 +48,7 @@ public class ServiceSystemManagerRole extends NormalStaffRole{
 	}
 	
 	@Override
-	public void displayReportMenu() {
+	public void executeReportChoice() {
 		String choice = allReportsAvailable.get(userReportChoice);
 		
 		switch(choice){

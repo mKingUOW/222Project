@@ -110,12 +110,10 @@ public class Service {
 		
 		return sb.toString();
 	}
-<<<<<<< Updated upstream
 	/**
 	 * Gets the name, cost and availablity for the service in a formatted string
 	 * @return The formatted string
 	 */
-=======
 	
 	public String getServiceString(){
 		StringBuilder sb = new StringBuilder();
@@ -126,7 +124,6 @@ public class Service {
 		return sb.toString();
 	}
 	
->>>>>>> Stashed changes
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

@@ -23,7 +23,7 @@ public abstract class Role{
 	/**
 	 * The reports available for this role.
 	 */
-	private String[] reportsAvailable = {""};
+	private String[] reportsAvailable = {};
 	
 	/**
 	 * Scanner object to use the standard input console.
@@ -226,6 +226,7 @@ public abstract class Role{
 		switch(choice){
 			case "View Reports":
 				this.displayReportMenu();
+				this.executeReportChoice();
 				break;
 			case "Change Password":
 				pc.changePassword(username);
@@ -234,6 +235,13 @@ public abstract class Role{
 				setUserLoggedOut();
 				break;
 		}
+	}
+	
+	/**
+	 * Executes the report choice that was selected.
+	 */
+	public void executeReportChoice(){
+		
 	}
 	
 	/**
