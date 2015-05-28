@@ -19,7 +19,7 @@ public class Booking {
 	 */
 	private int bookingId;
 	
-	/*8
+	/**
 	 * The flight ID of this booking.
 	 */
 	private String flightId;
