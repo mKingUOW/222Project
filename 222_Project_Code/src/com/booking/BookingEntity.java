@@ -95,7 +95,7 @@ public class BookingEntity {
 		Date booking_date = new Date();
 		SimpleDateFormat fmt = new SimpleDateFormat("hh:mm:ss a dd/MMM/yyyy");
 		
-		//bookingID + flightID + Status + Total_Price + bookingDate -- in the booking.csv
+		//bookingID + flightID + Total_Price + Status + bookingDate -- in the booking.csv
 		try{
 			bk_id++;		// Increment the booking id by 1, for the next booking record;
 			writer = new PrintWriter(new FileOutputStream(new File(bookingFile),true));		//To append to the file using "true";
@@ -361,12 +361,63 @@ public class BookingEntity {
 	 * on the flight.
 	 */
 	public List<Person> getCustomers(String flight_id){
-		/*
-		 * Remember the Customer class is a child class
-		 * of the Person class. So you can put a Customer into
-		 * the Person List
-		 */
+		List<Person> customers = null;
+		String oneLine = "";
+/*		
+	//First step, from the flight_id,find all the booking_id in the booking.csv;
+		List<Integer> booking_id = new ArrayList<>();
+		int booking_count = 0;
 		
+		try{
+			reader = new BufferedReader(new FileReader(bookingFile));			
+			while(((oneLine = reader.readLine()) != null)){
+                String[] words = oneLine.split(",");
+				
+				if(flight_id.equals(words[1])){
+					int bk_id = Integer.parseInt(words[0]);
+					booking_id.add(bk_id);
+					booking_count++;
+				}	
+            }			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		if(booking_count == 0){
+			return null;
+		}
+		
+	//Second step,find all the username or person_id from the booking_id, in the tickets.csv;
+		List<String> user_names = new ArrayList<String>();
+		List<Integer> person_ids = new ArrayList<Integer>();
+		int bk_size = booking_id.size();
+		
+		for(int i=0;i < bk_size;i++){
+			int bk_id = booking_id.get(i);
+			try{
+				reader = new BufferedReader(new FileReader(ticketsFile));			
+				while(((oneLine = reader.readLine()) != null)){
+					String[] words = oneLine.split(",");
+					
+					int tmp_booking_id = Integer.parseInt(words[3]);
+					if(bk_id == tmp_booking_id){
+						String uname = words[1];
+						int pid = Integer.parseInt(words[2]);
+						
+						if(pid != -1){		//pid != -1, a person without username;
+							person_ids.add(pid);
+						}else{				//pid == -1 , a user;
+							user_names.add(uname);
+						}
+					}
+				}			
+				reader.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+*/		
 		return null;
 	}
 	
@@ -378,8 +429,28 @@ public class BookingEntity {
 	 * @return A list of ServiceBooking objects representing the services booked.
 	 */
 	public List<ServiceBooking> getServicesBooked(int booking_id, int ticket_id){
+		String oneLine = "";
+		List<ServiceBooking> services = null;
 		
-		return null;
+		try{
+			reader = new BufferedReader(new FileReader(serviceFile));			
+			while(((oneLine = reader.readLine()) != null)){
+                String[] words = oneLine.split(",");
+				
+				int bk_id = Integer.parseInt(words[0]);
+				int tk_id = Integer.parseInt(words[1]);
+				int service_id = Integer.parseInt(words[2]);
+				if((bk_id == booking_id) && (tk_id == ticket_id)){ 
+					ServiceBooking a_service = new ServiceBooking(bk_id,tk_id,service_id);
+					services.add(a_service);
+				}
+            }			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return services;
 	}
 	
 	/**
@@ -387,7 +458,28 @@ public class BookingEntity {
 	 * @return 
 	 */
 	public List<ServiceBooking> getAllServicesBooked(){
-		return null;
+		String oneLine = "";
+		List<ServiceBooking> services = null;
+		
+		try{
+			reader = new BufferedReader(new FileReader(serviceFile));			
+			while(((oneLine = reader.readLine()) != null)){
+                String[] words = oneLine.split(",");
+				
+				int bk_id = Integer.parseInt(words[0]);
+				int tk_id = Integer.parseInt(words[1]);
+				int service_id = Integer.parseInt(words[2]);
+				
+				ServiceBooking a_service = new ServiceBooking(bk_id,tk_id,service_id);
+				services.add(a_service);
+            }	
+			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return services;
 	}
 	
 	/**
@@ -401,6 +493,54 @@ public class BookingEntity {
 		 * SO just search the database for the bookings matching the booking ID adn ticket ID, 
 		 * delete them and replace them with the service bookings in the list.
 		 */
+		
+		int size = service_bookings.size();
+		for(int i=0;i < size;i++){
+			ServiceBooking a_service = service_bookings.get(i);
+			int bk_id = a_service.getBookingId();
+			int tk_id = a_service.getTicketId();
+			int svc_id = a_service.getServiceId();
+			
+			String oneLine = "";
+			String data = "";
+			String updatedLine = "";
+			
+			try{
+				reader = new BufferedReader(new FileReader(serviceFile));
+				while((oneLine = reader.readLine()) != null){				
+					String[] words = oneLine.split(",");
+				
+					int tmp_bk_id = Integer.parseInt(words[0]);
+					int tmp_tk_id = Integer.parseInt(words[1]);
+					String service_id = Integer.toString(svc_id);
+				
+					if((bk_id == tmp_bk_id) && (tk_id == tmp_tk_id)){
+						updatedLine +=  words[0];
+						updatedLine += ",";
+						updatedLine +=  words[1];
+						updatedLine += ",";
+						updatedLine +=  service_id;
+					
+						data += updatedLine + "\n";
+					}else{
+						data += oneLine + "\n";
+					}	
+				}
+				
+				reader.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		
+			try{
+				writer = new PrintWriter(new FileOutputStream(new File(serviceFile)));	
+				writer.print(data);
+				writer.close();	
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		}
+		
 	}
 	
 	/**
@@ -412,7 +552,33 @@ public class BookingEntity {
 		/*
 		 * Remember to only return the bookings that are not Canceled.
 		 */
-		return null;
+		 
+		List<Booking> bookings = null;
+		String oneLine = "";
+		
+		try{
+			reader = new BufferedReader(new FileReader(bookingFile));			
+			while((oneLine = reader.readLine()) != null){
+				String[] words = oneLine.split(",");
+				
+				if(words[1].equals(flight_id)){	
+					int booking_id = Integer.parseInt(words[0]);
+					double total_price = Double.parseDouble(words[2]);
+					String status = words[3];
+					String date = words[4];
+					if(!status.equals("Cancelled")){	//If the flight is not "Cancelled",then add;
+						Booking bk = new Booking(booking_id,flight_id,status,total_price,date);
+						bookings.add(bk);
+					}
+				}
+			}	
+			
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return bookings;
 	}
 	
 	/**
@@ -420,6 +586,29 @@ public class BookingEntity {
 	 * @return A List of Booking objects.
 	 */
 	public List<Booking> getAllBookings(){
-		return null;
+		List<Booking> bookings = null;
+		String oneLine = "";
+		
+		try{
+			reader = new BufferedReader(new FileReader(bookingFile));			
+			while((oneLine = reader.readLine()) != null){
+				String[] words = oneLine.split(",");
+				
+				int booking_id = Integer.parseInt(words[0]);
+				String flight_id = words[1];
+				double total_price = Double.parseDouble(words[2]);
+				String status = words[3];
+				String date = words[4];
+				
+				Booking bk = new Booking(booking_id,flight_id,status,total_price,date);
+				bookings.add(bk);
+			}	
+			
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return bookings;
 	}
 }

@@ -646,7 +646,25 @@ public class ProfileEntity {
 	 * exists in the system.
 	 */
 	public boolean createStaffProfile(Staff staff){
-		return true;
+		String oneLine = "";
+		boolean success = false;
+		
+		String username = staff.getUsername();
+		String passwd = new String(staff.getPassword());
+		String role = staff.getRole();
+		
+		try{
+			accfile = new File(accountFile);
+			writer = new PrintWriter(new FileOutputStream(accfile,true));		//To append to the file using "true";
+			writer.println(username + "," + passwd + "," + role + "," + "open");
+            writer.close();	
+			
+			success = true;
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return success;
 	}
 	
 	/**
@@ -654,7 +672,47 @@ public class ProfileEntity {
 	 * @param staff The staff object to save to the database.
 	 */
 	public void editStaffProfile(Staff staff){
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
 		
+		String username = staff.getUsername();
+		String passwd = new String(staff.getPassword());
+		String role = staff.getRole();
+		
+		try{
+			reader = new BufferedReader(new FileReader(accountFile));
+			while((oneLine = reader.readLine()) != null){
+                String[] words = oneLine.split(",");
+				
+				if(username.equals(words[0])){
+					updatedLine += username;
+					updatedLine += ",";
+					updatedLine += passwd;
+					updatedLine += ",";
+					updatedLine += role;			//Update the status;
+					updatedLine += ",";
+					updatedLine += words[3];
+					
+					data += updatedLine + "\n";
+				}else{
+					data += oneLine + "\n";
+				}	
+            }
+			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			accfile = new File(accountFile);
+			writer = new PrintWriter(new FileOutputStream(accfile));	
+			writer.print(data);
+            writer.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	/**
@@ -666,8 +724,30 @@ public class ProfileEntity {
 		/*
 		 * Only search profiles which the role is not "CUS" or "TA"
 		 */
+		String oneLine = ""; 
+		Staff staff = null;
 		
-		return null;
+		try{
+			reader = new BufferedReader(new FileReader(accountFile));
+			while((oneLine = reader.readLine()) != null){
+                String[] words = oneLine.split(",");
+				
+				boolean isTA = ("TA".equals(words[2]));
+				boolean isCUS = ("CUS".equals(words[2]));
+				
+				if(!isTA && !isCUS){
+					if(username.equals(words[0])){
+						staff = new Staff(words[0],words[1],words[2]);
+					}
+				}
+				
+            }
+			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return staff;
 	}
 	
 	/**

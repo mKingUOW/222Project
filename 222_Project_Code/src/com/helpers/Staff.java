@@ -30,7 +30,13 @@ public class Staff {
 	 */
 	public Staff() {
 	}
-
+	
+	public Staff(String uname,String passwd,String role){
+		this.username = uname;
+		this.password = passwd.toCharArray();
+		this.role = role;
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -43,8 +49,8 @@ public class Staff {
 		return password;
 	}
 
-	public void setPassword(char[] password) {
-		this.password = password;
+	public void setPassword(String passwd) {
+		this.password = passwd.toCharArray();
 	}
 
 	public String getRole() {

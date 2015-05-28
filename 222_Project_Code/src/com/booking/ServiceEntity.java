@@ -130,6 +130,24 @@ public class ServiceEntity{
 	 * @param new_services A Service object containing the details of the new service
 	 */
 	public void addServices(List<Service> new_services){
+		int size = new_services.size();
+		
+		for(int i=0;i < size;i++){
+			Service service = new_services.get(i);
+			
+			String serviceId = Integer.toString(service.getServiceID());
+			String serviceName = service.getName();
+			String cost = Double.toString(service.getCost());
+			String availability = service.getAvailability();
+			
+			try{
+				writer = new PrintWriter(new FileOutputStream(new File(filepath),true));	
+				writer.println(serviceId + "," + serviceName + "," + cost + "," + availability);
+				writer.close();	
+			}catch(Exception e){
+				e.printStackTrace();
+			}	
+		}
 		
 	}
 	
@@ -142,6 +160,36 @@ public class ServiceEntity{
 	 * @param service_ids_to_remove 
 	 */
 	public void removeService(int[] service_ids_to_remove){
+
+		for(int i=0;i < service_ids_to_remove.length;i++){
+			int serviceId = service_ids_to_remove[i];
+			String oneLine = "";
+			String data = "";
+			
+			try{
+				reader = new BufferedReader(new FileReader(filepath));
+				while((oneLine = reader.readLine()) != null){				
+					String[] words = oneLine.split(",");
+				
+					int tmp_svc_id = Integer.parseInt(words[0]);				
+					if(serviceId != tmp_svc_id){
+						data += oneLine + "\n";
+					}	
+				}
+				
+				reader.close();
+			}catch(Exception e){
+				e.printStackTrace();
+			}
+		
+			try{
+				writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
+				writer.print(data);
+				writer.close();	
+			}catch(Exception e){
+				e.printStackTrace();
+			}	
+		}
 		
 	}
 	
@@ -150,6 +198,48 @@ public class ServiceEntity{
 	 * @param updated_service The Service to update.
 	 */
 	public void editService(Service updated_service){
+		int serviceId = updated_service.getServiceID();
+		String serviceName = updated_service.getName();
+		double cost = updated_service.getCost();
+		String availability = updated_service.getAvailability();
 		
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
+			
+		try{
+			reader = new BufferedReader(new FileReader(filepath));
+			while((oneLine = reader.readLine()) != null){				
+				String[] words = oneLine.split(",");
+				
+				int tmp_svc_id = Integer.parseInt(words[0]);
+			
+				if(serviceId == tmp_svc_id){
+					updatedLine +=  serviceId;
+					updatedLine += ",";
+					updatedLine +=  serviceName;
+					updatedLine += ",";
+					updatedLine +=  cost;
+					updatedLine += ",";
+					updatedLine +=  availability;
+					
+					data += updatedLine + "\n";
+				}else{
+					data += oneLine + "\n";
+				}	
+			}
+				
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
+			writer.print(data);
+			writer.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}	
 	}
 }
