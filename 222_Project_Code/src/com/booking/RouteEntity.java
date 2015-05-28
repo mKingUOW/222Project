@@ -8,14 +8,34 @@ import java.util.*;
 public class RouteEntity{
 	
 	// routeNumber + origin_code + destination_code + codeShare + stops  --- in the routes.csv
+	/**
+	 * A quick reference to the rout database file.
+	 */
 	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "routes.csv";
+	
+	/**
+	 * A BufferedReader object that allows the class to read from files.
+	 */
 	private BufferedReader reader;
+	
+	/**
+	 * A PrintWriter object that allows the class to write to files.
+	 */
 	private PrintWriter writer;
 	
+	/**
+	 * Default constructor.
+	 */
 	public RouteEntity(){
-		
 	}
 	
+	/**
+	 * Gets the route number based on the origin and destination airports.
+	 * @param origin_airport The origin airport.
+	 * @param destination_airport The destination airport.
+	 * @return The route number matching the origin and destination airports.
+	 * -1 if route is not found.
+	 */
 	public int getRouteNumber(String origin,String destination){
 		
 		String oneLine = "";
@@ -41,7 +61,13 @@ public class RouteEntity{
 		return routeNumber;
 	}
 	
-	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber){
+	/**
+	 * Gets the codes for either ends of the given route number.
+	 * @param routeNumber The route number to search for.
+	 * @return A pair of Strings. If the route number does not exist, a pair
+	 * of empty Strings will be returned.
+	 */
+	public Map.Entry<String, String> getRoutePointsCodes(int routeNumber){
 
 		String oneLine = "";
 		boolean found = false;
@@ -69,7 +95,14 @@ public class RouteEntity{
 		return new AbstractMap.SimpleImmutableEntry<>(origin, destination);
 	}
 	
-	public Route getRoute(String origin, String destination){
+	/**
+	 * Gets the Route object matching the given origin and destination code.
+	 * @param origin_code The origin code.
+	 * @param destination_code The destination code.
+	 * @return Route object which matches the given origin and destination code.
+	 * If route not found, returns null.
+	 */
+	public Route getRoute(String origin_code, String destination_code){
 		Route route = null;
 		String oneLine = "";
 		boolean found = false;
@@ -79,7 +112,7 @@ public class RouteEntity{
 			while(!found && ((oneLine = reader.readLine()) != null)){
 				String [] words = oneLine.split(",");
 				
-				if(origin.equals(words[1]) && destination.equals(words[2])){
+				if(origin_code.equals(words[1]) && destination_code.equals(words[2])){
 					route = new Route();
 					
 					int routeNumber = Integer.parseInt(words[0]);
@@ -107,6 +140,10 @@ public class RouteEntity{
 		return route;
 	}
 	
+	/**
+	 * Adds the given Route object to the database.
+	 * @param route The Route object to add to database.
+	 */
 	public void addRoute(Route route){
 		int routeNumber = route.getRouteNumber();
 		String origin_code = route.getOriginCode();
@@ -123,6 +160,10 @@ public class RouteEntity{
 		}
 	}
 	
+	/**
+	 * Edits a route in the database.
+	 * @param route The Route object to update the database.
+	 */
 	public void editRoute(Route route){
 		int routeNumber = route.getRouteNumber();
 		String origin_code = route.getOriginCode();
@@ -172,6 +213,11 @@ public class RouteEntity{
 		}
 	}
 	
+	/**
+	 * Deletes a route from the database.
+	 * @param origin_code The origin code or the route.
+	 * @param destination_code The destination code of the route.
+	 */
 	public void deleteRoute(String origin_code,String destination_code){
 		String oneLine = "";
 		String data = "";

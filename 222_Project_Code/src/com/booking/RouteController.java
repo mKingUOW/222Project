@@ -8,6 +8,7 @@ package com.booking;
 import com.helpers.Route;
 import java.util.AbstractMap;
 import java.util.InputMismatchException;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -416,9 +417,8 @@ public class RouteController {
 	 * @return A pair of Strings. If the route number does not exist, a pair
 	 * of empty Strings will be returned.
 	 */
-	public AbstractMap.SimpleImmutableEntry<String, String> getRouteCities(int routeNumber){
-		AbstractMap.SimpleImmutableEntry<String, String> route_points
-				= getRoutePointsCodes(routeNumber);
+	public Map.Entry<String, String> getRouteCities(int routeNumber){
+		Map.Entry<String, String> route_points = getRoutePointsCodes(routeNumber);
 		
 		String origin_city = ac.getAirportCity(route_points.getKey());
 		String destination_city = ac.getAirportCity(route_points.getValue());
@@ -432,8 +432,8 @@ public class RouteController {
 	 * @return A pair of Strings. If the route number does not exist, a pair
 	 * of empty Strings will be returned.
 	 */
-	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePointsCodes(int routeNumber){
-		return re.getRoutePoints(routeNumber);
+	public Map.Entry<String, String> getRoutePointsCodes(int routeNumber){
+		return re.getRoutePointsCodes(routeNumber);
 	}
 	
 	/**

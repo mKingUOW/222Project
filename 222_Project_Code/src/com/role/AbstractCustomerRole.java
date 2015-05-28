@@ -10,9 +10,12 @@ public abstract class AbstractCustomerRole extends Role{
 	private BookingController bc = new BookingController();
 	private ProfileController pc = new ProfileController();
 	
+	private String[] reportsAvailable = {"Flight History Report"};
+	
 	public AbstractCustomerRole(){
 		super();
 		addChoices(choices);
+		addReportChoices(reportsAvailable);
 	}
 
 	@Override
@@ -46,15 +49,14 @@ public abstract class AbstractCustomerRole extends Role{
 	
 	@Override
 	public void displayReportMenu() {
-		System.out.println("1. Flight History Report");
-	}
-	
-	@Override
-	public void displayReport(int choice) {
+		String choice = allReportsAvailable.get(userReportChoice);
+		
 		switch(choice){
-			case 1:
-				ReportBuilder.setFlightHistoryReport();
-				ReportBuilder.displayReport(getUsername());
+			case "Flight History Report":
+				ReportBuilder.displayReport(ReportBuilder.ReportType.FlightHistoryReport, getUsername());
+				break;
+			default:
+				super.displayReportMenu();
 				break;
 		}
 	}

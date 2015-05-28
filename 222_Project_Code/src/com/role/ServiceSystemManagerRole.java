@@ -6,6 +6,7 @@
 package com.role;
 
 import com.booking.ServiceController;
+import com.report.ReportBuilder;
 
 /**
  *
@@ -15,9 +16,12 @@ public class ServiceSystemManagerRole extends NormalStaffRole{
 	private String[] choices = {"Add Services", "Remove Services", "Edit Service Price", "Edit Service Availability"};
 	private ServiceController sc = new ServiceController();
 	
+	private String[] reportsAvailable = {"Top 5 Popular Services Report"};
+	
 	public ServiceSystemManagerRole(){
 		super();
 		addChoices(choices);
+		addReportChoices(reportsAvailable);
 	}
 
 	@Override
@@ -39,6 +43,20 @@ public class ServiceSystemManagerRole extends NormalStaffRole{
 				break;
 			default:
 				super.executeChoice();
+				break;
+		}
+	}
+	
+	@Override
+	public void displayReportMenu() {
+		String choice = allReportsAvailable.get(userReportChoice);
+		
+		switch(choice){
+			case "Top 5 Popular Services Report":
+				ReportBuilder.displayReport(ReportBuilder.ReportType.Top5PopularServicesReport, getUsername());
+				break;
+			default:
+				super.displayReportMenu();
 				break;
 		}
 	}

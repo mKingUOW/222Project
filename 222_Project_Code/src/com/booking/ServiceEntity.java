@@ -14,7 +14,6 @@ public class ServiceEntity{
 	 * Default constructor
 	 */
 	public ServiceEntity(){
-		
 	}
 	
 	/**

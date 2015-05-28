@@ -81,18 +81,6 @@ public class SystemAdministratorRole extends Role{
 	}
 	
 	@Override
-	public void displayReportMenu() {
-		System.out.println("No reports available yet.\n");
-	}
-	
-	@Override
-	public void displayReport(int choice) {
-		switch(choice){
-			default:
-		}
-	}
-	
-	@Override
 	public String getRoleString() {
 		return "System Administrator";
 	}

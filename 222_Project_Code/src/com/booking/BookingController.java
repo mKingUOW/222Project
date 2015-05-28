@@ -15,8 +15,12 @@ import com.helpers.ServiceBooking;
 import com.helpers.Ticket;
 import java.util.AbstractMap;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -106,7 +110,7 @@ public class BookingController {
 	 * @param role The role that is making this booking
 	 */
 	public void makeBooking(String role){
-		AbstractMap.SimpleImmutableEntry<Flight, Boolean> flight_choice;
+		Map.Entry<Flight, Boolean> flight_choice;
 		String[] customer_usernames = null;
 		List<Integer> person_ids = null;
 		List<Ticket> tickets = new ArrayList<>();
@@ -157,7 +161,7 @@ public class BookingController {
 		/* Start Customer Tickets */
 		if ("TA".equals(role) && customer_usernames != null){ //extra computation for customers
 			for (String username: customer_usernames) {
-				AbstractMap.SimpleImmutableEntry<String, Double> seat;
+				Map.Entry<String, Double> seat;
 				double total_services_price = 0.0;
 				
 				System.out.println("\nTicket for Customer with username \"" + username + "\"");
@@ -185,7 +189,7 @@ public class BookingController {
 		
 		/* Start Solo Customer Booking */
 		if ("CUS".equals(role)){
-			AbstractMap.SimpleImmutableEntry<String, Double> seat;
+			Map.Entry<String, Double> seat;
 			double total_services_price = 0.0;
 			
 			System.out.println("\nYour Ticket (" + customerUsername + ")");
@@ -216,7 +220,7 @@ public class BookingController {
 		/* Start Person Tickets */
 		if (person_ids != null) {
 			for (Integer person_id: person_ids) {
-				AbstractMap.SimpleImmutableEntry<String, Double> seat;
+				Map.Entry<String, Double> seat;
 				double total_services_price = 0.0;
 				
 				System.out.println("\nTicket for Person with ID \"" + person_id + "\"");
@@ -249,7 +253,7 @@ public class BookingController {
 		String destination;
 		double total_price = 0.0;
 		
-		AbstractMap.SimpleImmutableEntry<String, String> route_locations
+		Map.Entry<String, String> route_locations
 				= fc.getRouteCities(chosen_flight.getRouteNumber());
 		
 		origin = route_locations.getKey();
@@ -339,7 +343,7 @@ public class BookingController {
 	 * @param total_seats Total seats that this flight's plane can accommodate
 	 * @return The seat number and the price of that seat.
 	 */
-	private AbstractMap.SimpleImmutableEntry<String, Double>
+	private Map.Entry<String, Double>
 			chooseSeat(int[] available_seats, int[] total_seats, double[] seat_prices){
 		boolean isOkay;
 		int choice = 0;
@@ -404,7 +408,7 @@ public class BookingController {
 	 * The UI for users to choose a flight.
 	 * @return The Flight object and a boolean whether it's an international flight
 	 */
-	private AbstractMap.SimpleImmutableEntry<Flight, Boolean> chooseFlight(){
+	private Map.Entry<Flight, Boolean> chooseFlight(){
 		boolean isOkay;
 		String origin;
 		String destination;
@@ -1090,5 +1094,132 @@ public class BookingController {
 	 */
 	public void setUsername(String username){
 		customerUsername = username;
+	}
+	
+	/**
+	 * Allows user to get bookings for a particular month.
+	 * @param month The month of to search for.
+	 * @param year The year to search for.
+	 * @return A List of Bookings that correspond with the the given month.
+	 */
+	public List<Booking> getBookingsForMonth(String month, int year){
+		List<Booking> bookings = be.getAllBookings();
+		
+		return null;
+	}
+	
+	/**
+	 * Gets the top 5 services booked and their count for all time.
+	 * @return A List of 5 Map Entry objects containing a Service – Integer pair.
+	 */
+	public List<Map.Entry<Service, Integer>> getTop5ServicesBooked(){
+		List<ServiceBooking> services_booked = be.getAllServicesBooked();
+		
+		//Integer 1 = service ID
+		//Integer 2 = occurences of service ID
+		Map<Integer, Integer> popular_service_map = new HashMap<>();
+		
+		for (ServiceBooking serviceBooking: services_booked) {
+			int cur_service_id = serviceBooking.getServiceId();
+			
+			Integer cur_service_count = popular_service_map.remove(cur_service_id);
+			
+			if (cur_service_count == null) {
+				popular_service_map.put(cur_service_id, 1);
+			} else{
+				cur_service_count++;
+				popular_service_map.put(cur_service_id, cur_service_count);
+			}
+		}
+		
+		List<Map.Entry<Integer, Integer>> service_list = new ArrayList<>(popular_service_map.entrySet());
+    
+		Collections.sort(service_list, new Comparator(){
+			@Override
+			public int compare(Object obj1, Object obj2){
+				return (
+					(Comparable)((Map.Entry)(obj1)).getValue()
+				).compareTo(((Map.Entry)(obj2)).getValue()); 
+			}
+		});
+		
+		List<Map.Entry<Service, Integer>> popular_service_list = new ArrayList<>();
+		
+		for (int i = 0; i < 5; i++) { //get only 5 objects
+			Map.Entry<Integer, Integer> service = service_list.get(i);
+			popular_service_list.add(
+					new AbstractMap.SimpleImmutableEntry<>(sc.getService(service.getKey()), service.getValue())
+			);
+		}
+		
+		return popular_service_list;
+	}
+	
+	/**
+	 * Allows the user to enter in a (MMM) format month.
+	 * @return The month in (MMM) format.
+	 */
+	public String enterMonth(){
+		String month;
+		boolean isOkay;
+		
+		do {			
+			isOkay = true;
+			
+			System.out.print("Please enter a month to search for (MMM): ");
+			month = in.nextLine();
+			
+			switch(month){
+				case "Jan":
+				case "Feb":
+				case "Mar":
+				case "Apr":
+				case "May":
+				case "Jun":
+				case "Jul":
+				case "Aug":
+				case "Sep":
+				case "Oct":
+				case "Nov":
+				case "Dec":
+					//nothing to do because just check if the month corresponds to any of the above.
+					break;
+				default:
+					isOkay = false;
+					System.out.println("This month does not exist. Please try again!\n");
+					break;
+			}
+		} while (!isOkay);
+		
+		return month;
+	}
+	
+	/**
+	 * Allows the user to enter in a (YYYY) format year.
+	 * @return The year in (YYYY) format.
+	 */
+	public int enterYear(){
+		int year = 0;
+		boolean isOkay;
+		
+		do {
+			isOkay = true;
+			
+			System.out.print("Please enter a year to search for (YYYY): ");
+			
+			try {
+				year = in.nextInt();
+				
+				if (year < 1000) {
+					isOkay = false;
+					System.out.println("Year must be 4 numbers long. Please try again!\n");
+				}
+			} catch (InputMismatchException e) {
+				isOkay = false;
+				System.out.println("Invalid input detected. Please try again!\n");
+			}
+		} while (!isOkay);
+		
+		return year;
 	}
 }

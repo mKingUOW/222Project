@@ -21,6 +21,11 @@ public abstract class Role{
 	private String[] choices = {"Change Password", "Logout", "View Reports"};
 	
 	/**
+	 * The reports available for this role.
+	 */
+	private String[] reportsAvailable = {""};
+	
+	/**
 	 * Scanner object to use the standard input console.
 	 */
 	private Scanner in = new Scanner(System.in);
@@ -47,9 +52,20 @@ public abstract class Role{
 	protected List<String> allChoices;
 	
 	/**
+	 * Holds all the possible available reports that will have been passed to itself from
+	 * its subclasses.
+	 */
+	protected List<String> allReportsAvailable;
+	
+	/**
 	 * The choice of the user for the main menu.
 	 */
 	protected int userChoice = -1;
+	
+	/**
+	 * The choice of the user for the report menu.
+	 */
+	protected int userReportChoice = -1;
 	
 	/**
 	 * Default constructor.
@@ -58,7 +74,9 @@ public abstract class Role{
 	 */
 	public Role() {
 		allChoices = new ArrayList<>(Arrays.asList(choices));
+		allReportsAvailable = new ArrayList<>(Arrays.asList(reportsAvailable));
 		Collections.sort(allChoices);
+		Collections.sort(allReportsAvailable);
 		isLoggedIn = true;
 	}
 
@@ -99,6 +117,39 @@ public abstract class Role{
 	}
 	
 	/**
+	 * Displays the available report options.
+	 */
+	public void displayReportMenu(){
+		boolean isOkay;
+		
+		System.out.println();
+		
+		do {			
+			isOkay = true;
+			
+			for (int i = 0; i < allReportsAvailable.size(); i++) {
+				System.out.println((i + 1) + ": " + allReportsAvailable.get(i));
+			}
+			System.out.print("Enter your choice: ");
+			
+			try {
+				userReportChoice = in.nextInt();
+				
+				if (userReportChoice < 1 || userReportChoice > allReportsAvailable.size()) {
+					System.out.println("Please key in a number between 1 and " + allReportsAvailable.size() + "!\n");
+					
+					isOkay = false;
+				}
+			} catch (InputMismatchException e) {
+				isOkay = false;
+				System.out.println("That choice is not available. Please try again!\n");
+			}
+		} while (!isOkay);
+		
+		userReportChoice--;
+	}
+	
+	/**
 	 * Allows subclasses to add the choices unique to that class.
 	 * @param additionalChoices The additional choices to add.
 	 */
@@ -106,6 +157,17 @@ public abstract class Role{
 		if (additionalChoices != null) {
 			allChoices.addAll(Arrays.asList(additionalChoices));
 			Collections.sort(allChoices);
+		}
+	}
+	
+	/**
+	 * Allows subclasses to add the report choices unique to that class.
+	 * @param additionalChoices The additional report choices to add.
+	 */
+	protected void addReportChoices(String[] additionalChoices){
+		if (additionalChoices != null) {
+			allReportsAvailable.addAll(Arrays.asList(additionalChoices));
+			Collections.sort(allReportsAvailable);
 		}
 	}
 	
@@ -163,7 +225,7 @@ public abstract class Role{
 		
 		switch(choice){
 			case "View Reports":
-				rc.init(this);
+				this.displayReportMenu();
 				break;
 			case "Change Password":
 				pc.changePassword(username);
@@ -173,17 +235,6 @@ public abstract class Role{
 				break;
 		}
 	}
-	
-	/**
-	 * Displays the available report options.
-	 */
-	public abstract void displayReportMenu();
-	
-	/**
-	 * Displays the chosen report.
-	 * @param choice The selected report choice.
-	 */
-	public abstract void displayReport(int choice);
 	
 	/**
 	 * Gets the name of the role that is currently active.

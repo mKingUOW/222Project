@@ -32,31 +32,6 @@ public class ReportController {
 	}
 	
 	/**
-	 * Starts the ReportController.
-	 * @param role 
-	 */
-	public void init(Role role){
-		int choice = 0;
-		boolean isOkay;
-		setRole(role);
-		
-		System.out.println();
-		role.displayReportMenu();
-		
-		System.out.print("Enter your choice: ");
-		
-		try {
-			isOkay = true;
-			choice = in.nextInt();
-		} catch (InputMismatchException e) {
-			isOkay = false;
-			System.out.println("That choice is not available. Please try again!\n");
-		}
-		
-		role.displayReport(choice);
-	}
-	
-	/**
 	 * Sets the role to displays the right reports.
 	 * @param role 
 	 */

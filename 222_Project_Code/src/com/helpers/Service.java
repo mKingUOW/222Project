@@ -110,10 +110,23 @@ public class Service {
 		
 		return sb.toString();
 	}
+<<<<<<< Updated upstream
 	/**
 	 * Gets the name, cost and availablity for the service in a formatted string
 	 * @return The formatted string
 	 */
+=======
+	
+	public String getServiceString(){
+		StringBuilder sb = new StringBuilder();
+		Formatter fmt = new Formatter(sb);
+		
+		fmt.format("%-12s%-20s$%-14.2f%-15s", serviceID, name, cost, availability);
+		
+		return sb.toString();
+	}
+	
+>>>>>>> Stashed changes
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

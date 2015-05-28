@@ -6,8 +6,11 @@
 package com.report;
 
 import com.booking.BookingController;
+import com.helpers.Service;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -17,15 +20,11 @@ public class ReportBuilder {
 	/**
 	 * An enumeration denoting the report types available.
 	 */
-	private static enum ReportType {
+	public static enum ReportType {
 		FlightHistoryReport, FlightStatisticsReport,
-		AllTimeFinancialReport
+		MonthlyRevenueReport, Top5PopularServicesReport,
+		BookingsForMonthReport
 	}
-	
-	/**
-	 * Points to the type of report.
-	 */
-	private static ReportType type = null;
 	
 	/**
 	 * Private default constructor disallows instantiation.
@@ -34,39 +33,24 @@ public class ReportBuilder {
 	}
 	
 	/**
-	 * Sets the builder to generate a flight history report.
-	 */
-	public static void setFlightHistoryReport(){
-		type = ReportType.FlightHistoryReport;
-	}
-	
-	/**
-	 * Sets the builder to generate a flight statistics report.
-	 */
-	public static void setFlightStatisticsReport(){
-		type = ReportType.FlightStatisticsReport;
-	}
-	
-	/**
-	 * Sets the builder to generate an all time financial report.
-	 */
-	public static void setAllTimeFinancialReport(){
-		type = ReportType.AllTimeFinancialReport;
-	}
-	
-	/**
 	 * Builds and displays the report.
 	 */
-	public static void displayReport(String username){
-		switch(type){
+	public static void displayReport(ReportType report_type, String username){
+		switch(report_type){
 			case FlightHistoryReport:
 				displayFlightHistoryReport(username);
 				break;
 			case FlightStatisticsReport:
 				displayFlightStatisticsReport();
 				break;
-			case AllTimeFinancialReport:
-				displayAllTimeFinancialReport();
+			case MonthlyRevenueReport:
+				displayMonthlyRevenueReport();
+				break;
+			case Top5PopularServicesReport:
+				displayTop5PopularServicesReport();
+				break;
+			case BookingsForMonthReport:
+				displayBookingsForMonthReport();
 				break;
 			default:
 				System.out.println("Report type has not been set.\n");
@@ -94,10 +78,45 @@ public class ReportBuilder {
 	}
 	
 	/**
-	 * Displays the all time financial report.
+	 * Displays the monthly financial report.
 	 */
-	private static void displayAllTimeFinancialReport(){
-		displayHeader("ALL TIME FINANCIAL REPORT");
+	private static void displayMonthlyRevenueReport(){
+		displayHeader("MONTHLY REVENUE REPORT");
+	}
+	
+	/**
+	 * Displays the all time popular services report.
+	 */
+	private static void displayTop5PopularServicesReport(){
+		BookingController bc = new BookingController();
+		
+		List<Map.Entry<Service, Integer>> popular_service
+				= bc.getTop5ServicesBooked();
+		
+		displayHeader("TOP 5 POPULAR SERVICES REPORT");
+		
+		int i = 1;
+		
+		System.out.printf("%-4s%-12s%-20s%-14s%-15s\n", "#", "Service ID", "Name", "Cost (AUD)", "Availability");
+		for (Map.Entry<Service, Integer> entry: popular_service) {
+			System.out.printf("%-4s", i + ". ");
+			System.out.println(entry.getKey().getServiceString());
+			System.out.println("Number of times this service has been booked: " + entry.getValue());
+			System.out.println();
+			i++;
+		}
+	}
+	
+	/**
+	 * Displays the bookings for month report.
+	 */
+	private static void displayBookingsForMonthReport(){
+		BookingController bc = new BookingController();
+		String month = bc.enterMonth();
+		int year = bc.enterYear();
+		
+		
+		displayHeader("BOOKINGS FOR THE MONTH OF " + 3 + " REPORT");
 	}
 	
 	/**
@@ -106,7 +125,7 @@ public class ReportBuilder {
 	 */
 	private static void displayHeader(String header_title){
 		System.out.println("---------------" + header_title + "---------------");
-		System.out.println(getCurrentDateString());
+		System.out.println("Report generated at: " + getCurrentDateString());
 	}
 	
 	/**

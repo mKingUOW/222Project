@@ -383,6 +383,14 @@ public class BookingEntity {
 	}
 	
 	/**
+	 * Gets all the service bookings that have been made.
+	 * @return 
+	 */
+	public List<ServiceBooking> getAllServicesBooked(){
+		return null;
+	}
+	
+	/**
 	 * Updates the bookings of a particular ticket.
 	 * @param service_bookings List of service bookings
 	 */
@@ -404,6 +412,14 @@ public class BookingEntity {
 		/*
 		 * Remember to only return the bookings that are not Canceled.
 		 */
+		return null;
+	}
+	
+	/**
+	 * Gets all bookings.
+	 * @return A List of Booking objects.
+	 */
+	public List<Booking> getAllBookings(){
 		return null;
 	}
 }

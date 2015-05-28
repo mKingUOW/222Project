@@ -16,9 +16,12 @@ public class NormalStaffRole extends Role{
 	private String[] choices = {"Cancel Customer Booking", "Make Booking for Customer", "Edit Services for Customer"};
 	private BookingController bc = new BookingController();
 	
+	private String[] reportsAvailable = {"Flight Statistics Report"};
+	
 	public NormalStaffRole() {
 		super();
 		addChoices(choices);
+		addReportChoices(reportsAvailable);
 	}
 	
 	@Override
@@ -40,18 +43,17 @@ public class NormalStaffRole extends Role{
 				break;
 		}
 	}
-
+	
 	@Override
 	public void displayReportMenu() {
-		System.out.println("1. Flight Statistics Report");
-	}
-
-	@Override
-	public void displayReport(int choice) {
+		String choice = allReportsAvailable.get(userReportChoice);
+		
 		switch(choice){
-			case 1:
-				ReportBuilder.setFlightStatisticsReport();
-				ReportBuilder.displayReport(getUsername());
+			case "Flight Statistics Report":
+				ReportBuilder.displayReport(ReportBuilder.ReportType.FlightStatisticsReport, getUsername());
+				break;
+			default:
+				super.displayReportMenu();
 				break;
 		}
 	}

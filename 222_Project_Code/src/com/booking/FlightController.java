@@ -10,6 +10,7 @@ import com.helpers.Plane;
 import java.util.AbstractMap;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -324,7 +325,7 @@ public class FlightController {
 	 * @param routeNumber The route number to get the route cities of.
 	 * @return A pair of Strings that are the names of the cities that this route covers.
 	 */
-	public AbstractMap.SimpleImmutableEntry<String, String> getRouteCities(int routeNumber){
+	public Map.Entry<String, String> getRouteCities(int routeNumber){
 		return rc.getRouteCities(routeNumber);
 	}
 	

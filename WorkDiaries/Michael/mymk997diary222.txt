@@ -35,3 +35,4 @@ Work is not going as expected. We are clearly behind schedule. But with other as
 We are still behind schedule, but we have made some good progress. We have implemented, almost completely, the booking procedure. All that is left is the actual saving of the booking to the database files, the displaying of the booking summary and the payment section. We will look into finishing the rest of the booking procedure by next week.
 
 26/05/2015
+Managed to bounce back into schedule. Work completed this week included finishing the booking procedure and additions of more features to each role. We just started the report subsystem this week but it shouldn't be too hard. We plan to do two to three reports that will allow users to gain useful insight into their particular roles. This upcoming week includes finishing up the system as a whole, finishing up the various diagrams for the system and preparing for project presentation.

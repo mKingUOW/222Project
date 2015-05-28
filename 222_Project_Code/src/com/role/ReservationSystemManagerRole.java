@@ -8,6 +8,7 @@ package com.role;
 import com.booking.BookingController;
 import com.booking.FlightController;
 import com.profile.ProfileController;
+import com.report.ReportBuilder;
 
 /**
  *
@@ -17,6 +18,9 @@ public class ReservationSystemManagerRole extends NormalStaffRole{
 	private String[] choices = {"Set Ticket Prices", "Move Passengers Between Flights",
 		"Change Passenger Seating", "Edit Watch and No Fly List",
 		"Set Frequent Flier Point Discount Ratio", "Set Cancellation Fee"};
+	
+	private String[] reportsAvailable = {"Monthly Revenue Report", "Bookings For Month Report"};
+	
 	private ProfileController pc = new ProfileController();
 	private BookingController bc = new BookingController();
 	private FlightController fc = new FlightController();
@@ -24,6 +28,7 @@ public class ReservationSystemManagerRole extends NormalStaffRole{
 	public ReservationSystemManagerRole(){
 		super();
 		addChoices(choices);
+		addReportChoices(reportsAvailable);
 	}
 
 	@Override
@@ -51,6 +56,23 @@ public class ReservationSystemManagerRole extends NormalStaffRole{
 				break;
 			default:
 				super.executeChoice();
+				break;
+		}
+	}
+	
+	@Override
+	public void displayReportMenu() {
+		String choice = allReportsAvailable.get(userReportChoice);
+		
+		switch(choice){
+			case "Monthly Revenue Report":
+				ReportBuilder.displayReport(ReportBuilder.ReportType.MonthlyRevenueReport, getUsername());
+				break;
+			case "Bookings For Month Report":
+				ReportBuilder.displayReport(ReportBuilder.ReportType.BookingsForMonthReport, getUsername());
+				break;
+			default:
+				super.displayReportMenu();
 				break;
 		}
 	}
