@@ -9,21 +9,37 @@ import com.booking.BookingController;
 import com.report.ReportBuilder;
 
 /**
- *
+ * A class that defines what a Normal Staff actor can perform in the system.
  * @author Michael Y.M. Kong
  */
 public class NormalStaffRole extends Role{
+	/**
+	 * The choices available for this role.
+	 */
 	private String[] choices = {"Cancel Customer Booking", "Make Booking for Customer", "Edit Services for Customer"};
+	
+	/**
+	 * Used to access the booking functionality.
+	 */
 	private BookingController bc = new BookingController();
 	
+	/**
+	 * The reports available for this role.
+	 */
 	private String[] reportsAvailable = {};
 	
+	/**
+	 * Default constructor
+	 */
 	public NormalStaffRole() {
 		super();
 		addChoices(choices);
 		addReportChoices(reportsAvailable);
 	}
 	
+	/**
+	 * Overriding method that executes the choice that was selected.
+	 */
 	@Override
 	public void executeChoice(){
 		String choice = allChoices.get(userChoice);
@@ -44,6 +60,9 @@ public class NormalStaffRole extends Role{
 		}
 	}
 	
+	/**
+	 * Overriding method that executes the report choice that was selected.
+	 */
 	@Override
 	public void executeReportChoice() {
 		String choice = allReportsAvailable.get(userReportChoice);

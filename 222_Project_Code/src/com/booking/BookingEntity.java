@@ -20,8 +20,13 @@ import java.util.Date;
 import java.util.List;
 
 /**
- *
+ * The Entity class that maps to the booking .csv files. 
+ * .csv files:
+ * booking_constants.csv, booking.csv, tickets.csv, services_booked.csv
+ * All transactions that deal with bookings and the associated data such as
+ * tickets and services booked are done here.
  * @author Michael Y.M. Kong
+ * @author Jicheng Li
  */
 public class BookingEntity {
 	

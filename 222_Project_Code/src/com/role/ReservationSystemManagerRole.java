@@ -11,26 +11,49 @@ import com.profile.ProfileController;
 import com.report.ReportBuilder;
 
 /**
- *
+ * A class that defines what a Reservation System Manager actor can perform in the system.
  * @author Michael Y.M. Kong
  */
 public class ReservationSystemManagerRole extends NormalStaffRole{
+	/**
+	 * The choices available for this role.
+	 */
 	private String[] choices = {"Set Ticket Prices", "Move Passengers Between Flights",
 		"Change Passenger Seating", "Edit Watch and No Fly List",
 		"Set Frequent Flier Point Discount Ratio", "Set Cancellation Fee"};
 	
+	/**
+	 * The reports available for this role.
+	 */
 	private String[] reportsAvailable = {"Monthly Revenue Report", "Bookings For Month Report"};
 	
+	/**
+	 * Used to access the profile functionality.
+	 */
 	private ProfileController pc = new ProfileController();
+	
+	/**
+	 * Used to access the booking functionality.
+	 */
 	private BookingController bc = new BookingController();
+	
+	/**
+	 * Used to access the flight functionality.
+	 */
 	private FlightController fc = new FlightController();
 	
+	/**
+	 * Default constructor
+	 */
 	public ReservationSystemManagerRole(){
 		super();
 		addChoices(choices);
 		addReportChoices(reportsAvailable);
 	}
 
+	/**
+	 * Overriding method that executes the choice that was selected.
+	 */
 	@Override
 	public void executeChoice(){
 		String choice = allChoices.get(userChoice);

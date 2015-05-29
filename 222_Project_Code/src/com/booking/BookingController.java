@@ -5,7 +5,6 @@
 
 package com.booking;
 
-import com.profile.PersonController;
 import com.profile.ProfileController;
 import com.helpers.Booking;
 import com.helpers.Flight;
@@ -59,12 +58,6 @@ public class BookingController {
 	private FlightController fc = new FlightController();
 	
 	/**
-	 * AirportController requires the PersonController class to query person
-	 * data.
-	 */
-	private PersonController pc = new PersonController();
-	
-	/**
 	 * AirportController requires the ServiceController class to query service
 	 * data.
 	 */
@@ -74,7 +67,7 @@ public class BookingController {
 	 * AirportController requires the ProfileController class to query profile
 	 * and customer data.
 	 */
-	private ProfileController pfc = new ProfileController();
+	private ProfileController pc = new ProfileController();
 	
 	/**
 	 * The default discount ratio is set to 1. So one frequent flier point
@@ -101,7 +94,7 @@ public class BookingController {
 	 */
 	public void makeBooking(){
 		System.out.println("\nMAKE BOOKING FOR CUSTOMER");
-		setUsername(pfc.enterUsername());
+		setUsername(pc.enterUsername());
 		makeBooking("CUS");
 		setUsername(null);
 	}
@@ -121,7 +114,7 @@ public class BookingController {
 		
 		//check if this user can fly
 		if("CUS".equals(role)){
-			String fly_status = pfc.canUserFly(customerUsername);
+			String fly_status = pc.canUserFly(customerUsername);
 			switch (fly_status) {
 				case "watch":
 					System.out.println("\nWARNING: Your profile is currently marked as \"WATCH\".");
@@ -298,7 +291,7 @@ public class BookingController {
 		
 		/* Start Payment */
 		if ("CUS".equals(role)){
-			int frequent_flier_points = pfc.getFrequentFlierPoints(customerUsername);
+			int frequent_flier_points = pc.getFrequentFlierPoints(customerUsername);
 
 			if(frequent_flier_points != 0){
 				System.out.print("Do you want to use your frequent flier points to get a discount? (Y/N): ");
@@ -315,7 +308,7 @@ public class BookingController {
 						frequent_flier_points = 0;
 					}
 					System.out.println("Points remaining: " + frequent_flier_points);
-					pfc.setFrequentFlierPoints(customerUsername, frequent_flier_points);
+					pc.setFrequentFlierPoints(customerUsername, frequent_flier_points);
 				}
 			}
 		}
@@ -326,7 +319,7 @@ public class BookingController {
 			System.out.print("Enter any key to proceed with payment: ");
 			in.nextLine(); //just get anything; doesn't matter
 			
-			pfc.chargeAccount(customerUsername, total_price);
+			pc.chargeAccount(customerUsername, total_price);
 			
 			System.out.printf("\nYour credit card has been charged $%.2f!\nThank you for making a booking with us!\n", total_price);
 			System.out.println();
@@ -481,11 +474,11 @@ public class BookingController {
 		
 		do {
 			areUsernamesOkay = true;
-			customer_usernames = pfc.enterUsernames();
+			customer_usernames = pc.enterUsernames();
 			
 			//check if any users can't fly
 			for (String customer_username : customer_usernames) {
-				String fly_status = pfc.canUserFly(customer_username);
+				String fly_status = pc.canUserFly(customer_username);
 				
 				if ("no fly".equals(fly_status)) {
 					System.out.println("ALERT: Customer " + customer_username + " is not allowed to fly.");
@@ -645,12 +638,12 @@ public class BookingController {
 		System.out.println("\nCANCEL BOOKING");
 		
 		if (customerUsername == null) { //if it is not a customer
-			if (cancelBooking(pfc.enterUsername())) {
+			if (cancelBooking(pc.enterUsername())) {
 				System.out.println("The booking has been cancelled.\n");
 			}
 		} else{
 			if (cancelBooking(customerUsername)) {
-				pfc.chargeAccount(customerUsername, cancellationFee);
+				pc.chargeAccount(customerUsername, cancellationFee);
 				System.out.printf("A cancellation fee of $%.2f has been charged to your account.\n", cancellationFee);
 			}
 		}
@@ -795,7 +788,7 @@ public class BookingController {
 	public void editServices(){
 		if (customerUsername == null) {
 			System.out.println("\nEDIT SERVICES FOR CUSTOMER");
-			setUsername(pfc.enterUsername());
+			setUsername(pc.enterUsername());
 		} else{
 			setUsername(customerUsername);
 		}

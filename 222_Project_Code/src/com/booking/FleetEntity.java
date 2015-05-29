@@ -10,8 +10,11 @@ import com.helpers.*;
 import java.io.*;
 
 /**
- *
+ * The Entity class that maps to the fleet.csv file.
+ * All transactions that deal with the fleet, planes and the associated data
+ * are done here.
  * @author Michael Y.M. Kong
+ * @author Jicheng Li
  */
 public class FleetEntity {
 	

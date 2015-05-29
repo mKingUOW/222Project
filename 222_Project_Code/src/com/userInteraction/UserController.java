@@ -5,13 +5,34 @@ import com.role.*;
 import com.helpers.Customer;
 import com.profile.ProfileController;
 
+/**
+ * This class is handles all processing at the beginning of the system for the
+ * UserInterface class.
+ * @author Michael Y. M. Kong
+ */
 public class UserController{
+	/**
+	 * The Role of the current user.
+	 */
 	private Role role;
+	
+	/**
+	 * Used to access the profile functionality.
+	 */
 	private ProfileController pc = new ProfileController();
 
+	/**
+	 * Default constructor
+	 */
 	public UserController(){ //default constructor
 	}
 
+	/**
+	 * Processes the login with the given username and password.
+	 * @param username The username of the user.
+	 * @param password The password of the user.
+	 * @return True if login is successful, false otherwise.
+	 */
 	public boolean login(String username, char[] password){
 		String roleName = pc.login(username, password);
 		
@@ -25,6 +46,13 @@ public class UserController{
 		return true;
 	}
 	
+	/**
+	 * Processes the signup with the given Customer details.
+	 * @param uld The Customer details to save to database.
+	 * @param confirmPassword The confirmation password to check whether the
+	 * inputted password is the same as this one.
+	 * @return True if signup is successful, false otherwise.
+	 */
 	public boolean signUp(Customer uld, char[] confirmPassword){
 		boolean isLoginOkay = true;
 		boolean isPasswordOkay = Arrays.equals(uld.getPassword(), confirmPassword);
@@ -53,6 +81,10 @@ public class UserController{
 		return isPasswordOkay && isLoginOkay;
 	}
 
+	/**
+	 * This method is called after a successful login to start the main
+	 * application.
+	 */
 	public void start(){
 		do {			
 			role.displayChoices();
@@ -61,6 +93,11 @@ public class UserController{
 		System.out.println("Goodbye!\n");
 	}
 
+	/**
+	 * Sets the role of the current user. Based on the given roleName, the 
+	 * corresponding Role object is returned.
+	 * @param roleName The role of the current user.
+	 */
 	private void setRole(String roleName){
 		role = RoleFactory.getRole(roleName);
 	}

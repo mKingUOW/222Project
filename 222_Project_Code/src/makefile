@@ -1,9 +1,8 @@
 run: FlightManagementSystem.class
-	java FlightManagementSystem
+	java com/main/FlightManagementSystem
 
-FlightManagementSystem.class: FlightManagementSystem.java
-	javac FlightManagementSystem.java
+FlightManagementSystem.class: com/main/FlightManagementSystem.java
+	javac com/main/FlightManagementSystem.java
 
 clean:
-	rm *.class
 	rm com/*/*.class

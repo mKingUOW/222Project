@@ -3,7 +3,8 @@ package com.helpers;
 import java.util.Formatter;
 
 /**
- * Service Class
+ * Allows a information of a service to be passed from class to class in a
+ * centralized manner.
  * @author Michael Y.M. Kong
  */
 public class Service {
@@ -20,7 +21,7 @@ public class Service {
 	 */
 	private double cost;
 	/**
-	 * Service availablility for the service e.g. international, domestic, all etc
+	 * Service availability for the service e.g. international, domestic, all etc
 	 */
 	private String availability;	
 
@@ -111,10 +112,9 @@ public class Service {
 		return sb.toString();
 	}
 	/**
-	 * Gets the name, cost and availablity for the service in a formatted string
+	 * Gets the service ID, name, cost and availability for the service in a formatted string
 	 * @return The formatted string
 	 */
-	
 	public String getServiceString(){
 		StringBuilder sb = new StringBuilder();
 		Formatter fmt = new Formatter(sb);
@@ -124,6 +124,10 @@ public class Service {
 		return sb.toString();
 	}
 	
+	/**
+	 * Gets the name, cost and availability for the service in a formatted string
+	 * @return The formatted string.
+	 */
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

@@ -152,7 +152,7 @@ public class Booking {
 	}
 	
 	/**
-	 * Gets a formatter String with the booking ID, booking status, total price and booking date.
+	 * Gets a formatted String with the booking ID, booking status, total price and booking date.
 	 * @return A formatted String describing the booking.
 	 */
 	public String getString(){
@@ -165,7 +165,7 @@ public class Booking {
 	}
 	
 	/**
-	 * Gets a formatter String with the booking ID, flight ID, booking status, total price and booking date.
+	 * Gets a formatted String with the booking ID, flight ID, booking status, total price and booking date.
 	 * @return A formatted String describing the booking.
 	 */
 	@Override

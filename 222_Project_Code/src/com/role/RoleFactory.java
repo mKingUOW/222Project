@@ -1,5 +1,10 @@
 package com.role;
 
+/**
+ * A Factory class that allows the client to generate a Role class based on
+ * the given role name.
+ * @author Michael Y.M. Kong
+ */
 public class RoleFactory{
 
 	/**

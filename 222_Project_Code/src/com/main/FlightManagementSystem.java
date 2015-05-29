@@ -1,8 +1,10 @@
+package com.main;
+
 import com.userInteraction.*;
 
 /**
- * 
- * @author Michael Y. M. Kong
+ * The class that contains the main method of the Flight Management System.
+ * @author Michael Y.M. Kong
  */
 public class FlightManagementSystem{
 	

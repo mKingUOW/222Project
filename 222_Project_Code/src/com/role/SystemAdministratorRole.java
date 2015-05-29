@@ -9,31 +9,70 @@ import com.profile.ProfileController;
 import com.report.ReportBuilder;
 
 /**
- *
+ * A class that defines what a System Administrator actor can perform in the system.
  * @author Michael Y.M. Kong
  */
 public class SystemAdministratorRole extends Role{
+	/**
+	 * The choices available for this role.
+	 */
 	private String[] choices = {"Act as Customer", "Act as Travel Agency",
 		"Act as Normal Staff", "Act as Flight Manager",
 		"Act as Profile System Manager", "Act as Service System Manager",
 		"Act as Reservation System Manager", "Act as Reporting System Manager",
 		"Edit Staff Profile", "Create Staff Profile"};
 	
+	/**
+	 * Used to access the profile functionality.
+	 */
 	private ProfileController pc = new ProfileController();
 	
+	/**
+	 * Used to access the system as a Customer actor.
+	 */
 	private CustomerRole cr = new CustomerRole();
+	
+	/**
+	 * Used to access the system as a Travel Agency actor.
+	 */
 	private TravelAgencyRole tar = new TravelAgencyRole();
+	
+	/**
+	 * Used to access the system as a Normal Staff actor.
+	 */
 	private NormalStaffRole nor = new NormalStaffRole();
+	
+	/**
+	 * Used to access the system as a Flight Manager actor.
+	 */
 	private FlightManagerRole fmr = new FlightManagerRole();
+	
+	/**
+	 * Used to access the system as a Profile System Manager actor.
+	 */
 	private ProfileSystemManagerRole psmr = new ProfileSystemManagerRole();
+	
+	/**
+	 * Used to access the system as a Service System Manager actor.
+	 */
 	private ServiceSystemManagerRole ssmr = new ServiceSystemManagerRole();
+	
+	/**
+	 * Used to access the system as a Reservation System Manager actor.
+	 */
 	private ReservationSystemManagerRole rvsmr = new ReservationSystemManagerRole();
 	
+	/**
+	 * Default constructor.
+	 */
 	public SystemAdministratorRole(){
 		super();
 		addChoices(choices);
 	}
 
+	/**
+	 * Overriding method that executes the choice that was selected.
+	 */
 	@Override
 	public void executeChoice(){
 		String choice = allChoices.get(userChoice);
@@ -74,6 +113,7 @@ public class SystemAdministratorRole extends Role{
 		
 		if (role != null) {
 			while(role.isUserLoggedIn()){
+				role.setUsername(getUsername());
 				role.displayChoices();
 				role.executeChoice();
 			}

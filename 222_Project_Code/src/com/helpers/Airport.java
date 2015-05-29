@@ -6,7 +6,8 @@
 package com.helpers;
 
 /**
- * Airport Class
+ * Allows a information of an airport to passed from class to class in a
+ * centralized manner.
  * @author Michael Y.M. Kong
  */
 public class Airport {
@@ -56,7 +57,7 @@ public class Airport {
 	private String tzDatabaseTimezone;
 
 	/**
-	 * Empty Default Airport constructor
+	 * Default constructor
 	 */
 	public Airport() {
 	}
@@ -187,7 +188,10 @@ public class Airport {
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
 	}
-
+	/**
+	 * Gets the altitude of the airport object
+	 * @return The altitude of the airport.
+	 */
 	public int getAltitude() {
 		return altitude;
 	}

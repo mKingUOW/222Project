@@ -5,6 +5,13 @@ import com.helpers.*;
 import java.io.*;
 import java.util.*;
 
+/**
+ * The Entity class that maps to the routes.csv file.
+ * All transactions that deal with routes and the associated data
+ * are done here.
+ * @author Michael Y.M. Kong
+ * @author Jicheng Li
+ */
 public class RouteEntity{
 	
 	// routeNumber + origin_code + destination_code + codeShare + stops  --- in the routes.csv

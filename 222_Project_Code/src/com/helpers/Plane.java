@@ -6,7 +6,8 @@
 package com.helpers;
 
 /**
- * Plane Class
+ * Allows a information of a plane to be passed from class to class in a
+ * centralized manner.
  * @author Michael Y.M. Kong
  */
 public class Plane {

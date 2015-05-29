@@ -14,15 +14,40 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
- *
+ * This class provides methods pertaining to any required 
+ * functionality and processing that is related to profiles and accounts.
  * @author Michael Y.M. Kong
  */
 public class ProfileController {
+	/**
+	 * Scanner object to use the standard in from the console.
+	 */
 	private Scanner in = new Scanner(System.in);
+	
+	/**
+	 * Console object to use the standard in from the console.
+	 */
 	private Console console = System.console();
+	
+	/**
+	 * ProfileController requires the ProfileEntity class to write/read data
+	 * to the database.
+	 */
 	private ProfileEntity pe = new ProfileEntity();
 	
+	/**
+	 * Default constructor
+	 */
 	public ProfileController() {
+	}
+	
+	/**
+	 * Adds a new Person who is external to the system to the database.
+	 * @param person The Person object to add.
+	 * @return The Person ID of the Person object
+	 */
+	public int addPerson(Person person){
+		return pe.addPerson(person);
 	}
 	
 	/**

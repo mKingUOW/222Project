@@ -3,7 +3,8 @@ package com.helpers;
 import java.util.Formatter;
 
 /**
- * Person Class
+ * Allows a information of a person to be passed from class to class in a
+ * centralized manner.
  * @author Michael Y.M. Kong
  */
 public class Person {

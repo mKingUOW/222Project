@@ -12,16 +12,38 @@ import com.booking.RouteController;
 import com.report.ReportBuilder;
 
 /**
- *
+ * A class that defines what a Flight Manager actor can perform in the system.
  * @author Michael Y.M. Kong
  */
 public class FlightManagerRole extends NormalStaffRole{
+	/**
+	 * The choices available for this role.
+	 */
 	private String[] choices = {"Manage Routes", "Manage Fleet", "Manage Flight Schedule", "Manage Airports"};
+	
+	/**
+	 * Used to access the route editing functionality.
+	 */
 	private RouteController rc = new RouteController();
+	
+	/**
+	 * Used to access the fleet editing functionality.
+	 */
 	private FleetController ftc = new FleetController();
+	
+	/**
+	 * Used to access the flight editing functionality.
+	 */
 	private FlightController fc = new FlightController();
+	
+	/**
+	 * Used to access the airport editing functionality.
+	 */
 	private AirportController ac = new AirportController();
 	
+	/**
+	 * The reports available for this role.
+	 */
 	private String[] reportsAvailable = {"Monthly Flight Statistics Report"};
 	
 	public FlightManagerRole(){

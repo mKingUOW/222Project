@@ -8,13 +8,23 @@ package com.role;
 import com.profile.ProfileController;
 
 /**
- *
+ * A class that defines what a Profile System Manager actor can perform in the system.
  * @author Michael Y.M. Kong
  */
 public class ProfileSystemManagerRole extends NormalStaffRole{
+	/**
+	 * The choices available for this role.
+	 */
 	private String[] choices = {"Edit Watch and No Fly List", "Edit Travel Agency and Customer Profile", "Close User Account"};
+	
+	/**
+	 * Used to access the profile editing functionality.
+	 */
 	private ProfileController pc = new ProfileController();
 	
+	/**
+	 * Default constructor
+	 */
 	public ProfileSystemManagerRole(){
 		super();
 		addChoices(choices);

@@ -5,6 +5,13 @@ import com.helpers.*;
 import java.io.*;
 import java.util.*;
 
+/**
+ * The Entity class that maps to the servicesInventory.csv file.
+ * All transactions that deal with services and the associated data
+ * are done here.
+ * @author Michael Y.M. Kong
+ * @author Jicheng Li
+ */
 public class ServiceEntity{
 	
 	/**
@@ -29,7 +36,8 @@ public class ServiceEntity{
 	}
 	
 	/**
-	 * 
+	 * Gets a List of Service objects matching whether the flight is an
+	 * international flight or not.
 	 * @param isInternational A boolean value showing whether the flight calling this
 	 * function is an international flight or not.
 	 * @return A list of all the services available for the given international status.
@@ -72,7 +80,7 @@ public class ServiceEntity{
 	}
 	
 	/**
-	 * 
+	 * Gets the Service object for the given service ID.
 	 * @param serviceId The service ID for the service to retrieve
 	 * @return A Service object which corresponds to the given service ID
 	 */
@@ -105,7 +113,7 @@ public class ServiceEntity{
 	}
 	
 	/**
-	 * 
+	 * Gets the price for the given service ID.
 	 * @param serviceId The service ID for the service price to retrieve
 	 * @return The price of the service which corresponds to the given service ID
 	 */
@@ -166,9 +174,6 @@ public class ServiceEntity{
 	/**
 	 * This method pseudo-removes the services from the database by 
 	 * setting the availability to "removed".
-	 * 
-	 * DO NOT CHANGE THE SERVICE ID!!!!
-	 * 
 	 * @param service_ids_to_remove 
 	 */
 	public void removeService(int[] service_ids_to_remove){

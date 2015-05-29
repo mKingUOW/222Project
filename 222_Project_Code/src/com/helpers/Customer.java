@@ -3,7 +3,8 @@ package com.helpers;
 import java.util.Formatter;
 
 /**
- * Customer Class
+ * Allows a information of a customer to be passed from class to class in a
+ * centralized manner.
  * @author Michael Y.M. Kong
  */
 public class Customer extends Person{
@@ -16,7 +17,7 @@ public class Customer extends Person{
 	 */
 	private char[] password;
 	/**
-	 * Customer privaleges
+	 * Customer role
 	 */
 	private String role;
 	/**

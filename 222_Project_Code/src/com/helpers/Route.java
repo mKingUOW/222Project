@@ -6,30 +6,31 @@
 package com.helpers;
 
 /**
- * Route Class
+ * Allows a information of a route to be passed from class to class in a
+ * centralized manner.
  * @author Michael Y.M. Kong
  */
 public class Route {
 	/**
 	 * Route number for the route
 	 */
-	int routeNumber;
+	private int routeNumber;
 	/**
 	 * Airport origin code for the route
 	 */
-	String originCode;
+	private String originCode;
 	/**
 	 * Airport destination code for the route
 	 */
-	String destinationCode;
+	private String destinationCode;
 	/**
 	 * Codeshare status for the route
 	 */
-	char codeShare;
+	private char codeShare;
 	/**
 	 * Stops for the route
 	 */
-	int stops;
+	private int stops;
 
 	/**
 	 * Empty Default Constructor

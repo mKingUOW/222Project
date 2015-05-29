@@ -3,7 +3,8 @@ package com.helpers;
 import java.util.Formatter;
 
 /**
- * Flight Class
+ * Allows a information of a flight to be passed from class to class in a
+ * centralized manner.
  * @author Michael Y.M. Kong
  */
 public class Flight {

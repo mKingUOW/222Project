@@ -5,6 +5,13 @@ import com.helpers.*;
 import java.io.*;
 import java.util.*;
 
+/**
+ * The Entity class that maps to the flight-route-schedule.csv file.
+ * All transactions that deal with flights, flight prices, schedules and
+ * the associated data are done here.
+ * @author Michael Y.M. Kong
+ * @author Jicheng Li
+ */
 public class FlightEntity{
 	
 	/**

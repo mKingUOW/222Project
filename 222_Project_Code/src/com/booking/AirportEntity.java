@@ -3,6 +3,13 @@ package com.booking;
 import com.helpers.Airport;
 import java.io.*;
 
+/**
+ * The Entity class that maps to the airports.csv file.
+ * All transactions that deal with airports and the associated data
+ * are done here.
+ * @author Michael Y.M. Kong
+ * @author Jicheng Li
+ */
 public class AirportEntity{
 
 	/**

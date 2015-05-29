@@ -2,18 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="2">
         <file>
-            <url>src/com/profile/ProfileEntity.java</url>
-            <bookmark id="2">
+            <url>src/com/booking/BookingController.java</url>
+            <bookmark id="1">
                 <name/>
-                <line>662</line>
+                <line>1002</line>
                 <key/>
             </bookmark>
         </file>
         <file>
-            <url>src/com/booking/BookingController.java</url>
-            <bookmark id="1">
+            <url>src/com/profile/ProfileEntity.java</url>
+            <bookmark id="2">
                 <name/>
-                <line>962</line>
+                <line>683</line>
                 <key/>
             </bookmark>
         </file>

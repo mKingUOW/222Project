@@ -12,23 +12,33 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
+ * This class provides methods pertaining to any required 
+ * functionality and processing that is related to services.
  * @author Michael Y.M. Kong
  */
 public class ServiceController {
 	
+	/**
+	 * ServiceController requires the ServiceEntity class to write/read data
+	 * to the database.
+	 */
 	private ServiceEntity se = new ServiceEntity();
+	
+	
+	/**
+	 * Scanner allows class to use the basic input from the console.
+	 */
 	private Scanner in = new Scanner(System.in);
 	
 	/**
 	 * Default constructor
 	 */
 	public ServiceController(){
-		
 	}
 	
 	/**
-	 * 
+	 * Gets the services offered by the airline based on whether the flight is
+	 * an international flight or not.
 	 * @param isInternational A boolean value showing whether the flight calling this
 	 * function is an international flight or not.
 	 * @return A list of all the services available for the given international status.
@@ -38,7 +48,7 @@ public class ServiceController {
 	}
 	
 	/**
-	 * 
+	 * Gets the Service object for the given service ID.
 	 * @param serviceId The service ID for the service to retrieve
 	 * @return A Service object which corresponds to the given service ID
 	 */
@@ -78,7 +88,7 @@ public class ServiceController {
 	}
 	
 	/**
-	 * Provides the interface to remove Services-s from the database
+	 * Provides the interface to remove Services-s from the database.
 	 */
 	public void removeServices(){
 		List<Service> services = se.getServices(true);

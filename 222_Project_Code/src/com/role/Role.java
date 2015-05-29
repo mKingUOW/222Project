@@ -8,6 +8,11 @@ import java.util.List;
 import java.util.Scanner;
 import com.profile.ProfileController;
 
+/**
+ * An abstract class that defines the common behavior that all the Roles in the
+ * system can do.
+ * @author Michael Y.M. Kong
+ */
 public abstract class Role{
 	/**
 	 * The username of the current user.

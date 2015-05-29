@@ -15,7 +15,10 @@ import java.io.FileReader;
 import java.io.PrintWriter;
 
 /**
- *
+ * The Entity class that maps to the various .csv files that pertain to
+ * user, staff and person accounts.
+ * .csv files:
+ * userAccount.csv, userDetail.csv and otherPersons.csv
  * @author Michael Y.M. Kong
  */
 public class ProfileEntity {
@@ -29,6 +32,11 @@ public class ProfileEntity {
 	 */
 	private String detailsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "userDetail.csv";
 
+	/**
+	 * A quick reference to the otherPersons database file.
+	 */
+	private String personFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "otherPersons.csv";
+	
 	/**
 	 * A BufferedReader object that allows the class to read from files.
 	 */
@@ -815,5 +823,46 @@ public class ProfileEntity {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+	
+	/**
+	 * Adds a person who is external to the system to the database.
+	 * @param person The Person object to add to the database.
+	 * @return The ID of this person
+	 */
+	public int addPerson(Person person){
+		int pid = 0;		//If no record in the file, default value is 0; It will be incremented by 1 if a record is inserted;
+		String oneLine = "";
+		File personfile;
+		
+		try{
+			reader = new BufferedReader(new FileReader(personFile));			
+			while(((oneLine = reader.readLine()) != null)){
+                String[] words = oneLine.split(",");
+				pid = Integer.parseInt(words[0]); 				
+            }	//Keep reading the file, and assign the person id to pid,until the last record;
+			
+            reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			pid++;		// Increment the person id by 1, for the next person record;
+			personfile = new File(personFile);
+			writer = new PrintWriter(new FileOutputStream(personfile,true));		//To append to the file using "true";
+			writer.print(pid + ",");
+			writer.println(  person.getTitle() + "," + person.getFirstName() + "," + person.getLastName() + "," 
+						   + person.getGender() + "," + person.getDOB() + "," + person.getPhoneNumber() + ","
+						   + person.getEmail() + "," + person.getStreet() + "," + person.getState() + ","
+						   + person.getCity() + "," + person.getCountry() + "," + person.getCreditCardType() + ","
+						   + person.getCreditCardNumber() + "," + person.hasPassport() 
+						  );						   
+			writer.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return pid; 
 	}
 }

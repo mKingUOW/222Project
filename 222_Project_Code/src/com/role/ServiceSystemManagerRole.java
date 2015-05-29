@@ -9,21 +9,37 @@ import com.booking.ServiceController;
 import com.report.ReportBuilder;
 
 /**
- *
+ * A class that defines what a Service System Manager actor can perform in the system.
  * @author Michael Y.M. Kong
  */
 public class ServiceSystemManagerRole extends NormalStaffRole{
+	/**
+	 * The choices available for this role.
+	 */
 	private String[] choices = {"Add Services", "Remove Services", "Edit Service Price", "Edit Service Availability"};
+	
+	/**
+	 * Used to access the service functionality.
+	 */
 	private ServiceController sc = new ServiceController();
 	
+	/**
+	 * The reports available for this role.
+	 */
 	private String[] reportsAvailable = {"Top 5 Popular Services Report"};
 	
+	/**
+	 * Default constructor
+	 */
 	public ServiceSystemManagerRole(){
 		super();
 		addChoices(choices);
 		addReportChoices(reportsAvailable);
 	}
 
+	/**
+	 * Overriding method that executes the choice that was selected.
+	 */
 	@Override
 	public void executeChoice(){
 		String choice = allChoices.get(userChoice);
