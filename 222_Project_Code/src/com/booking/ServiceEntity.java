@@ -7,8 +7,20 @@ import java.util.*;
 
 public class ServiceEntity{
 	
+	/**
+	 * A quick reference to the service database file.
+	 */
 	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "servicesInventory.csv";
+	
+	/**
+	 * A BufferedReader object that allows the class to read from files.
+	 */
 	private BufferedReader reader;
+	
+	/**
+	 * A PrintWriter object that allows the class to write to files.
+	 */
+	private PrintWriter writer;
 	
 	/**
 	 * Default constructor

@@ -39,6 +39,7 @@ public abstract class AbstractCustomerRole extends Role{
 				pc.editAccount(getUsername());
 				break;
 			case "View My Bookings":
+				System.out.println("\nVIEW BOOKINGS");
 				bc.viewBookings();
 				break;
 			default:
@@ -56,7 +57,7 @@ public abstract class AbstractCustomerRole extends Role{
 				ReportBuilder.displayReport(ReportBuilder.ReportType.FlightHistoryReport, getUsername());
 				break;
 			default:
-				super.displayReportMenu();
+				super.executeReportChoice();
 				break;
 		}
 	}

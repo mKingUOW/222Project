@@ -25,27 +25,27 @@ public class Ticket {
 	
 	public Ticket(int tid, String un, int pid, String sn, double prc){
 		ticketId = tid;
-		username = un;
+		if ("null".equals(un)) {
+			username = null;
+		} else{
+			username = un;
+		}
 		personId = pid;
 		seatNumber = sn;
 		price = prc;
 	}
 	
-	public Ticket(int bid, int tid, String un, int pid, String sn, double prc){
+	public Ticket(int tid, String un, int pid, int bid, String sn, double prc){
 		bookingId = bid;
 		ticketId = tid;
-		username = un;
+		if ("null".equals(un)) {
+			username = null;
+		} else{
+			username = un;
+		}
 		personId = pid;
 		seatNumber = sn;
 		price = prc;
-	}
-
-	public Ticket(int tid, String un, int pid, int bid, String sn){
-		bookingId = bid;
-		ticketId = tid;
-		username = un;
-		personId = pid;
-		seatNumber = sn;
 	}
 	
 	public int getBookingId() {
@@ -69,7 +69,11 @@ public class Ticket {
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		if ("null".equals(username)) {
+			this.username = null;
+		} else{
+			this.username = username;
+		}
 	}
 
 	public int getPersonId() {

@@ -204,7 +204,7 @@ public class FlightEntity{
 				if(tmpFlightId.equals(flight_id)){
 					for(int i=0;i < 4;i++){
 						//The prices are in the words[10],[11],[12],[13]
-						prices[i] = Integer.parseInt(words[i+10]);
+						prices[i] = Double.parseDouble(words[i+10]);
 					}
 				}
 			}
@@ -250,6 +250,41 @@ public class FlightEntity{
 		}
 		
 		return oneFlight;
+	}
+	
+	/**
+	 * Gets all flights.
+	 * @return A List of Flight objects.
+	 */
+	public List<Flight> getAllFlights(){
+		List<Flight> flights = new ArrayList<>();
+		
+		String oneLine = "";
+		
+		try{
+			reader = new BufferedReader(new FileReader(scheduleFile));
+			while((oneLine = reader.readLine()) != null){
+				
+				String [] words = oneLine.split(",");
+				
+				String flightID = words[1];	
+				int tmpPlaneID = Integer.parseInt(words[2]);				
+				int tmpRouteNum = Integer.parseInt(words[3]);
+				int fcSeat = Integer.parseInt(words[6]);
+				int bcSeat = Integer.parseInt(words[7]);
+				int pecSeat = Integer.parseInt(words[8]);
+				int ecSeat = Integer.parseInt(words[9]);
+				
+				Flight flight = new Flight(flightID,tmpPlaneID,tmpRouteNum,words[4],words[5],fcSeat,bcSeat,pecSeat,ecSeat);
+				flights.add(flight);
+			}
+
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return flights;
 	}
 	
 	/**

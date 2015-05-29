@@ -46,12 +46,12 @@ public class RouteController {
 	 * route. This method will then call the appropriate function upon user's
 	 * choice.
 	 */
-	public void editRouteOption(){
+	public void manageRouteOption(){
 		boolean isOkay;
 		int choice = 0;
 		String[] choices = {"Add Route", "Edit Route", "Delete Route", "Cancel"};
 		
-		System.out.println();
+		System.out.println("\nMANAGE ROUTES");
 		
 		for (int i = 0; i < choices.length; i++) {
 			System.out.print((i + 1) + ". ");
@@ -99,6 +99,8 @@ public class RouteController {
 		String origin_code = "";
 		String destination_code = "";
 		
+		System.out.println("\nADD ROUTE");
+		
 		do {
 			isOkay = true;
 			
@@ -133,6 +135,8 @@ public class RouteController {
 		String origin_code = "";
 		String destination_code = "";
 		int option = 0;
+		
+		System.out.println("\nEDIT ROUTE");
 		
 		do {
 			isOkay = true;
@@ -225,6 +229,8 @@ public class RouteController {
 		boolean isOkay;
 		String origin_code = "";
 		String destination_code = "";
+		
+		System.out.println("\nDELETE ROUTE");
 		
 		do {
 			isOkay = true;

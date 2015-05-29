@@ -72,7 +72,7 @@ public class ReservationSystemManagerRole extends NormalStaffRole{
 				ReportBuilder.displayReport(ReportBuilder.ReportType.BookingsForMonthReport, getUsername());
 				break;
 			default:
-				super.displayReportMenu();
+				super.executeReportChoice();
 				break;
 		}
 	}

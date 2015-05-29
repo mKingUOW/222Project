@@ -252,7 +252,7 @@ public class BookingEntity {
 	public List<Ticket> getTickets(int booking_id){
 		//ticketID + userName + personID + bookingID + seatNumber -- in the tickets.csv
 		String oneLine = "";
-		List<Ticket> myTickets = new ArrayList<Ticket>();
+		List<Ticket> myTickets = new ArrayList<>();
 		
 		try{
 			reader = new BufferedReader(new FileReader(ticketsFile));			
@@ -262,7 +262,8 @@ public class BookingEntity {
 				if(bk_id == booking_id){
 					int ticket_id = Integer.parseInt(words[0]);
 					int person_id = Integer.parseInt(words[2]);
-					Ticket tmpTicket = new Ticket(ticket_id,words[1],person_id,booking_id,words[4]);
+					double ticket_price = Double.parseDouble(words[5]);
+					Ticket tmpTicket = new Ticket(ticket_id,words[1],person_id,booking_id,words[4],ticket_price);
 					myTickets.add(tmpTicket);
 				}
             }			
@@ -295,6 +296,8 @@ public class BookingEntity {
 					updatedLine +=  words[2];	//total_price
 					updatedLine += ",";
 					updatedLine +=  "Cancelled"; //flight_id;
+					updatedLine += ",";
+					updatedLine +=  words[4];	//booking_date
 					data += updatedLine + "\n";
 				}else{
 					data += oneLine + "\n";
@@ -430,7 +433,7 @@ public class BookingEntity {
 	 */
 	public List<ServiceBooking> getServicesBooked(int booking_id, int ticket_id){
 		String oneLine = "";
-		List<ServiceBooking> services = null;
+		List<ServiceBooking> services = new ArrayList<>();
 		
 		try{
 			reader = new BufferedReader(new FileReader(serviceFile));			
@@ -459,7 +462,7 @@ public class BookingEntity {
 	 */
 	public List<ServiceBooking> getAllServicesBooked(){
 		String oneLine = "";
-		List<ServiceBooking> services = null;
+		List<ServiceBooking> services = new ArrayList<>();
 		
 		try{
 			reader = new BufferedReader(new FileReader(serviceFile));			
@@ -586,7 +589,7 @@ public class BookingEntity {
 	 * @return A List of Booking objects.
 	 */
 	public List<Booking> getAllBookings(){
-		List<Booking> bookings = null;
+		List<Booking> bookings = new ArrayList<>();
 		String oneLine = "";
 		
 		try{

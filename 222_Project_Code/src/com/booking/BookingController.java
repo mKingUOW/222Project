@@ -100,6 +100,7 @@ public class BookingController {
 	 * Method for normal staff to make a booking on behalf of other customers.
 	 */
 	public void makeBooking(){
+		System.out.println("\nMAKE BOOKING FOR CUSTOMER");
 		setUsername(pfc.enterUsername());
 		makeBooking("CUS");
 		setUsername(null);
@@ -115,6 +116,8 @@ public class BookingController {
 		List<Integer> person_ids = null;
 		List<Ticket> tickets = new ArrayList<>();
 		List<ServiceBooking> services_booked = new ArrayList<>();
+		
+		System.out.println("\nMAKE BOOKING");
 		
 		//check if this user can fly
 		if("CUS".equals(role)){
@@ -639,6 +642,8 @@ public class BookingController {
 	 * for that customer.
 	 */
 	public void cancelBooking(){
+		System.out.println("\nCANCEL BOOKING");
+		
 		if (customerUsername == null) { //if it is not a customer
 			if (cancelBooking(pfc.enterUsername())) {
 				System.out.println("The booking has been cancelled.\n");
@@ -662,7 +667,7 @@ public class BookingController {
 		int choice = 0;
 		boolean isOkay;
 		
-		if (!viewBookings(bookings)) {
+		if (!viewBookings(bookings, true)) {
 			return false;
 		}
 		
@@ -709,7 +714,7 @@ public class BookingController {
 		
 		fc.updateAvailableSeats(bookings.get(choice - 1).getFlightId(), available_seats);
 		
-		be.cancelBooking(choice);
+		be.cancelBooking(bookings.get(choice - 1).getBookingId());
 		
 		return true;
 	}
@@ -720,7 +725,7 @@ public class BookingController {
 	 * @return False if no bookings available
 	 */
 	public boolean viewBookings(){
-		return viewBookings(be.getBookings(customerUsername));
+		return viewBookings(be.getBookings(customerUsername), false);
 	}
 	
 	/**
@@ -729,7 +734,7 @@ public class BookingController {
 	 * @param customer_bookings List of customer bookings to display
 	 * @return False if no bookings available
 	 */
-	private boolean viewBookings(List<Booking> customer_bookings){
+	private boolean viewBookings(List<Booking> customer_bookings, boolean check_cancelled){
 		List<Booking> bookings = customer_bookings;
 		int i = 1;
 		
@@ -738,12 +743,49 @@ public class BookingController {
 			return false;
 		}
 		
-		System.out.printf("\n%-4s%-15s%-15s%-15s%-15s%-25s\n", "#", "Booking ID", "Flight ID", "Status", "Total Cost", "Booking Date");
-		for (Booking booking : bookings) {
-			System.out.printf("%-4s", i + ". ");
-			System.out.println(booking.toString());
-			i++;
+		List<Map.Entry<Booking, List<Ticket>>> bookings_and_tickets = new ArrayList<>();
+		
+		for (Booking booking: bookings) {
+			if (check_cancelled) {
+				
+				//do not get the cancelled bookings
+				if (!"Cancelled".equals(booking.getStatus())) {
+					bookings_and_tickets.add(new AbstractMap.SimpleImmutableEntry<>(booking, be.getTickets(booking.getBookingId())));
+				}
+			} else{
+				bookings_and_tickets.add(new AbstractMap.SimpleImmutableEntry<>(booking, be.getTickets(booking.getBookingId())));
+			}
 		}
+		
+		for (Map.Entry<Booking, List<Ticket>> entry: bookings_and_tickets) {
+			int j = 1;
+			
+			System.out.printf("%-4s%-15s%-15s%-15s%-16s%-25s\n", "#", "Booking ID",
+				"Flight ID", "Booking Status", "Total Cost", "Booking Date");
+			System.out.printf("%-4s", i + ". ");
+			System.out.println(entry.getKey().toString());
+			
+			List<Ticket> tickets = entry.getValue();
+			
+			System.out.println();
+			
+			System.out.println("\tTickets for this booking:");
+			System.out.printf("\t%-4s%-4s%-15s%-25s%-12s\n", "#", "ID",
+					"Price (AUD)", "Username/Person ID", "Seat Number");
+			for (Ticket ticket: tickets) {
+				System.out.printf("\t%-4s", j + ". ");
+				System.out.println(ticket.toString());
+				j++;
+			}
+			i++;
+			System.out.println();
+		}
+		
+		if (bookings_and_tickets.isEmpty()) {
+			System.out.println("\nYou have no active bookings.\n");
+			return false;
+		}
+		
 		return true;
 	}
 	
@@ -752,6 +794,7 @@ public class BookingController {
 	 */
 	public void editServices(){
 		if (customerUsername == null) {
+			System.out.println("\nEDIT SERVICES FOR CUSTOMER");
 			setUsername(pfc.enterUsername());
 		} else{
 			setUsername(customerUsername);
@@ -769,7 +812,9 @@ public class BookingController {
 		int ticket_id;
 		List<Booking> bookings = be.getBookings(username);
 		
-		if (!viewBookings(bookings)) { //if there are no bookings, return.
+		System.out.println("\nEDIT SERVICES");
+		
+		if (!viewBookings(bookings, false)) { //if there are no bookings, return.
 			return;
 		}
 		
@@ -953,6 +998,8 @@ public class BookingController {
 	 * Called to move passengers between flights by booking.
 	 */
 	public void movePassengers(){
+		System.out.println("\nMOVE PASSENGERS BETWEEN FLIGHTS");
+		
 		System.out.println("\nFlight to move from:");
 		String current_flight_id = fc.enterFlightId(false);
 		List<Booking> bookings = getBookingsForFlight(current_flight_id);
@@ -1000,7 +1047,7 @@ public class BookingController {
 	 * Called to move passengers within a flight.
 	 */
 	public void changePassengerSeating(){
-		
+		System.out.println("\nCHANGE PASSENGER SEATING");
 	}
 	
 	/**
@@ -1045,6 +1092,8 @@ public class BookingController {
 		double ratio = discountRatio;
 		boolean isOkay;
 		
+		System.out.println("\nSET DISCOUNT RATIO");
+		
 		do {
 			isOkay = true;
 			try {
@@ -1073,6 +1122,8 @@ public class BookingController {
 	public void setCancellationFee(){
 		double cancellation_fee = cancellationFee;
 		boolean isOkay;
+		
+		System.out.println("\nSET CANCELLATION FEE");
 		
 		do {
 			isOkay = true;

@@ -56,7 +56,7 @@ public class ServiceSystemManagerRole extends NormalStaffRole{
 				ReportBuilder.displayReport(ReportBuilder.ReportType.Top5PopularServicesReport, getUsername());
 				break;
 			default:
-				super.displayReportMenu();
+				super.executeReportChoice();
 				break;
 		}
 	}

@@ -137,7 +137,7 @@ public class ProfileEntity {
 							  + user.getPhoneNumber() + "," + user.getEmail() + "," + user.getStreet() + "," 
 							  + user.getState() + "," + user.getCity() + "," + user.getCountry() + ","
 							  + user.getCreditCardType() + "," + user.getCreditCardNumber() + "," + user.getFrequentFlierPoints()
-							  + "," + user.hasPassport() + "," + user.getWatchOrNoFly() + ",0");
+							  + "," + user.hasPassport() + "," + user.getWatchOrNoFly() + ",0.0");
 			writer.close();
 		}catch(Exception e){
 			e.printStackTrace();
@@ -325,6 +325,8 @@ public class ProfileEntity {
 					updatedLine +=  words[15];
 					updatedLine += ",";
 					updatedLine +=  words[16];
+					updatedLine += ",";
+					updatedLine +=  words[17];
 					data += updatedLine + "\n";
 				}else{
 					data += oneLine + "\n";
@@ -475,9 +477,10 @@ public class ProfileEntity {
 	
 	/**
 	 * Sets the account details for a particular Person.
+	 * @param username The username to edit.
 	 * @param account The Person object to save.
 	 */
-	public void setAccountDetails(Person account){
+	public void setAccountDetails(String username, Person account){
 		File usrfile;
 		
 		String title = account.getTitle();
@@ -500,13 +503,16 @@ public class ProfileEntity {
 		String data = "";
 		String updatedLine = "";
 		
+		//username + title + firstName + lastName + gender + DOB + phone# + email + address(street, state, city, country) +
+		//creditCardType + creditCardNumber + FFP + hasPassport + flyStatus + accountCharged
+		
 		try{
 			reader = new BufferedReader(new FileReader(detailsFile));
 			while(!found && ((oneLine = reader.readLine()) != null)){
                 String[] words = oneLine.split(",");
 				
-				//If the first name , last name and DOB are all matched, then it is the person to be modified;
-				if(firstName.equals(words[2]) && lastName.equals(words[3]) && DOB.equals(words[5]) ){
+				//If the username matches, then it is the person to be modified;
+				if(username.equals(words[0])){
 					updatedLine +=  words[0];
 					updatedLine += ",";
 					updatedLine +=  title;
@@ -540,6 +546,8 @@ public class ProfileEntity {
 					updatedLine +=  hasPassport;
 					updatedLine += ",";
 					updatedLine += words[16];
+					updatedLine += ",";
+					updatedLine += words[17];
 	
 					data += updatedLine + "\n";
 				}else{
@@ -605,6 +613,9 @@ public class ProfileEntity {
 		String data = "";
 		String updatedLine = "";
 		
+		//username + title + firstName + lastName + gender + DOB + phone# + email + address(street, state, city, country) +
+		//creditCardType + creditCardNumber + FFP + hasPassport + flyStatus + accountCharged
+		
 		try{
 			reader = new BufferedReader(new FileReader(detailsFile));
 			while(!found && ((oneLine = reader.readLine()) != null)){
@@ -617,7 +628,8 @@ public class ProfileEntity {
 						updatedLine += ",";
 					}
 					updatedLine += status;			//Update the status;
-	
+					updatedLine += ",";
+					updatedLine += words[17];
 					data += updatedLine + "\n";
 				}else{
 					data += oneLine + "\n";
@@ -648,6 +660,7 @@ public class ProfileEntity {
 	public boolean createStaffProfile(Staff staff){
 		String oneLine = "";
 		boolean success = false;
+		File accfile;
 		
 		String username = staff.getUsername();
 		String passwd = new String(staff.getPassword());
@@ -675,6 +688,8 @@ public class ProfileEntity {
 		String oneLine = "";
 		String data = "";
 		String updatedLine = "";
+		
+		File accfile;
 		
 		String username = staff.getUsername();
 		String passwd = new String(staff.getPassword());
@@ -737,7 +752,7 @@ public class ProfileEntity {
 				
 				if(!isTA && !isCUS){
 					if(username.equals(words[0])){
-						staff = new Staff(words[0],words[1],words[2]);
+						staff = new Staff(words[0],words[1].toCharArray(),words[2]);
 					}
 				}
 				
@@ -756,6 +771,49 @@ public class ProfileEntity {
 	 * @param price The price charged to the user's account
 	 */
 	public void chargeAccount(String username, double price){
+		File usrfile;
+		String oneLine = "";
+		String data = "";
+		String updatedLine = "";
 		
+		//username + title + firstName + lastName + gender + DOB + phone# + email + address(street, state, city, country) +
+		//creditCardType + creditCardNumber + FFP + hasPassport + flyStatus + accountCharged
+		
+		//Read in the records, save them in one String, modify the corresponding information;
+		//Then write the String(which contains all the updated information of database) back into the Database;
+		try{
+			reader = new BufferedReader(new FileReader(detailsFile));
+			while((oneLine = reader.readLine()) != null){
+			// oneLine represents one line in the DB; Recursively check the DB;	
+                String[] words = oneLine.split(",");
+				
+				if(username.equals(words[0])){
+					for(int i=0;i<17;i++){
+						updatedLine += words[i];
+						updatedLine += ",";
+					}
+					double accountCharged = Double.parseDouble(words[17]);
+					accountCharged += price;
+					
+					updatedLine += ",";
+					updatedLine +=  accountCharged;
+					data += updatedLine + "\n";
+				}else{
+					data += oneLine + "\n";
+				}	
+            }
+		     reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		try{
+			usrfile = new File(detailsFile);
+			writer = new PrintWriter(new FileOutputStream(usrfile));	
+			writer.print(data);
+            writer.close();	
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 }

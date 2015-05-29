@@ -53,6 +53,8 @@ public class ServiceController {
 		List<Service> new_services = new ArrayList<>();
 		char choice;
 		
+		System.out.println("\nADD SERVICES");
+		
 		do {
 			Service service = new Service();
 			
@@ -83,6 +85,8 @@ public class ServiceController {
 		boolean isOkay;
 		String[] choices;
 		int[] service_ids_to_remove;
+		
+		System.out.println("\nREMOVE SERVICES");
 		
 		displayServices(services);
 		
@@ -118,6 +122,8 @@ public class ServiceController {
 		boolean isOkay;
 		int choice;
 		
+		System.out.println("\nEDIT SERVICE PRICE");
+		
 		displayServices(services);
 		
 		do {			
@@ -145,6 +151,8 @@ public class ServiceController {
 		List<Service> services = se.getServices(true);
 		boolean isOkay;
 		int choice;
+		
+		System.out.println("\nEDIT SERVICE AVAILABILITY");
 		
 		displayServices(services);
 		

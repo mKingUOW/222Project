@@ -37,12 +37,12 @@ public class FleetController {
 	 * Provides an interface for the Flight Manager to choose whether to
 	 * add, edit or delete planes.
 	 */
-	public void editFleetOption(){
+	public void manageFleetOption(){
 		boolean isOkay;
 		int choice = 0;
 		String[] choices = {"Add Plane", "Edit Plane", "Delete Plane", "Cancel"};
 		
-		System.out.println();
+		System.out.println("\nMANAGE FLEET");
 		
 		for (int i = 0; i < choices.length; i++) {
 			System.out.print((i + 1) + ". ");
@@ -81,11 +81,13 @@ public class FleetController {
 	}
 	
 	/**
-	 * Method called by the editFleetOption() method when the Flight Manager
+	 * Method called by the manageFleetOption() method when the Flight Manager
 	 * chooses to add a plane.
 	 */
 	private void addPlane() {
 		Plane plane = new Plane();
+		
+		System.out.println("\nADD PLANE");
 		
 		System.out.print("Please key in the model of the plane you want to add: ");
 		plane.setPlaneModel(in.nextLine());
@@ -109,7 +111,7 @@ public class FleetController {
 	}
 	
 	/**
-	 * Method called by the editFleetOption() method when the Flight Manager
+	 * Method called by the manageFleetOption() method when the Flight Manager
 	 * chooses to edit a plane.
 	 */
 	private void editPlane() {
@@ -117,6 +119,8 @@ public class FleetController {
 		String plane_model;
 		Plane plane;
 		int option = 0;
+		
+		System.out.println("\nEDIT PLANE");
 		
 		do {
 			isOkay = true;
@@ -177,12 +181,14 @@ public class FleetController {
 	}
 
 	/**
-	 * Method called by the editFleetOption() method when the Flight Manager
+	 * Method called by the manageFleetOption() method when the Flight Manager
 	 * chooses to delete a plane.
 	 */
 	private void deletePlane() {
 		boolean isOkay;
 		String plane_model = "";
+		
+		System.out.println("\nDELETE PLANE");
 		
 		do {			
 			isOkay = true;
@@ -260,4 +266,12 @@ public class FleetController {
 		return fe.getSeatsForPlane(planeId);
 	}
 
+	/**
+	 * Gets the plane model based on the given ID.
+	 * @param plane_id The plane ID to get the plane model by.
+	 * @return The plane model associated with the given plane ID.
+	 */
+	public String getPlaneModel(int plane_id){
+		return fe.getPlaneModel(plane_id);
+	}
 }

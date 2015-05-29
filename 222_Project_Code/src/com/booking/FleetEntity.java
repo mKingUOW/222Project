@@ -240,4 +240,35 @@ public class FleetEntity {
 			e.printStackTrace();
 		}
 	}
+	
+	/**
+	 * Gets the plane model based on the given ID.
+	 * @param plane_id The plane ID to get the plane model by.
+	 * @return The plane model associated with the given plane ID.
+	 */
+	public String getPlaneModel(int plane_id){
+		String model = "";
+		String oneLine = "";
+		boolean found = false;
+		
+		try{
+			reader = new BufferedReader(new FileReader(filepath));
+			while(!found && ((oneLine = reader.readLine()) != null)){				
+				String [] words = oneLine.split(",");
+				
+				int tempPlaneId = Integer.parseInt(words[0]);
+				
+				if(plane_id == tempPlaneId){
+					model = words[1];
+					found = true;					
+				}	
+			}
+			
+			reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return model;
+	}
 }

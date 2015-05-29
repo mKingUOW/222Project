@@ -7,7 +7,6 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import com.profile.ProfileController;
-import com.report.ReportController;
 
 public abstract class Role{
 	/**
@@ -39,11 +38,6 @@ public abstract class Role{
 	 * Requires the ProfileController class to access services in that class.
 	 */
 	private ProfileController pc = new ProfileController();
-	
-	/**
-	 * Requires the ReportController class to access services in that class.
-	 */
-	private ReportController rc = new ReportController();
 	
 	/**
 	 * Holds all the possible choices that will have been passed to itself from
@@ -122,7 +116,7 @@ public abstract class Role{
 	public void displayReportMenu(){
 		boolean isOkay;
 		
-		System.out.println();
+		System.out.println("\nREPORTS");
 		
 		do {			
 			isOkay = true;

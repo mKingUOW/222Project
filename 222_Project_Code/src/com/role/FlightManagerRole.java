@@ -9,21 +9,25 @@ import com.booking.AirportController;
 import com.booking.FleetController;
 import com.booking.FlightController;
 import com.booking.RouteController;
+import com.report.ReportBuilder;
 
 /**
  *
  * @author Michael Y.M. Kong
  */
 public class FlightManagerRole extends NormalStaffRole{
-	private String[] choices = {"Edit Routes", "Edit Fleet", "Edit Flight Schedule", "Edit Airports"};
+	private String[] choices = {"Manage Routes", "Manage Fleet", "Manage Flight Schedule", "Manage Airports"};
 	private RouteController rc = new RouteController();
 	private FleetController ftc = new FleetController();
 	private FlightController fc = new FlightController();
 	private AirportController ac = new AirportController();
 	
+	private String[] reportsAvailable = {"Monthly Flight Statistics Report"};
+	
 	public FlightManagerRole(){
 		super();
 		addChoices(choices);
+		addReportChoices(reportsAvailable);
 	}
 
 	@Override
@@ -31,20 +35,34 @@ public class FlightManagerRole extends NormalStaffRole{
 		String choice = allChoices.get(userChoice);
 		
 		switch(choice){
-			case "Edit Routes":
-				rc.editRouteOption();
+			case "Manage Routes":
+				rc.manageRouteOption();
 				break;
-			case "Edit Fleet":
-				ftc.editFleetOption();
+			case "Manage Fleet":
+				ftc.manageFleetOption();
 				break;
-			case "Edit Flight Schedule":
-				fc.editFlightsOption();
+			case "Manage Flight Schedule":
+				fc.manageFlightsOption();
 				break;	
-			case "Edit Airports":
-				ac.editAirportsOption();
+			case "Manage Airports":
+				ac.manageAirportsOption();
 				break;
 			default:
 				super.executeChoice();
+				break;
+		}
+	}
+	
+	@Override
+	public void executeReportChoice() {
+		String choice = allReportsAvailable.get(userReportChoice);
+		
+		switch(choice){
+			case "Monthly Flight Statistics Report":
+				ReportBuilder.displayReport(ReportBuilder.ReportType.MonthlyFlightStatisticsReport, getUsername());
+				break;
+			default:
+				super.executeReportChoice();
 				break;
 		}
 	}

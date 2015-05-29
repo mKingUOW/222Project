@@ -121,6 +121,8 @@ public class ProfileController {
 		char[] new_password;
 		boolean is_okay;
 		
+		System.out.println("\nCHANGE PASSWORD");
+		
 		do {			
 			is_okay = true;
 			
@@ -163,6 +165,7 @@ public class ProfileController {
 	 * Method for the profile system manager to close a user's account.
 	 */
 	public void closeAccount(){
+		System.out.println("\nCLOSE USER ACCOUNT");
 		closeAccount(enterUsername());
 	}
 	
@@ -173,6 +176,8 @@ public class ProfileController {
 	 */
 	public boolean closeAccount(String username){
 		char choice;
+		
+		System.out.println("\nCLOSE ACCOUNT");
 		
 		System.out.println("Are you sure you want to close this account?");
 		System.out.println("You will be logged out of the system if you close your account.");
@@ -191,6 +196,7 @@ public class ProfileController {
 	 * Method for the profile system manager to edit a user's account.
 	 */
 	public void editAccount(){
+		System.out.println("\nEDIT ACCOUNT FOR CUSTOMER AND TRAVEL AGENCY");
 		editAccount(enterUsername());
 	}
 	
@@ -210,12 +216,14 @@ public class ProfileController {
 		boolean is_okay;
 		int choice = 0;
 		
+		System.out.println("\nEDIT ACCOUNT");
+		
 		do {
 			is_okay = true;
 			for (int i = 0; i < options.length; i++) {
 				System.out.print((i + 1) + ". ");
 				System.out.print(options[i]);
-				System.out.println("(" + customer_details[i] + ")");
+				System.out.println(" (" + customer_details[i] + ")");
 			}
 			
 			System.out.print("Please select an option from above: ");
@@ -236,6 +244,8 @@ public class ProfileController {
 		if (choice != 12) { //special case for credit card, so we consider it in the switch
 			System.out.print("Please enter the new value for " + options[choice - 1].toLowerCase() + ": ");
 		} 
+		
+		in.nextLine();
 		
 		switch (choice){
 			case 1:
@@ -283,7 +293,7 @@ public class ProfileController {
 				break;
 		}
 		
-		pe.setAccountDetails(customer);
+		pe.setAccountDetails(username, customer);
 		
 		System.out.println("Your details have been updated!\n");
 	}
@@ -304,6 +314,9 @@ public class ProfileController {
 	public void editWatchAndNoFlyList(){
 		boolean isOkay;
 		int choice = 0;
+		
+		System.out.println("\nEDIT WATCH AND NO FLY LIST");
+		
 		String username = enterUsername();
 		String[][] status_constants = {
 			{"Can Fly", ""},

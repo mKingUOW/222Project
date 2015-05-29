@@ -16,7 +16,7 @@ public class NormalStaffRole extends Role{
 	private String[] choices = {"Cancel Customer Booking", "Make Booking for Customer", "Edit Services for Customer"};
 	private BookingController bc = new BookingController();
 	
-	private String[] reportsAvailable = {"Flight Statistics Report"};
+	private String[] reportsAvailable = {};
 	
 	public NormalStaffRole() {
 		super();
@@ -49,11 +49,8 @@ public class NormalStaffRole extends Role{
 		String choice = allReportsAvailable.get(userReportChoice);
 		
 		switch(choice){
-			case "Flight Statistics Report":
-				ReportBuilder.displayReport(ReportBuilder.ReportType.MonthlyFlightStatisticsReport, getUsername());
-				break;
 			default:
-				super.displayReportMenu();
+				super.executeReportChoice();
 				break;
 		}
 	}

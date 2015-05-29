@@ -37,12 +37,12 @@ public class AirportController {
 	 * Provides an interface for the Flight Manager to choose whether to
 	 * add, edit or delete airports.
 	 */
-	public void editAirportsOption(){
+	public void manageAirportsOption(){
 		boolean isOkay;
 		int choice = 0;
 		String[] choices = {"Add Airport", "Edit Airport", "Delete Airport", "Cancel"};
 		
-		System.out.println();
+		System.out.println("\nMANAGE AIRPORTS");
 		
 		for (int i = 0; i < choices.length; i++) {
 			System.out.print((i + 1) + ". ");
@@ -81,11 +81,13 @@ public class AirportController {
 	}
 	
 	/**
-	 * Method called by the editAirportsOption() method when the Flight Manager
+	 * Method called by the manageAirportsOption() method when the Flight Manager
 	 * chooses to add an airport.
 	 */
 	private void addAirport() {
 		Airport airport = new Airport();
+		
+		System.out.println("\nADD AIRPORTS");
 		
 		airport.setAirportName(enterAirportName(false));
 		airport.setCity(enterCity());
@@ -104,13 +106,15 @@ public class AirportController {
 	}
 
 	/**
-	 * Method called by the editAirportsOption() method when the Flight Manager
+	 * Method called by the manageAirportsOption() method when the Flight Manager
 	 * chooses to edit an airport.
 	 */
 	private void editAirport() {
 		String IATA;
 		boolean isOkay;
 		int option = 0;
+		
+		System.out.println("\nEDIT AIRPORTS");
 		
 		do {
 			isOkay = true;
@@ -195,12 +199,14 @@ public class AirportController {
 	}
 
 	/**
-	 * Method called by the editAirportsOption() method when the Flight Manager
+	 * Method called by the manageAirportsOption() method when the Flight Manager
 	 * chooses to delete an airport.
 	 */
 	private void deleteAirport() {
 		String IATA;
 		boolean isOkay;
+		
+		System.out.println("\nDELETE AIRPORTS");
 		
 		do {
 			isOkay = true;

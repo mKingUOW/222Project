@@ -9,7 +9,7 @@ public class RouteEntity{
 	
 	// routeNumber + origin_code + destination_code + codeShare + stops  --- in the routes.csv
 	/**
-	 * A quick reference to the rout database file.
+	 * A quick reference to the route database file.
 	 */
 	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "routes.csv";
 	

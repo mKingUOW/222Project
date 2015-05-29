@@ -8,6 +8,7 @@ package com.booking;
 import com.helpers.Flight;
 import com.helpers.Plane;
 import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Map;
@@ -52,12 +53,12 @@ public class FlightController {
 	 * Provides an interface for the Flight Manager to choose whether to
 	 * add, edit or delete flights.
 	 */
-	public void editFlightsOption(){
+	public void manageFlightsOption(){
 		boolean isOkay;
 		int choice = 0;
 		String[] choices = {"Add Flight", "Edit Flight", "Delete Flight", "Cancel"};
 		
-		System.out.println();
+		System.out.println("\nMANAGE FLIGHTS");
 		
 		for (int i = 0; i < choices.length; i++) {
 			System.out.print((i + 1) + ". ");
@@ -96,11 +97,13 @@ public class FlightController {
 	}
 	
 	/**
-	 * Method called by the editFlightsOption() method when the Flight Manager
+	 * Method called by the manageFlightsOption() method when the Flight Manager
 	 * chooses to add a flight.
 	 */
 	private void addFlight() {
 		Flight flight = new Flight();
+		
+		System.out.println("\nADD FLIGHT");
 		
 		flight.setFlightID(enterFlightId(true));
 		flight.setPlane(enterPlane());
@@ -116,12 +119,14 @@ public class FlightController {
 	}
 	
 	/**
-	 * Method called by the editFlightsOption() method when the Flight Manager
+	 * Method called by the manageFlightsOption() method when the Flight Manager
 	 * chooses to edit a flight.
 	 */
 	private void editFlight() {
 		boolean isOkay;
 		int option = 0;
+		
+		System.out.println("\nEDIT FLIGHT");
 		
 		Flight flight = fe.getFlight(enterFlightId(false));
 		
@@ -173,10 +178,12 @@ public class FlightController {
 	}
 
 	/**
-	 * Method called by the editFlightsOption() method when the Flight Manager
+	 * Method called by the manageFlightsOption() method when the Flight Manager
 	 * chooses to delete a flight.
 	 */
 	private void deleteFlight() {
+		System.out.println("\nDELETE FLIGHT");
+		
 		String flightId = enterFlightId(false);
 		
 		fe.deleteFlight(flightId);
@@ -301,10 +308,34 @@ public class FlightController {
 	}
 	
 	/**
+	 * Allows user to get flights for a particular month.
+	 * @param month The month of to search for.
+	 * @param year The year to search for.
+	 * @return A List of Flight objects for the given month.
+	 */
+	public List<Flight> getFlightsForMonth(String month, int year){
+		List<Flight> flights_for_month = new ArrayList<>();
+		List<Flight> all_flights = fe.getAllFlights();
+		
+		for (Flight flight: all_flights) {
+			String flight_date = flight.getArriveTime();
+			String flight_month = flight_date.substring(4, 7);
+			int flight_year = Integer.parseInt(flight_date.substring(24));
+			
+			if (month.equals(flight_month) && year == flight_year) { //if this is a wanted flight
+				flights_for_month.add(flight);
+			}
+		}
+		
+		return flights_for_month;
+	}
+	
+	/**
 	 * Updates the available seats of a particular flight.
 	 * @param flight_id The flight ID of the flight to update the seats of.
 	 * @param available_seats The current available seats for the flight.
 	 */
+	
 	public void updateAvailableSeats(String flight_id, int[] available_seats){
 		fe.updateAvailableSeats(flight_id, available_seats);
 	}
@@ -345,6 +376,8 @@ public class FlightController {
 	public void setSeatPrices(String flight_id){
 		if (flight_id == null) {
 			flight_id = enterFlightId(false);
+		} else{
+			System.out.println("\nSET SEAT PRICES");
 		}
 		double[] prices = new double[4];
 		
