@@ -195,7 +195,7 @@ public class UserInterface{
 					signUp();
 					break;
 				case 'q': //If entering 'q', the system terminates;
-					System.out.println("\nThe system's been shut down... ");
+					System.out.println("\nGoodbye!");
 					shouldContinue = false;
 					break;
 				default:

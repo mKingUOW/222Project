@@ -1,6 +1,7 @@
 package com.helpers;
 
 import java.util.Formatter;
+import java.util.Objects;
 
 /**
  * Allows a information of a service to be passed from class to class in a
@@ -136,5 +137,34 @@ public class Service {
 		fmt.format("%-20s$%-14.2f%-15s", name, cost, availability);
 		
 		return sb.toString();
+	}
+
+	/**
+	 * Equals method to test equality
+	 * @param obj Object to test against.
+	 * @return True if the given object is equal to this object.
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final Service other = (Service) obj;
+		if (this.serviceID != other.serviceID) {
+			return false;
+		}
+		if (!Objects.equals(this.name, other.name)) {
+			return false;
+		}
+		if (Double.doubleToLongBits(this.cost) != Double.doubleToLongBits(other.cost)) {
+			return false;
+		}
+		if (!Objects.equals(this.availability, other.availability)) {
+			return false;
+		}
+		return true;
 	}
 }

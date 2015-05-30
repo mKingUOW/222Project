@@ -386,6 +386,8 @@ public class FlightController {
 		}
 		
 		fe.setSeatPrice(flight_id, prices);
+		
+		System.out.println("The seat prices for flight " + flight_id + " has been updated.\n");
 	}
 	
 	/**

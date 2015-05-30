@@ -5,7 +5,6 @@ github logs
 
 architectural design
 - patterns
-- libraries
 - subsystems
 	- how
 	- why 
@@ -15,5 +14,4 @@ architectural design
 - high level activity diagram for each subsystem
 - implementation
 - structural parameters
-
 

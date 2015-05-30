@@ -17,7 +17,7 @@ public class FlightEntity{
 	/**
 	 * A quick reference to the flight database file.
 	 */
-	private String scheduleFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "flight_scehedule.csv";
+	private String scheduleFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "flight_schedule.csv";
 	
 	/**
 	 * A BufferedReader object that allows the class to read from files.

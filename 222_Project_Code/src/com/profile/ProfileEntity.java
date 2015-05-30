@@ -252,6 +252,8 @@ public class ProfileEntity {
 					updatedLine +=  passwd;
 					updatedLine += ",";
 					updatedLine +=  words[2];
+					updatedLine += ",";
+					updatedLine +=  words[3];
 					data += updatedLine + "\n";
 				}else{
 					data += oneLine + "\n";
@@ -680,7 +682,7 @@ public class ProfileEntity {
 		try{
 			accfile = new File(accountFile);
 			writer = new PrintWriter(new FileOutputStream(accfile,true));		//To append to the file using "true";
-			writer.println(username + "," + passwd + "," + role + "," + "open");
+			writer.println(username + "," + passwd + "," + role + ",open");
             writer.close();	
 			
 			success = true;

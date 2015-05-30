@@ -398,14 +398,15 @@ public class ProfileController {
 		
 		do {
 			//enter username
-			System.out.print("Please enter the username: ");
+			System.out.print("\nPlease enter the username: ");
 			new_staff.setUsername(in.nextLine());
-
+			
 			//enter password
 			System.out.print("Enter a password: ");
 			new_staff.setPassword(console.readPassword());
 
 			//enter role
+			System.out.println("Choose a role:");
 			new_staff.setRole(enterRole());
 
 			isOkay = pe.createStaffProfile(new_staff);
@@ -475,7 +476,7 @@ public class ProfileController {
 		String role = "";
 		
 		String[] roles = {"Normal Staff", "Flight Manager", "Profile System Manager",
-				"Service System Manager", "Reservation System Manager", "Reporting System Manager"};
+				"Service System Manager", "Reservation System Manager"};
 		
 		for (int i = 0; i < roles.length; i++) {
 			System.out.println((i + 1) + ". " + roles[i]);
@@ -512,10 +513,7 @@ public class ProfileController {
 				role = "SSM";
 				break;
 			case 5:
-				role = "RSVM";
-				break;
-			case 6:
-				role = "RPSM";
+				role = "RVSM";
 				break;
 		}
 		
