@@ -33,22 +33,22 @@ public class BookingEntity {
 	/**
 	 * A quick reference to the discount database file.
 	 */
-	private String bookingConstantsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "booking_constants.csv";
+	private String bookingConstantsFile;
 	
 	/**
 	 * A quick reference to the bookings database file.
 	 */
-	private String bookingFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "booking.csv";
+	private String bookingFile;
 	
 	/**
 	 * A quick reference to the tickets database file.
 	 */
-	private String ticketsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "tickets.csv";
+	private String ticketsFile;
 	
 	/**
 	 * A quick reference to the services booked database file.
 	 */
-	private String serviceFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "services_booked.csv";
+	private String serviceFile;
 	
 	/**
 	 * A BufferedReader object that allows the class to read from files.
@@ -64,6 +64,10 @@ public class BookingEntity {
 	 * Default constructor
 	 */
 	public BookingEntity(){
+            bookingConstantsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "booking_constants.csv";
+            bookingFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "booking.csv";
+            ticketsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "tickets.csv";
+            serviceFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "services_booked.csv";
 	}
 	
 	/**

@@ -27,17 +27,17 @@ public class ProfileEntity {
 	/**
 	 * A quick reference to the userAccount database file.
 	 */
-	private String accountFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "user_account.csv";
+	private String accountFile;
 	
 	/**
 	 * A quick reference to the userDetail database file.
 	 */
-	private String detailsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "user_details.csv";
+	private String detailsFile;
 
 	/**
 	 * A quick reference to the otherPersons database file.
 	 */
-	private String personFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "persons.csv";
+	private String personFile;
 	
 	/**
 	 * A BufferedReader object that allows the class to read from files.
@@ -53,7 +53,9 @@ public class ProfileEntity {
 	 * Default constructor.
 	 */
 	public ProfileEntity(){
-		
+		accountFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "user_account.csv";
+                detailsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "user_details.csv";
+                personFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "persons.csv";
 	}
 	
 	/**

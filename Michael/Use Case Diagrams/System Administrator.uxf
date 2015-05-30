@@ -4,8 +4,8 @@
   <element>
     <id>UMLActor</id>
     <coordinates>
-      <x>220</x>
-      <y>210</y>
+      <x>180</x>
+      <y>230</y>
       <w>120</w>
       <h>120</h>
     </coordinates>
@@ -19,7 +19,7 @@ Administrator</panel_attributes>
       <x>340</x>
       <y>110</y>
       <w>390</w>
-      <h>260</h>
+      <h>320</h>
     </coordinates>
     <panel_attributes>Flight Management System</panel_attributes>
     <additional_attributes/>
@@ -39,13 +39,13 @@ Profile</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
+      <x>260</x>
       <y>160</y>
-      <w>90</w>
-      <h>100</h>
+      <w>130</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;80.0;70.0;10.0</additional_attributes>
+    <additional_attributes>10.0;100.0;110.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -85,13 +85,13 @@ credentials</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>220</y>
-      <w>90</w>
-      <h>40</h>
+      <x>260</x>
+      <y>230</y>
+      <w>130</w>
+      <h>50</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
+    <additional_attributes>10.0;30.0;110.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -132,13 +132,13 @@ Profile</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>300</x>
-      <y>230</y>
-      <w>90</w>
-      <h>100</h>
+      <x>260</x>
+      <y>250</y>
+      <w>130</w>
+      <h>80</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;70.0;80.0</additional_attributes>
+    <additional_attributes>10.0;10.0;110.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -163,5 +163,28 @@ Username</panel_attributes>
     <panel_attributes>lt=.&gt;
 &lt;&lt;extends&gt;&gt;</panel_attributes>
     <additional_attributes>100.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLUseCase</id>
+    <coordinates>
+      <x>380</x>
+      <y>350</y>
+      <w>120</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>Act As Other
+Role</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>260</x>
+      <y>250</y>
+      <w>140</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes/>
+    <additional_attributes>10.0;10.0;120.0;130.0</additional_attributes>
   </element>
 </diagram>

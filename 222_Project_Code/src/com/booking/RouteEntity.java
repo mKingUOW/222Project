@@ -18,7 +18,7 @@ public class RouteEntity{
 	/**
 	 * A quick reference to the route database file.
 	 */
-	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "routes.csv";
+	private String filepath;
 	
 	/**
 	 * A BufferedReader object that allows the class to read from files.
@@ -34,6 +34,7 @@ public class RouteEntity{
 	 * Default constructor.
 	 */
 	public RouteEntity(){
+            filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "routes.csv";
 	}
 	
 	/**
@@ -256,6 +257,15 @@ public class RouteEntity{
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * 
+	 * @param routeNumber
+	 */
+	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber) {
+		// TODO - implement RouteEntity.getRoutePoints
+		throw new UnsupportedOperationException();
 	}
 	
 }

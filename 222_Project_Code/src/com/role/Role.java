@@ -17,22 +17,22 @@ public abstract class Role{
 	/**
 	 * The username of the current user.
 	 */
-	private String username = "";
+	private String username;
 	
 	/**
 	 * The choices available for this role.
 	 */
-	private String[] choices = {"Change Password", "Logout", "View Reports"};
+	private String[] choices;
 	
 	/**
 	 * The reports available for this role.
 	 */
-	private String[] reportsAvailable = {};
+	private String[] reportsAvailable;
 	
 	/**
 	 * Scanner object to use the standard input console.
 	 */
-	private Scanner in = new Scanner(System.in);
+	private Scanner in;
 	
 	/**
 	 * Session variable to check whether the user is still logged in.
@@ -42,7 +42,7 @@ public abstract class Role{
 	/**
 	 * Requires the ProfileController class to access services in that class.
 	 */
-	private ProfileController pc = new ProfileController();
+	private ProfileController pc;
 	
 	/**
 	 * Holds all the possible choices that will have been passed to itself from
@@ -59,12 +59,12 @@ public abstract class Role{
 	/**
 	 * The choice of the user for the main menu.
 	 */
-	protected int userChoice = -1;
+	protected int userChoice;
 	
 	/**
 	 * The choice of the user for the report menu.
 	 */
-	protected int userReportChoice = -1;
+	protected int userReportChoice;
 	
 	/**
 	 * Default constructor.
@@ -72,6 +72,13 @@ public abstract class Role{
 	 * Also sets the session to active.
 	 */
 	public Role() {
+                username = "";
+                choices = new String[]{"Change Password", "Logout", "View Reports"};
+                reportsAvailable = new String[]{};
+                in = new Scanner(System.in);
+                pc = new ProfileController();
+                userChoice = -1;
+                userReportChoice = -1;
 		allChoices = new ArrayList<>(Arrays.asList(choices));
 		allReportsAvailable = new ArrayList<>(Arrays.asList(reportsAvailable));
 		Collections.sort(allChoices);

@@ -24,29 +24,33 @@ public class FlightController {
 	 * FlightController requires the RouteController class to query route
 	 * data.
 	 */
-	private RouteController rc = new RouteController();
+	private RouteController rc;
 	
 	/**
 	 * FlightController requires the FleetController class to query plane
 	 * data.
 	 */
-	private FleetController ftc = new FleetController();
+	private FleetController ftc;
 	
 	/**
 	 * AirportController requires the FlightEntity class to write/read data
 	 * to the database.
 	 */
-	private FlightEntity fe = new FlightEntity();
+	private FlightEntity fe;
 	
 	/**
 	 * Scanner allows class to use the basic input from the console.
 	 */
-	private Scanner in = new Scanner(System.in);
+	private Scanner in;
 	
 	/**
 	 * Default constructor.
 	 */
 	public FlightController(){
+            rc = new RouteController();
+            ftc = new FleetController();
+            fe = new FlightEntity();
+            in = new Scanner(System.in);
 	}
 	
 	/**
@@ -422,5 +426,14 @@ public class FlightController {
 		} while (!isOkay);
 		
 		return price;
+	}
+
+	/**
+	 * 
+	 * @param routeNumber
+	 */
+	public AbstractMap.SimpleImmutableEntry<String, String> getRouteLocations(int routeNumber) {
+		// TODO - implement FlightController.getRouteLocations
+		throw new UnsupportedOperationException();
 	}
 }

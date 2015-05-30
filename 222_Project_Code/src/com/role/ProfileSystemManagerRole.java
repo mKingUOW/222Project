@@ -15,18 +15,20 @@ public class ProfileSystemManagerRole extends NormalStaffRole{
 	/**
 	 * The choices available for this role.
 	 */
-	private String[] choices = {"Edit Watch and No Fly List", "Edit Travel Agency and Customer Profile", "Close User Account"};
+	private String[] choices;
 	
 	/**
 	 * Used to access the profile editing functionality.
 	 */
-	private ProfileController pc = new ProfileController();
+	private ProfileController pc;
 	
 	/**
 	 * Default constructor
 	 */
 	public ProfileSystemManagerRole(){
 		super();
+                choices = new String[]{"Edit Watch and No Fly List", "Edit Travel Agency and Customer Profile", "Close User Account"};
+                pc = new ProfileController();
 		addChoices(choices);
 	}
 

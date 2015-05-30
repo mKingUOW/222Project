@@ -17,7 +17,7 @@ public class ServiceEntity{
 	/**
 	 * A quick reference to the service database file.
 	 */
-	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "services.csv";
+	private String filepath;
 	
 	/**
 	 * A BufferedReader object that allows the class to read from files.
@@ -33,6 +33,7 @@ public class ServiceEntity{
 	 * Default constructor
 	 */
 	public ServiceEntity(){
+            filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "services.csv";
 	}
 	
 	/**

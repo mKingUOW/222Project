@@ -19,27 +19,27 @@ public class FlightManagerRole extends NormalStaffRole{
 	/**
 	 * The choices available for this role.
 	 */
-	private String[] choices = {"Manage Routes", "Manage Fleet", "Manage Flight Schedule", "Manage Airports"};
+	private String[] choices;
 	
 	/**
 	 * Used to access the route editing functionality.
 	 */
-	private RouteController rc = new RouteController();
+	private RouteController rc;
 	
 	/**
 	 * Used to access the fleet editing functionality.
 	 */
-	private FleetController ftc = new FleetController();
+	private FleetController ftc;
 	
 	/**
 	 * Used to access the flight editing functionality.
 	 */
-	private FlightController fc = new FlightController();
+	private FlightController fc;
 	
 	/**
 	 * Used to access the airport editing functionality.
 	 */
-	private AirportController ac = new AirportController();
+	private AirportController ac;
 	
 	/**
 	 * The reports available for this role.
@@ -48,6 +48,11 @@ public class FlightManagerRole extends NormalStaffRole{
 	
 	public FlightManagerRole(){
 		super();
+                choices = new String[]{"Manage Routes", "Manage Fleet", "Manage Flight Schedule", "Manage Airports"};
+                rc = new RouteController();
+                ftc = new FleetController();
+                fc = new FlightController();
+                ac = new AirportController();
 		addChoices(choices);
 		addReportChoices(reportsAvailable);
 	}

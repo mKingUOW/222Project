@@ -16,57 +16,66 @@ public class SystemAdministratorRole extends Role{
 	/**
 	 * The choices available for this role.
 	 */
-	private String[] choices = {"Act as Customer", "Act as Travel Agency",
-		"Act as Normal Staff", "Act as Flight Manager",
-		"Act as Profile System Manager", "Act as Service System Manager",
-		"Act as Reservation System Manager", "Act as Reporting System Manager",
-		"Edit Staff Profile", "Create Staff Profile"};
+	private String[] choices;
 	
 	/**
 	 * Used to access the profile functionality.
 	 */
-	private ProfileController pc = new ProfileController();
+	private ProfileController pc;
 	
 	/**
 	 * Used to access the system as a Customer actor.
 	 */
-	private CustomerRole cr = new CustomerRole();
+	private CustomerRole cr;
 	
 	/**
 	 * Used to access the system as a Travel Agency actor.
 	 */
-	private TravelAgencyRole tar = new TravelAgencyRole();
+	private TravelAgencyRole tar;
 	
 	/**
 	 * Used to access the system as a Normal Staff actor.
 	 */
-	private NormalStaffRole nor = new NormalStaffRole();
+	private NormalStaffRole nor;
 	
 	/**
 	 * Used to access the system as a Flight Manager actor.
 	 */
-	private FlightManagerRole fmr = new FlightManagerRole();
+	private FlightManagerRole fmr;
 	
 	/**
 	 * Used to access the system as a Profile System Manager actor.
 	 */
-	private ProfileSystemManagerRole psmr = new ProfileSystemManagerRole();
+	private ProfileSystemManagerRole psmr;
 	
 	/**
 	 * Used to access the system as a Service System Manager actor.
 	 */
-	private ServiceSystemManagerRole ssmr = new ServiceSystemManagerRole();
+	private ServiceSystemManagerRole ssmr;
 	
 	/**
 	 * Used to access the system as a Reservation System Manager actor.
 	 */
-	private ReservationSystemManagerRole rvsmr = new ReservationSystemManagerRole();
+	private ReservationSystemManagerRole rvsmr;
 	
 	/**
 	 * Default constructor.
 	 */
 	public SystemAdministratorRole(){
 		super();
+                choices = new String[]{"Act as Customer", "Act as Travel Agency",
+                    "Act as Normal Staff", "Act as Flight Manager",
+                    "Act as Profile System Manager", "Act as Service System Manager",
+                    "Act as Reservation System Manager", "Act as Reporting System Manager",
+                    "Edit Staff Profile", "Create Staff Profile"};
+                pc = new ProfileController();
+                cr = new CustomerRole();
+                tar = new TravelAgencyRole();
+                nor = new NormalStaffRole();
+                fmr = new FlightManagerRole();
+                psmr = new ProfileSystemManagerRole();
+                ssmr = new ServiceSystemManagerRole();
+                rvsmr = new ReservationSystemManagerRole();
 		addChoices(choices);
 	}
 

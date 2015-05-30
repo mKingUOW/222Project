@@ -22,18 +22,20 @@ public class ServiceController {
 	 * ServiceController requires the ServiceEntity class to write/read data
 	 * to the database.
 	 */
-	private ServiceEntity se = new ServiceEntity();
+	private ServiceEntity se;
 	
 	
 	/**
 	 * Scanner allows class to use the basic input from the console.
 	 */
-	private Scanner in = new Scanner(System.in);
+	private Scanner in;
 	
 	/**
 	 * Default constructor
 	 */
 	public ServiceController(){
+            se = new ServiceEntity();
+            in = new Scanner(System.in);
 	}
 	
 	/**

@@ -20,17 +20,19 @@ public class FleetController {
 	 * FleetController requires the FleetEntity class to write/read data
 	 * to the database.
 	 */
-	private FleetEntity fe = new FleetEntity();
+	private FleetEntity fe;
 	
 	/**
 	 * Scanner object to use the standard in from the console.
 	 */
-	private Scanner in = new Scanner(System.in);
+	private Scanner in;
 	
 	/**
 	 * Default constructor.
 	 */
 	public FleetController(){	
+            fe = new FleetEntity();
+            in = new Scanner(System.in);
 	}
 	
 	/**

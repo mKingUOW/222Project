@@ -15,7 +15,7 @@ public class AirportEntity{
 	/**
 	 * A quick reference to the airport database file.
 	 */
-	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "airports.csv";
+	private String filepath;
 	
 	/**
 	 * A BufferedReader object that allows the class to read from files.
@@ -31,6 +31,7 @@ public class AirportEntity{
 	 * Default constructor.
 	 */
 	public AirportEntity(){
+            filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "airports.csv";
 	}
 	
 	/**

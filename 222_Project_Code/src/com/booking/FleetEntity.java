@@ -26,7 +26,7 @@ public class FleetEntity {
 	/**
 	 * A quick reference to the fleet database file.
 	 */
-	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "fleet.csv";
+	private String filepath;
 	
 	/**
 	 * A BufferedReader object that allows the class to read from files.
@@ -42,6 +42,7 @@ public class FleetEntity {
 	 * Default constructor.
 	 */
 	public FleetEntity(){
+            filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "fleet.csv";
 	}
 	
 	/**

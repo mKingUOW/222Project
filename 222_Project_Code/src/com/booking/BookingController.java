@@ -31,60 +31,66 @@ public class BookingController {
 	/**
 	 * Scanner object to use the standard in from the console.
 	 */
-	private Scanner in = new Scanner(System.in);
+	private Scanner in;
 	
 	/**
 	 * Holds the current customer username if the user is a customer or travel
 	 * agency. Else it will be null.
 	 */
-	private String customerUsername = null;
+	private String customerUsername;
 	
 	/**
 	 * AirportController requires the BookingEntity class to write/read data
 	 * to the database.
 	 */
-	private BookingEntity be = new BookingEntity();
+	private BookingEntity be;
 	
 	/**
 	 * AirportController requires the FleetController class to query fleet
 	 * data.
 	 */
-	private FleetController ftc = new FleetController();
+	private FleetController ftc;
 	
 	/**
 	 * AirportController requires the FlightController class to query flight
 	 * data.
 	 */
-	private FlightController fc = new FlightController();
+	private FlightController fc;
 	
 	/**
 	 * AirportController requires the ServiceController class to query service
 	 * data.
 	 */
-	private ServiceController sc = new ServiceController();
+	private ServiceController sc;
 	
 	/**
 	 * AirportController requires the ProfileController class to query profile
 	 * and customer data.
 	 */
-	private ProfileController pc = new ProfileController();
+	private ProfileController pc;
 	
 	/**
-	 * The default discount ratio is set to 1. So one frequent flier point
-	 * is one dollar.
+	 * The default discount ratio.
 	 */
-	private double discountRatio = 1; //default
+	private double discountRatio;
 	
 	/**
-	 * The default cancellation fee is set to $10.00.
+	 * The default cancellation fee.
 	 */
-	private double cancellationFee = 10; //default
+	private double cancellationFee;
 	
 	/**
 	 * Creates a BookingController.
 	 * Initializes the discount ratio and cancellation fee from database.
 	 */
 	public BookingController(){
+                in = new Scanner(System.in);
+                customerUsername = null;
+                be = new BookingEntity();
+                ftc = new FleetController();
+                fc = new FlightController();
+                sc = new ServiceController();
+                pc = new ProfileController();
 		discountRatio = be.getDiscountRatio();
 		cancellationFee = be.getCancellationFee();
 	}
@@ -1285,5 +1291,14 @@ public class BookingController {
 		} while (!isOkay);
 		
 		return year;
+	}
+
+	/**
+	 * For the cancelBooking method to call straightaway
+	 * @param customer_bookings
+	 */
+	private void viewBookings(List<Booking> customer_bookings) {
+		// TODO - implement BookingController.viewBookings
+		throw new UnsupportedOperationException();
 	}
 }

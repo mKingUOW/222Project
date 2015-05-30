@@ -17,7 +17,7 @@ public class FlightEntity{
 	/**
 	 * A quick reference to the flight database file.
 	 */
-	private String scheduleFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "flight_schedule.csv";
+	private String scheduleFile;
 	
 	/**
 	 * A BufferedReader object that allows the class to read from files.
@@ -33,6 +33,7 @@ public class FlightEntity{
 	 * Default constructor.
 	 */
 	public FlightEntity(){
+            scheduleFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "flight_schedule.csv";
 	}
 	
 	/**
@@ -435,5 +436,16 @@ public class FlightEntity{
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+	}
+
+	/**
+	 * 
+	 * @param flight_id Flight ID
+	 * @param seat_class "First", "Business", "Premium Economy", "Economy"
+	 * @param price Price
+	 */
+	public void setFlightPrice(String flight_id, String seat_class, double price) {
+		// TODO - implement FlightEntity.setFlightPrice
+		throw new UnsupportedOperationException();
 	}
 }

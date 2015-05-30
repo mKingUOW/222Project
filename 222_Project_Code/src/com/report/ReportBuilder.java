@@ -49,6 +49,8 @@ public class ReportBuilder {
 	
 	/**
 	 * Builds and displays the report.
+         * @param report_type The report
+         * @param username
 	 */
 	public static void displayReport(ReportType report_type, String username){		
 		switch(report_type){
@@ -74,8 +76,9 @@ public class ReportBuilder {
 	}
 	
 	/**
-	 * Displays the flight history report.
-	 */
+         * Displays the flight history report.
+         * @param username The username for the flight history to display.
+         */
 	private static void displayFlightHistoryReport(String username){
 		BookingController bc = new BookingController();
 		bc.setUsername(username);

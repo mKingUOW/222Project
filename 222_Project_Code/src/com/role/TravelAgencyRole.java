@@ -10,18 +10,20 @@ public class TravelAgencyRole extends AbstractCustomerRole{
 	/**
 	 * The choices available for this role.
 	 */
-	private String[] choices = {"Make Booking"};
+	private String[] choices;
 	
 	/**
 	 * Used to access the booking functionality.
 	 */
-	private BookingController bc = new BookingController();
+	private BookingController bc;
 	
 	/**
 	 * Default constructor.
 	 */
 	public TravelAgencyRole(){
 		super();
+                choices = new String[]{"Make Booking"};
+                bc = new BookingController();
 		addChoices(choices);
 	}
 

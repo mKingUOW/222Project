@@ -16,23 +16,26 @@ public class ServiceSystemManagerRole extends NormalStaffRole{
 	/**
 	 * The choices available for this role.
 	 */
-	private String[] choices = {"Add Services", "Remove Services", "Edit Service Price", "Edit Service Availability"};
+	private String[] choices;
 	
 	/**
 	 * Used to access the service functionality.
 	 */
-	private ServiceController sc = new ServiceController();
+	private ServiceController sc;
 	
 	/**
 	 * The reports available for this role.
 	 */
-	private String[] reportsAvailable = {"Top 5 Popular Services Report"};
+	private String[] reportsAvailable;
 	
 	/**
 	 * Default constructor
 	 */
 	public ServiceSystemManagerRole(){
 		super();
+                choices = new String[]{"Add Services", "Remove Services", "Edit Service Price", "Edit Service Availability"};
+                reportsAvailable = new String[]{"Top 5 Popular Services Report"};
+                sc = new ServiceController();
 		addChoices(choices);
 		addReportChoices(reportsAvailable);
 	}

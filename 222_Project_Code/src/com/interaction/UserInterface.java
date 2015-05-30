@@ -14,18 +14,27 @@ public class UserInterface{
 	 * UserInterface requires the UserController class for the
 	 * functionality and processing.
 	 */
-	private UserController uc = new UserController();
+	private UserController uc;
 	
 	/**
 	 * Console object to use the standard input from the console.
 	 */
-	private Console consl = System.console();
+	private Console consl;
 	
 	/**
 	 * Scanner object to use the standard input from the console.
 	 */
-	private Scanner in = new Scanner(System.in);
-	
+	private Scanner in;
+
+        /**
+         * Default constructor
+         */
+        public UserInterface() {
+            uc = new UserController();
+            consl = System.console();
+            in = new Scanner(System.in);
+        }
+        
 	/**
 	 * Displays the initial flight system interface allowing the 
 	 * user to login, signup or quit the program.

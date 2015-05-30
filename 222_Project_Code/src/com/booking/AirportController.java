@@ -19,18 +19,20 @@ public class AirportController {
 	 * AirportController requires the AirportEntity class to write/read data
 	 * to the database.
 	 */
-	private AirportEntity ae = new AirportEntity();
+	private AirportEntity ae;
 	
 	/**
 	 * Scanner allows class to use the basic input from the console.
 	 */
-	private Scanner in = new Scanner(System.in);
+	private Scanner in;
 	
 	
 	/**
 	 * Default constructor. 
 	 */
 	public AirportController(){
+            ae = new AirportEntity();
+            in = new Scanner(System.in);
 	}
 	
 	/**

@@ -16,23 +16,26 @@ public class NormalStaffRole extends Role{
 	/**
 	 * The choices available for this role.
 	 */
-	private String[] choices = {"Cancel Customer Booking", "Make Booking for Customer", "Edit Services for Customer"};
+	private String[] choices;
 	
 	/**
 	 * Used to access the booking functionality.
 	 */
-	private BookingController bc = new BookingController();
+	private BookingController bc;
 	
 	/**
 	 * The reports available for this role.
 	 */
-	private String[] reportsAvailable = {};
+	private String[] reportsAvailable;
 	
 	/**
 	 * Default constructor
 	 */
 	public NormalStaffRole() {
 		super();
+                choices = new String[]{"Cancel Customer Booking", "Make Booking for Customer", "Edit Services for Customer"};
+                bc = new BookingController();
+                reportsAvailable = new String[]{};
 		addChoices(choices);
 		addReportChoices(reportsAvailable);
 	}

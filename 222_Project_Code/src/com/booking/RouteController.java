@@ -22,23 +22,26 @@ public class RouteController {
 	 * RouteController requires the AirportController class to query airport
 	 * data.
 	 */
-	private AirportController ac = new AirportController();
+	private AirportController ac;
 	
 	/**
 	 * RouteController requires the RouteEntity class to write/read data
 	 * to the database.
 	 */
-	private RouteEntity re = new RouteEntity();
+	private RouteEntity re;
 	
 	/**
 	 * Scanner object to use the standard in from the console.
 	 */
-	private Scanner in = new Scanner(System.in);
+	private Scanner in;
 	
 	/**
 	 * Default constructor
 	 */
 	public RouteController(){
+            ac = new AirportController();
+            re = new RouteEntity();
+            in = new Scanner(System.in);
 	}
 	
 	/**
@@ -454,5 +457,33 @@ public class RouteController {
 		String destination_country = ac.getAirportCountry(destination_airport);
 		
 		return (!origin_country.equals(destination_country)); //countries are not the same; therefore international
+	}
+
+	/**
+	 * 
+	 * @param origin
+	 * @param destination
+	 */
+	public int getRoute(String origin, String destination) {
+		// TODO - implement RouteController.getRoute
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param routeNumber
+	 */
+	public AbstractMap.SimpleImmutableEntry<String, String> getRouteLocations(int routeNumber) {
+		// TODO - implement RouteController.getRouteLocations
+		throw new UnsupportedOperationException();
+	}
+
+	/**
+	 * 
+	 * @param routeNumber
+	 */
+	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber) {
+		// TODO - implement RouteController.getRoutePoints
+		throw new UnsupportedOperationException();
 	}
 }

@@ -19,12 +19,13 @@ public class UserController{
 	/**
 	 * Used to access the profile functionality.
 	 */
-	private ProfileController pc = new ProfileController();
+	private ProfileController pc;
 
 	/**
 	 * Default constructor
 	 */
 	public UserController(){ //default constructor
+            pc = new ProfileController();
 	}
 
 	/**

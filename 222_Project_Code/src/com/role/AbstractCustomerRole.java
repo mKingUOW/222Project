@@ -13,28 +13,32 @@ public abstract class AbstractCustomerRole extends Role{
 	/**
 	 * The choices available for this role.
 	 */
-	private String[] choices = {"Edit Services", "Close Account", "Cancel Booking", "Edit Account", "View My Bookings"};
+	private String[] choices;
 	
 	/**
 	 * Used to access the booking functionality.
 	 */
-	private BookingController bc = new BookingController();
+	private BookingController bc;
 	
 	/**
 	 * Used to access the profile functionality.
 	 */
-	private ProfileController pc = new ProfileController();
+	private ProfileController pc;
 	
 	/**
 	 * The reports available for this role.
 	 */
-	private String[] reportsAvailable = {"Flight History Report"};
+	private String[] reportsAvailable;
 	
 	/**
 	 * Default constructor
 	 */
 	public AbstractCustomerRole(){
 		super();
+                choices = new String[]{"Edit Services", "Close Account", "Cancel Booking", "Edit Account", "View My Bookings"};
+                reportsAvailable = new String[]{"Flight History Report"};
+                bc = new BookingController();
+                pc = new ProfileController();
 		addChoices(choices);
 		addReportChoices(reportsAvailable);
 	}

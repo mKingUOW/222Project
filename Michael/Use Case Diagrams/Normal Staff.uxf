@@ -366,8 +366,7 @@ Seat Number</panel_attributes>
       <w>128</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Generate Flight
-Reports</panel_attributes>
+    <panel_attributes>Generate Report</panel_attributes>
     <additional_attributes/>
   </element>
   <element>

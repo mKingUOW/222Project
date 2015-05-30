@@ -18,35 +18,40 @@ public class ReservationSystemManagerRole extends NormalStaffRole{
 	/**
 	 * The choices available for this role.
 	 */
-	private String[] choices = {"Set Ticket Prices", "Move Passengers Between Flights",
-		"Change Passenger Seating", "Edit Watch and No Fly List",
-		"Set Frequent Flier Point Discount Ratio", "Set Cancellation Fee"};
+	private String[] choices;
 	
 	/**
 	 * The reports available for this role.
 	 */
-	private String[] reportsAvailable = {"Monthly Revenue Report", "Bookings For Month Report"};
+	private String[] reportsAvailable;
 	
 	/**
 	 * Used to access the profile functionality.
 	 */
-	private ProfileController pc = new ProfileController();
+	private ProfileController pc;
 	
 	/**
 	 * Used to access the booking functionality.
 	 */
-	private BookingController bc = new BookingController();
+	private BookingController bc;
 	
 	/**
 	 * Used to access the flight functionality.
 	 */
-	private FlightController fc = new FlightController();
+	private FlightController fc;
 	
 	/**
 	 * Default constructor
 	 */
 	public ReservationSystemManagerRole(){
 		super();
+                choices = new String[]{"Set Ticket Prices", "Move Passengers Between Flights",
+                    "Change Passenger Seating", "Edit Watch and No Fly List",
+                    "Set Frequent Flier Point Discount Ratio", "Set Cancellation Fee"};
+                reportsAvailable = new String[]{"Monthly Revenue Report", "Bookings For Month Report"};
+                pc = new ProfileController();
+                bc = new BookingController();
+                fc = new FlightController();
 		addChoices(choices);
 		addReportChoices(reportsAvailable);
 	}

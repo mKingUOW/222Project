@@ -25,23 +25,26 @@ public class ProfileController {
 	/**
 	 * Scanner object to use the standard in from the console.
 	 */
-	private Scanner in = new Scanner(System.in);
+	private Scanner in;
 	
 	/**
 	 * Console object to use the standard in from the console.
 	 */
-	private Console console = System.console();
+	private Console console;
 	
 	/**
 	 * ProfileController requires the ProfileEntity class to write/read data
 	 * to the database.
 	 */
-	private ProfileEntity pe = new ProfileEntity();
+	private ProfileEntity pe;
 	
 	/**
 	 * Default constructor
 	 */
 	public ProfileController() {
+            in = new Scanner(System.in);
+            console = System.console();
+            pe = new ProfileEntity();
 	}
 	
 	/**
