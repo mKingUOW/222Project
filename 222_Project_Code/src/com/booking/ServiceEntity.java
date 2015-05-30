@@ -17,7 +17,7 @@ public class ServiceEntity{
 	/**
 	 * A quick reference to the service database file.
 	 */
-	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "servicesInventory.csv";
+	private String filepath = System.getProperty("user.dir") + File.separator + "database" + File.separator + "services.csv";
 	
 	/**
 	 * A BufferedReader object that allows the class to read from files.

@@ -1,6 +1,6 @@
 package com.main;
 
-import com.userInteraction.*;
+import com.interaction.UserInterface;
 
 /**
  * The class that contains the main method of the Flight Management System.

@@ -60,7 +60,7 @@ public abstract class AbstractCustomerRole extends Role{
 				bc.cancelBooking();
 				break;
 			case "Edit Account":
-				pc.editAccount(getUsername());
+				pc.editAccount(getUsername(), true);
 				break;
 			case "View My Bookings":
 				System.out.println("\nVIEW BOOKINGS");

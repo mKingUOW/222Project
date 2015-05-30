@@ -9,8 +9,11 @@ import com.helpers.Customer;
 import com.helpers.Person;
 import com.helpers.Staff;
 import java.io.Console;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
+import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -222,7 +225,7 @@ public class ProfileController {
 	 */
 	public void editAccount(){
 		System.out.println("\nEDIT ACCOUNT FOR CUSTOMER AND TRAVEL AGENCY");
-		editAccount(enterUsername());
+		editAccount(enterUsername(), false);
 	}
 	
 	/**
@@ -231,40 +234,50 @@ public class ProfileController {
 	 * when the profile system manager wants to edit a user's profile.
 	 * @param username 
 	 */
-	public void editAccount(String username){
+	public void editAccount(String username, boolean isCustomer){
 		String[] options = {"Title", "First Name", "Last Name", "Gender",
 			"Date of birth", "Phone number", "Email", "Street",
 			"State", "City", "Country", "Credit Card", "Passport Availability"};
-		Person customer = pe.getAccountDetails(username);
-		String[] customer_details = customer.toArray();
+		List<String> option_list = new ArrayList<>(Arrays.asList(options));
+		Map.Entry<Person, Integer> customer_pair = pe.getAccountDetails(username);
+		Person customer = customer_pair.getKey();
+		Integer frequent_flier_points = customer_pair.getValue();
 		
-		boolean is_okay;
+		List<String> customer_details = Arrays.asList(customer.toArray());
+		
+		//if this is not a customer or travel agency accessing the method
+		if (!isCustomer) {
+			option_list.add("Frequent Flier Points");
+			customer_details.add(frequent_flier_points.toString());
+		}
+		
+		boolean isOkay;
 		int choice = 0;
 		
 		System.out.println("\nEDIT ACCOUNT");
 		
 		do {
-			is_okay = true;
-			for (int i = 0; i < options.length; i++) {
+			isOkay = true;
+			for (int i = 0; i < option_list.size(); i++) {
 				System.out.print((i + 1) + ". ");
-				System.out.print(options[i]);
-				System.out.println(" (" + customer_details[i] + ")");
+				System.out.print(option_list.get(i));
+				System.out.println(" (" + customer_details.get(i) + ")");
 			}
 			
 			System.out.print("Please select an option from above: ");
 			
 			try {
 				choice = in.nextInt();
-				if (choice < 1 || choice > options.length) {
+				if (choice < 1 || choice > option_list.size()) {
 					System.out.println("That option is out of range. Please try again!\n");
-					is_okay = false;
+					isOkay = false;
 				}
 			} catch (InputMismatchException e) {
 				System.out.println("Invalid input. Please try again!\n");
-				is_okay = false;
+				isOkay = false;
 			}
 			
-		} while (!is_okay);
+		} while (!isOkay);
 		
 		if (choice != 12) { //special case for credit card, so we consider it in the switch
 			System.out.print("Please enter the new value for " + options[choice - 1].toLowerCase() + ": ");
@@ -316,11 +329,14 @@ public class ProfileController {
 			case 13:
 				customer.setHasPassport(in.nextLine());
 				break;
+			case 14:
+				frequent_flier_points = enterFrequentFlierPoints();
+				break;
 		}
 		
-		pe.setAccountDetails(username, customer);
+		pe.setAccountDetails(username, customer, frequent_flier_points);
 		
-		System.out.println("Your details have been updated!\n");
+		System.out.println("Details have been updated!\n");
 	}
 	
 	/**
@@ -504,5 +520,34 @@ public class ProfileController {
 		}
 		
 		return role;
+	}
+	
+	/**
+	 * UI method to allow the user to change the user's frequent flier points.
+	 * @return The frequent flier points entered.
+	 */
+	private int enterFrequentFlierPoints(){
+		boolean isOkay;
+		int frequent_flier_points = 0;
+		
+		do {			
+			isOkay = true;
+			
+			//System.out.print("Enter the frequent flier points: ");
+			
+			try {
+				frequent_flier_points = in.nextInt();
+				
+				if (frequent_flier_points < 0) {
+					isOkay = false;
+					System.out.println("Frequent flier points cannot be a negative number. Please try again!\n");
+				}
+			} catch (InputMismatchException e) {
+				isOkay = false;
+				System.out.println("Invalid input detected. Please try again!\n");
+			}
+		} while (!isOkay);
+		
+		return frequent_flier_points;
 	}
 }

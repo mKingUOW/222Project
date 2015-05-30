@@ -13,6 +13,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.util.AbstractMap;
+import java.util.Map;
 
 /**
  * The Entity class that maps to the various .csv files that pertain to
@@ -25,17 +27,17 @@ public class ProfileEntity {
 	/**
 	 * A quick reference to the userAccount database file.
 	 */
-	private String accountFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "userAccount.csv";
+	private String accountFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "user_account.csv";
 	
 	/**
 	 * A quick reference to the userDetail database file.
 	 */
-	private String detailsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "userDetail.csv";
+	private String detailsFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "user_details.csv";
 
 	/**
 	 * A quick reference to the otherPersons database file.
 	 */
-	private String personFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "otherPersons.csv";
+	private String personFile = System.getProperty("user.dir") + File.separator + "database" + File.separator + "persons.csv";
 	
 	/**
 	 * A BufferedReader object that allows the class to read from files.
@@ -423,7 +425,7 @@ public class ProfileEntity {
 	 * @return A Person object because we only need to modify the
 	 * basic details of this user
 	 */
-	public Person getAccountDetails(String username){
+	public Map.Entry<Person, Integer> getAccountDetails(String username){
 		String oneLine = "";
 		
 		String title;
@@ -440,7 +442,7 @@ public class ProfileEntity {
 		String creditCardType;
 		String creditCardNumber;
 		String hasPassport;
-//		int frequentFlierPoints = 0;	
+		int frequentFlierPoints = 0;	
 //		String watchOrNoFly;
 
 		boolean found = false;
@@ -465,7 +467,7 @@ public class ProfileEntity {
 					country = words[11];
 					creditCardType = words[12];
 					creditCardNumber = words[13];
-//					frequentFlierPoints = Integer.parseInt(words[14]);
+					frequentFlierPoints = Integer.parseInt(words[14]);
 					hasPassport = words[15];
 //					watchOrNoFly = words[16];
 					
@@ -480,15 +482,16 @@ public class ProfileEntity {
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		return person;
+		return new AbstractMap.SimpleImmutableEntry<>(person, frequentFlierPoints);
 	}
 	
 	/**
 	 * Sets the account details for a particular Person.
 	 * @param username The username to edit.
 	 * @param account The Person object to save.
+	 * @param frequentFlierPoints The number of frequent flier points of the person.
 	 */
-	public void setAccountDetails(String username, Person account){
+	public void setAccountDetails(String username, Person account, int frequentFlierPoints){
 		File usrfile;
 		
 		String title = account.getTitle();
@@ -549,7 +552,7 @@ public class ProfileEntity {
 					updatedLine += ",";
 					updatedLine +=  creditCardNumber;
 					updatedLine += ",";
-					updatedLine +=  words[14];
+					updatedLine +=  frequentFlierPoints;
 					updatedLine += ",";
 					updatedLine +=  hasPassport;
 					updatedLine += ",";
