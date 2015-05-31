@@ -15,7 +15,7 @@ public class Flight {
 	/**
 	 * Route object containing route details for the flight
 	 */
-	private Route route = new Route();
+	private Route route;
 	/**
 	 * Departure time for the flight
 	 */
@@ -27,7 +27,7 @@ public class Flight {
 	/**
 	 * Plane object containing details of an aircraft for the flight
 	 */
-	private Plane plane = new Plane();
+	private Plane plane;
 	
 	/**
 	 * Flight Constructor
@@ -42,6 +42,8 @@ public class Flight {
 	 * @param ec The number of economy seats available for the flight
 	 */
 	public Flight(String fid,int pid,int rnum,String depTime,String arrTime,int fc,int bc,int pec,int ec){
+                route = new Route();
+                plane = new Plane();
 		this.flightID = fid;
 		this.route.setRouteNumber(rnum);
 		this.departureTime = depTime;
@@ -56,7 +58,8 @@ public class Flight {
 	 * Empty Default Flight Constructor
 	 */
 	public Flight(){
-		
+		route = new Route();
+                plane = new Plane();
 	}
 	/**
 	 * Sets Flight ID for the flight

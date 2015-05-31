@@ -315,9 +315,12 @@ public class ReportBuilder {
 		
 		System.out.printf("%-4s%-12s%-20s%-14s%-15s\n", "#", "Service ID", "Name", "Cost (AUD)", "Availability");
 		for (Map.Entry<Service, Integer> entry: popular_service) {
+                        Service service = entry.getKey();
+                    
 			System.out.printf("%-4s", i + ". ");
-			System.out.println(entry.getKey().getServiceString());
+			System.out.println(service.getServiceString());
 			System.out.println("Number of times this service has been booked: " + entry.getValue());
+                        System.out.printf("Total earnings from this service: $%.2f\n", service.getCost() * entry.getValue());
 			System.out.println();
 			i++;
 		}

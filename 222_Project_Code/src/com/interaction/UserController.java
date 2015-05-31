@@ -1,9 +1,10 @@
 package com.interaction;
 
 import java.util.*;
-import com.role.*;
 import com.helpers.Customer;
 import com.profile.ProfileController;
+import com.role.Role;
+import com.role.RoleFactory;
 
 /**
  * This class is handles all processing at the beginning of the system for the

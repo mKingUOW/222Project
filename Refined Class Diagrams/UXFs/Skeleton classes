@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.2">
+  <zoom_level>7</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>714</x>
+      <y>294</y>
+      <w>105</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+ProfileController</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>392</x>
+      <y>294</y>
+      <w>91</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
+UserInterface</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>539</x>
+      <y>294</y>
+      <w>105</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+UserController</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>476</x>
+      <y>301</y>
+      <w>77</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>uses
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>637</x>
+      <y>301</y>
+      <w>91</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>uses
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>623</x>
+      <y>392</y>
+      <w>84</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;boundary&gt;&gt;
+/Role/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>469</x>
+      <y>392</y>
+      <w>98</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+RoleFactory</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>322</y>
+      <w>42</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=-&gt;&gt;&gt;&gt;
+uses
+m1=1
+m2= 1</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>546</x>
+      <y>322</y>
+      <w>84</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>requests role
+lt=-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>392</y>
+      <w>77</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>creates
+lt=-
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;20.0;90.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>546</x>
+      <y>196</y>
+      <w>105</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+Customer</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>434</x>
+      <y>196</y>
+      <w>126</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>uses
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0;10.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>644</x>
+      <y>196</y>
+      <w>140</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>uses
+m1=1..*
+m2=1</panel_attributes>
+    <additional_attributes>10.0;20.0;180.0;20.0;180.0;140.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>588</x>
+      <y>224</y>
+      <w>42</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>uses
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>175</x>
+      <y>294</y>
+      <w>133</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;controller&gt;&gt;
+FlightManagementSystem</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>301</x>
+      <y>301</y>
+      <w>105</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>creates
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;20.0;130.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>700</x>
+      <y>322</y>
+      <w>84</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>uses
+m1=1
+m2=1</panel_attributes>
+    <additional_attributes>10.0;120.0;100.0;120.0;100.0;10.0</additional_attributes>
+  </element>
+</diagram>

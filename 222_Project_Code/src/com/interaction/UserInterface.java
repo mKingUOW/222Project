@@ -159,12 +159,12 @@ public class UserInterface{
 				System.out.print("Role (Customer/Travel Agency): ");
 				role = consl.readLine();
 				
-				Customer uld = new Customer(title, firstName, lastName, username, password,
+				Customer customer = new Customer(title, firstName, lastName, username, password,
 						gender, DOB, phoneNumber, email,
 						street, state, city, country,
 						creditCardType, creditCardNumber, hasPassport, role);
 				
-				isSignUpOkay = uc.signUp(uld, checkPasswd);
+				isSignUpOkay = uc.signUp(customer, checkPasswd);
 				
 			} while(!isSignUpOkay);
 
