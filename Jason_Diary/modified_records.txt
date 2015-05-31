@@ -1,2 +1,0 @@
-1. The flight_id in the flight-route-schedule.csv file is not unique.
-   I modified the duplicated flight_id with increment it by one, and ensure there is no duplicated flight_id.
