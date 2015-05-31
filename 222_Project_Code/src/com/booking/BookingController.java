@@ -794,9 +794,9 @@ public class BookingController {
 	public void editServices(){
 		if (customerUsername == null) {
 			System.out.println("\nEDIT SERVICES FOR CUSTOMER");
-			setUsername(pc.enterUsername());
+			editServices(pc.enterUsername());
 		} else{
-			setUsername(customerUsername);
+			editServices(customerUsername);
 		}
 	}
 	
@@ -880,7 +880,7 @@ public class BookingController {
 		
 		do {
 			isOkay = true;
-			System.out.println("Please select an option: ");
+			System.out.print("Please select an option: ");
 			
 			try {
 				choice = in.nextInt();
@@ -894,6 +894,10 @@ public class BookingController {
 			}
 		} while (!isOkay);
 		
+                if (choice == 3) {
+                    return;
+                }
+                
 		in.nextLine();
 		
 		System.out.println("\nCurrent Services");
@@ -903,14 +907,17 @@ public class BookingController {
 			System.out.println(services.get(i).getString());
 		}
 		
+                double total_price = 0;
+                
 		switch (choice){
 			case 1:
-				addService(services_booked);
+				total_price = addService(services_booked);
 				break;
 			case 2:
-				deleteService(services_booked);
+				total_price = deleteService(services_booked);
 				break;
 		}
+                pc.chargeAccount(username, total_price);
 		be.updateServicesBooked(services_booked);
 	}
 	
@@ -918,13 +925,12 @@ public class BookingController {
 	 * Allows the user to add a service to a ticket
 	 * @param services_booked List of services booked
 	 */
-	private void addService(List<ServiceBooking> services_booked){
+	private double addService(List<ServiceBooking> services_booked){
 		List<Service> services = sc.getServices(true);
-		List<Integer> added_services = new ArrayList<>();
 		String[] choices;
 		boolean isOkay;
 		int booking_id = services_booked.get(0).getBookingId();
-		int ticket_id = services_booked.get(0).getServiceId();
+		int ticket_id = services_booked.get(0).getTicketId();
 		
 		System.out.println("Services available:");
 		System.out.printf("%-5s%-25s%-10s\n", "#", "Service Name", "Price (AUD)");
@@ -956,14 +962,16 @@ public class BookingController {
 			services_booked.add(new ServiceBooking(booking_id, ticket_id, Integer.parseInt(choice)));
 			total_price += services.get(Integer.parseInt(choice) - 1).getCost();
 		}
-		
+                
 		System.out.printf("Extra services have been added to this ticket. $%.2f has been charged.\n", total_price);
+                
+                return total_price;
 	}
 	
 	/**
 	 * Allows the user to delete a service from a ticket
 	 */
-	private void deleteService(List<ServiceBooking> services_booked){
+	private double deleteService(List<ServiceBooking> services_booked){
 		List<Service> services = sc.getServices(true);
 		String[] choices;
 		boolean isOkay;
@@ -986,11 +994,14 @@ public class BookingController {
 		double total_price = 0;
 		
 		for (String choice: choices) {
-			services_booked.remove(Integer.parseInt(choice) - 1);
-			total_price += services.get(Integer.parseInt(choice) - 1).getCost();
+			ServiceBooking service = services_booked.remove(Integer.parseInt(choice) - 1);
+                        
+			total_price += services.get(service.getServiceId() - 1).getCost();
 		}
-		
+                
 		System.out.printf("The services have been deleted from this ticket. $%.2f has been credited.\n", total_price);
+                
+                return -total_price;
 	}
 	
 	/**
@@ -1127,7 +1138,7 @@ public class BookingController {
 		do {
 			isOkay = true;
 			try {
-				System.out.println("The current cancellation fee is " + cancellationFee);
+				System.out.printf("The current cancellation fee is $%.2f\n", cancellationFee);
 				System.out.print("Please enter the new cancellation fee: ");
 				cancellation_fee = in.nextDouble();
 				
@@ -1144,6 +1155,8 @@ public class BookingController {
 		
 		cancellationFee = cancellation_fee;
 		be.setCancellationFee(cancellation_fee);
+                
+                System.out.printf("The cancellation fee has been set to $%.2f\n", cancellationFee);
 	}
 	
 	/**

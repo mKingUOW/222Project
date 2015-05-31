@@ -506,53 +506,47 @@ public class BookingEntity {
 		 * delete them and replace them with the service bookings in the list.
 		 */
 		
-		int size = service_bookings.size();
-		for(int i=0;i < size;i++){
-			ServiceBooking a_service = service_bookings.get(i);
-			int bk_id = a_service.getBookingId();
-			int tk_id = a_service.getTicketId();
-			int svc_id = a_service.getServiceId();
-			
-			String oneLine = "";
-			String data = "";
-			String updatedLine = "";
-			
-			try{
-				reader = new BufferedReader(new FileReader(serviceFile));
-				while((oneLine = reader.readLine()) != null){				
-					String[] words = oneLine.split(",");
-				
-					int tmp_bk_id = Integer.parseInt(words[0]);
-					int tmp_tk_id = Integer.parseInt(words[1]);
-					String service_id = Integer.toString(svc_id);
-				
-					if((bk_id == tmp_bk_id) && (tk_id == tmp_tk_id)){
-						updatedLine +=  words[0];
-						updatedLine += ",";
-						updatedLine +=  words[1];
-						updatedLine += ",";
-						updatedLine +=  service_id;
-					
-						data += updatedLine + "\n";
-					}else{
-						data += oneLine + "\n";
-					}	
-				}
-				
-				reader.close();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		
-			try{
-				writer = new PrintWriter(new FileOutputStream(new File(serviceFile)));	
-				writer.print(data);
-				writer.close();	
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		}
-		
+                String oneLine = "";
+                String data = "";
+
+                try{
+                        int bk_id = service_bookings.get(0).getBookingId();
+                        int tk_id = service_bookings.get(0).getTicketId();
+                        reader = new BufferedReader(new FileReader(serviceFile));
+                        while((oneLine = reader.readLine()) != null){				
+                                String[] words = oneLine.split(",");
+
+                                int tmp_bk_id = Integer.parseInt(words[0]);
+                                int tmp_tk_id = Integer.parseInt(words[1]);
+
+                                if((bk_id == tmp_bk_id) && (tk_id == tmp_tk_id)){
+                                        //ignore
+                                }else{
+                                        data += oneLine + "\n";
+                                }	
+                        }
+
+                        reader.close();
+                }catch(Exception e){
+                        e.printStackTrace();
+                }
+
+                try{
+                        for(int i=0;i < service_bookings.size();i++){
+                            ServiceBooking a_service = service_bookings.get(i);
+                            data += a_service.getBookingId();
+                            data += ",";
+                            data += a_service.getTicketId();
+                            data += ",";
+                            data += a_service.getServiceId();
+                            data += "\n";
+                        }
+                        writer = new PrintWriter(new FileOutputStream(new File(serviceFile)));	
+                        writer.print(data);
+                        writer.close();
+                }catch(Exception e){
+                        e.printStackTrace();
+                }
 	}
 	
 	/**

@@ -810,7 +810,6 @@ public class ProfileEntity {
 					double accountCharged = Double.parseDouble(words[17]);
 					accountCharged += price;
 					
-					updatedLine += ",";
 					updatedLine +=  accountCharged;
 					data += updatedLine + "\n";
 				}else{

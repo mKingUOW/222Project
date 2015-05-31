@@ -63,7 +63,7 @@ public class RouteController {
 		
 		do {
 			isOkay = true;
-			System.out.println("Please select an option: ");
+			System.out.print("Please select an option: ");
 			
 			try {
 				choice = in.nextInt();
