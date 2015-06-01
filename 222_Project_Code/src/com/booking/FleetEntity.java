@@ -120,27 +120,42 @@ public class FleetEntity {
 	 * @param plane The Plane object to add to the database.
 	 */
 	public void addPlane(Plane plane) {
-		int pid = plane.getPlaneID();
+		int pid = 0;
 		String planeModel = plane.getPlaneModel();
-		int numAvail = plane.getNumberAvailable();
+		int numAvail = 1;
 		int fclass = plane.getFirstClassSeats();
 		int bclass = plane.getBusinessClassSeats();
 		int peclass = plane.getPremiumEconomyClassSeats();
 		int eclass = plane.getEconomyClassSeats();
 		
-		String planeId = Integer.toString(pid);
-		String numberAvailable = Integer.toString(numAvail);
 		String fc = Integer.toString(fclass);
 		String bc = Integer.toString(bclass);
 		String pec = Integer.toString(peclass);
 		String ec = Integer.toString(eclass);
 		
+                String oneLine = "";
+                
+                try{
+                    reader = new BufferedReader(new FileReader(filepath));			
+                    while(((oneLine = reader.readLine()) != null)){
+                        String[] words = oneLine.split(",");
+                        pid = Integer.parseInt(words[0]); 				
+                    }			
+                    reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+                
+                pid++; //increment by one
+                
+                int total_seats = fclass + bclass + peclass + eclass;
+                
 		try{
 			//Append the new record at the end;
 			writer = new PrintWriter(new FileOutputStream(new File(filepath),true));
-			writer.println(planeId + "," + planeModel + "," + numberAvailable + "," 
-						 + fc + "," + bc + "," + pec + "," + ec);
-            writer.close();	
+			writer.println(pid + "," + planeModel + "," + numAvail + "," 
+						 + fc + "," + bc + "," + pec + "," + ec + "," + total_seats);
+                        writer.close();	
 		}catch(Exception e){
 			e.printStackTrace();
 		}

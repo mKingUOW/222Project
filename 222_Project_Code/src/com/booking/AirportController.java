@@ -400,6 +400,7 @@ public class AirportController {
 			try {
 				timezone = in.nextInt();
 			} catch (InputMismatchException e) {
+                                in.nextLine();
 				isOkay = false;
 				System.out.println("Please enter a valid timezone. Please try again!\n");
 			}
@@ -418,13 +419,15 @@ public class AirportController {
 		boolean isOkay;
 		char DST = 0;
 		
+                in.nextLine();
+                
 		do {
 			isOkay = true;
 			System.out.print("Please enter the daylight savings time (DST) of this airport: ");
 			
 			try {
 				DST = in.nextLine().charAt(0);
-			} catch (InputMismatchException e) {
+			} catch (Exception e) {
 				isOkay = false;
 				System.out.println("Please enter a valid daylight savings time (DST). Please try again!\n");
 			}

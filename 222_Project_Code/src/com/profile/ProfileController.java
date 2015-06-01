@@ -551,4 +551,14 @@ public class ProfileController {
 		
 		return frequent_flier_points;
 	}
+        
+        /**
+	 * Gets the account details for a particular username.
+	 * @param username
+	 * @return A Person object because we only need to modify the
+	 * basic details of this user
+	 */
+        public Map.Entry<Person, Integer> getAccountDetails(String username){
+            return pe.getAccountDetails(username);
+        }
 }

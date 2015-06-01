@@ -153,12 +153,26 @@ public class RouteEntity{
 	 * @param route The Route object to add to database.
 	 */
 	public void addRoute(Route route){
-		int routeNumber = route.getRouteNumber();
+		int routeNumber = 0;
 		String origin_code = route.getOriginCode();
 		String destination_code = route.getDestinationCode();
 		char codeShare = route.getCodeShare();
 		int stops = route.getStops();
+                String oneLine;
 		
+                try{
+                    reader = new BufferedReader(new FileReader(filepath));			
+                    while(((oneLine = reader.readLine()) != null)){
+                        String[] words = oneLine.split(",");
+                        routeNumber = Integer.parseInt(words[0]); 				
+                    }			
+                    reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+                
+                routeNumber++; //increment by one
+                
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(filepath),true));		//To append to the file using "true";
 			writer.println(routeNumber + "," + origin_code + "," + destination_code + "," + codeShare + "," + stops);					   
@@ -229,7 +243,6 @@ public class RouteEntity{
 	public void deleteRoute(String origin_code,String destination_code){
 		String oneLine = "";
 		String data = "";
-		String updatedLine = "";
 		boolean found = false;
 		
 		// routeNumber + origin_code + destination_code + codeShare + stops  --- in the routes.csv
@@ -258,14 +271,4 @@ public class RouteEntity{
 			e.printStackTrace();
 		}
 	}
-
-	/**
-	 * 
-	 * @param routeNumber
-	 */
-	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber) {
-		// TODO - implement RouteEntity.getRoutePoints
-		throw new UnsupportedOperationException();
-	}
-	
 }

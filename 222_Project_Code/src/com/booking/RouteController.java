@@ -107,8 +107,8 @@ public class RouteController {
 		do {
 			isOkay = true;
 			
-			origin = enterRouteOrigin(false);
-			destination = enterRouteDestination(false);
+			origin = enterRouteOrigin();
+			destination = enterRouteDestination();
 			
 			origin_code = ac.getAirportCode(origin);
 			destination_code = ac.getAirportCode(destination);
@@ -144,8 +144,8 @@ public class RouteController {
 		do {
 			isOkay = true;
 			
-			origin = enterRouteOrigin(true);
-			destination = enterRouteDestination(true);
+			origin = enterRouteOrigin();
+			destination = enterRouteDestination();
 			
 			origin_code = ac.getAirportCode(origin);
 			destination_code = ac.getAirportCode(destination);
@@ -185,7 +185,7 @@ public class RouteController {
 		do {
 			switch (option){
 				case 1:
-					origin = enterRouteOrigin(true);
+					origin = enterRouteOrigin();
 					
 					origin_code = ac.getAirportCode(origin);
 										
@@ -197,7 +197,7 @@ public class RouteController {
 					}
 					break;
 				case 2:
-					destination = enterRouteDestination(true);
+					destination = enterRouteDestination();
 					
 					destination_code = ac.getAirportCode(destination);
 										
@@ -238,8 +238,8 @@ public class RouteController {
 		do {
 			isOkay = true;
 			
-			origin = enterRouteOrigin(true);
-			destination = enterRouteDestination(true);
+			origin = enterRouteOrigin();
+			destination = enterRouteDestination();
 			
 			origin_code = ac.getAirportCode(origin);
 			destination_code = ac.getAirportCode(destination);
@@ -265,8 +265,8 @@ public class RouteController {
 		do {	
 			isOkay = true;
 			
-			String origin = enterRouteOrigin(true);
-			String destination = enterRouteDestination(true);
+			String origin = enterRouteOrigin();
+			String destination = enterRouteDestination();
 			
 			route_number = getRouteNumber(origin, destination);
 			
@@ -281,11 +281,9 @@ public class RouteController {
 	
 	/**
 	 * UI function to allow the user to enter the route origin.
-	 * @param check True if this method should check whether the origin airport
-	 * exists or not.
 	 * @return The entered route origin.
 	 */
-	private String enterRouteOrigin(boolean check){
+	private String enterRouteOrigin(){
 		boolean isOkay;
 		String origin;
 		
@@ -295,13 +293,11 @@ public class RouteController {
 			System.out.print("\nPlease enter the route origin of choice (airport name): ");
 			origin = in.nextLine();
 
-			if (check) {
-				isOkay = ac.doesAirportExist(origin);
-			
-				if (!isOkay) {
-					System.out.println("There is no airport in " + origin + ". Please try again!\n");
-				}
-			}
+			isOkay = ac.doesAirportExist(origin);
+
+                        if (!isOkay) {
+                                System.out.println("There is no airport in " + origin + ". Please try again!\n");
+                        }
 			
 		} while (!isOkay);
 		
@@ -310,11 +306,9 @@ public class RouteController {
 	
 	/**
 	 * UI function to allow the user to enter the route destination.
-	 * @param check True if this method should check whether the destination airport
-	 * exists or not.
 	 * @return The entered route destination.
 	 */
-	private String enterRouteDestination(boolean check){
+	private String enterRouteDestination(){
 		boolean isOkay;
 		String destination;
 		
@@ -324,13 +318,11 @@ public class RouteController {
 			System.out.print("Please enter the route destination of choice (airport name): ");
 			destination = in.nextLine();
 
-			if (check) {
-				isOkay = ac.doesAirportExist(destination);
+                        isOkay = ac.doesAirportExist(destination);
 
-				if (!isOkay) {
-					System.out.println("There is no airport in " + destination + ". Please try again!\n");
-				}
-			}
+                        if (!isOkay) {
+                                System.out.println("There is no airport in " + destination + ". Please try again!\n");
+                        }
 			
 		} while (!isOkay);
 		

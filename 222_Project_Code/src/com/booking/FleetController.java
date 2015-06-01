@@ -223,7 +223,7 @@ public class FleetController {
 			isOkay = true;
 			
 			try {
-				System.out.print("Please key in the number of " + seatClass[seat_class] + " seats : ");
+				System.out.print("Please key in the number of " + seatClass[seat_class] + " class seats: ");
 				numberOfSeats = in.nextInt();
 				
 				if (numberOfSeats < 0) {

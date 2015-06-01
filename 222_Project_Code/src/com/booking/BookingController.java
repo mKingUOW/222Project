@@ -135,7 +135,7 @@ public class BookingController {
 		}
 		
 		flight_choice = chooseFlight();
-		
+                
 		in.nextLine(); //clear buffer
 		
 		/* Start Add Customers and Persons */
@@ -430,11 +430,19 @@ public class BookingController {
 
 			flights = fc.getFlights(origin, destination);
 			
-			if (flights == null) {
+			if (flights == null || flights.isEmpty()) {
 				System.out.println("Flights from " + origin + " to " + destination + " are not available!");
 				System.out.println("Please try again!\n");
 				isOkay = false;
 			}
+                        
+                        is_international_flight = fc.isInternationalFlight(origin, destination);
+                        
+                        Map.Entry<Person, Integer> person = pc.getAccountDetails(customerUsername);
+                        if ("No".equals(person.getKey().hasPassport()) && is_international_flight) {
+                            System.out.println("You are not allowed to book an international flight without a passport. Please try again!\n");
+                            isOkay = false;
+                        }
 		} while (!isOkay);
 		/* End Enter Origin and Destination choice */
 		
@@ -464,7 +472,6 @@ public class BookingController {
 		} while (!isOkay);
 		
 		flight_choice = flights.get(choice);
-		is_international_flight = fc.isInternationalFlight(origin, destination);
 		
 		return new AbstractMap.SimpleImmutableEntry<>(flight_choice, is_international_flight);
 		/* End Select Flight */
@@ -565,7 +572,7 @@ public class BookingController {
 				System.out.print("Credit Card Number: ");
 				creditCardNumber = in.nextLine();
 				
-				System.out.print("Do you have a passport? (Y/N): ");
+				System.out.print("Do this person have a passport? (Y/N): ");
 				hasPassport = in.nextLine();
 				
 				Person person = new Person(title, firstName, lastName,

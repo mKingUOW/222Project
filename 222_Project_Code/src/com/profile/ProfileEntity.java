@@ -85,7 +85,11 @@ public class ProfileEntity {
 						role = words[2];	//If username and password are correct,return role;	
 					}else{
 						role = "loginFail";	//If username exists, but password is wrong,login fails;
-					}	
+					}
+                                        
+                                        if("closed".equals(words[3])){
+                                            role = "loginFail";
+                                        }
 				}
 				
             }
@@ -381,7 +385,15 @@ public class ProfileEntity {
 				
 				if(!username.equals(words[0])){
 					accData += oneLine + "\n";
-				}	
+				} else{
+                                    accData += words[0];
+                                    accData += ",";
+                                    accData += words[1];
+                                    accData += ",";
+                                    accData += words[2];
+                                    accData += ",";
+                                    accData += "closed";
+                                }	
             }
 		     reader.close();
 		}catch(Exception e){
@@ -392,31 +404,6 @@ public class ProfileEntity {
 			accfile = new File(accountFile);
 			writer = new PrintWriter(new FileOutputStream(accfile));	
 			writer.print(accData);
-            writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		
-		//delete the user details in userDetail.csv
-		try{
-			reader = new BufferedReader(new FileReader(detailsFile));
-			while((oneLine = reader.readLine()) != null){
-			// oneLine represents one line in the DB; Recursively check the DB;	
-                String[] words = oneLine.split(",");
-				
-				if(!username.equals(words[0])){
-					usrData += oneLine + "\n";
-				}	
-            }
-		     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-		
-		try{
-			usrfile = new File(detailsFile);
-			writer = new PrintWriter(new FileOutputStream(usrfile));	
-			writer.print(usrData);
             writer.close();	
 		}catch(Exception e){
 			e.printStackTrace();

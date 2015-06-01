@@ -152,11 +152,25 @@ public class ServiceEntity{
 	 */
 	public void addServices(List<Service> new_services){
 		int size = new_services.size();
+		int serviceId = 0;
+                
+                String oneLine;
 		
+                try{
+                    reader = new BufferedReader(new FileReader(filepath));			
+                    while(((oneLine = reader.readLine()) != null)){
+                        String[] words = oneLine.split(",");
+                        serviceId = Integer.parseInt(words[0]); 				
+                    }			
+                    reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+                
 		for(int i=0;i < size;i++){
 			Service service = new_services.get(i);
 			
-			String serviceId = Integer.toString(service.getServiceID());
+			serviceId++;
 			String serviceName = service.getName();
 			String cost = Double.toString(service.getCost());
 			String availability = service.getAvailability();
@@ -174,41 +188,53 @@ public class ServiceEntity{
 	
 	/**
 	 * This method pseudo-removes the services from the database by 
-	 * setting the availability to "removed".
+	 * setting the availability to "Removed".
 	 * @param service_ids_to_remove 
 	 */
 	public void removeService(int[] service_ids_to_remove){
+            String oneLine = "";
+            String data = "";
 
-		for(int i=0;i < service_ids_to_remove.length;i++){
-			int serviceId = service_ids_to_remove[i];
-			String oneLine = "";
-			String data = "";
-			
-			try{
-				reader = new BufferedReader(new FileReader(filepath));
-				while((oneLine = reader.readLine()) != null){				
-					String[] words = oneLine.split(",");
-				
-					int tmp_svc_id = Integer.parseInt(words[0]);				
-					if(serviceId != tmp_svc_id){
-						data += oneLine + "\n";
-					}	
-				}
-				
-				reader.close();
-			}catch(Exception e){
-				e.printStackTrace();
-			}
-		
-			try{
-				writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
-				writer.print(data);
-				writer.close();	
-			}catch(Exception e){
-				e.printStackTrace();
-			}	
-		}
-		
+            try{
+                    reader = new BufferedReader(new FileReader(filepath));
+                    while((oneLine = reader.readLine()) != null){				
+                        String[] words = oneLine.split(",");
+                        
+                        boolean isOkay = true;
+                        
+                        for(int i=0;i < service_ids_to_remove.length;i++){
+                            int serviceId = service_ids_to_remove[i];
+                            int tmp_svc_id = Integer.parseInt(words[0]);				
+                            if(serviceId == tmp_svc_id){
+                                data += words[0];
+                                data += ",";
+                                data += words[1];
+                                data += ",";
+                                data += words[2];
+                                data += ",";
+                                data += "Removed\n";
+                                isOkay = false;
+                                break;
+                            } 
+                        }
+                        
+                        if (isOkay) {
+                            data += oneLine + "\n";
+                        }
+                    }
+
+                    reader.close();
+            }catch(Exception e){
+                    e.printStackTrace();
+            }
+
+            try{
+                    writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
+                    writer.println(data);
+                    writer.close();	
+            }catch(Exception e){
+                    e.printStackTrace();
+            }	
 	}
 	
 	/**

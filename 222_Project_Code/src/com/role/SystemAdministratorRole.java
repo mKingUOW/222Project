@@ -66,7 +66,7 @@ public class SystemAdministratorRole extends Role{
                 choices = new String[]{"Act as Customer", "Act as Travel Agency",
                     "Act as Normal Staff", "Act as Flight Manager",
                     "Act as Profile System Manager", "Act as Service System Manager",
-                    "Act as Reservation System Manager", "Act as Reporting System Manager",
+                    "Act as Reservation System Manager",
                     "Edit Staff Profile", "Create Staff Profile"};
                 pc = new ProfileController();
                 cr = new CustomerRole();

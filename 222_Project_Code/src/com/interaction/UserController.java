@@ -71,6 +71,19 @@ public class UserController{
 			}
 			uld.setFrequentFlierPoints(0);
 			uld.setWatchOrNoFly("");
+                        String passport_availability = uld.hasPassport();
+                        
+                        switch(passport_availability){
+                            case "Y":
+                            case "y":
+                                uld.setHasPassport("Yes");
+                                break;
+                            case "N":
+                            case "n":
+                                uld.setHasPassport("No");
+                                break;
+                        }
+                        
 			isLoginOkay = pc.signUp(uld);
 			
 			if (!isLoginOkay) {

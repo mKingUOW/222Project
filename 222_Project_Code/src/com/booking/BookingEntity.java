@@ -109,7 +109,7 @@ public class BookingEntity {
 			bk_id++;		// Increment the booking id by 1, for the next booking record;
 			writer = new PrintWriter(new FileOutputStream(new File(bookingFile),true));		//To append to the file using "true";
 			writer.print(bk_id + "," + flight_id + "," + total_price + ",");
-			writer.print(booking_status + "," + fmt.format(booking_date));						   
+			writer.println(booking_status + "," + fmt.format(booking_date));						   
 			writer.close();
 		}catch(Exception e){
 			e.printStackTrace();

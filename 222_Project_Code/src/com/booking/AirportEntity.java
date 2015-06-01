@@ -173,7 +173,7 @@ public class AirportEntity{
 	 * @param airport The Airport object to add to the database.
 	 */
 	public void addAirport(Airport airport){
-		int airportId = airport.getAirportId();
+		int airportId = 0;
 		String airportName = airport.getAirportName();
 		String city = airport.getCity();
 		String country = airport.getCountry();
@@ -185,6 +185,21 @@ public class AirportEntity{
 		char DST = airport.getDST();
 		String tzDatabaseTimezone = airport.getTzDatabaseTimezone();
 		
+                String oneLine ;
+				
+                try{
+                    reader = new BufferedReader(new FileReader(filepath));			
+                    while(((oneLine = reader.readLine()) != null)){
+                        String[] words = oneLine.split(",");
+                        airportId = Integer.parseInt(words[0]); 				
+                    }			
+                    reader.close();
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+                
+                airportId++;
+                
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(filepath),true));		//To append to the file using "true";
 			writer.println(airportId + "," + airportName + "," + city + "," + country + "," 
@@ -218,7 +233,7 @@ public class AirportEntity{
 		String oneLine = "";
 		String data = "";
 		String updatedLine = "";
-		
+                
 		try{
 			reader = new BufferedReader(new FileReader(filepath));
 			while(!found && ((oneLine = reader.readLine()) != null)){

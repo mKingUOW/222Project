@@ -120,10 +120,13 @@ public class ServiceController {
 		service_ids_to_remove = new int[choices.length];
 		
 		for (int i = 0; i < choices.length; i++) {
-			service_ids_to_remove[i] = services.get(i).getServiceID();
+                        int choice = Integer.parseInt(choices[i]);
+			service_ids_to_remove[i] = services.get(choice - 1).getServiceID();
 		}
 		
 		se.removeService(service_ids_to_remove);
+                
+                System.out.println("Services have been removed from the database.");
 	}
 	
 	/**
