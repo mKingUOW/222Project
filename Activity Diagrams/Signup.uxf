@@ -41,10 +41,10 @@ details</panel_attributes>
       <x>510</x>
       <y>40</y>
       <w>30</w>
-      <h>670</h>
+      <h>370</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;10.0;650.0</additional_attributes>
+    <additional_attributes>10.0;10.0;10.0;350.0</additional_attributes>
   </element>
   <element>
     <id>UMLObject</id>
@@ -151,8 +151,8 @@ details</panel_attributes>
   <element>
     <id>UMLState</id>
     <coordinates>
-      <x>390</x>
-      <y>400</y>
+      <x>270</x>
+      <y>340</y>
       <w>100</w>
       <h>40</h>
     </coordinates>
@@ -165,18 +165,20 @@ menu</panel_attributes>
     <coordinates>
       <x>310</x>
       <y>250</y>
-      <w>100</w>
-      <h>190</h>
+      <w>120</w>
+      <h>110</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
+[valid details]
+
 </panel_attributes>
-    <additional_attributes>80.0;170.0;10.0;170.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;90.0;10.0;60.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLSpecialState</id>
     <coordinates>
-      <x>430</x>
-      <y>500</y>
+      <x>460</x>
+      <y>350</y>
       <w>20</w>
       <h>20</h>
     </coordinates>
@@ -186,12 +188,12 @@ menu</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>430</x>
-      <y>430</y>
-      <w>30</w>
-      <h>90</h>
+      <x>360</x>
+      <y>350</y>
+      <w>120</w>
+      <h>30</h>
     </coordinates>
     <panel_attributes>lt=&lt;-</panel_attributes>
-    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+    <additional_attributes>100.0;10.0;10.0;10.0</additional_attributes>
   </element>
 </diagram>
