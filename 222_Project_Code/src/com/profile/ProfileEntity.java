@@ -99,8 +99,8 @@ public class ProfileEntity {
 			}
 			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		return role;
 	}
@@ -132,8 +132,8 @@ public class ProfileEntity {
             }
 			
             reader.close();		
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		//username + title + firstName + lastName + gender + DOB + phone# + email + address(street, state, city, country) +
@@ -155,8 +155,8 @@ public class ProfileEntity {
 							  + user.getCreditCardType() + "," + user.getCreditCardNumber() + "," + user.getFrequentFlierPoints()
 							  + "," + user.hasPassport() + "," + user.getWatchOrNoFly() + ",0.0");
 			writer.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return true;
@@ -190,8 +190,8 @@ public class ProfileEntity {
 					allExisted = false;
 				}
 			}
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return allExisted;
@@ -225,8 +225,8 @@ public class ProfileEntity {
 			passwd = passwdStr.toCharArray();
 			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return passwd;
@@ -266,8 +266,8 @@ public class ProfileEntity {
 				}	
             }
 		     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
@@ -275,8 +275,8 @@ public class ProfileEntity {
 			writer = new PrintWriter(new FileOutputStream(accfile));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 	}
@@ -304,8 +304,8 @@ public class ProfileEntity {
             }
 			
             reader.close();		
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return ffp;
@@ -351,8 +351,8 @@ public class ProfileEntity {
 				}	
             }
 		     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
@@ -360,8 +360,8 @@ public class ProfileEntity {
 			writer = new PrintWriter(new FileOutputStream(usrfile));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -392,12 +392,12 @@ public class ProfileEntity {
                                     accData += ",";
                                     accData += words[2];
                                     accData += ",";
-                                    accData += "closed";
+                                    accData += "closed\n";
                                 }	
             }
 		     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
@@ -405,8 +405,8 @@ public class ProfileEntity {
 			writer = new PrintWriter(new FileOutputStream(accfile));	
 			writer.print(accData);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -470,8 +470,8 @@ public class ProfileEntity {
             }
 			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+                    
 		}
 		return new AbstractMap.SimpleImmutableEntry<>(person, frequentFlierPoints);
 	}
@@ -558,8 +558,8 @@ public class ProfileEntity {
             }
 			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
@@ -567,8 +567,8 @@ public class ProfileEntity {
 			writer = new PrintWriter(new FileOutputStream(usrfile));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 	}
@@ -596,8 +596,8 @@ public class ProfileEntity {
             }
 			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 
 		return watchOrNoFly;
@@ -639,8 +639,8 @@ public class ProfileEntity {
             }
 			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
@@ -648,8 +648,8 @@ public class ProfileEntity {
 			writer = new PrintWriter(new FileOutputStream(usrfile));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -675,8 +675,8 @@ public class ProfileEntity {
             writer.close();	
 			
 			success = true;
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return success;
@@ -718,8 +718,8 @@ public class ProfileEntity {
             }
 			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
@@ -727,8 +727,8 @@ public class ProfileEntity {
 			writer = new PrintWriter(new FileOutputStream(accfile));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -761,8 +761,8 @@ public class ProfileEntity {
             }
 			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		return staff;
 	}
@@ -804,8 +804,8 @@ public class ProfileEntity {
 				}	
             }
 		     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
@@ -813,8 +813,8 @@ public class ProfileEntity {
 			writer = new PrintWriter(new FileOutputStream(usrfile));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -836,8 +836,8 @@ public class ProfileEntity {
             }	//Keep reading the file, and assign the person id to pid,until the last record;
 			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
@@ -852,8 +852,8 @@ public class ProfileEntity {
 						   + person.getCreditCardNumber() + "," + person.hasPassport() 
 						  );						   
 			writer.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return pid; 

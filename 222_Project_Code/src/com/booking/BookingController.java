@@ -438,11 +438,6 @@ public class BookingController {
                         
                         is_international_flight = fc.isInternationalFlight(origin, destination);
                         
-                        Map.Entry<Person, Integer> person = pc.getAccountDetails(customerUsername);
-                        if ("No".equals(person.getKey().hasPassport()) && is_international_flight) {
-                            System.out.println("You are not allowed to book an international flight without a passport. Please try again!\n");
-                            isOkay = false;
-                        }
 		} while (!isOkay);
 		/* End Enter Origin and Destination choice */
 		

@@ -130,6 +130,11 @@ public abstract class Role{
 		
 		System.out.println("\nREPORTS");
 		
+                if (allReportsAvailable.isEmpty()) {
+                    System.out.println("There are no reports available for you yet.\n");
+                    return;
+                }
+                
 		do {			
 			isOkay = true;
 			

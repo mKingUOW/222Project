@@ -73,8 +73,8 @@ public class FleetEntity {
 			}
 			
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		return seats;
 	}
@@ -108,8 +108,8 @@ public class FleetEntity {
 			}
 			
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return plane;
@@ -142,8 +142,8 @@ public class FleetEntity {
                         pid = Integer.parseInt(words[0]); 				
                     }			
                     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
                 
                 pid++; //increment by one
@@ -156,8 +156,8 @@ public class FleetEntity {
 			writer.println(pid + "," + planeModel + "," + numAvail + "," 
 						 + fc + "," + bc + "," + pec + "," + ec + "," + total_seats);
                         writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 
@@ -211,16 +211,16 @@ public class FleetEntity {
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 
@@ -247,16 +247,16 @@ public class FleetEntity {
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -284,8 +284,8 @@ public class FleetEntity {
 			}
 			
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return model;

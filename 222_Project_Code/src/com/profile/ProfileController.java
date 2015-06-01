@@ -390,6 +390,8 @@ public class ProfileController {
 		} while (!isOkay);
 		
 		pe.editWatchAndNoFlyList(username, status_constants[choice - 1][1]);
+                
+                System.out.println("User " + username + "'s fly status has been set to \"" + status_constants[(choice - 1)][0] + "\"");
 	}
 	
 	/**

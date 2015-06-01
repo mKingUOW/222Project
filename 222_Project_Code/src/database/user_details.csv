@@ -1,8 +1,9 @@
-kobe08,Mr,Kobe,Bryant,Male,1978-07-08,0413029382,kbryant@gmail.com,Campbell Street,NSW,Wollongong,Australia,Visa,329024902920320,5200,Yes,NULL,0.0
+kobe08,Mr,Kobe,Bryant,Male,1978-07-08,0413029382,kbryant@gmail.com,Campbell Street,NSW,Wollongong,Australia,Visa,329024902920320,5200,Yes,NULL,5.0
 chris03,Mr,Chris,Paul,Male,1983-10-12,0219482932,cpaul3@gmail.com,Sidney Street,VIC,Perth,Australia,Master,233492304923748,1810,Yes,NULL,0.0
 mymk997,Mr,Michael,Kong,Male,08/03/1995,0123456789,mymk97@uowmail.edu.au,Regent Street,NSW,Wollongong,Australia,Visa,1234567890,1521,Yes,watch,0.0
 jl123,Mr,Jicheng,Li,Male,12/12/2012,678901234,jl123@somthing.com,Something Street,Something State,Something City,Something Country,Visa,5674839201,712,No,NULL,0.0
-mk965,Mr,Matthew,King,Male,16/06/82,04124983,smk@kso.com,31 Loves ave,NSW,Oyster Bay,Australia,visa,98723928374,2100,Yes,watch,0.0
+mk965,Mr,Matthew,King,Male,16/06/82,04124983,smk@kso.com,31 Loves ave,NSW,Oyster Bay,Australia,visa,98723928374,2100,Yes,,0.0
 mk123,Mr,Michael,Kong,Male,06/12/1990,123456789,mk123@qwe.qwe,qwe,qwe,qwe,qwe,Visa,1234567890,247,Yes,NULL,0.0
-mymk1,Mr,Michael,Kong,Male,06/12/1990,123456789,mk123@qwe.qwe,qwe,qwe,qwe,qwe,MasterCard,098765432,0,Yes,NULL,678.0
+mymk1,Mr,Michael,Kong,Male,06/12/1990,123456789,mk123@qwe.qwe,qwe,qwe,qwe,qwe,MasterCard,098765432,0,Yes,NULL,688.0
 iphone,Mr,Apple,iPhone,Male,03/03/1039,53749475,iphone@apple.com,Apple Street,Ipho,Melbourne,Switzerland,Mastercard,567843037829,0,Yes,,0.0
+mymk2,Ms,Carmen,Sandiago,Female,09/09/1990,23567654,cs@cs.com,Royal Street,CS City,CS State,CS Country,CS Card,2876543,0,Yes,,1411.0

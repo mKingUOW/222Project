@@ -74,8 +74,8 @@ public class UserInterface{
 			
 			uc.start();
 
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -171,8 +171,8 @@ public class UserInterface{
 			System.out.println("Signup is successful!\n");
 			
 			//go back to main menu
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -191,7 +191,7 @@ public class UserInterface{
 			try{
 				signChoiceString = in.nextLine();				//Treat the input as a string;
 				signChoice = signChoiceString.charAt(0);	//Get the first element of the string;
-			}catch(Exception e){
+			}catch(Exception e){e.printStackTrace();
 				
 			}
 

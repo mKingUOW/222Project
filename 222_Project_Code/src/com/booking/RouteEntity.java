@@ -62,8 +62,8 @@ public class RouteEntity{
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return routeNumber;
@@ -96,8 +96,8 @@ public class RouteEntity{
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return new AbstractMap.SimpleImmutableEntry<>(origin, destination);
@@ -141,8 +141,8 @@ public class RouteEntity{
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return route;
@@ -167,8 +167,8 @@ public class RouteEntity{
                         routeNumber = Integer.parseInt(words[0]); 				
                     }			
                     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
                 
                 routeNumber++; //increment by one
@@ -177,8 +177,8 @@ public class RouteEntity{
 			writer = new PrintWriter(new FileOutputStream(new File(filepath),true));		//To append to the file using "true";
 			writer.println(routeNumber + "," + origin_code + "," + destination_code + "," + codeShare + "," + stops);					   
 			writer.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -222,16 +222,16 @@ public class RouteEntity{
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -259,16 +259,16 @@ public class RouteEntity{
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 }

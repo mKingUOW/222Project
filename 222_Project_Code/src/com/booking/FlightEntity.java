@@ -69,8 +69,8 @@ public class FlightEntity{
 			}
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return flights;
@@ -126,16 +126,16 @@ public class FlightEntity{
 				}	
             }
 		     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(scheduleFile)));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -180,16 +180,16 @@ public class FlightEntity{
 				}	
             }
 		     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(scheduleFile)));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -218,8 +218,8 @@ public class FlightEntity{
 			}
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return prices;
@@ -253,8 +253,8 @@ public class FlightEntity{
 			}
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return oneFlight;
@@ -288,8 +288,8 @@ public class FlightEntity{
 			}
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return flights;
@@ -312,8 +312,8 @@ public class FlightEntity{
 			}
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		autoID++;
@@ -327,8 +327,8 @@ public class FlightEntity{
 						 + Integer.toString(flight.getPremiumEconomyClassSeats()) + "," + Integer.toString(flight.getEconomyClassSeats()) + "," 
 						 + "500" + "," + "400" + "," + "300" + "," + "100");
 			writer.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}	
 	}
 	
@@ -392,16 +392,16 @@ public class FlightEntity{
 			}
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(scheduleFile)));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -425,16 +425,16 @@ public class FlightEntity{
 			}
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(scheduleFile)));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 

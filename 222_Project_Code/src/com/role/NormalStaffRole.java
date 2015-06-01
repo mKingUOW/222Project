@@ -68,8 +68,14 @@ public class NormalStaffRole extends Role{
 	 */
 	@Override
 	public void executeReportChoice() {
-		String choice = allReportsAvailable.get(userReportChoice);
-		
+                String choice = "";
+            
+                if (allReportsAvailable.isEmpty()) {
+                    return;
+                } else{
+                    choice = allReportsAvailable.get(userReportChoice);
+                }
+                
 		switch(choice){
 			default:
 				super.executeReportChoice();

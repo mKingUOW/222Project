@@ -97,8 +97,8 @@ public class BookingEntity {
 				bk_id = Integer.parseInt(words[0]); 				
             }			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		Date booking_date = new Date();
@@ -111,8 +111,8 @@ public class BookingEntity {
 			writer.print(bk_id + "," + flight_id + "," + total_price + ",");
 			writer.println(booking_status + "," + fmt.format(booking_date));						   
 			writer.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		//Second step, save the tickets info into tickets.csv, one booking contains many tickets;		
@@ -128,8 +128,8 @@ public class BookingEntity {
 				writer = new PrintWriter(new FileOutputStream(new File(ticketsFile),true));		//To append to the file using "true";
 				writer.println(ticket_id + "," + uname + "," + person_id + "," + bk_id + "," + seat_number + "," + ticket_price);					   
 				writer.close();
-			}catch(Exception e){
-				e.printStackTrace();
+			}catch(Exception e){e.printStackTrace();
+				 
 			}
 		}
 		
@@ -144,8 +144,8 @@ public class BookingEntity {
 				writer = new PrintWriter(new FileOutputStream(new File(serviceFile),true));		//To append to the file using "true";
 				writer.println(bk_id + "," + ticketId + "," + serviceId);					   
 				writer.close();
-			}catch(Exception e){
-				e.printStackTrace();
+			}catch(Exception e){e.printStackTrace();
+				 
 			}
 		}
 	}
@@ -186,8 +186,8 @@ public class BookingEntity {
 			}
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		return discount;
 	}
@@ -215,8 +215,8 @@ public class BookingEntity {
 				}	
             }			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 				
 		if(booking_count == 0){			//If no booking id is found in tickets.csv, return NULL;
@@ -244,8 +244,8 @@ public class BookingEntity {
 						}
 					}				
 					reader.close();
-				}catch(Exception e){
-					e.printStackTrace();
+				}catch(Exception e){e.printStackTrace();
+					 
 				}
 			}
 
@@ -277,8 +277,8 @@ public class BookingEntity {
 				}
             }			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		return myTickets;
 	}
@@ -313,16 +313,16 @@ public class BookingEntity {
 				}
             }
 		     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(bookingFile)));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -341,8 +341,8 @@ public class BookingEntity {
 			}
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		return cancellation_fee;
 	}
@@ -392,8 +392,8 @@ public class BookingEntity {
 				}	
             }			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		if(booking_count == 0){
@@ -425,8 +425,8 @@ public class BookingEntity {
 					}
 				}			
 				reader.close();
-			}catch(Exception e){
-				e.printStackTrace();
+			}catch(Exception e){e.printStackTrace();
+				 
 			}
 		}
 */		
@@ -458,8 +458,8 @@ public class BookingEntity {
 				}
             }			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return services;
@@ -487,8 +487,8 @@ public class BookingEntity {
             }	
 			
             reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return services;
@@ -527,8 +527,8 @@ public class BookingEntity {
                         }
 
                         reader.close();
-                }catch(Exception e){
-                        e.printStackTrace();
+                }catch(Exception e){e.printStackTrace();
+                         
                 }
 
                 try{
@@ -544,8 +544,8 @@ public class BookingEntity {
                         writer = new PrintWriter(new FileOutputStream(new File(serviceFile)));	
                         writer.print(data);
                         writer.close();
-                }catch(Exception e){
-                        e.printStackTrace();
+                }catch(Exception e){e.printStackTrace();
+                         
                 }
 	}
 	
@@ -580,8 +580,8 @@ public class BookingEntity {
 			}	
 			
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return bookings;
@@ -611,8 +611,8 @@ public class BookingEntity {
 			}	
 			
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return bookings;

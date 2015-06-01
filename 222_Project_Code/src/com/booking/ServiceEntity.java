@@ -73,8 +73,8 @@ public class ServiceEntity{
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			
 		}
 		
 		return services;
@@ -106,8 +106,8 @@ public class ServiceEntity{
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return aservice;
@@ -139,8 +139,8 @@ public class ServiceEntity{
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return price;
@@ -163,8 +163,8 @@ public class ServiceEntity{
                         serviceId = Integer.parseInt(words[0]); 				
                     }			
                     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
                 
 		for(int i=0;i < size;i++){
@@ -179,8 +179,8 @@ public class ServiceEntity{
 				writer = new PrintWriter(new FileOutputStream(new File(filepath),true));	
 				writer.println(serviceId + "," + serviceName + "," + cost + "," + availability);
 				writer.close();	
-			}catch(Exception e){
-				e.printStackTrace();
+			}catch(Exception e){e.printStackTrace();
+				 
 			}	
 		}
 		
@@ -224,16 +224,16 @@ public class ServiceEntity{
                     }
 
                     reader.close();
-            }catch(Exception e){
-                    e.printStackTrace();
+            }catch(Exception e){e.printStackTrace();
+                     
             }
 
             try{
                     writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
-                    writer.println(data);
+                    writer.print(data);
                     writer.close();	
-            }catch(Exception e){
-                    e.printStackTrace();
+            }catch(Exception e){e.printStackTrace();
+                     
             }	
 	}
 	
@@ -274,16 +274,16 @@ public class ServiceEntity{
 			}
 				
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
 			writer.print(data);
 			writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}	
 	}
 }

@@ -58,8 +58,8 @@ public class AirportEntity{
 			}
 			
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return abbreviation;
@@ -88,8 +88,8 @@ public class AirportEntity{
 			}
 			
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return country;
@@ -118,8 +118,8 @@ public class AirportEntity{
 			}
 			
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return city;
@@ -161,8 +161,8 @@ public class AirportEntity{
 			}
 			
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		return airport;
@@ -194,8 +194,8 @@ public class AirportEntity{
                         airportId = Integer.parseInt(words[0]); 				
                     }			
                     reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
                 
                 airportId++;
@@ -206,8 +206,8 @@ public class AirportEntity{
 						 + IATA + "," + latitude + "," + longitude + "," + altitude + "," 
 						 + timezone + "," + DST + "," + tzDatabaseTimezone );					   
 			writer.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -270,16 +270,16 @@ public class AirportEntity{
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
@@ -305,16 +305,16 @@ public class AirportEntity{
 			}	
 
 			reader.close();
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 		
 		try{
 			writer = new PrintWriter(new FileOutputStream(new File(filepath)));	
 			writer.print(data);
             writer.close();	
-		}catch(Exception e){
-			e.printStackTrace();
+		}catch(Exception e){e.printStackTrace();
+			 
 		}
 	}
 	
