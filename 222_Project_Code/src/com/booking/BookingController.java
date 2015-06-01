@@ -644,11 +644,13 @@ public class BookingController {
 		System.out.println("\nCANCEL BOOKING");
 		
 		if (customerUsername == null) { //if it is not a customer
-			if (cancelBooking(pc.enterUsername())) {
+                        boolean isOkay = cancelBooking(pc.enterUsername());
+			if (isOkay) {
 				System.out.println("The booking has been cancelled.\n");
 			}
 		} else{
-			if (cancelBooking(customerUsername)) {
+                        boolean isOkay = cancelBooking(customerUsername);
+			if (isOkay) {
 				pc.chargeAccount(customerUsername, cancellationFee);
 				System.out.printf("A cancellation fee of $%.2f has been charged to your account.\n", cancellationFee);
 			}

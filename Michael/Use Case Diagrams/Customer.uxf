@@ -200,11 +200,12 @@ details</panel_attributes>
     <id>UMLUseCase</id>
     <coordinates>
       <x>469</x>
-      <y>217</y>
-      <w>84</w>
-      <h>28</h>
+      <y>210</y>
+      <w>98</w>
+      <h>35</h>
     </coordinates>
-    <panel_attributes>Edit Services</panel_attributes>
+    <panel_attributes>Edit Booked
+Services</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -269,8 +270,8 @@ credentials</panel_attributes>
     <coordinates>
       <x>462</x>
       <y>175</y>
-      <w>112</w>
-      <h>35</h>
+      <w>98</w>
+      <h>28</h>
     </coordinates>
     <panel_attributes>Generate Report</panel_attributes>
     <additional_attributes/>
@@ -279,12 +280,12 @@ credentials</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>245</x>
-      <y>189</y>
+      <y>182</y>
       <w>231</w>
-      <h>56</h>
+      <h>63</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;60.0;310.0;10.0</additional_attributes>
+    <additional_attributes>10.0;70.0;310.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLUseCase</id>
@@ -345,12 +346,12 @@ credentials</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>245</x>
-      <y>189</y>
+      <y>182</y>
       <w>231</w>
-      <h>266</h>
+      <h>273</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;360.0;310.0;10.0</additional_attributes>
+    <additional_attributes>10.0;370.0;310.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>

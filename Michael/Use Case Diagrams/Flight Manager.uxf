@@ -9,7 +9,7 @@
       <w>110</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Edit Fleet</panel_attributes>
+    <panel_attributes>Manage Fleet</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -50,10 +50,10 @@
     <coordinates>
       <x>230</x>
       <y>320</y>
-      <w>130</w>
+      <w>140</w>
       <h>50</h>
     </coordinates>
-    <panel_attributes>Edit Flight
+    <panel_attributes>Manage Flight
 Schedule</panel_attributes>
     <additional_attributes/>
   </element>
@@ -62,21 +62,21 @@ Schedule</panel_attributes>
     <coordinates>
       <x>240</x>
       <y>220</y>
-      <w>110</w>
+      <w>130</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Edit Routes</panel_attributes>
+    <panel_attributes>Manage Routes</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
     <id>UMLUseCase</id>
     <coordinates>
-      <x>240</x>
+      <x>230</x>
       <y>380</y>
-      <w>110</w>
+      <w>140</w>
       <h>40</h>
     </coordinates>
-    <panel_attributes>Edit Airports</panel_attributes>
+    <panel_attributes>Manage Airports</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -84,11 +84,11 @@ Schedule</panel_attributes>
     <coordinates>
       <x>130</x>
       <y>340</y>
-      <w>130</w>
+      <w>120</w>
       <h>80</h>
     </coordinates>
     <panel_attributes/>
-    <additional_attributes>10.0;10.0;110.0;60.0</additional_attributes>
+    <additional_attributes>10.0;10.0;100.0;60.0</additional_attributes>
   </element>
   <element>
     <id>UMLActor</id>
