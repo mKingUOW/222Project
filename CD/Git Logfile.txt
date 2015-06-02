@@ -1,0 +1,1003 @@
+commit d140fbabe9e147af0253ba6c86436a012c424370
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 30 10:55:43 2015 +1000
+
+    Finished construction phases.
+    
+    Added change frequent flier points for profile system manager.
+
+commit c352780b5b2606e4e2242880ab6f22a987259787
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 30 00:22:10 2015 +1000
+
+    I think it's complete? Just need to do a thorough run through
+
+commit 8a10d6eaaa413b3caccbb3edf36063695e20f073
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Fri May 29 20:04:41 2015 +1000
+
+    Bug fixing + additional reports
+
+commit 000565c35788c2e11afedef2b2efc448c78ba54e
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Fri May 29 17:14:01 2015 +1000
+
+    1
+
+commit fa29d972f95f21cbe9ee1598ed6f2c22caf0d048
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Fri May 29 01:25:57 2015 +1000
+
+    Functions for entities completed
+    
+    Functions for entities completed
+    only chargeAccount( )   in ProfileEntity.java
+
+commit ecffe4312bc8dd5b07b28f610c2744de6f603bda
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Thu May 28 23:44:13 2015 +1000
+
+    Commits for the night
+
+commit 23129b5c033bd7856eedc6df22395fee7c2f2427
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Thu May 28 21:02:33 2015 +1000
+
+    Some conflicts resolved plus upload.
+
+commit 9a850f454bb21aa9e637a8747067b45d55e39c1b
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Thu May 28 20:49:45 2015 +1000
+
+    Commenting of Helper Classes
+
+commit 0d2e3714c20400f8fe327f5a7c9d57823f4f9004
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Thu May 28 00:10:37 2015 +1000
+
+    Updates for the night
+
+commit daa6f2589a482862add3bb501158fbbe02dea721
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue May 26 22:51:16 2015 +1000
+
+    Updates for the night
+
+commit aa5a31603e86f63b07c34f53274a461a857c1170
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue May 26 00:58:56 2015 +1000
+
+    Updates for the night
+
+commit 94e03ce8c358727485f9f2e5e644629167d4e125
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Mon May 25 20:34:16 2015 +1000
+
+    Things_to_do.txt   Finished
+    
+    Things_to_do.txt   Finished
+
+commit e3890173cfd1a4d16b2cc7efb88a3c277a39e785
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Mon May 25 15:03:48 2015 +1000
+
+    ticket
+
+commit a2e8ad74ef0726628077c96e28fc4708d647eb7f
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Mon May 25 14:32:05 2015 +1000
+
+    routeEntity
+
+commit b06114b8b18ae9e55303ea6fae54d436313ba152
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Mon May 25 14:21:14 2015 +1000
+
+    1
+
+commit 1b9c1e909cd40a3ce681af17f8af46e34b42bedc
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Mon May 25 13:24:39 2015 +1000
+
+    profileEntity finished
+
+commit 48d64621ae9f2fd15e79f8f5d51719d03ddbcf5e
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 24 23:56:41 2015 +1000
+
+    Updates for the night
+
+commit ea0c3e5db22595c7561a34f402706d797a36992e
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 24 16:29:10 2015 +1000
+
+    Updates (3.0)
+
+commit bef2b15cb22c9c03f7020502d7190c0dc0df8728
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sun May 24 16:24:26 2015 +1000
+
+    FlightEntity Finished
+
+commit e4afa3c5be9dfc77adf70a0a803dfd05e3def5fa
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sun May 24 15:04:05 2015 +1000
+
+    f-r-sch
+
+commit dbab3ffaaea9f61e37f3dd9cb240fc6852ae6143
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sun May 24 14:58:48 2015 +1000
+
+    flight-route-schedule
+    
+    add price  &&  increment duplicated flight_id by 2
+
+commit a72bee74011863f91430ad81204600856d13b86d
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 24 14:30:11 2015 +1000
+
+    Updates (2.0)
+
+commit ff70fafe391274dd0d1fac94814ea2c6b9545c96
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 24 14:00:54 2015 +1000
+
+    Update (1.0)
+
+commit 907d3f5414217052799e25499ab48b576d178a23
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sun May 24 11:49:33 2015 +1000
+
+    equals
+
+commit 2d508461b2f7932d2f5475c1e202da2faefe1498
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sun May 24 11:36:24 2015 +1000
+
+    getAccountDetail
+    
+    getAccountDetail
+
+commit 21a2afd1f5e6353ecd11c3c708469fe8ce14195f
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sun May 24 11:03:08 2015 +1000
+
+    updateAvailableSeats
+    
+    updateAvailableSeats
+
+commit 7d1ef65a420162771560eff20beeb8b8fee87f11
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 24 00:06:47 2015 +1000
+
+    Updated Construction Phases and Diary
+
+commit 2c11e446742d9b699a0a7846b5803d3800edb790
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 23 23:42:06 2015 +1000
+
+    Updates for the night
+
+commit 84539c71aebd2588eec7cd428c8317b9612392c5
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 23 16:38:54 2015 +1000
+
+    Updates (removed class files)
+
+commit 8c418f18b7dce4a11eacf7a11a569271a9ec6564
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 23 16:37:47 2015 +1000
+
+    Updates (4.0)
+
+commit 308d72c339a9b71409c45466378eb38399c78f14
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat May 23 16:32:58 2015 +1000
+
+    booking
+
+commit 5aa329df032cd5ce1d26f5395c038b6c345fccb5
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 23 16:03:10 2015 +1000
+
+    Update (3.0)
+
+commit b18d98fbf1653049aec7662f9ce30e227b5b5775
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 23 15:13:10 2015 +1000
+
+    Update (2.0)
+
+commit 0c9b5f37aec4742f7f0d6b9876f75f64bf6d5524
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat May 23 15:08:40 2015 +1000
+
+    saveBooking
+    
+    services_booked.csv
+    tickets.csv
+    booking.csv
+
+commit 00ae78151166fcadd2cb268bc99060d04a4c1965
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 23 15:08:02 2015 +1000
+
+    Update (1.0)
+
+commit a1f7584f1011f4c77fea5d41114c63137adc4be5
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 23 11:17:27 2015 +1000
+
+    Things to do.
+
+commit 9a127ee9af8b9c494ee78d1ce846bcffd3f4effa
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 23 01:04:04 2015 +1000
+
+    Updates
+
+commit c345d4415fd4a1962713d6f9dd671a9ef83843a0
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Wed May 20 23:26:14 2015 +1000
+
+    Some additional functionality
+
+commit 94f84fce8979783a3dbc50f25d596dc75bbeb48f
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue May 19 15:54:11 2015 +1000
+
+    Updates (1.0)
+
+commit 3be1847495a7f8804181d57b158f7ae4d84e492e
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue May 19 01:12:33 2015 +1000
+
+    Updates for the night
+
+commit fa7f0e801bf18310e0570d49adbf0da5d63a09a9
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon May 18 14:48:01 2015 +1000
+
+    Updates (1.0)
+
+commit 1082fca1494af578a5f25b6a561cba399d8dc575
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Sat May 16 20:06:58 2015 +1000
+
+    1
+
+commit 3e0a5f4e9882c8d9b127b74544ad34d8ec067364
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat May 16 15:44:01 2015 +1000
+
+    closeAccount
+
+commit 8ecf80b483ccaee9c3f7941f96e3aedfec9f18ee
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 16 14:18:50 2015 +1000
+
+    Updates (2.0)
+
+commit 5c4c92152223a5636b3da55add3395b389972e45
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 16 13:09:22 2015 +1000
+
+    Updates (2.0)
+
+commit a11fe328abf67daa1b738495e6b472997fcfe38c
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 16 12:41:44 2015 +1000
+
+    Updates
+
+commit 6e617cbee90d525b46fb0b7ee468dfdbd9554755
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat May 16 11:47:30 2015 +1000
+
+    discount
+    
+    discount
+
+commit 97123bb3c5e45588733b44854e551d1991e0c30b
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat May 16 11:26:33 2015 +1000
+
+    modification of several entities
+    
+    modification of several entities
+
+commit 2c3c77ea874276cecba57a3abd3e0639586aa56f
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat May 16 10:30:44 2015 +1000
+
+    update FrequentFlierPoints and watch/no fly
+
+commit 16064896f9bc94d4bb436a6d549e9fd74fc46c5f
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Thu May 14 22:13:09 2015 +1000
+
+    Updates
+
+commit 0a1b9b7966cd5c0f8639df3163d914041a2b55c9
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Wed May 13 21:52:29 2015 +1000
+
+    Updates
+
+commit c3c4ca51cf546f02a6edea0341e4d47d9bee144b
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Tue May 12 20:51:51 2015 +1000
+
+    1
+
+commit 2f62f21a95b695e569053140fb686e2e438c3ea9
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue May 12 01:06:11 2015 +1000
+
+    update for the night
+
+commit cc36dddfdf8510a3943ffe4280c15e98ce48df7c
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Mon May 11 16:52:05 2015 +1000
+
+    Services
+    
+    ServiceEntity / Service.java / servicesInventory.csv
+
+commit d053c47c895eae6645cb68606612887de6ef56c4
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Mon May 11 16:14:35 2015 +1000
+
+    add_Seat_Info
+    
+    add_Seat_Info
+
+commit e5ac44b51e66b862bc54857fd2fa84df06b09c44
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon May 11 15:20:57 2015 +1000
+
+    Updates (1.0)
+
+commit b4bfbe137feb6de29240dcdb3d01ea0b03c6cd87
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Mon May 11 10:35:06 2015 +1000
+
+    personEntity update
+    
+    personEntity update for Person records
+
+commit 0409d273b8f8131606e899eded5f261679efe87d
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon May 11 00:08:08 2015 +1000
+
+    Updates for the night
+
+commit 8caaa56149811598280825f973fbd6e97bb60aa1
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 10 16:55:54 2015 +1000
+
+    Update (4.0)
+
+commit 16e78b189038dd5a3a2d0715f268b81dabcc0b1f
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 10 16:52:05 2015 +1000
+
+    Update (3.0)
+
+commit b0bd201a1143f2a8f867979b2088b3b8a47f0ae0
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sun May 10 16:47:35 2015 +1000
+
+    userEntity Update
+    
+    userEntity Update
+
+commit c2bd0820937a3c0d01ef0c4a079f64862af7d152
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 10 16:35:15 2015 +1000
+
+    Update clean
+
+commit 767b5cfb8de454e3b72e0fcacab412396c37d370
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 10 16:32:12 2015 +1000
+
+    Update (2.0)
+
+commit 46401b10e79a4045b770ebbbeb451bdda82f95a5
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sun May 10 16:07:18 2015 +1000
+
+    update
+    
+    booking
+
+commit 75c475b77f97d3049794e8a1fb5f55e1184371af
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 10 16:05:25 2015 +1000
+
+    Update (1.0)
+
+commit df54966541ca2c52d3f238b0987e3b882f350695
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 10 13:38:00 2015 +1000
+
+    Updates
+
+commit c38495b1868d2c637be9298a2a0b7251498c0f71
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Wed May 6 20:11:45 2015 +1000
+
+    1
+
+commit 9abbae3f6e17ed966fcf64eabf5a71ee1adcaeff
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue May 5 22:21:40 2015 +1000
+
+    Updates
+
+commit cbef00118f91b99b040425e7afdb8321d642b5c1
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue May 5 07:52:55 2015 +1000
+
+    Updates (1.0)
+    
+    Finally implemented the System Administrator!!!! Took me awhile to
+    figure this out.
+
+commit 805784a77f4685cdf587bce60536f611cf86a819
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue May 5 07:36:13 2015 +1000
+
+    Diary Updated
+
+commit 2d49d88d6ff209ae0a1ee8294b4703cb29e930a5
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon May 4 16:58:23 2015 +1000
+
+    Update (5.0)
+
+commit 0a120a7ab3fb320dfc47c31fcc72598cb12bf0e6
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon May 4 16:57:33 2015 +1000
+
+    Update (4.0)
+
+commit ad150ffb96378dbca67d8daddf25cebf408c0121
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon May 4 16:37:11 2015 +1000
+
+    Updates (3.0)
+
+commit b0fded7362dec9db6573574a78ad147f3d96c61d
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Mon May 4 16:24:41 2015 +1000
+
+    update_signup
+
+commit 77d76a97a0672f8305e67124de90fe919f1e8509
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Mon May 4 16:11:50 2015 +1000
+
+    Deliverables for Ass2
+
+commit 06e2ee852ea5ca81c014f0b2660a8a89b6056db7
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon May 4 15:44:17 2015 +1000
+
+    Updates (2.0)
+
+commit 4c3fc2f2f1fcf3f39f795119e88cb68b24b151f7
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Mon May 4 15:26:30 2015 +1000
+
+    databaseFile
+
+commit 7167498d324f984e73f5c3c83395c7de564abcb4
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon May 4 15:36:18 2015 +1000
+
+    Updates (1.0)
+
+commit 676f41ce5d578286e092b3bd1455daf013cca230
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon May 4 15:25:01 2015 +1000
+
+    Updates
+
+commit ad5472183eaa188b33952fd033ba42a1919e8f1c
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 3 18:26:55 2015 +1000
+
+    Some implementation updates
+    
+    To run the file, (UNIX only) type:
+    $make run
+    
+    After running, please clean the directory by running:
+    $make clean
+    
+    Thanks.
+
+commit ecd2350f66735ba9a36f7f36e4c2fe41f91367e9
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun May 3 14:57:07 2015 +1000
+
+    Minor changes and some updates
+
+commit 8dae0f5010ac98bebc0d225bf1394cd5acf6ae3f
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 2 19:43:52 2015 +1000
+
+    Some minor changes
+
+commit 0eededd3f5ed4a5e2114336953a9d0da9f68aac5
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 2 19:33:33 2015 +1000
+
+    Put the java source code files into Netbeans
+    
+    To access files go to 222_Project_Code > src
+
+commit 04a07a4fd53552590f178dab40735fa539b320ee
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat May 2 16:26:37 2015 +1000
+
+    updates_correct
+
+commit c270083c8d22f7aa55b401eca73a54264a6ad482
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat May 2 15:27:30 2015 +1000
+
+    updates_codes
+
+commit e5aa8f0786c727745f465555e0926e0828f62ac7
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 2 15:20:27 2015 +1000
+
+    Updates
+
+commit 64a6faadd9ed720b93e91a6c246667127f378ae2
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat May 2 13:29:46 2015 +1000
+
+    update
+
+commit b63165a5d8b6aa15e78c96787224b434a7d9fbdf
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 2 13:22:39 2015 +1000
+
+    Updates
+
+commit b8f565345d42a7e8e7172ff247bf211556994bc8
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat May 2 12:06:48 2015 +1000
+
+    Updates
+
+commit fadb7a058da2dc912b6a15956db6fc11a25d1e11
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat May 2 12:02:33 2015 +1000
+
+    Project_Code_userInteraction
+
+commit 2ea57ae7d5bae089381454befe33873e196e8f6e
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat May 2 11:45:03 2015 +1000
+
+    Project_Code
+
+commit a3398311549b9767c9b876cacf4e487ea5a584e5
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Tue Apr 21 11:38:19 2015 +1000
+
+    Final Versions update
+
+commit bc844a76888a78b1718f9f27f2488ee45e6e5da6
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue Apr 21 09:16:56 2015 +1000
+
+    Cleaned
+
+commit 26fb50e7c4252d2e5cc394083e99ecf0955800b7
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue Apr 21 01:00:23 2015 +1000
+
+    Final final update.
+
+commit 9591c2007de5fb0def68d29ea9b4f9bb09b8db6f
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue Apr 21 00:51:10 2015 +1000
+
+    Final update.
+
+commit f4a750becf407d26857762871b54e1ae02693e9a
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon Apr 20 20:48:37 2015 +1000
+
+    DMD
+
+commit b11b3a9217edf8a89cb02bbb96995abfd3ee77b5
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon Apr 20 17:33:54 2015 +1000
+
+    Updates
+
+commit 129d773e423414a7d53cd3cb3980e9358c872369
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon Apr 20 10:11:38 2015 +1000
+
+    Spelling Corrected
+
+commit 7aa6ffcf5e55470007559ff6b67978594ec36012
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Mon Apr 20 09:51:46 2015 +1000
+
+    Cleanup
+
+commit 2c8ad084eb5f3a0fd003b8cb514295964b6c6b00
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun Apr 19 23:28:38 2015 +1000
+
+    Major update (Finally Complete!)
+
+commit 3c60965e4289b2a8570503d96f00fe1dfc1d6d3d
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun Apr 19 18:12:53 2015 +1000
+
+    Minor update
+
+commit bdcdb6f04c17bb6d737d12fcb059dd9be68c0bbd
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun Apr 19 17:34:41 2015 +1000
+
+    Updates
+
+commit f5242e824092d0cff84a583544edd4a876929365
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Sun Apr 19 10:06:28 2015 +1000
+
+    diary
+
+commit eb2d5e731df73727d15891cc9770f7fd3a7d8605
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Sun Apr 19 10:05:00 2015 +1000
+
+    Delete Steven diary
+
+commit dfcb4f41ad250086086ffccac891d1cd9b3ea66d
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Sun Apr 19 10:04:27 2015 +1000
+
+    Create Steven diary
+
+commit a1f0e5acb94e390b8c1c413319c85a2349f193c1
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Sun Apr 19 08:46:19 2015 +1000
+
+    Meeting Details Upload
+    
+    Check this out for details of what happened at each meeting. Might help
+    with diary entries.
+
+commit 69fb37d1bee4cc6c437a64ff56bb58e5dd693767
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Sun Apr 19 08:31:53 2015 +1000
+
+    Risks updated
+
+commit 960ad361a9c5461ff2ab593f92f4708644d91ee2
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Sat Apr 18 16:17:02 2015 +1000
+
+    Updated Final SRS
+
+commit 7bd38bb1fe20178f809c3dbc67ffa545f322fb9a
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Sat Apr 18 16:11:06 2015 +1000
+
+    Updated Risks
+    
+    Mostly finished. Just need to fill out the last couple of risks.
+
+commit 80b2e49e229c2b9bc5abd562340330f44cd03fb9
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat Apr 18 13:12:26 2015 +1000
+
+    Changes and updates
+
+commit 120c8262377ea4caae35bfac03a179b76773d8c9
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Fri Apr 17 23:34:28 2015 +1000
+
+    Today's Updates
+
+commit f8ae081295d11ac34f828a826c815c01d29b72e1
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Fri Apr 17 19:20:27 2015 +1000
+
+    Removed old versions of SRS
+
+commit 22929b43d5686a417da140b7dccd9eec95cd711b
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Fri Apr 17 19:16:06 2015 +1000
+
+    Updated SRS
+
+commit ce6f718087576b5e5d2a56a9cbfbc0204fdc434f
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Wed Apr 15 23:22:21 2015 +1000
+
+    Updates (incomplete; almost there)
+
+commit 950179f0737be9bf39b6b87700492081f4432f3f
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Wed Apr 15 00:31:49 2015 +1000
+
+    Updates (incomplete)
+
+commit 8f3989cd2edab234645f3c4f31fbb6c97967d4a0
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue Apr 14 17:59:24 2015 +1000
+
+    Updates
+
+commit b8ae006afcbce8849083b2deaf5115f9ad16af57
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Tue Apr 14 17:13:39 2015 +1000
+
+    Jason_diary5_04/13/2015_Monday
+
+commit e308c7a8b4d33e9fdcf483d46081597c18f4864b
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue Apr 14 09:18:05 2015 +1000
+
+    Minor changes
+
+commit f0410c23566c0c61a85bd2110d5b73901ada2dbd
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Tue Apr 14 00:26:09 2015 +1000
+
+    Updates (incomplete)
+
+commit 06e119a1914ac393011b8d913ce9b1787a7f7de7
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat Apr 11 23:33:42 2015 +1000
+
+    Updates and Use Case Specifications (unfinished)
+
+commit 58c96658484b553394c49979217d0fd676f7c976
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat Apr 11 09:59:13 2015 +1000
+
+    Diary Update
+
+commit 761029e045e09ba99df049ede7652e76975f796a
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Sat Apr 11 00:00:54 2015 +1000
+
+    Jason_Meeting4_Diary
+
+commit 747ad0ea7862e4e40edcc20f60badc5e6d246f27
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Fri Apr 10 12:06:35 2015 +1000
+
+    Updates
+
+commit db7135ad0885122de4c9c7ad8790e474375a67a2
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Thu Apr 9 09:30:16 2015 +1000
+
+    Created Business Case first draft, Gantt chart and added risks template and
+
+commit 48081635f87712b85bc9417d8e6b21dcf289d550
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Wed Apr 8 10:29:11 2015 +1000
+
+    My parts
+    
+    SRS almost complete. Just the requirements to write.
+
+commit 1d38c5a663bad3029c14fb216abbb9b20ef60c85
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Wed Apr 1 22:28:21 2015 +1100
+
+    Updated Class and Use Case Diagrams
+    
+    Updated but not complete. Apparently we need the SRS first then we
+    create the Use Case Diagram and Class Diagram from there.
+
+commit 28b85855755ab98842512315df47922ef2845a3c
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Wed Apr 1 22:27:25 2015 +1100
+
+    SRS
+    
+    I have create a file called “Main SRS.docx” that will be our main SRS
+    file. I have changed everything in Section 1 only to fit with our
+    system.
+
+commit 8aa593876a3c930db3516bab71b5432e742db976
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Wed Apr 1 18:01:33 2015 +1100
+
+    a template of SRS
+
+commit 490488fdb11432ede0375e78bb0a5aeaec51d954
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Wed Apr 1 00:08:36 2015 +1100
+
+    Updated Class Diagram
+    
+    Hi guys, Class diagram updated. Please check and feedback.
+
+commit a6dc180388efb0e0109555f5d72cc336fb6f53f4
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Tue Mar 31 23:40:25 2015 +1100
+
+    Jason_Diary_Meeting_3
+    
+    Jason_Diary_for_Meeting_3
+
+commit 8e8601dff5941bc1e339e07017de5ee6dd803184
+Author: lijicheng0036 <lijicheng0036@gmail.com>
+Date:   Mon Mar 30 14:38:04 2015 +1100
+
+    ddd
+
+commit 2c0ca8858fc873fad57694369d90928f1870e256
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon Mar 30 17:33:48 2015 +1100
+
+    Updates
+    
+    Have a look at the pdf file of the use case diagram. It lacks “extends”
+    and “includes” though.
+
+commit a90f1a6c5bb6ad8519ae7a4d261fff386870a1e2
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sun Mar 29 17:10:10 2015 +1100
+
+    Uploaded SRS Example
+
+commit f056a64dcf8d55716fe3531674cc231f90a54656
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Sun Mar 29 15:49:12 2015 +1100
+
+    Updated Diary
+
+commit 91fb4409b020598f33c1c0bda69c2b67b3b7b141
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Sun Mar 29 15:43:49 2015 +1100
+
+    Changed Directory Structure
+    
+    I changed the directory structure in favour of having diary entries in
+    their own folder. Forget about putting them on the wiki. Just create
+    your own named folder inside the work diaries directory :D
+
+commit bf27b0b2e3cfee3c731ca2800b486f06a8db1860
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Fri Mar 27 15:31:21 2015 +1100
+
+    Weekly Update
+
+commit fd607492699673c0c2df1fc4ddd26b690ade0160
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Wed Mar 25 17:33:27 2015 +1100
+
+    Update to Questionnaire
+
+commit 1d08978e2adb810adbca1177f6460f2f3220e1d5
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon Mar 23 18:23:28 2015 +1100
+
+    Diary Updated
+
+commit 9c500ca8d4c381159a6101c57f4b2b87037eec3a
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Mon Mar 23 18:00:26 2015 +1100
+
+    Scenarios
+
+commit b3941e066b21bba691673d43180e70b5bb763ac1
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Mon Mar 23 15:46:25 2015 +1100
+
+    Update to requirements
+
+commit b65b873e601984ab140a08d8f691cf39a9582a2b
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Mon Mar 23 08:43:13 2015 +1100
+
+    Q and A Document
+    
+    Update this document with requirement related questions for Hoa. Once
+    the answer is obtained update the question with the answer obtained.
+
+commit e90a3a3495f823d792020a0e43596fb1c5a17ace
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat Mar 21 19:40:40 2015 +1100
+
+    Diary updated
+
+commit d5bb452e0b31e01e938f515ddaa9263f7a14e7cd
+Author: mastermike501 <mymk997@uowmail.edu.au>
+Date:   Sat Mar 21 09:09:54 2015 +1100
+
+    Uploading diaries
+
+commit afe8714d48e230c84ca0c05adbf4686fd5d53ad4
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Fri Mar 20 18:06:00 2015 +1100
+
+    use case diagram
+
+commit 0e38f9c183dba3051c3bceea840056ac133d3614
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Tue Mar 17 17:16:43 2015 +1100
+
+    Planning and Requirements Overview
+
+commit 1e4688033fc020735469a98c669fda158469b343
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Mon Mar 16 21:14:46 2015 +1100
+
+    result
+
+commit f92173c7069131c7212ec3b7c8330a9aceb78436
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Mon Mar 16 21:14:13 2015 +1100
+
+    Delete result of example
+
+commit 37940da6356066e7a4d195719e89bcde929dc18e
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Mon Mar 16 21:08:36 2015 +1100
+
+    example
+    
+    Hey. I uploaded a example of last session assignment 1. We can read the
+    result and tutor's grading standard.
+
+commit ba3a2eb2db296bd9a400dc85cb90f7d0abba3da7
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Mon Mar 16 21:03:09 2015 +1100
+
+    Revert "Revert "example""
+    
+    This reverts commit f6ee6d7cbdf671bf60b81d525423fae48a924f96.
+
+commit c112316154b9074f273137a8540875ad2269a4a9
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Mon Mar 16 21:05:44 2015 +1100
+
+    Delete ass1 resport.docx
+
+commit 975ad7fec77d7bddf3ce4439764e3ebb46b0a0c5
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Mon Mar 16 21:05:27 2015 +1100
+
+    Create result of example
+
+commit 5e19de586739755272f678c445f0600f54d003ef
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Mon Mar 16 21:04:14 2015 +1100
+
+    Delete zy115.doc
+
+commit ef44128c6f8a99a32d05c2f08bcdb76942a756f2
+Author: siyuanchen27 <csyloneliness@gmail.com>
+Date:   Mon Mar 16 20:54:33 2015 +1100
+
+    example
+    
+    Hey. I uploaded a example of last session assignment 1. We can read the
+    result and tutor's grading standard.
+
+commit f23244ced4dfc899cde4fad09f2ea937617149fd
+Author: Matt King <mk965@uowmail.edu.au>
+Date:   Sun Mar 15 16:48:46 2015 +1100
+
+    Initial commit
