@@ -1,5 +1,5 @@
 1,small meal,15,All
-2,standard meal,20,International
+2,standard meal,20.0,All
 3,deluxe meal,40,International
 4,dietary needs meal,25,International
 5,packet of chips,4,All
@@ -10,7 +10,7 @@
 10,beer,11,International
 11,wine,16,International
 12,spirit,20,International
-13,soft drink,6,All
+13,soft drink,3.0,All
 14,Tea/Coffee,5,All
 15,screen hire,25,All
 16,headphones,10,All

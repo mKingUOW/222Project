@@ -76,7 +76,7 @@ public class ReservationSystemManagerRole extends NormalStaffRole{
 			case "Edit Watch and No Fly List":
 				pc.editWatchAndNoFlyList();
 				break;
-			case "Change Frequent Flier Point Discount Ratio":
+			case "Set Frequent Flier Point Discount Ratio":
 				bc.setDiscountRatio();
 				break;
 			case "Set Cancellation Fee":

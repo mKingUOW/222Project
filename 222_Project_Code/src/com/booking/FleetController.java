@@ -149,7 +149,7 @@ public class FleetController {
 			System.out.print("Please select an option to edit: ");
 		
 			try {
-				option = in.nextInt(0);
+				option = in.nextInt();
 				
 				if (option < 1 || option > 4) {
 					isOkay = false;

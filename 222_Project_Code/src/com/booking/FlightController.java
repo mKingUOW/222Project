@@ -133,12 +133,14 @@ public class FlightController {
 		System.out.println("\nEDIT FLIGHT");
 		
 		Flight flight = fe.getFlight(enterFlightId(false));
+                String plane_model = ftc.getPlaneModel(flight.getPlaneID());
+                Map.Entry<String, String> route_points = rc.getRouteCities(flight.getRouteNumber());
 		
 		System.out.println("Flight ID: " + flight.getFlightID());
-		System.out.println("1. Route: " + flight.getRouteNumber());
+		System.out.println("1. Route: " + flight.getRouteNumber() + " \u2192 " + route_points.getKey() + " to " + route_points.getValue());
 		System.out.println("2. Departure Time: " + flight.getDepartureTime());
 		System.out.println("3. Arrival Time: " + flight.getArriveTime());
-		System.out.println("4. Plane: " + flight.getPlane().getPlaneModel());
+		System.out.println("4. Plane: " + plane_model);
 		
 		do {
 			isOkay = true;
@@ -160,6 +162,7 @@ public class FlightController {
 		} while (!isOkay);
 		
 		do {
+                    in.nextLine();
 			switch (option){
 				case 1:
 					flight.setRouteNumber(rc.enterRoute());

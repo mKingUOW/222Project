@@ -170,7 +170,7 @@ public class ServiceController {
 		System.out.println("\nEDIT SERVICE AVAILABILITY");
 		
 		displayServices(services);
-		
+                
 		do {			
 			isOkay = true;
 			System.out.print("Enter the number of the service to edit the availability of: ");
@@ -221,6 +221,8 @@ public class ServiceController {
 		String availability = "";
 		boolean isOkay;
 		
+                in.nextLine();
+                
 		do {
 			isOkay = true;
 

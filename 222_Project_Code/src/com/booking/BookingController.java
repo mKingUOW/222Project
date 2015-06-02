@@ -617,7 +617,7 @@ public class BookingController {
 		do {			
 			isOkay = true;
 			System.out.print("Enter the numbers of the services separated by a space: ");
-			choices = in.nextLine().split(" "); 
+			choices = in.nextLine().trim().split(" "); 
 
 			for (String str: choices) {
 				int choice = Integer.parseInt(str);

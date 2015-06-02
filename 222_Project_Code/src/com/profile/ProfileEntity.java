@@ -144,7 +144,7 @@ public class ProfileEntity {
 			accfile = new File(accountFile);
 			usrfile = new File(detailsFile);
 			writer = new PrintWriter(new FileOutputStream(accfile,true));		//To append to the file using "true";
-			writer.println(user.getUsername() + "," + passwd + "," + user.getRole());
+			writer.println(user.getUsername() + "," + passwd + "," + user.getRole() + ",open");
             writer.close();	
 
 			writer = new PrintWriter(new FileOutputStream(usrfile,true));		//To append to the file using "true";

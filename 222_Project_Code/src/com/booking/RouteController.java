@@ -338,6 +338,8 @@ public class RouteController {
 		boolean isOkay;
 		char codeShare;
 		
+                in.nextLine();
+                
 		do {
 			isOkay = true;
 			System.out.print("Please enter whether this is a codeshare flight (Y/N): ");
@@ -449,33 +451,5 @@ public class RouteController {
 		String destination_country = ac.getAirportCountry(destination_airport);
 		
 		return (!origin_country.equals(destination_country)); //countries are not the same; therefore international
-	}
-
-	/**
-	 * 
-	 * @param origin
-	 * @param destination
-	 */
-	public int getRoute(String origin, String destination) {
-		// TODO - implement RouteController.getRoute
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param routeNumber
-	 */
-	public AbstractMap.SimpleImmutableEntry<String, String> getRouteLocations(int routeNumber) {
-		// TODO - implement RouteController.getRouteLocations
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * 
-	 * @param routeNumber
-	 */
-	public AbstractMap.SimpleImmutableEntry<String, String> getRoutePoints(int routeNumber) {
-		// TODO - implement RouteController.getRoutePoints
-		throw new UnsupportedOperationException();
 	}
 }
